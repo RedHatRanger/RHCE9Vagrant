@@ -43,3 +43,5 @@ Using Ansible for Provisioning
 Using Ansible for Provisioning
 Using Ansible for Continuous Delivery
 RHCE-EX294/README.md at main · Abdulhamid97Mousa/RHCE-EX294
+
+Credit goes to: https://github.com/Abdulhamid97Mousa/RHCE-EX294/blob/main/README.md
