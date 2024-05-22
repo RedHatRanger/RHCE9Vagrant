@@ -5,7 +5,7 @@ This is a sample Ansible exam that I’ve created to prepare for the new RHCE ex
 ## Requirements
 
 There are 18 questions in total could be more or less.
-You will need five RHEL 8 virtual machines to be able to successfully complete all questions.
+You will need five RHEL 9 virtual machines to be able to successfully complete all questions.
 
 One VM will be configured as an Ansible control node. Other four VMs will be used to apply playbooks to solve the sample exam questions. The following FQDNs will be used throughout the sample exam.
 
