@@ -32,7 +32,7 @@ flowchart TD;
 
 ## Lab Setup
 
-> you can create the lab setup manually, but instead i've `Vagrantfile` which you can use inorder to create this setup, please go to this website for more information regarding lab setup https://github.com/rdbreak/rhce8env
+> you can create the lab setup manually, but instead i've `Vagrantfile` which you can use in order to create this setup, please go to this website for more information regarding lab setup https://github.com/rdbreak/rhce8env
 
 ## Q1. Ansible Installation and Configuration
 
@@ -49,7 +49,7 @@ flowchart TD;
   - `proxy` and `webservers` belong to group named `public`
 
 - Create a config file at `/home/automation/plays/ansible.cfg` with following requirements:
-  - priviledged escalation is disabled by default
+  - privileged escalation is disabled by default
   - ansible should manage 8 hosts at a single time
   - use previously defined inventory file by default
   - uses `/var/log/ansible/execution.log` to save information related to playbook execution
