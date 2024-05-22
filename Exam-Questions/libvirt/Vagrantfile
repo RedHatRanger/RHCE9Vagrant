@@ -13,7 +13,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   # Repo
   config.vm.define "repo" do |repo|
-    repo.vm.box = "rdbreak/rhel8repo"    
+    repo.vm.box = "rockylinux/9"    
     repo.vm.provider "libvirt" do |repo|
       repo.memory = "1024"
       unless File.exist?(file_to_disk5)
@@ -30,7 +30,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   # Node 1
   config.vm.define "node1" do |node1|
-    node1.vm.box = "rdbreak/rhel8node"
+    node1.vm.box = "rockylinux/9"
     node1.vm.network "private_network", ip: "192.168.55.201"
     node1.vm.synced_folder ".", "/vagrant", type: "rsync", rsync__exclude: [".git/", "*.qcow2"]
     node1.vm.provider "libvirt" do |node1|
@@ -47,7 +47,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   # Node 2
   config.vm.define "node2" do |node2|
-    node2.vm.box = "rdbreak/rhel8node"
+    node2.vm.box = "rockylinux/9"
     node2.vm.network "private_network", ip: "192.168.55.202"
     node2.vm.synced_folder ".", "/vagrant", type: "rsync", rsync__exclude: [".git/", "*.qcow2"]
     node2.vm.provider "libvirt" do |node2|
@@ -64,7 +64,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   # Node 3
   config.vm.define "node3" do |node3|
-    node3.vm.box = "rdbreak/rhel8node"
+    node3.vm.box = "rockylinux/9"
     node3.vm.network "private_network", ip: "192.168.55.203"
     node3.vm.synced_folder ".", "/vagrant", type: "rsync", rsync__exclude: [".git/", "*.qcow2"]
     node3.vm.provider "libvirt" do |node3|
@@ -81,7 +81,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   # Node 4
   config.vm.define "node4" do |node4|
-    node4.vm.box = "rdbreak/rhel8node"
+    node4.vm.box = "rockylinux/9"
     node4.vm.network "private_network", ip: "192.168.55.204"
     node4.vm.synced_folder ".", "/vagrant", type: "rsync", rsync__exclude: [".git/", "*.qcow2"]
     node4.vm.provider "libvirt" do |node4|
@@ -98,7 +98,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   # Control Node
   config.vm.define "control" do |control|
-    control.vm.box = "rdbreak/rhel8node"
+    control.vm.box = "rockylinux/9"
     control.vm.network "private_network", ip: "192.168.55.200"
     control.vm.provider :libvirt do |control|
       control.memory = "2048"
