@@ -2,7 +2,7 @@ Prerequisettes:
 As Admin/Root:
 - enable the RHEL/Rocky 9 "Developer" Repository
 - yum install libvirt-devel
-- usermod -aG libvirt <myusername>
+- usermod -aG libvirt <my_username>
 - exit
 Run as User:
 - newgrp libvirt
