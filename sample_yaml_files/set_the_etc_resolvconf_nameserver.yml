@@ -1,0 +1,6 @@
+---
+- name: Run a shell command
+  ansible.builtin.shell:
+  cmd: echo "nameserver 192.0.2.1" > /etc/resolv.conf
+
+* Note this approach is not idempotent and can be harmful
