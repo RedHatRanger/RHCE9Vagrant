@@ -1,0 +1,3 @@
+```
+ansible-navigator doc -l
+```
