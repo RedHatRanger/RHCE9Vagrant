@@ -1,0 +1,10 @@
+```
+---
+- name: Ensure line is in /etc/hosts
+  ansible.builtin.lineinfile:
+    path: /etc/hosts
+    line: '192.0.2.42 server.example.com server'
+    state: present
+```
+
+* This task will ensure that the line 192.0.2.42 server.example.com server is present in the hosts file.
