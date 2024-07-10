@@ -1,0 +1,7 @@
+---
+- name: Copy resolv.conf file
+  ansible.builtin.copy:
+    dest: /etc/resolv.conf
+    content: "nameserver 192.0.2.1\n"
+
+* This is idempotent and will copy the content directly only if it doesnt exist
