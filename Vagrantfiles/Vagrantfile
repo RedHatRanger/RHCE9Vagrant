@@ -1,0 +1,59 @@
+$hostsfile = <<-SCRIPT
+echo "172.28.128.100   control.example.com   control" >> /etc/hosts
+echo "172.28.128.101   node1.example.com     node1" >> /etc/hosts
+echo "172.28.128.102   node2.example.com     node2" >> /etc/hosts
+echo "172.28.128.103   node3.example.com     node3" >> /etc/hosts
+echo "172.28.128.104   node4.example.com     node4" >> /etc/hosts
+echo "172.28.128.105   node5.example.com     node5" >> /etc/hosts
+SCRIPT
+
+$user_setup = <<-SCRIPT
+useradd ansible
+echo "ansible:student" | chpasswd
+usermod -aG wheel ansible
+echo "%wheel ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
+SCRIPT
+
+Vagrant.configure("2") do |config|
+
+  # Define virtualbox as the provider
+  config.vm.provider "virtualbox" do |vb|
+    vb.gui = false
+  end
+
+  # Define the control node
+  config.vm.define "control" do |control|
+    control.vm.box = "generic/rhel9"
+    control.vm.box_version = "4.3.12"
+    control.vm.hostname = "control.example.com"
+    control.vm.network :private_network, ip: "172.28.128.100"
+    control.vm.provider "virtualbox" do |vb|
+      vb.memory = "2048"
+      vb.cpus = "2"
+    end
+    control.vm.provision "shell", inline: $hostsfile
+    control.vm.provision "shell", inline: <<-SHELL
+      yum install -y epel-release
+      yum install -y python3 python3-pip
+      pip3 install ansible-navigator
+      # Ansible user setup
+      #{$user_setup}
+    SHELL
+  end
+
+  # Define the rest of the nodes using a for loop
+  (1..5).each do |i|
+    config.vm.define "node#{i}" do |node|
+      node.vm.box = "generic/rhel9"
+      node.vm.box_version = "4.3.12"
+      node.vm.hostname = "node#{i}.example.com"
+      node.vm.network :private_network, ip: "172.28.128.10#{i}"
+      node.vm.provider "virtualbox" do |vb|
+        vb.memory = "2048"
+        vb.cpus = "2"
+      end
+      node.vm.provision "shell", inline: $hostsfile
+      node.vm.provision "shell", inline: $user_setup
+    end
+  end
+end
