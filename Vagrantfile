@@ -1,0 +1,63 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure("2") do |config|
+  # Define a base box
+  config.vm.box = "generic/rhel9"
+
+  # Disable the default sync folder
+  config.vm.synced_folder ".", "/vagrant", disabled: true
+
+  # Hosts file content
+  hostsfile = <<-SCRIPT
+echo "172.28.128.100   control" >> /etc/hosts
+echo "172.28.128.101   node1" >> /etc/hosts
+echo "172.28.128.102   node2" >> /etc/hosts
+echo "172.28.128.103   node3" >> /etc/hosts
+echo "172.28.128.104   node4" >> /etc/hosts
+echo "172.28.128.105   node5" >> /etc/hosts
+SCRIPT
+
+  # User setup script
+  user_setup = <<-SCRIPT
+useradd ansible
+echo "ansible:student" | chpasswd
+usermod -aG wheel ansible
+echo "%wheel ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
+SCRIPT
+
+  # Define the control node
+  config.vm.define "control" do |control|
+    control.vm.hostname = "control.example.com"
+    control.vm.network "private_network", ip: "172.28.128.100"
+    control.vm.provision "shell", inline: <<-SHELL
+      yum install -y epel-release
+      yum install -y python3 python3-pip
+      pip3 install ansible-navigator
+      #{hostsfile}
+      #{user_setup}
+    SHELL
+    control.vm.provider "vmware_desktop" do |vb|
+      vb.vmx["memsize"] = "2048"
+      vb.vmx["numvcpus"] = "1"
+      vb.vmx["disk.size"] = "20480"
+    end
+  end
+
+  # Define the rest of the nodes
+  (1..5).each do |i|
+    config.vm.define "node#{i}" do |node|
+      node.vm.hostname = "node#{i}.example.com"
+      node.vm.network "private_network", ip: "172.28.128.10#{i}"
+      node.vm.provision "shell", inline: <<-SHELL
+        #{hostsfile}
+        #{user_setup}
+      SHELL
+      node.vm.provider "vmware_desktop" do |vb|
+        vb.vmx["memsize"] = "2048"
+        vb.vmx["numvcpus"] = "1"
+        vb.vmx["disk.size"] = "20480"
+      end
+    end
+  end
+end
