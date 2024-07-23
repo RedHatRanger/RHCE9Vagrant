@@ -19,7 +19,8 @@ https://galaxy.ansible.com/download/ansible-posix-1.5.4.tar.gz
 https://galaxy.ansible.com/download/community-general-5.4.0.tar.gz
 
 ON THE EXAM:
-url: ......................
+Example url: ....................../ansible-posix
+
 You will have to install:
 - ansible.posix
 - community-general
