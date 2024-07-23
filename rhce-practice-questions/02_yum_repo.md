@@ -29,7 +29,7 @@ Note: In exam, if they have not given managed node username, in that case, user 
 -------------------------------------------------------------------------------------
 # ssh student@workstation
 
-2. Create a playbook adhoc.yml for configuring repository on all nodes
+2. Create a playbook yum_repo.yml for configuring repository on all nodes
 ```
 
 (scroll down for an answer)
