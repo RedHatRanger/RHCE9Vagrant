@@ -36,7 +36,10 @@ gpgcheck=0
 [ansible@control ~]# yum install -y ansible-core python3-pip container-tools
 ```
 
-* Next, install ANSIBLE-NAVIGATOR:
+* Next, install and run ANSIBLE-NAVIGATOR (ONLY INSTALL ON CONTROL NODE):
 ```
 [ansible@control ~]# pip install ansible-navigator
+[ansible@control ~]# ansible-navigator
 ```
+
+* It will begin pulling down the container execution environment and it will execute the process.
