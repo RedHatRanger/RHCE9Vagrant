@@ -14,7 +14,7 @@ ii) using the url "http://content/Rhce/ansible-posix-1.4.0.tar.gz" to install an
 iii) using the url "http://content/Rhce/redhat-rhel_system_roles-1.0.0.tar.gz" to install roles collection under the collections directory.
 ----------------------------------------------------------------------------
 
-https://galaxy.ansible.com/download/ansible.posix-1.5.1.tar.gz
+https://galaxy.ansible.com/download/ansible-posix-1.5.4.tar.gz
 
 https://galaxy.ansible.com/download/community-general-5.4.0.tar.gz
 ```
