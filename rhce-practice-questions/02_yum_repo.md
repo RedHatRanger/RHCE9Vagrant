@@ -63,4 +63,11 @@ Note: In exam, if they have not given managed node username, in that case, user 
            enabled: yes
            gpgcheck: 0
            # gpgcheck: http://content......
+
+:wq
+```
+
+2) Clean the current repos on all the nodes FROM THE CONTROL NODE:
+```
+[student@control ansible]$ ansible all -m command -a "yum clean all"
 ```
