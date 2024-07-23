@@ -48,3 +48,26 @@ Note: In exam, if they have not given managed node username, in that case, user 
 <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 
 ### ANSWER #1:
+
+1) Log into the CONTROL NODE as student, and edit the ansible.cfg file:
+```
+[student@control ~]$ cd ~/ansible
+[student@control ansbile]$ vim ansible.cfg
+
+[defaults]
+remote_user=student
+inventory=/home/student/ansible/inventory
+roles_path=/home/student/ansible/roles
+collections_path=/home/student/ansible/mycollections
+ask_pass=false
+
+[privilege_escalation]
+become=true
+become_medthod=sudo
+become_user=root
+become_ask_pass=false
+
+:wq
+```
+
+2) 
