@@ -120,3 +120,15 @@ autocmd FileType yaml setlocal ai ts=2 sw=2 et cuc nu
 
 :wq
 ```
+
+5) We can choose to list our hosts to validate our inventory file:
+```
+[student@control ansible]$ ansible all --list-hosts
+  hosts (5):
+    node1
+    node2
+    node5
+    node3
+    node4
+[student@controlnode9 ansible]$ ||
+```
