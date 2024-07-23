@@ -96,7 +96,7 @@ prod
 :wq
 ```
 
-* As a test, you can run ANSIBLE --VERSION:
+3) As a test, you can run ANSIBLE --VERSION:
 ```
 [student@control ansible]$ ansible --version
 ansible [core 2.12.2]
@@ -110,4 +110,13 @@ gins/modules']
   jinja version = 2.11.3
   libyaml = True
 [student@control ansible]$
+```
+
+4) VERY IMPORTANT - It's advised to set your ~/.vimrc to auto indent yaml file types:
+```
+[student@control ansible]$ vim ~/.vimrc
+
+autocmd FileType yaml setlocal ai ts=2 sw=2 et cuc nu
+
+:wq
 ```
