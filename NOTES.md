@@ -7,3 +7,22 @@
 ```
 
 * Here you will enter the passowrd "student" for each of the nodes 1-5
+
+* Next, you will setup the repositories (if you are using Red Hat instead of Rocky Linux):
+```
+[ansible@control ~]$ sudo vim /etc/yum.repos.d/myrepo.repo
+
+[BaseOS]
+name=BaseOS
+baseurl=file:///run/media/ansible/RHEL-9-4-BaseOS-x86_64/BaseOS
+enabled=1
+gpgcheck=0
+
+[AppStream]
+name=BaseOS
+baseurl=file:///run/media/ansible/RHEL-9-4-BaseOS-x86_64/AppStream
+enabled=1
+gpgcheck=0
+
+:wq
+```
