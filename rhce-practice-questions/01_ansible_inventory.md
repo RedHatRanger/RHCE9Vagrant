@@ -52,7 +52,7 @@ Note: In exam, if they have not given managed node username, in that case, user 
 1) Log into the CONTROL NODE as student, and edit the ansible.cfg file:
 ```
 [student@control ~]$ cd ~/ansible
-[student@control ansbile]$ vim ansible.cfg
+[student@control ansible]$ vim ansible.cfg
 
 [defaults]
 remote_user=student
@@ -70,4 +70,25 @@ become_ask_pass=false
 :wq
 ```
 
-2) 
+2) Next, you need to edit the inventory file:
+```
+[student@control ansible]$ vim inventory
+
+[dev]
+node1
+
+[test]
+node2
+
+[prod]
+node3
+node4
+
+[balancers]
+node5
+
+[webservers:children]
+prod
+
+:wq
+```
