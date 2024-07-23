@@ -10,15 +10,12 @@ Instructions:
 3. Install the collections:
 
 i) create a directory "collections" under /home/student/ansible/
-ii) using the url "http://content/Rhce/ansible-posix-1.4.0.tar.gz" to install ansible.posix collection under the collections directory.
-iii) using the url "http://content/Rhce/redhat-rhel_system_roles-1.0.0.tar.gz" to install roles collection under the collections directory.
+ii) using the url "https://galaxy.ansible.com/download/ansible-posix-1.5.4.tar.gz" to install ansible.posix collection under the mycollections directory.
+iii) using the url "https://galaxy.ansible.com/download/community-general-9.2.0.tar.gz" to install the community-general collection under the mycollections directory.
 ----------------------------------------------------------------------------
 
-https://galaxy.ansible.com/download/ansible-posix-1.5.4.tar.gz
 
-https://galaxy.ansible.com/download/community-general-5.4.0.tar.gz
-
-ON THE EXAM:
+NOTE ON THE EXAM:
 Example url: ....................../ansible-posix
 
 You will have to install:
@@ -37,7 +34,16 @@ You will have to install:
 ```
 [student@control ansible]$ ansible-galaxy collection install https://galaxy.ansible.com/download/ansible-posix-1.5.4.tar.gz -p mycollections/
 <output omitted>
-[student@control ansible]$
-[student@control ansible]$ ansible-galaxy collection install https://galaxy.ansible.com/download/community-general-5.4.0.tar.gz -p mycollections/
+[student@control ansible]$ ansible-galaxy collection install https://galaxy.ansible.com/download/community-general-9.2.0.tar.gz -p mycollections/
 <output omitted>
 ```
+
+2) Run the ansible-navigator check to see if the collections are available:
+```
+[student@control ansible]$ ansible-navigator collections
+Name                 Version         Shadowed        Type         Path
+0|ansible.builtin    2.15.0          False           contained    /usr/local/bin/python3.11/site-packages/ansible
+1|ansible.posix      1.5.1           False           bind_mount   /home/student/ansible/mycollections/ansible_collect...
+2|community.general  5.4.0           False           bind_mount   /home/student/ansible/mycollections/ansible_collect...
+```
+
