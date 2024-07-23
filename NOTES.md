@@ -29,7 +29,14 @@ gpgcheck=0
 
 :wq
 ```
+
+* First, install ANSIBLE-CORE, PYTHON3-PIP, and CONTAINER-TOOLS:
 ```
 [ansible@control ~]# yum clean all
 [ansible@control ~]# yum install -y ansible-core python3-pip container-tools
+```
+
+* Next, install ANSIBLE-NAVIGATOR:
+```
+[ansible@control ~]# pip install ansible-navigator
 ```
