@@ -132,3 +132,44 @@ autocmd FileType yaml setlocal ai ts=2 sw=2 et cuc nu
     node4
 [student@control ansible]$
 ```
+
+6) Lastly, we need to use the ping module to see if our nodes respond:
+```
+[student@control ansible]$ ansible all -m ping
+
+node1 | SUCCESS => {
+    "ansible_facts": {
+          "discovered_interpreter_python": "/usr/bin/python3"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+node3 | SUCCESS => {
+    "ansible_facts": {
+          "discovered_interpreter_python": "/usr/bin/python3"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+node2 | SUCCESS => {
+    "ansible_facts": {
+          "discovered_interpreter_python": "/usr/bin/python3"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+node4 | SUCCESS => {
+    "ansible_facts": {
+          "discovered_interpreter_python": "/usr/bin/python3"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+node5 | SUCCESS => {
+    "ansible_facts": {
+          "discovered_interpreter_python": "/usr/bin/python3"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+```
