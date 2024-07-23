@@ -33,4 +33,7 @@ You will have to install:
 
 ### ANSWER #3:
 
-1) Log into the CONTROL NODE as student, and 
+1) Log into the CONTROL NODE as student; download and install the collections:
+```
+ansible-galaxy collection install https://galaxy.ansible.com/download/ansible-posix-1.5.4.tar.gz -p mycollections/
+```
