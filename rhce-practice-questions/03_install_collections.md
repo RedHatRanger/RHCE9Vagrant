@@ -17,6 +17,13 @@ iii) using the url "http://content/Rhce/redhat-rhel_system_roles-1.0.0.tar.gz" t
 https://galaxy.ansible.com/download/ansible-posix-1.5.4.tar.gz
 
 https://galaxy.ansible.com/download/community-general-5.4.0.tar.gz
+
+ON THE EXAM:
+url: ......................
+You will have to install:
+- ansible.posix
+- community-general
+- rhel-system-roles
 ```
 
 (scroll down for an answer)
