@@ -9,7 +9,7 @@ Instructions:
 
 3. Install the collections:
 
-i) create a directory "collections" under /home/student/ansible/
+i) create a directory "mycollections" under /home/student/ansible/
 ii) using the url "https://galaxy.ansible.com/download/ansible-posix-1.5.4.tar.gz" to install ansible.posix collection under the mycollections directory.
 iii) using the url "https://galaxy.ansible.com/download/community-general-9.2.0.tar.gz" to install the community-general collection under the mycollections directory.
 ----------------------------------------------------------------------------
@@ -47,3 +47,10 @@ Name                 Version         Shadowed        Type         Path
 2|community.general  5.4.0           False           bind_mount   /home/student/ansible/mycollections/ansible_collect...
 ```
 
+3) Now, because you installed the ansible.posix collection, you are able to lookup ansible documentation on firewalld:
+```
+[student@control ansible]$ ansible-doc firewalld
+<output omitted>
+```
+
+* Done!!
