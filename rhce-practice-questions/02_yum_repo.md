@@ -38,4 +38,29 @@ Note: In exam, if they have not given managed node username, in that case, user 
 
 ### ANSWER #2:
 
-1) Log into the CONTROL NODE as student, and 
+1) Log into the CONTROL NODE as student, and create/edit a yum_repo.yml file:
+```
+[student@control ansible]$ vim yum_repo.yml
+
+---
+- name: configure yum
+  hosts: all
+  tasks:
+     - name: configure AppStream
+       ansible.builtin.yum_repository:
+           name: "Applications"
+           description: "Apps"
+           baseurl: file:///media/AppStream
+           enabled: yes
+           gpgcheck: 0
+           # gpgcheck: http://content......
+
+     - name: configure BaseOS
+       ansible.builtin.yum_repository:
+           name: "Applications"
+           description: "BaseOS"
+           baseurl: file:///media/BaseOS
+           enabled: yes
+           gpgcheck: 0
+           # gpgcheck: http://content......
+```
