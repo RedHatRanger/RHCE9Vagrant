@@ -10,7 +10,10 @@
 
 * Next, you will setup the repositories (if you are using Red Hat instead of Rocky Linux):
 ```
-[ansible@control ~]$ sudo vim /etc/yum.repos.d/myrepo.repo
+[ansible@control ~]$ sudo su
+```
+```
+[ansible@control ~]# vim /etc/yum.repos.d/myrepo.repo
 
 [BaseOS]
 name=BaseOS
@@ -25,4 +28,8 @@ enabled=1
 gpgcheck=0
 
 :wq
+```
+```
+[ansible@control ~]# yum clean all
+[ansible@control ~]# yum install -y ansible-core python3-pip container-tools
 ```
