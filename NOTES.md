@@ -1,5 +1,7 @@
 ### THE SETUP ###
 
+## <a href=https://www.youtube.com/watch?v=8Ls56awCJ_U&list=PLYB6dfdhWDePZf4fd4YgGGtSX_vHKv5vz&index=1>Video #1</a> From Teach Me Tech: ##
+
 * Once all the nodes are up and the control node is up, ON THE CONTROL NODE:
 ```
 [ansible@control ~]$ ssh-keygen -t rsa -b 4096
@@ -43,3 +45,4 @@ gpgcheck=0
 ```
 
 * It will begin pulling down the container execution environment and it will execute the process.
+## END OF VIDEO #1 From Teach Me Tech ##
