@@ -130,5 +130,5 @@ autocmd FileType yaml setlocal ai ts=2 sw=2 et cuc nu
     node5
     node3
     node4
-[student@controlnode9 ansible]$ ||
+[student@control ansible]$
 ```
