@@ -28,9 +28,9 @@ https://github.com/geerlingguy/ansible-role-haproxy.git            (balancer)
 
 1) Log into the CONTROL NODE as student, and run:
 ```
-mkdir roles
-cd roles
-vim requirements.yml
+[student@control ansible]$ mkdir roles
+[student@control ansible]$ cd roles
+[student@control roles]$ vim requirements.yml
 
 - src: https://github.com/bbatsche/Ansible-PHP-Site-Role.git
   name: phpinfo
@@ -40,3 +40,18 @@ vim requirements.yml
 
 :wq
 ```
+
+2) Next, run the requirements.yml file using ansible-galaxy:
+```
+[student@control roles]$ ansible-galaxy install -r /home/student/ansible/roles/requirements.yml -p /home/student/ansible/roles
+<output omitted>
+```
+
+3) Finally, you can confirm that the roles have been installed by running "ls":
+```
+[student@control roles]$ ls
+apache     bbatsche.Nginx  requirements.yml   rhel-system-roles.timesync
+balancer   phpinfo         rhel-system-roles.selinux
+```
+
+* Done!!
