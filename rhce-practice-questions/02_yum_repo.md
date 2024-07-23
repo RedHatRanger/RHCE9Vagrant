@@ -107,6 +107,6 @@ er.
 repo id                           repo name                      status
 Applications                      Apps                           enabled
 BaseOS                            OperatingSystem                enabled
+```
 
 * Done!!
-```
