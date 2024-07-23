@@ -15,6 +15,8 @@ iv) role name phpinfo and download it using this url "http://content.example.com
 
 https://github.com/bbatsche/Ansible-PHP-Site-Role.git            (phpinfo)
 https://github.com/githubixx/ansible-role-haproxy.git            (balancer)
+
+* Note: You can find these on galaxy.ansible.com and search for the roles "githubixx.haproxy" and "bagaswh.php"
 ```
 
 (scroll down for an answer)
