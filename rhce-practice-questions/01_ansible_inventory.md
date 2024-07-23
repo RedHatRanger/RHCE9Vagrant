@@ -95,3 +95,19 @@ prod
 
 :wq
 ```
+
+* As a test, you can run ANSIBLE --VERSION:
+```
+[student@control ansible]$ ansible --version
+ansible [core 2.12.2]
+  config file = /home/student/ansible/ansible.cfg
+  configured module search path = ['/home/student/.ansible/plugins/modules', '/usr/share/ansible/plu
+gins/modules']
+  ansible python module location = /usr/lib/python3.9/site-packages/ansible
+  ansible collection location = /home/student/ansible/mycollections
+  executable location = /usr/bin/ansible
+  python version = 3.9.10 (main, Feb 9 2022, 00:00:00) [GCC 11.2.1 20220127 (Red Hat 11.2.1-9)]
+  jinja version = 2.11.3
+  libyaml = True
+[student@control ansible]$
+```
