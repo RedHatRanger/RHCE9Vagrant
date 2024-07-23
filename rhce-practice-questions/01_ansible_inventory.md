@@ -1,6 +1,6 @@
-***On Node1***
+***On the Control Node***
 
-# Setup network parameters
+# Setup Ansible Inventory
 ### QUESTION #1:
 ```
 Instructions:
