@@ -32,5 +32,23 @@ iv) create the playbook called apache_role.yml and run the role on the dev group
 [student@control roles]$ ls
 apache     balancer       phpinfo             rhel-system-roles.selinux
 apache2    bbatsche.Ngix  requirements.yml    rhel-system-roles.timesync
-[student@control roles]$ 
+[student@control roles]$ cd apache2; ls
+[student@control apache2]$ defaults  files   handlers  meta  README.md   tasks  templates  tests  vars
+[student@control apache2]$ cd ..
+[student@control roles]$ rm -rf apache2
+[student@control roles]$ cd apache
+[student@control apache]$ cd tasks
+```
+
+2) Let's examine the main.yml file:
+```
+[student@control tasks]$ vim main.yml
+
+---
+# tasks file for apache
+- name: install httpd and firewalld
+  ansible.builtin.dnf:
+      name:
+        - httpd
+        - firewalld
 ```
