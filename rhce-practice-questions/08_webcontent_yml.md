@@ -28,3 +28,9 @@ v) Link /devweb to /var/www/html/devweb.
 output: \
 ![image](https://github.com/user-attachments/assets/f85b918d-c683-4190-8c08-db94e5a0d743)
 
+2) Let's check httpd also:
+```
+[student@control ansible]$ ansible dev -a "systemctl status httpd"
+```
+output: \
+![image](https://github.com/user-attachments/assets/f9b4f216-4900-4e4e-8b76-97b377cc6ee7)
