@@ -3,7 +3,7 @@
 ***On the Control Node***
 
 # Create and Run a Roles.yml Playbook
-### QUESTION #6:
+### QUESTION #5:
 ```
 Instructions:
 
@@ -33,4 +33,16 @@ along with various details of the PHP configuration including the version of PHP
 
 ### ANSWER #5:
 
-1) Log into the CONTROL NODE as student, and run:
+1) Log into the CONTROL NODE as student, and EDIT THE SECTION SO IT LOOKS LIKE THIS:
+```
+[student@control ansible]$ vim roles/balancer/templates/balancer.j2
+
+...
+backend app
+    balance         roundrobin
+  server  node3.example.com  172.28.128.103:80 check
+  server  node4.example.com  172.28.128.104:80 check
+...
+
+:wq
+```   
