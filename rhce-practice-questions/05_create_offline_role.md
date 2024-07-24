@@ -107,10 +107,34 @@ My host is {{ ansible_fqdn }} {{ ansible_default_ipv4.address }}
 :wq
 ```
 
-6) Finally, run the playbook using Ansible Navigator with syntax check TO CHECK FOR ERRORS:
+6) Finally, run the playbook using Ansible Navigator with syntax check TO CHECK FOR ERRORS and DRY RUN IT:
 ```
 [student@control ansible]$ ansible-navigator run -m stdout apache_role.yml --syntax-check
 playbook: /home/student/ansible/apache_role.yml
-[student@control ansible]$ 
+[student@control ansible]$ ansible-navigator run -m stdout apache_role.yml -C
+
+PLAY [dev] ******************************************************************
+
+TASK [Gathering Facts] ******************************************************
+ok: [node1]
+
+TASK [apache : install httpd and firewalld] *********************************
+ok: [node1]
+
+TASK [apache : start and enable firewalld] **********************************
+ok: [node1]
+
+TASK [apache : host the webpage using the template] *************************
+ok: [node1]
+
+TASK [apache : allow the http traffic from the firewall] ********************
+ok: [node1]
+
+TASK [apache : start and enable httpd] **************************************
+ok: [node1]
+
+PLAY RECAP ******************************************************************
+node1                          : ok=6     changed=0     unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+[student@control ansible]$
 ```
 
