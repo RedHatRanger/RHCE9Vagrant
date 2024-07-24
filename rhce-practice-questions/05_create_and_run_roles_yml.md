@@ -46,3 +46,21 @@ backend app
 
 :wq
 ```   
+
+2) Create the roles.yml file:
+```
+[student@control ansible]$ vim roles.yml
+
+---
+- name: use balancer role
+  hosts: balancers
+  roles:
+    - balancer
+
+- name: use phpinfo
+  hosts: webservers
+  roles:
+    - phpinfo
+
+
+```
