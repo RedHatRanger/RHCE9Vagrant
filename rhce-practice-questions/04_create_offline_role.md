@@ -27,17 +27,9 @@ iv) create the playbook called apache_role.yml and run the role on the dev group
 [student@control ansible]$ pwd
 /home/student/ansible
 [student@control ansible]$ cd roles
-[student@control roles]$ ansible-galaxy init apache2
+[student@control roles]$ ansible-galaxy init apache
 - Role apache2 was created successfully
-[student@control roles]$ ls
-apache     balancer       phpinfo             rhel-system-roles.selinux
-apache2    bbatsche.Ngix  requirements.yml    rhel-system-roles.timesync
-[student@control roles]$ cd apache2; ls
-[student@control apache2]$ defaults  files   handlers  meta  README.md   tasks  templates  tests  vars
-[student@control apache2]$ cd ..
-[student@control roles]$ rm -rf apache2
-[student@control roles]$ cd apache
-[student@control apache]$ cd tasks
+[student@control roles]$
 ```
 
 2) Let's examine the main.yml file, as this is how it SHOULD LOOK:
