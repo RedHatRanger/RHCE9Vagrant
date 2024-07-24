@@ -28,9 +28,22 @@ d) Create a configuration file called /home/student/ansible/ansible.cfg so that:
 
 ### ANSWER #1:
 
-1) 
+* First, install ANSIBLE-CORE, PYTHON3-PIP, and CONTAINER-TOOLS on the CONTROL NODE:
+```
+[ansible@control ~]# yum clean all
+[ansible@control ~]# yum install -y ansible-core python3-pip container-tools
+```
 
-1) Log into the CONTROL NODE as student, and edit the ansible.cfg file:
+* Next, install and run ANSIBLE-NAVIGATOR (ONLY INSTALL ON CONTROL NODE):
+```
+[ansible@control ~]# pip install ansible-navigator
+[ansible@control ~]# ansible-navigator
+<output omitted>
+
+# It will begin pulling down the container execution environment and it will execute the process.
+```
+
+2) Configure Ansible:
 ```
 [student@control ~]$ cd ~/ansible
 [student@control ansible]$ vim ansible.cfg
@@ -51,7 +64,7 @@ become_ask_pass=false
 :wq
 ```
 
-2) Next, you need to edit the inventory file:
+3) Next, you need to edit the inventory file:
 ```
 [student@control ansible]$ vim inventory
 
@@ -74,7 +87,7 @@ prod
 :wq
 ```
 
-3) As a test, you can run ANSIBLE --VERSION:
+4) As a test, you can run ANSIBLE --VERSION:
 ```
 [student@control ansible]$ ansible --version
 ansible [core 2.12.2]
@@ -90,7 +103,7 @@ gins/modules']
 [student@control ansible]$
 ```
 
-4) VERY IMPORTANT - It's advised to set your ~/.vimrc to auto indent yaml file types:
+5) VERY IMPORTANT - It's advised to set your ~/.vimrc to auto indent yaml file types:
 ```
 [student@control ansible]$ vim ~/.vimrc
 
@@ -99,7 +112,7 @@ autocmd FileType yaml setlocal ai ts=2 sw=2 et cuc nu
 :wq
 ```
 
-5) We can choose to list our hosts to validate our inventory file:
+6) We can choose to list our hosts to validate our inventory file:
 ```
 [student@control ansible]$ ansible all --list-hosts
   hosts (5):
@@ -111,7 +124,7 @@ autocmd FileType yaml setlocal ai ts=2 sw=2 et cuc nu
 [student@control ansible]$
 ```
 
-6) Lastly, we need to use the ping module to see if our nodes respond:
+7) Lastly, we need to use the ping module to see if our nodes respond:
 ```
 [student@control ansible]$ ansible all -m ping
 
