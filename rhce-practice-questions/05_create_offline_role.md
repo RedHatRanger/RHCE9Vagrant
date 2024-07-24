@@ -95,3 +95,14 @@ My host is {{ ansible_fqdn }} {{ ansible_default_ipv4.address }}
 :wq
 ```
 
+5) Now, let's create the "apache_role.yml" file:
+```
+[student@control templates]$ cd ../../../
+[student@control ansible]$ vim apache_role.yml
+
+- hosts: dev
+  roles:
+      - apache
+
+:wq
+```
