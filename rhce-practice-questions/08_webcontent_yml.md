@@ -73,3 +73,12 @@ output: \
 
 :wq
 ```
+
+4) Test and Run the webcontent.yml playbook:
+```
+[student@control ansible]$ ansible-navigator run -m stdout webcontent.yml -C
+<output omitted>
+[student@control ansible]$ ansible-navigator run -m stdout webcontent.yml
+```
+output:
+![image](https://github.com/user-attachments/assets/44e5cc3c-3f97-490d-a394-e1ba513e348e)
