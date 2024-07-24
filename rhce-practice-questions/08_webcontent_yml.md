@@ -21,6 +21,10 @@ v) Link /devweb to /var/www/html/devweb.
 
 ### ANSWER #8:
 
-1) Log into the CONTROL NODE as student, and create the webcontent.yml file:
+1) Log into the CONTROL NODE as student, and first check the firewalld service status on the dev group:
 ```
-[student@control ansible]$ vim 
+[student@control ansible]$ ansible dev -a "systemctl status firewalld"
+```
+output:
+![image](https://github.com/user-attachments/assets/f85b918d-c683-4190-8c08-db94e5a0d743)
+
