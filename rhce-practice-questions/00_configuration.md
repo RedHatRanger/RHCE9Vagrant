@@ -1,11 +1,13 @@
-control node: control.example.com
+control node: \
+              control.example.com \
 
 managed nodes: \
               node1.example.com \
               node2.example.com \
               node3.example.com \
               node4.example.com \
-              node5.example.com \
+              node5.example.com
+              
 * All nodes root password is "redhat" and Ansible control node username is student with passowrd "redhat".
 
 * create directory "ansible" under path /home/student/ and all playbooks should be under /home/student/ansible.
