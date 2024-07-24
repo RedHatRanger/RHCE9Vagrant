@@ -34,3 +34,42 @@ output: \
 ```
 output: \
 ![image](https://github.com/user-attachments/assets/f9b4f216-4900-4e4e-8b76-97b377cc6ee7)
+
+3) Next, let's create the webcontent.yml file:
+```
+[student@control ansible]$ vim webcontent.yml
+
+- hosts: dev
+  tasks:
+         - name: create /devweb directory
+           ansible.builtin.file:
+                path: /devweb
+                state: directory
+                mode: '02775'
+                group: apache
+                setype: httpd_sys_content_t
+         - name: create a file
+           ansible.builtin.file:
+                path: /devweb/index.html
+                state: touch
+                setype: httpd_sys_content_t
+         - name: copy the content
+           copy:
+              content: "Development"
+              dest: /devweb/index.html
+
+         - name: Link /devweb to /var/www/html/devweb
+           file:
+              src: /devweb
+              dest: /var/www/html/devweb
+              state: link
+              force: yes
+          - name: allow http traffic from the firewall
+            ansible.posix.firewalld:
+                service: http
+                permanent: true
+                state: enabled
+                immediate: true
+
+:wq
+```
