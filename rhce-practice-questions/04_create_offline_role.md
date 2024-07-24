@@ -29,7 +29,6 @@ iv) create the playbook called apache_role.yml and run the role on the dev group
 [student@control ansible]$ cd roles
 [student@control roles]$ ansible-galaxy init apache
 - Role apache2 was created successfully
-[student@control roles]$
 ```
 
 2) Let's examine the main.yml file, as this is how it SHOULD LOOK:
@@ -43,7 +42,7 @@ iv) create the playbook called apache_role.yml and run the role on the dev group
       name:
         - httpd
         - firewalld
-      state: present
+      state: latest
 
 - name: start and enable firewalld
   ansible.builtin.service:
@@ -60,7 +59,7 @@ iv) create the playbook called apache_role.yml and run the role on the dev group
         permanent: true
         state: enabled
         immediate: true
-- name: start and enable httpd
+- name: start and enable httpd service
   ansible.builtin.service:
         name: httpd
         state: started
