@@ -7,7 +7,22 @@
 ```
 Instructions:
 
-2. Create a playbook called yum_repo.yml for configuring the repositories on all nodes.
+2. Create a playbook called repo.yml for configuring the repository on all nodes.
+BaseOS:
+name: BaseOS
+baseurl: file:///media/BaseOS/
+description: Base OS Repo
+gpgcheck: yes
+gpgkey: file:///media/RPM-GPG-KEY-redhat-release
+enabled: yes
+
+AppStream:
+name: AppStream
+baseurl: file:///media/AppStream/
+description: AppStream Repo
+gpgcheck: yes
+gpgkey: file:///media/RPM-GPG-KEY-redhat-release
+enabled: yes
 ```
 
 (scroll down for an answer)
