@@ -107,7 +107,7 @@ My host is {{ ansible_fqdn }} {{ ansible_default_ipv4.address }}
 :wq
 ```
 
-6) Finally, run the playbook using Ansible Navigator:
+6) Finally, run the playbook using Ansible Navigator with syntax check TO CHECK FOR ERRORS:
 ```
 [student@control ansible]$ ansible-navigator run -m stdout apache_role.yml --syntax-check
 playbook: /home/student/ansible/apache_role.yml
