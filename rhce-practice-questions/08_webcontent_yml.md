@@ -82,3 +82,11 @@ output: \
 ```
 output:
 ![image](https://github.com/user-attachments/assets/44e5cc3c-3f97-490d-a394-e1ba513e348e)
+
+5) Finally, let's try curling the webpage:
+```
+[student@control ansible]$ curl http://node1.example.com/devweb/index.html
+Development[student@control ansible]$
+```
+
+* Done!!
