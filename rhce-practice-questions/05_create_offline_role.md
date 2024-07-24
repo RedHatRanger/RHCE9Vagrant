@@ -84,3 +84,14 @@ apache2    bbatsche.Ngix  requirements.yml    rhel-system-roles.timesync
 
 :ansible.posix.firewalld
 ```
+
+4) Next, let's create the "template.j2" file for the apache server:
+```
+[student@control tasks]$ cd ../templates
+[student@control templates]$ vim template.j2
+
+My host is {{ ansible_fqdn }} {{ ansible_default_ipv4.address }}
+
+:wq
+```
+
