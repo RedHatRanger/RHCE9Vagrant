@@ -24,4 +24,13 @@ iv) create the playbook called apache_role.yml and run the role on the dev group
 
 1) Log into the CONTROL NODE as student, and run:
 ```
-[student@control ansible]$ 
+[student@control ansible]$ pwd
+/home/student/ansible
+[student@control ansible]$ cd roles
+[student@control roles]$ ansible-galaxy init apache2
+- Role apache2 was created successfully
+[student@control roles]$ ls
+apache     balancer       phpinfo             rhel-system-roles.selinux
+apache2    bbatsche.Ngix  requirements.yml    rhel-system-roles.timesync
+[student@control roles]$ 
+```
