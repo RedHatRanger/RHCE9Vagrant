@@ -141,6 +141,7 @@ node1                          : ok=6     changed=4     unreachable=0    failed=
 7) Let's test out using curl on the webpage:
 ```
 [student@control ansible]$ curl http://node1.example.com
-My host is node1 172.128.28.101
+My host is node1.example.com 172.28.128.101
+[student@control ansible]$ 
 ```
 
