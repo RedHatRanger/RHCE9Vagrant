@@ -1,5 +1,4 @@
 <a href="https://www.youtube.com/watch?v=3zV89O7azb0&list=PLYB6dfdhWDePZf4fd4YgGGtSX_vHKv5vz&index=3">Video Tutorial</a> by Teach Me Tech \
-<a href="https://www.youtube.com/watch?v=iCWa4Me0ykM">Video Tutorial</a> by Nehra Classes
 
 ***On the Control Node***
 
@@ -8,22 +7,7 @@
 ```
 Instructions:
 
-2. Create and run an Ansible ad-hoc command.  As a system administrator, you need to install software on the managed nodes:
-a) Create a shell script called yum-repo.sh that runs Ansible ad-hoc commands to create the yum repositories
-   on each of the managed nodes as per the following details:
-b) NOTE: you need to create 2 repos (BaseOS & AppStream) in the managed nodes.
-BaseOS:
-name: BaseOS
-baseurl: file:///mnt/BaseOS/
-description: Base OS Repo
-gpgcheck: no
-enabled: yes
-AppStream:
-name: AppStream
-baseurl: file:///mnt/AppStream/
-description: AppStream Repo
-gpgcheck: no
-enabled: yes
+2. Create a playbook called yum_repo.yml for configuring the repositories on all nodes.
 ```
 
 (scroll down for an answer)
