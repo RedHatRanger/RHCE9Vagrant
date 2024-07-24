@@ -2,26 +2,16 @@
 
 ***On the Control Node***
 
-# Install Collections
+# Install Packages in Muliple Groups
 ### QUESTION #7:
 ```
 Instructions:
 
-6. Install Ansible Content Collections:
-
-i) create a directory "mycollections" under /home/student/ansible/
-ii) using the url "https://galaxy.ansible.com/download/ansible-posix-1.5.4.tar.gz" to install ansible.posix collection under the mycollections directory.
-iii) using the url "https://galaxy.ansible.com/download/community-general-9.2.0.tar.gz" to install the community-general collection under the mycollections directory.
-----------------------------------------------------------------------------
-
-
-NOTE ON THE EXAM:
-Example url: http://content.example.com/rhce/ansible-posix....
-
-You will have to install:
-- ansible.posix or redhat-insights
-- community-general
-- rhel-system-roles
+7. Install packages in multiple groups
+i) Install vsftpd and mariadb-server packages in dev and test group.
+ii) Install "RPM Development Tools" group package in prod group.
+iii) Update all packages in dev group.
+iv) Use separate play for each task and playbook name should be packages.yml.
 ```
 
 (scroll down for an answer)
@@ -30,4 +20,45 @@ You will have to install:
 
 ### ANSWER #7:
 
-1) Log into the CONTROL NODE as student; download and install the collections:
+1) Log into the CONTROL NODE as student, and run:
+```
+[student@control ansible]$ vim packages.yml
+
+---
+- name: packages installation
+  hosts: dev,test
+  tasks:
+     - name: installing vsftpd and mariadb-server packages
+       ansible.builtin.dnf:
+           name:
+              - vsftpd
+              - mariadb-server
+           state: present
+
+- name: group package installation
+  hosts: prod
+  tasks:
+     - name: Installing "RPM Development Tools" group package
+       ansible.builtin.dnf:
+           name: "@RPM Development Tools"
+           state: present
+
+- name: update all packages
+  hosts: dev
+  tasks:
+     - name: updating all packages
+       ansible.builtin.dnf:
+           name: "*"
+           state: latest
+
+:wq
+```
+
+2) Test and Run the packages.yml playbook:
+```
+[student@control ansible]$ ansible-navigator run -m stdout packages.yml -C
+<output omitted>
+[student@control ansible]$ ansible-navigator run -m stdout packages.yml
+![image](https://github.com/user-attachments/assets/afb234ed-1729-42ec-ae86-0452be2af6d5)
+
+```
