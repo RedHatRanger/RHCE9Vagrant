@@ -3,7 +3,7 @@
 ***On the Control Node***
 
 # Create Offline Role For Apache
-### QUESTION #5:
+### QUESTION #4:
 ```
 Instructions:
 
@@ -20,7 +20,7 @@ iv) create the playbook called apache_role.yml and run the role on the dev group
 <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 
-### ANSWER #5:
+### ANSWER #4:
 
 1) Log into the CONTROL NODE as student, and run:
 ```
