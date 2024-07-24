@@ -24,14 +24,19 @@ Instructions:
 - name: configure yum
   hosts: all
   tasks:
+     - name: Import a key from url
+       ansible.builtin.rpm_key:
+           state: present
+           key: file:///media/RPM-GPG-KEY-redhat-release
+
      - name: configure AppStream
        ansible.builtin.yum_repository:
            name: "Applications"
            description: "Apps"
            baseurl: file:///media/AppStream
            enabled: yes
-           gpgcheck: 0
-           # gpgcheck: http://content......
+           gpgcheck: yes
+           gpgkey: file:///media/RPM-GPG-KEY-redhat-release
 
      - name: configure BaseOS
        ansible.builtin.yum_repository:
@@ -39,8 +44,8 @@ Instructions:
            description: "BaseOS"
            baseurl: file:///media/BaseOS
            enabled: yes
-           gpgcheck: 0
-           # gpgcheck: http://content......
+           gpgcheck: yes
+           gpgkey: file:///media/RPM-GPG-KEY-redhat-release
 
 :wq
 ```
