@@ -80,6 +80,7 @@ apache2    bbatsche.Ngix  requirements.yml    rhel-system-roles.timesync
 3) If you don't remember, you can use the ```ansible-doc firewalld``` command, and then search:
 ```
 [student@control tasks]$ ansible-doc firewalld
+<output omitted>
 
 :ansible.posix.firewalld
 ```
