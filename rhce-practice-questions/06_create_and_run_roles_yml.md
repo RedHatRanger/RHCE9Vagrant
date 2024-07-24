@@ -1,4 +1,4 @@
-<a href="https://www.youtube.com/watch?v=6pFzSNY9-fs&list=PLYB6dfdhWDePZf4fd4YgGGtSX_vHKv5vz&index=7">Video Tutorial</a> by Teach Me Tech
+<a href="https://www.youtube.com/watch?v=OXv3A2tjzWc&list=PLL_setXLS0tiYMipvQI4oUGkJwhOhn42J&index=6">Video Tutorial</a> by codeXchange
 
 ***On the Control Node***
 
@@ -7,15 +7,30 @@
 ```
 Instructions:
 
-6. Create a playbook called roles.yml and it should run the installed balancer and phpinfo roles.
-i) run the balancer role on the balancers host group.
-ii) run the phpinfo role on the webservers host group.
+5. Create a playbook called roles.yml and it should run balancer and phpinfo roles.
+
+   Use roles from Ansible Galaxy
+Create a playbook called /home/student/ansible/roles.yml
+* The playbook contains a play that runs on host in the balancers host group and uses the balancers role.
+- This role configures a service to load balance web server request between hosts in the webserver host group.
+- Browsing to host in the balances host group (for example http://node5.example.com) produces the following output:
+Welcome to node3.example.com on 172.28.128.103
+- Reloading the Browser produces output from the alternet web server:
+Welcome to node4. lab.example.com on 172.28.128.104
+* The Playbook contains a play the runs on hosts in webserver host group and uses the phpinfo role.
+- Browsing to host in the webserver host group with the URL /hell.php produces the following out [ut: Hello PHP World from FQDN
+- For example Browsing to http://node3.example.com/hello.php produces the following output:
+Hello PHP World from node3.example.com
+along with various details of the PHP configuration include the version of PHP that is installed.
+- Similarly, Browsing to http://node4.lab.example.com/hello.php, produces the following output:
+Hello PHP World from node4.example.com
+along with various details of the PHP configuration including the version of PHP that is installed
 ```
 
 (scroll down for an answer)
 <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 
-### ANSWER #6:
+### ANSWER #5:
 
 1) Log into the CONTROL NODE as student, and run:
