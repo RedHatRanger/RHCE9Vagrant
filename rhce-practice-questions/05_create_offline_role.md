@@ -40,7 +40,7 @@ apache2    bbatsche.Ngix  requirements.yml    rhel-system-roles.timesync
 [student@control apache]$ cd tasks
 ```
 
-2) Let's examine the main.yml file:
+2) Let's examine the main.yml file, as this is how it SHOULD LOOK:
 ```
 [student@control tasks]$ vim main.yml
 
@@ -73,4 +73,13 @@ apache2    bbatsche.Ngix  requirements.yml    rhel-system-roles.timesync
         name: httpd
         state: started
         enabled: true
+
+:wq
+```
+
+3) If you don't remember, you can use the ```ansible-doc``` firewalld command, and then search:
+```
+[student@control tasks]$ ansible-doc firewalld
+
+:ansible.posix.firewalld
 ```
