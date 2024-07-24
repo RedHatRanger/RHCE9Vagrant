@@ -8,7 +8,7 @@
 ```
 Instructions:
 
-1. Install and configure ansible on control node as follows:
+1. Install and configure Ansible on control node as follows:
 a) install the required packages.
 b) create static inventory file called /home/student/ansible/inventory as follows:
    i)   node1 is a member of dev host group.
@@ -27,6 +27,8 @@ d) Create a configuration file called /home/student/ansible/ansible.cfg so that:
 <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 
 ### ANSWER #1:
+
+1) 
 
 1) Log into the CONTROL NODE as student, and edit the ansible.cfg file:
 ```
