@@ -8,7 +8,22 @@
 ```
 Instructions:
 
-2. Create and run an 
+2. Create and run an Ansible ad-hoc command.  As a system administrator, you will need to install software on the managed nodes:
+a) Create a shell script called yum-repo.sh that runs Ansible ad-hoc commands to create the yum repositories
+   on each of the managed nodes as per the following details:
+b) NOTE: you need to create 2 repos (BaseOS & AppStream) in the managed nodes.
+BaseOS:
+name: BaseOS
+baseurl: file:///mnt/BaseOS/
+description: Base OS Repo
+gpgcheck: no
+enabled: yes
+AppStream:
+name: AppStream
+baseurl: file:///mnt/AppStream/
+description: AppStream Repo
+gpgcheck: no
+enabled: yes
 ```
 
 (scroll down for an answer)
