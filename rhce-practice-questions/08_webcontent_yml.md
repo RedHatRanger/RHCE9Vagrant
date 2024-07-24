@@ -26,7 +26,7 @@ v) Link /devweb to /var/www/html/devweb.
 [student@control ansible]$ ansible dev -a "systemctl status firewalld"
 ```
 output: \
-![image](https://github.com/user-attachments/assets/f85b918d-c683-4190-8c08-db94e5a0d743)
+![image](https://github.com/user-attachments/assets/e6ac741b-8332-47fa-a3e5-dae7dd132636)
 
 2) Let's check httpd also:
 ```
