@@ -119,22 +119,22 @@ TASK [Gathering Facts] ******************************************************
 ok: [node1]
 
 TASK [apache : install httpd and firewalld] *********************************
-ok: [node1]
+changed: [node1]
 
 TASK [apache : start and enable firewalld] **********************************
 ok: [node1]
 
 TASK [apache : host the webpage using the template] *************************
-ok: [node1]
+changed: [node1]
 
 TASK [apache : allow the http traffic from the firewall] ********************
-ok: [node1]
+changed: [node1]
 
 TASK [apache : start and enable httpd] **************************************
-ok: [node1]
+changed: [node1]
 
 PLAY RECAP ******************************************************************
-node1                          : ok=6     changed=0     unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+node1                          : ok=6     changed=4     unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
 [student@control ansible]$
 ```
 
