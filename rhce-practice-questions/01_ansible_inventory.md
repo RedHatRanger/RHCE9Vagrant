@@ -9,19 +9,17 @@
 Instructions:
 
 1. Install and configure ansible on control node as follows:
-    * install the required package
-    * create static inventory file called /home/student/ansible/inventory as follows:
-
-- node1.example.com is a member of dev host group
-- node2.example.com is a member of test host group
-- node3.example.com is a member of prod host group
-- node4.example.com is a member of balancers host group
-- the prod group is a member of the webservers host group
-
-* Create a configuration file called ansible.cfg as follows:
-- the host inventory file should be defined as /home/student/ansible/inventory
-- the location of roles used in playbooks should be as /home/student/ansible/roles
-- the location of collections used in playbooks should be as /home/student/ansible/collections
+a) install the required packages.
+b) create static inventory file called /home/student/ansible/inventory as follows:
+   i)   node1 is a member of dev host group.
+   ii)  node2 is a member of test host group.
+   iii) node3 and node4 are the members of the prod host group.
+   iv)  node5 is a member of the balancers host group.
+c) The prod group is a member of the webservers group.
+d) Create a configuration file called /home/student/ansible/ansible.cfg so that:
+   i)   The host inventory file should be defined as /home/student/ansible/inventory
+   ii)  The default content collections directory is /home/student/ansible/mycollections
+   iii) The default roles directory is /home/student/ansible/roles
 ```
 
 (scroll down for an answer)
