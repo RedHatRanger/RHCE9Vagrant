@@ -62,5 +62,11 @@ backend app
   roles:
     - phpinfo
 
+:wq
+```
+
+3) Run the roles.yml playbook:
+```
+[student@control ansible]$ ansible-navigator run -m stdout 
 
 ```
