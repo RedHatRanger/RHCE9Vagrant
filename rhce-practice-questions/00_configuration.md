@@ -1,11 +1,13 @@
-control node: \
-              control.example.com \
+# Ansible Configuration
+```
+ansible control node: 
+              control.example.com
 
-managed nodes: \
-              node1.example.com \
-              node2.example.com \
-              node3.example.com \
-              node4.example.com \
+managed nodes:
+              node1.example.com
+              node2.example.com
+              node3.example.com
+              node4.example.com
               node5.example.com
               
 * All nodes root password is "redhat" and Ansible control node username is student with passowrd "redhat".
@@ -21,3 +23,4 @@ Ansible Automation Platform (AAP) 2.2 is utility.example.com credentials are adm
 Note: In exam, if they have not given managed node username, in that case, user control node user as remote user.
 -------------------------------------------------------------------------------------
 # ssh student@workstation
+```
