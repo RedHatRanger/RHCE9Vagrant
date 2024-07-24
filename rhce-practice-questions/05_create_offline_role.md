@@ -106,3 +106,11 @@ My host is {{ ansible_fqdn }} {{ ansible_default_ipv4.address }}
 
 :wq
 ```
+
+6) Finally, run the playbook using Ansible Navigator:
+```
+[student@control ansible]$ ansible-navigator run -m stdout apache_role.yml --syntax-check
+playbook: /home/student/ansible/apache_role.yml
+[student@control ansible]$ 
+```
+
