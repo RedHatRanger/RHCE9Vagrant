@@ -30,8 +30,17 @@ iv) create the playbook called apache_role.yml and run the role on the dev group
 [student@control roles]$ ansible-galaxy init apache
 - Role apache2 was created successfully
 ```
+2) Next, let's create the "template.j2" file for the apache server:
+```
+[student@control tasks]$ cd ../templates
+[student@control templates]$ vim template.j2
 
-2) Let's examine the main.yml file, as this is how it SHOULD LOOK:
+My host is {{ ansible_fqdn }} {{ ansible_default_ipv4.address }}
+
+:wq
+```
+
+3) Let's examine the main.yml file, as this is how it SHOULD LOOK:
 ```
 [student@control roles]$ cd ./apache/tasks
 [student@control tasks]$ vim main.yml
@@ -45,46 +54,39 @@ iv) create the playbook called apache_role.yml and run the role on the dev group
         - firewalld
       state: latest
 
-- name: start and enable firewalld
-  ansible.builtin.service:
-        name: firewalld
-        state: started
-        enabled: true
-- name: host the web page using the template
-  ansible.builtin.template:
-        src: template.j2
-        dest: /var/www/html/index.html
-- name: allow the http traffic from the firewall
-  ansible.posix.firewalld:
-        service: http
-        permanent: true
-        state: enabled
-        immediate: true
-- name: start and enable httpd service
+- name: start the httpd service
   ansible.builtin.service:
         name: httpd
         state: started
         enabled: true
 
+- name: start the firewalld service
+  ansible.builtin.service:
+        name: firewalld
+        state: restarted
+        enabled: true
+
+- name: add http service in firewall rule
+  ansible.posix.firewalld:
+        service: http
+        permanent: true
+        state: enabled
+        immediate: true
+
+- name: host the web page using the template
+  ansible.builtin.template:
+        src: template.j2
+        dest: /var/www/html/index.html
+
 :wq
 ```
 
-3) If you don't remember, you can use the ```ansible-doc firewalld``` command, and then SEARCH FOR IT:
+4) If you don't remember, you can use the ```ansible-doc firewalld``` command, and then SEARCH FOR IT:
 ```
 [student@control tasks]$ ansible-doc firewalld
 <output omitted>
 
 :ansible.posix.firewalld
-```
-
-4) Next, let's create the "template.j2" file for the apache server:
-```
-[student@control tasks]$ cd ../templates
-[student@control templates]$ vim template.j2
-
-My host is {{ ansible_fqdn }} {{ ansible_default_ipv4.address }}
-
-:wq
 ```
 
 5) Now, let's create the "apache_role.yml" file:
