@@ -51,4 +51,26 @@ apache2    bbatsche.Ngix  requirements.yml    rhel-system-roles.timesync
       name:
         - httpd
         - firewalld
+      state: present
+
+- name: start and enable firewalld
+  ansible.builtin.service:
+        name: firewalld
+        state: started
+        enabled: true
+- name: host the web page using the template
+  ansible.builtin.template:
+        src: template.j2
+        dest: /var/www/html/index.html
+- name: allow the http traffic from the firewall
+  ansible.posix.firewalld:
+        service: http
+        permanent: true
+        state: enabled
+        immediate: true
+- name: start and enable httpd
+  ansible.builtin.service:
+        name: httpd
+        state: started
+        enabled: true
 ```
