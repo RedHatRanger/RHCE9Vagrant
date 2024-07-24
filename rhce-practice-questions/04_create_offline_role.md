@@ -94,9 +94,11 @@ My host is {{ ansible_fqdn }} {{ ansible_default_ipv4.address }}
 [student@control templates]$ cd ../../../
 [student@control ansible]$ vim apache_role.yml
 
-- hosts: dev
+---
+- name: use apache role
+  hosts: dev
   roles:
-      - apache
+    - apache
 
 :wq
 ```
