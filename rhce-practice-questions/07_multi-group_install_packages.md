@@ -1,9 +1,9 @@
-<a href="https://www.youtube.com/watch?v=yn_feC84g4Y&list=PLYB6dfdhWDePZf4fd4YgGGtSX_vHKv5vz&index=4">Video Tutorial</a> by TcodeXchange
+<a href="https://www.youtube.com/watch?v=UkAhDPc--eI&list=PLL_setXLS0tiYMipvQI4oUGkJwhOhn42J&index=7">Video Tutorial</a> by codeXchange
 
 ***On the Control Node***
 
 # Install Collections
-### QUESTION #6:
+### QUESTION #7:
 ```
 Instructions:
 
@@ -28,6 +28,6 @@ You will have to install:
 <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 
-### ANSWER #6:
+### ANSWER #7:
 
 1) Log into the CONTROL NODE as student; download and install the collections:
