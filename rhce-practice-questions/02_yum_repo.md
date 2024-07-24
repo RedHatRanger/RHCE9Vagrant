@@ -1,4 +1,5 @@
 <a href="https://www.youtube.com/watch?v=3zV89O7azb0&list=PLYB6dfdhWDePZf4fd4YgGGtSX_vHKv5vz&index=3">Video Tutorial</a> by Teach Me Tech
+<a href="https://www.youtube.com/watch?v=iCWa4Me0ykM">Video Tutorial</a> by Nehra Classes
 
 ***On the Control Node***
 
@@ -7,7 +8,7 @@
 ```
 Instructions:
 
-2. Create a playbook yum_repo.yml for configuring repository on all nodes
+2. Create and run an 
 ```
 
 (scroll down for an answer)
