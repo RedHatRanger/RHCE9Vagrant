@@ -33,6 +33,7 @@ iv) create the playbook called apache_role.yml and run the role on the dev group
 
 2) Let's examine the main.yml file, as this is how it SHOULD LOOK:
 ```
+[student@control roles]$ cd ./apache/tasks
 [student@control tasks]$ vim main.yml
 
 ---
