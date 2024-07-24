@@ -77,7 +77,7 @@ apache2    bbatsche.Ngix  requirements.yml    rhel-system-roles.timesync
 :wq
 ```
 
-3) If you don't remember, you can use the ```ansible-doc``` firewalld command, and then search:
+3) If you don't remember, you can use the ```ansible-doc firewalld``` command, and then search:
 ```
 [student@control tasks]$ ansible-doc firewalld
 
