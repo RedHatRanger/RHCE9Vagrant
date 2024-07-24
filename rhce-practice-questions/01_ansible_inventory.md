@@ -68,8 +68,7 @@ prod
 
 3) Then, configure Ansible:
 ```
-[student@control ~]$ cd ~/ansible
-[student@control ansible]$ vim ansible.cfg
+[student@control ansible]$ vim /home/student/ansible/ansible.cfg
 
 [defaults]
 remote_user=student
