@@ -20,7 +20,7 @@ iv) Use separate play for each task and playbook name should be packages.yml.
 
 ### ANSWER #7:
 
-1) Log into the CONTROL NODE as student, and run:
+1) Log into the CONTROL NODE as student, and create the packages.yml file:
 ```
 [student@control ansible]$ vim packages.yml
 
