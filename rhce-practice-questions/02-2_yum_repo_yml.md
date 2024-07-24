@@ -21,7 +21,7 @@ Instructions:
 [student@control ansible]$ vim yum_repo.yml
 
 ---
-- name: configure yum
+- name: configure yum repository
   hosts: all
   tasks:
      - name: Import a key from url
