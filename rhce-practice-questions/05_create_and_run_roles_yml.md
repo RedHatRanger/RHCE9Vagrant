@@ -67,6 +67,6 @@ backend app
 
 3) Run the roles.yml playbook:
 ```
-[student@control ansible]$ ansible-navigator run -m stdout 
-
+[student@control ansible]$ ansible-navigator run -m stdout roles.yml -C
+<output omitted>
 ```
