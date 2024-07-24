@@ -65,8 +65,24 @@ backend app
 :wq
 ```
 
-3) Run the roles.yml playbook:
+3) Test and then run the roles.yml playbook:
 ```
 [student@control ansible]$ ansible-navigator run -m stdout roles.yml -C
 <output omitted>
+[student@control ansible]$ ansible-navigator run -m stdout roles.yml
+<output omitted>
 ```
+
+4) Curl test node5:
+```
+[student@control ansible]$ curl node5
+Welcome to node3.example.com 172.28.128.103
+[student@control ansible]$ curl node5
+Welcome to node4.example.com 172.28.128.104
+[student@control ansible]$ curl node5
+Welcome to node3.example.com 172.28.128.103
+[student@control ansible]$ curl node5
+Welcome to node4.example.com 172.28.128.104
+```
+
+* Done!!
