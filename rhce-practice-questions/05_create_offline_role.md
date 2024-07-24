@@ -145,3 +145,5 @@ My host is node1.example.com 172.28.128.101
 [student@control ansible]$ 
 ```
 
+* Some possible errors you may encounter:
+  Because you are not registered with Red Hat, you may have to mount the DVD each time you reboot, unless you fix it in /etc/fstab to be permanent.
