@@ -33,5 +33,5 @@ iii) playbook name should be hwreport.yml
 ```
 [student@control ansible]$ vim hwreport.yml
 ```
-file contents:
+file contents: \
 ![image](https://github.com/user-attachments/assets/9a4950d4-3da6-4f95-9685-6d18220076af)
