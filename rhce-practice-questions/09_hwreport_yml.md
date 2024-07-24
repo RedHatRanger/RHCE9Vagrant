@@ -35,3 +35,13 @@ iii) playbook name should be hwreport.yml
 ```
 file contents: \
 ![image](https://github.com/user-attachments/assets/9a4950d4-3da6-4f95-9685-6d18220076af)
+
+2) Test and run the hwreport.yml playbook:
+```
+[student@control ansible]$ ansible-navigator run -m stdout hwreport.yml -C
+<output omitted>
+[student@control ansible]$ ansible-navigator run -m stdout hwreport.yml
+```
+output: \
+![image](https://github.com/user-attachments/assets/625aace1-5c6f-449c-97e4-6cd2c8977c6c)
+
