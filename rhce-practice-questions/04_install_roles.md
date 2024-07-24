@@ -33,6 +33,7 @@ https://github.com/geerlingguy/ansible-role-haproxy.git            (balancer)
 [student@control ansible]$ cd roles
 [student@control roles]$ vim requirements.yml
 
+---
 - src: https://github.com/bbatsche/Ansible-PHP-Site-Role.git
   name: phpinfo
 
