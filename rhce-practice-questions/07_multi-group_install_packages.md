@@ -59,6 +59,8 @@ iv) Use separate play for each task and playbook name should be packages.yml.
 [student@control ansible]$ ansible-navigator run -m stdout packages.yml -C
 <output omitted>
 [student@control ansible]$ ansible-navigator run -m stdout packages.yml
+```
+output:
 ![image](https://github.com/user-attachments/assets/afb234ed-1729-42ec-ae86-0452be2af6d5)
 
-```
+* Done!!
