@@ -39,7 +39,9 @@ output: \
 ```
 [student@control ansible]$ vim webcontent.yml
 
-- hosts: dev
+---
+- name: Create a web content directory
+  hosts: dev
   tasks:
          - name: create /devweb directory
            ansible.builtin.file:
@@ -48,22 +50,20 @@ output: \
                 mode: '02775'
                 group: apache
                 setype: httpd_sys_content_t
-         - name: create a file
-           ansible.builtin.file:
-                path: /devweb/index.html
-                state: touch
-                setype: httpd_sys_content_t
-         - name: copy the content
-           copy:
-              content: "Development"
-              dest: /devweb/index.html
 
-         - name: Link /devweb to /var/www/html/devweb
+         - name: create symbolic link /devweb to /var/www/html/devweb
            file:
               src: /devweb
               dest: /var/www/html/devweb
               state: link
               force: yes
+
+         - name: copy using inline content
+           copy:
+              content: "Development"
+              dest: /devweb/index.html
+              setype: httpd_sys_content_t
+
           - name: allow http traffic from the firewall
             ansible.posix.firewalld:
                 service: http
