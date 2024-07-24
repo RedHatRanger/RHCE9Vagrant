@@ -31,7 +31,7 @@ d) Create a configuration file called /home/student/ansible/ansible.cfg so that:
 * First, install ANSIBLE-CORE, PYTHON3-PIP, and CONTAINER-TOOLS on the CONTROL NODE:
 ```
 [ansible@control ~]# yum clean all
-[ansible@control ~]# yum install -y ansible-core python3-pip container-tools
+[ansible@control ~]# yum install -y ansible ansible-core python3-pip container-tools
 ```
 
 * Next, install and run ANSIBLE-NAVIGATOR (ONLY INSTALL ON CONTROL NODE):
