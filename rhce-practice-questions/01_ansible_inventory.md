@@ -43,28 +43,7 @@ d) Create a configuration file called /home/student/ansible/ansible.cfg so that:
 # It will begin pulling down the container execution environment and it will execute the process.
 ```
 
-2) Configure Ansible:
-```
-[student@control ~]$ cd ~/ansible
-[student@control ansible]$ vim ansible.cfg
-
-[defaults]
-remote_user=student
-inventory=/home/student/ansible/inventory
-roles_path=/home/student/ansible/roles
-collections_path=/home/student/ansible/mycollections
-ask_pass=false
-
-[privilege_escalation]
-become=true
-become_medthod=sudo
-become_user=root
-become_ask_pass=false
-
-:wq
-```
-
-3) Next, you need to edit the inventory file:
+2) Next, you need to edit the inventory file:
 ```
 [student@control ansible]$ vim inventory
 
@@ -83,6 +62,27 @@ node5
 
 [webservers:children]
 prod
+
+:wq
+```
+
+3) Then, configure Ansible:
+```
+[student@control ~]$ cd ~/ansible
+[student@control ansible]$ vim ansible.cfg
+
+[defaults]
+remote_user=student
+inventory=/home/student/ansible/inventory
+roles_path=/home/student/ansible/roles
+collections_path=/home/student/ansible/mycollections
+ask_pass=false
+
+[privilege_escalation]
+become=true
+become_medthod=sudo
+become_user=root
+become_ask_pass=false
 
 :wq
 ```
