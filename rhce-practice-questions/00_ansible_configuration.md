@@ -18,7 +18,7 @@ In the Exam we will have 6 Vms.
 1-  One is controller node
 2-  Five Vms will be used as Managed nodes.
 ============================================================
-Finally we need 6 Virtual Machines for the practice.
+Therefore, we need 6 Virtual Machines for the practice.
 Let Say,
 
 3-  2 GB Ram is for Each VM   ( 12 GB)
