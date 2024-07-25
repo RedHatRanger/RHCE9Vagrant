@@ -2,7 +2,7 @@
 
 ## <a href="https://www.youtube.com/watch?v=8Ls56awCJ_U&list=PLYB6dfdhWDePZf4fd4YgGGtSX_vHKv5vz&index=1">Video #1</a> From Teach Me Tech##
 
-﻿
+* Hardware Requirements for This Lab Environment:
 ```
 ============================================================
 In the Exam we will have 6 Vms.
