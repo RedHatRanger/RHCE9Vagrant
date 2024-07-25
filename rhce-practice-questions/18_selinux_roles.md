@@ -1,9 +1,9 @@
-<a href="https://www.youtube.com/watch?v=0fUMTBiWKhc&list=PLYB6dfdhWDePZf4fd4YgGGtSX_vHKv5vz&index=8">Video Tutorial</a> by Teach Me Tech \
-<a href="https://www.youtube.com/watch?v=dMsEJP6szxw&list=PLL_setXLS0tiYMipvQI4oUGkJwhOhn42J&index=17">Video Tutorial</a> by codeXchange (BEST)
+<a href="https://www.youtube.com/watch?v=7fb98SMGOcw&list=PLYB6dfdhWDePZf4fd4YgGGtSX_vHKv5vz&index=9">Video Tutorial</a> by Teach Me Tech \
+<a href="https://www.youtube.com/watch?v=2u1eNdrGhjE&list=PLL_setXLS0tiYMipvQI4oUGkJwhOhn42J&index=18">Video Tutorial</a> by codeXchange (BEST)
 
 ***On the Control Node***
 
-# Create an timesync.yml playbook
+# Create an selinux.yml playbook
 ### QUESTION #18:
 ```
 Instructions:
@@ -22,7 +22,7 @@ Instructions:
 <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 
-### ANSWER #16:
+### ANSWER #18:
 1) Log into the CONTROL NODE as student, and install the "rhel-system-roles" package if it isn't installed:
 ```
 [student@control ansible]$ sudo yum install rhel-system-roles -y
