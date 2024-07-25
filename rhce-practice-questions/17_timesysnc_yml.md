@@ -23,7 +23,13 @@ Instructions:
 <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 
 ### ANSWER #16:
-1) Log into the CONTROL NODE as student, and create the "timesync.yml" playbook
+1) Log into the CONTROL NODE as student, and install the "rhel-system-roles" package if it isn't installed:
+```
+[student@control ansible]$ sudo yum install rhel-system-roles -y
+<output omitted>
+```
+
+2) Create the "timesync.yml" playbook
 ```
 [student@control ansible]$ ﻿vim timesync.yml
 
