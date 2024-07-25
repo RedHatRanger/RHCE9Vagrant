@@ -34,6 +34,7 @@ iii) playbook name should be hwreport.yml
 ```
 # If you are unsure you can run "ansible-doc get_url" and search /EXAMPLES for Download foo.conf
   AND "ansible-doc copy" for information and EXAMPLES for the copy command.
+  AND "ansible all -m setup > test" will get you the correct parameters you are looking for the replace: option.
 
 [student@control ansible]$ vim hwreport.yml
 
