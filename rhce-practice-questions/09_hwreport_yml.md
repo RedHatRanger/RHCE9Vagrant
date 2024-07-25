@@ -33,6 +33,7 @@ iii) playbook name should be hwreport.yml
 1) Log into the CONTROL NODE as student, and create the hwreport.yml:
 ```
 # If you are unsure you can run "ansible-doc get_url" and search /EXAMPLES for Download foo.conf
+  AND "ansible-doc copy" for information and EXAMPLES for the copy command.
 
 [student@control ansible]$ vim hwreport.yml
 
