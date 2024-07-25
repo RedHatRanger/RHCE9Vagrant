@@ -1,0 +1,30 @@
+<a href="https://www.youtube.com/watch?v=0fUMTBiWKhc&list=PLYB6dfdhWDePZf4fd4YgGGtSX_vHKv5vz&index=8">Video Tutorial</a> by Teach Me Tech \
+<a href="https://www.youtube.com/watch?v=dMsEJP6szxw&list=PLL_setXLS0tiYMipvQI4oUGkJwhOhn42J&index=17">Video Tutorial</a> by codeXchange (BEST)
+
+***On the Control Node***
+
+# Create an timesync.yml playbook
+### QUESTION #16:
+```
+Instructions:
+
+﻿17. Use a RHEL timesync system role:
+
+ i) Create a playbook called "timesync.yml" that:
+ - Runs on all managed nodes
+ - Uses the timesync role
+ - Configures the role to use the currently active NTP provider
+ - Configure the role to use the time server classroom.lab.example.com
+ - Configure the role to enable the iburst parameter
+```
+
+(scroll down for an answer)
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+
+### ANSWER #16:
+1) Log into the CONTROL NODE as student, and create the "timesync.yml" playbook
+```
+[student@control ansible]$ ﻿vim timesync.yml
+
+```
