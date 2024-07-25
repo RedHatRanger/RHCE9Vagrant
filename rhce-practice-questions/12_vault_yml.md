@@ -3,7 +3,7 @@
 
 ***On the Control Node***
 
-# Create a vault.yml playbook
+# Create a vault.yml variable file
 ### QUESTION #12:
 ```
 Instructions:
