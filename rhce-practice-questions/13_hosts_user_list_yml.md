@@ -3,13 +3,13 @@
 
 ***On the Control Node***
 
-# Create a user_list.yml playbook
+# Create a users.yml playbook
 ### QUESTION #13:
 ```
 Instructions:
 
 ﻿13. Download the variable file
-"http://content.example.com/Rhce/user_list.yml" and write a playbook named users.yml and then run the playbook
+"http://content.example.com/Rhce/user_list.yml" and write a playbook named "users.yml" and then run the playbook
 on all the nodes using two variable files user_list.yml and vault.yml.
 
 i)  * Create a group opsdev
@@ -47,7 +47,7 @@ users:
 output: \
 ![image](https://github.com/user-attachments/assets/01b5fd2b-2feb-4f9a-a274-11118e3cd88e)
 
-2) Edit the "hosts.yml" playbook:
+2) Edit the "users.yml" playbook:
 ```
 
 ---
