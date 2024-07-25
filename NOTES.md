@@ -109,8 +109,6 @@ Note: In exam, if they have not given managed node username, in that case, user 
 * Next, you will setup the repositories (if you are using Red Hat instead of Rocky Linux):
 ```
 [ansible@control ~]$ sudo su
-```
-```
 [ansible@control ~]# vim /etc/yum.repos.d/myrepo.repo
 
 [BaseOS]
