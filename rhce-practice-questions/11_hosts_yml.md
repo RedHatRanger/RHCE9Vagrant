@@ -36,4 +36,7 @@ iii) The playbook name should be "hosts.yml" and run it on dev group.
 <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 
 ### ANSWER #11:
-1) Log into the CONTROL NODE as student, and 
+1) Log into the CONTROL NODE as student, and create the "hosts.j2" file:
+```
+
+```
