@@ -36,3 +36,48 @@ iii) Use when condition for each play
 ```
 output: \
 ![image](https://github.com/user-attachments/assets/01b5fd2b-2feb-4f9a-a274-11118e3cd88e)
+
+2) Edit the "hosts.yml" file:
+```
+
+---
+- name: user creation
+  hosts: dev,test
+  vars_files:
+     - user_list.yml
+     - vault.yml
+  tasks:
+     - name: add group
+       group:
+           name: opsdev
+           state: present
+
+     - name: adding users
+       user:
+           name: "{{ item.name }}"
+           groups: opsdev
+           password: "{{ pw_developer | password_hash('sha512') }}"
+       when: item.job=='developer'
+       loop: "{{ users }}"
+
+- name: Create users and groups
+  hosts: prod
+  vars_file:
+     - user_list.yml
+     - vault.yml
+  tasks:
+     - name: add group
+       group:
+           name: opsmgr
+           state: present
+
+     - name: adding users
+       user:
+           name: "{{ item.name }}"
+           groups: opsmgr
+           password: "{{ pw_manager | password_hash('sha512') }}"
+       when: item.job=='manager'
+       loop: "{{ users }}"
+
+:wq      
+```
