@@ -7,7 +7,7 @@
 ```
 Instructions:
 
-2. Create a playbook called repo.yml for configuring the repository on all nodes.
+2. Create a playbook called "repo.yml" for configuring the repository on all nodes.
 BaseOS:
 name: BaseOS
 baseurl: file:///media/BaseOS/
