@@ -21,7 +21,7 @@ iv)  Playbook name should be issue.yml and run on all managed nodes
 <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 
 ### ANSWER #10:
-1) Log into the CONTROL NODE as student, and create the "hwreport.empty" file in the ~/ansible directory:
+1) Log into the CONTROL NODE as student, and create the "issue.yml" playbook:
 ```
 [student@control ansible]$ vim issue.yml
 
@@ -52,3 +52,29 @@ iv)  Playbook name should be issue.yml and run on all managed nodes
 ﻿
 :wq
 ```
+
+2) Test and run the playbook:
+```
+[student@control ansible]$ ansible-navigator run -m stdout issue.yml -C
+<output omitted>
+[student@control ansible]$ ansible-navigator run -m stdout issue.yml
+```
+output: \
+![image](https://github.com/user-attachments/assets/5ca68c80-9a8e-48fd-9c83-72859b0d3924)
+
+3) Validate the /etc/issue file on all nodes:
+```
+[student@control ansible]$ ansible -m command -a "cat /etc/issue"
+nodel | CHANGED | rc=0 >>
+Developmet
+node2 | CHANGED | rc=0 >>
+Test
+node3 | CHANGED | rc=0 >>
+Production
+node4 | CHANGED | rc=0 >>
+Production
+node5 | CHANGED | rc=0 >>
+
+```
+
+
