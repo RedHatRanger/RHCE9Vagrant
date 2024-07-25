@@ -48,6 +48,25 @@ RHEL 9.0 (That's A good thing to practice but not essential)
 Possible Issues: Don't install two hypervisers at the same time (VMWare Workstation and Virtualbox)
 ```
 
+* Download Links: \
+1) <a href=https://developer.hashicorp.com/vagrant/install>Download and Install Vagrant</a> 
+2) <a href=https://m.majorgeeks.com/files/details/vmware_workstation_for_windows.html>Download VMWare workstation for Windows</a>
+3) <a href=https://developer.hashicorp.com/vagrant/install/vmware>Download and install the VMWare Vagrant Package</a>
+4) Run these commands in PowerShell:
+```
+[student@control ansible]$ mkdir ~\vagrant
+[student@control ansible]$ cd ~\vagrant
+
+# IMPORTANT: Before you run these two commands, YOU MUST FIRST COPY THE Vagrantfile FROM:
+https://github.com/RedHatRanger/RHCE9Vagrant/Vagrantfiles/vmware/Vagrantfile to your ~/vagrant directory.
+
+[student@control vagrant]$ vagrant plugin install vagrant-vmware-desktop
+[student@control vagrant]$ vagrant up --provider=vmware_desktop
+```
+
+
+```
+
 * How to Schedule the Exam EX294:
 ```
 ==============================================================
