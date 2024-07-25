@@ -48,7 +48,7 @@ RHEL 9.0 (That's A good thing to practice but not essential)
 Possible Issues: Don't install two hypervisers at the same time (VMWare Workstation and Virtualbox)
 ```
 
-* Download Links: \
+* Download Links: 
 1) <a href=https://developer.hashicorp.com/vagrant/install>Download and Install Vagrant</a> 
 2) <a href=https://m.majorgeeks.com/files/details/vmware_workstation_for_windows.html>Download VMWare workstation for Windows</a>
 3) <a href=https://developer.hashicorp.com/vagrant/install/vmware>Download and install the VMWare Vagrant Package</a>
