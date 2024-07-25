@@ -118,14 +118,14 @@ name=BaseOS
 baseurl=file:///run/media/ansible/RHEL-9-4-BaseOS-x86_64/BaseOS
 enabled=1
 gpgcheck=1
-gpgkey=file:///run/media/ansible/RHEL-9-4-BaseOS-x86_64/
+gpgkey=file:///run/media/ansible/RHEL-9-4-BaseOS-x86_64/RPM-GPG-KEY-redhat-release
 
 [AppStream]
 name=BaseOS
-baseurl=file:///run/media/ansible/RHEL-9-4-BaseOS-x86_64/AppStream
+baseurl=file:///run/media/ansible/RHEL-9-4-AppStream-x86_64/AppStream
 enabled=1
 gpgcheck=1
-gpgkey=file:///run/media/ansible/RHEL-9-4-BaseOS-x86_64/
+gpgkey=file:///run/media/ansible/RHEL-9-4-AppStream-x86_64/RPM-GPG-KEY-redhat-release
 
 :wq
 ```
