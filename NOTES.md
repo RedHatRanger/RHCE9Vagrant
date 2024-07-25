@@ -64,9 +64,6 @@ https://github.com/RedHatRanger/RHCE9Vagrant/Vagrantfiles/vmware/Vagrantfile to 
 [student@control vagrant]$ vagrant up --provider=vmware_desktop
 ```
 
-
-```
-
 * How to Schedule the Exam EX294:
 ```
 ==============================================================
