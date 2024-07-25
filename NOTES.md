@@ -27,6 +27,27 @@ What you need at least if you are using laptop with intel CPU.
 =============================================================
 ```
 
+* Download Checklist:
+```
+=============================================================
+Redhat RHCE Ex294-V9 Exam Preparation ( AUG-2024 )
+=============================================================
+1-  Create RHN/Redhat Login ID:                  Done.
+2-  Download ISO Image                           Done.
+    https://developers.redhat.com/ (Select Redhat Enterprise Linux ) and download RHEL 9.4
+    https://developers.redhat.com/products/rhel/overview
+
+    01-AUG-2024      (your Exam OS version will be RHEL 9.0)
+
+RHEL 9.4 (That's fine no issue)
+RHEL 9.0 (That's A good thing to practice but not essential)
+
+3-  Hyperviser
+    Vmware Workstation                           Done (with Advance features)
+--------------------------------------------------------------
+Possible Issues: Don't install two hypervisers at the same time (VMWare Workstation and Virtualbox)
+```
+
 * Hostname Configuration:
 ```
 ansible control node: 
