@@ -18,9 +18,8 @@ i) download hwreport.txt from the url "http://content.example.com/hwreport.txt a
 HOSTNAME=
 MEMORY=
 BIOS=
-CPU=
-DISK_SIZE_VDA=
-DISK_SIZE_VDB=
+DISK_SIZE_SDA=
+DISK_SIZE_SDB=
 ii) if there is no information it should show "NONE"
 iii) playbook name should be hwreport.yml
 ```
@@ -88,3 +87,8 @@ iii) playbook name should be hwreport.yml
 output: \
 ![image](https://github.com/user-attachments/assets/625aace1-5c6f-449c-97e4-6cd2c8977c6c)
 
+* Validate the /root/hwreport.txt file for each of the nodes:
+```
+[student@control ansible]$ ansible all -m command -a "cat /root/hwreport.txt"
+<output omitted>
+```
