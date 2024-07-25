@@ -27,6 +27,32 @@ What you need at least if you are using laptop with intel CPU.
 =============================================================
 ```
 
+* Hostname Configuration:
+```
+ansible control node: 
+              control.example.com     172.28.128.100/24
+
+managed nodes:
+              node1.example.com       172.28.128.101/24
+              node2.example.com       172.28.128.102/24
+              node3.example.com       172.28.128.103/24
+              node4.example.com       172.28.128.104/24
+              node5.example.com       172.28.128.105/24
+              
+* All nodes root password is "redhat" and Ansible control node username is student with passowrd "redhat".
+
+* create directory "ansible" under path /home/student/ and all playbooks should be under /home/student/ansible.
+
+* all playbooks should be owned by student and ansible managed node username is also student.
+
+* Unless advised password should be "redhat" for all the users.
+
+Ansible Automation Platform (AAP) 2.2 is utility.example.com credentials are admin, redhat.
+
+Note: In exam, if they have not given managed node username, in that case, user control node user as remote user.
+-------------------------------------------------------------------------------------
+# ssh student@workstation
+```
 
 * Once all the nodes are up and the control node is up, ON THE CONTROL NODE:
 ```
