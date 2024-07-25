@@ -37,7 +37,7 @@ iii) Use when condition for each play
 output: \
 ![image](https://github.com/user-attachments/assets/01b5fd2b-2feb-4f9a-a274-11118e3cd88e)
 
-2) Edit the "hosts.yml" file:
+2) Edit the "hosts.yml" playbook:
 ```
 
 ---
@@ -81,3 +81,12 @@ output: \
 
 :wq      
 ```
+
+3) Test and run the "hosts.yml" playbook:
+```
+[student@control ansible]$ ansible-navigator run -m stdout hosts.yml -C
+<output omitted>
+[student@control ansible]$ ansible-navigator run -m stdout hosts.yml
+```
+output: \
+![image](https://github.com/user-attachments/assets/850a704e-ad58-41f6-8a2e-70a2060113dc)
