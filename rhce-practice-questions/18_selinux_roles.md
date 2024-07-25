@@ -8,14 +8,9 @@
 ```
 Instructions:
 
-﻿17. Use a RHEL timesync system role:
+18. Create a playbook called selinux.yml and use system roles
 
- i) Create a playbook called "timesync.yml" that:
- - Runs on all managed nodes
- - Uses the timesync role
- - Configures the role to use the currently active NTP provider
- - Configure the role to use the time server classroom.lab.example.com
- - Configure the role to enable the iburst parameter
+ i) set selinux mode as enforcing on all managed nodes
 ```
 
 (scroll down for an answer)
@@ -23,34 +18,27 @@ Instructions:
 <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 
 ### ANSWER #18:
-1) Log into the CONTROL NODE as student, and install the "rhel-system-roles" package if it isn't installed:
+1) Log into the CONTROL NODE as student, and create the "selinux.yml" file:
 ```
-[student@control ansible]$ sudo yum install rhel-system-roles -y
-<output omitted>
-```
-
-2) Create the "timesync.yml" playbook
-```
-[student@control ansible]$ ﻿vim timesync.yml
+[student@control ansible]$ vim selinux.yml
 
 ---
-- name: use timesync
+- name: configure selinux
   hosts: all
   vars:
-     timesync_ntp_servers:
-         - hostname: classroom.example.com
-           iburst: yes
+      selinux_state: enforcing
   roles:
-     - rhel-system-roles.timesync
+    - role: rhel-system-roles.selinux
+      become: true
 
 :wq
 ```
 
-3) Run the "timesync.yml" playbook:
+2) Run the "selinux.yml" playbook:
 ```
-[student@control ansible]$ ﻿ansible-navigator run -m stdout timesync.yml
+[student@control ansible]$ ansible-navigator run -m stdout selinux.yml
 ```
 output: \
-![image](https://github.com/user-attachments/assets/0e095f8c-d8eb-4fcc-b254-577f56b4cc0e)
+![image](https://github.com/user-attachments/assets/7159724d-26e6-452b-87a1-333c4fc77023)
 
 * Done!!
