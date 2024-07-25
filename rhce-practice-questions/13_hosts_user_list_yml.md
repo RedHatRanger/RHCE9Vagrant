@@ -33,6 +33,19 @@ iii) Use when condition for each play
 1) Log into the CONTROL NODE as student, and run "wget" to download the "user_list.yml" file:
 ```
 [student@control ansible]$ ﻿wget http://content.example.com/Rhce/user_list.yml
+[student@control ansible]$ vim user_list.yml
+myusers:
+    - name: david
+      job: developer
+      password_expire_days: 10
+    - name: nancy
+      job: manager
+      password_expire_days: 10
+    - name: haley
+      job: developer
+      password_expire_days: 10
+
+:wq
 ```
 output: \
 ![image](https://github.com/user-attachments/assets/01b5fd2b-2feb-4f9a-a274-11118e3cd88e)
