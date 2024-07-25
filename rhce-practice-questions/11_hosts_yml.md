@@ -61,6 +61,7 @@ iii) The playbook name should be "hosts.yml" and run it on dev group.
        ansible.builtin.template:
        src: myhosts.j2
        dest: /etc/myhosts
+
 - name: delete from all
   hosts: all,!dev
   tasks:
@@ -72,3 +73,18 @@ iii) The playbook name should be "hosts.yml" and run it on dev group.
 :wq
 ```
 
+3) Test and run the "hosts.yml" playbook:
+```
+[student@control ansible]$ ansible-navigator run -m stdout hosts.yml -C
+<output omitted>
+[student@control ansible]$ ansible-navigator run -m stdout hosts.yml
+```
+output: \
+![image](https://github.com/user-attachments/assets/3adc6894-c73f-40c4-a2ce-9f8ae3cc6bef)
+
+* Finally, you may validate the changes you made:
+```
+[student@control ansible]$ ansible all -m command -a "cat /etc/myhosts"
+```
+
+* Done!!
