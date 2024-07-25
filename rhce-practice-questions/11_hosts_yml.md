@@ -49,3 +49,26 @@ iii) The playbook name should be "hosts.yml" and run it on dev group.
 
 :wq
 ```
+
+2) Next, create the "hosts.yml" playbook:
+```
+
+---
+- name: use template
+  hosts: all
+  tasks:
+     - name: use template
+       ansible.builtin.template:
+       src: myhosts.j2
+       dest: /etc/myhosts
+- name: delete from all
+  hosts: all,!dev
+  tasks:
+     - name: delete file
+       ansible.builtin.file:
+           path: /etc/myhosts
+           state: absent
+
+:wq
+```
+
