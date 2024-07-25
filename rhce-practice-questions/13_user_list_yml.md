@@ -30,6 +30,9 @@ iii) Use when condition for each play
 <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 
 ### ANSWER #13:
-1) Log into the CONTROL NODE as student, and create the "myhosts.j2" file:
+1) Log into the CONTROL NODE as student, and run "wget" to download the "user_list.yml" file:
 ```
-[student@control ansible]$ ﻿vim myhosts.j2
+[student@control ansible]$ ﻿wget http://content.example.com/Rhce/user_list.yml
+```
+output: \
+![image](https://github.com/user-attachments/assets/01b5fd2b-2feb-4f9a-a274-11118e3cd88e)
