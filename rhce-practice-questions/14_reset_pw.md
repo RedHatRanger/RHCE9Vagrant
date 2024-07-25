@@ -3,7 +3,7 @@
 
 ***On the Control Node***
 
-# Rekey the variable file solaris.yml
+# Rekey the encrypted file solaris.yml
 ### QUESTION #14:
 ```
 Instructions:
