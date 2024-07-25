@@ -3,12 +3,12 @@
 
 ***On the Control Node***
 
-# Rekey the variable file salary.yml
+# Rekey the variable file solaris.yml
 ### QUESTION #14:
 ```
 Instructions:
 
-14. Rekey variable file from "http://content.example.com/Rhce/salary.yml"
+14. Rekey variable file from "http://content.example.com/Rhce/solaris.yml"
 
 i) Old password: cisco
 ii) New password: redhat
@@ -19,8 +19,10 @@ ii) New password: redhat
 <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 
 ### ANSWER #14:
-1) Log into the CONTROL NODE as student, and run "wget" to download the "salary.yml" file:
+1) Log into the CONTROL NODE as student, and run "wget" to download the "solaris.yml" file:
 ```
-[student@control ansible]$ ﻿wget http://content.example.com/Rhce/salary.yml
+[student@control ansible]$ ﻿wget http://content.example.com/Rhce/solaris.yml
+```
+output: \
+![image](https://github.com/user-attachments/assets/a860dfd2-5ed6-4c95-855f-cab88f35ae43)
 
-```
