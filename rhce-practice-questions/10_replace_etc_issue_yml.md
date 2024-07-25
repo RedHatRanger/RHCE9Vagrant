@@ -3,7 +3,7 @@
 
 ***On the Control Node***
 
-# Create a hwreport.yml playbook
+# Create an issue.yml playbook
 ### QUESTION #10:
 ```
 Instructions:
@@ -64,7 +64,7 @@ output: \
 
 3) Validate the /etc/issue file on all nodes:
 ```
-[student@control ansible]$ ansible -m command -a "cat /etc/issue"
+[student@control ansible]$ ansible dev,test,prod -m command -a "cat /etc/issue"
 nodel | CHANGED | rc=0 >>
 Developmet
 node2 | CHANGED | rc=0 >>
@@ -73,8 +73,8 @@ node3 | CHANGED | rc=0 >>
 Production
 node4 | CHANGED | rc=0 >>
 Production
-node5 | CHANGED | rc=0 >>
-
 ```
+
+* Done!!
 
 
