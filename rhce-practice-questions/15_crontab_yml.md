@@ -45,3 +45,10 @@ Instructions:
 ```
 output: \
 ![image](https://github.com/user-attachments/assets/fc27b523-5919-4c67-a10a-86f8de8bb166)
+
+3) Finally, you may validate your cron jobs on all the nodes:
+```
+[student@control ansible]$ ansible all -m command -a "crontab -lu student"
+```
+output: \
+![image](https://github.com/user-attachments/assets/66a1f35d-d757-4277-a512-1b8064828331)
