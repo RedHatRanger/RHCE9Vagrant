@@ -67,11 +67,12 @@ flowchart TD;
 [root@control ~]# cat /etc/hosts
 127.0.0.1 localhost localhost.localdomain localhost4 localho    st4.localdomain4
 ::1 localhost localhost.localdomain localhost6 localhost6.lo    caldomain6
-172.25.250.9 node1.lab.example.com node1
-172.25.250.10 node2.lab.example.com node2
-172.25.250.11 node3.lab.example.com node3
-172.25.250.12 node4.lab.example.com node4
-172.25.250.13 node5.lab.example.com node5
+172.28.128.100 control.example.com node1
+172.28.128.101   node1.example.com   node1
+172.28.128.102   node2.example.com   node2
+172.28.128.103   node3.example.com   node3
+172.28.128.104   node4.example.com   node4
+172.28.128.105   node5.example.com   node5
 # and you can access nodes via ssh command
 [root@control ~]# ssh node1
 ```
@@ -2899,16 +2900,16 @@ Create a playbook named /home/greg/ansible/roles.yml with the following requirem
 
 - The playbook contains a play that runs on hosts in the balancers hostgroup and will use the balancer role.
 - This role configures a service to balance the load of web server requests among the hosts inthe webservers host group.
-  Browsing to a host in the balancers hostgroup (for example `http://172.25.250.13` ) producesthe following output:
+  Browsing to a host in the balancers hostgroup (for example `http://172.28.128.13` ) producesthe following output:
 
 ```shell
-Welcome to node3.lab.example.com on `172.25.250.11`
+Welcome to node3.lab.example.com on `172.28.128.11`
 ```
 
 Reloading the browser will generate output from another web server:
 
 ```shell
-Welcome to node4.lab.example.com on `172.25.250.12`.
+Welcome to node4.lab.example.com on `172.28.128.12`.
 ```
 
 - The playbook contains a play that runs on hosts in the webservers hostgroup and will use the phpinfo role.
@@ -2925,7 +2926,7 @@ Hello PHP World from node3.lab.example.com
 ```
 
 There are also various details of the PHP configuration, such as the version of PHP installed, etc.
-Similarly, browsing to `http://172.25.250.12/hello.php` produces the following output:
+Similarly, browsing to `http://172.28.128.12/hello.php` produces the following output:
 
 ```
 Hello PHP World from node4.lab.example.com
