@@ -52,10 +52,10 @@ DISK_SIZE_SDB= disk_sdb_size
 - name: Generate a hardware report
   hosts: all
   tasks:
-     - name: Download this file
+     - name: copy from folder (only for practice; get_url will be used on the exam)
        #get_url:
            #url: http://example.com/path/file.conf
-       copy:
+       ansible.builtin.copy:
           src: hwreport.empty
           dest: /root/hwreport.txt
 
