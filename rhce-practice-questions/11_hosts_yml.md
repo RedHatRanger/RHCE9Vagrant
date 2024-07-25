@@ -10,9 +10,8 @@ Instructions:
 
 11. Download file "http://content.example.com/Rhce/myhosts.j2"
 1) myhosts.j2 is having the content:
-
-127.0.0.1 localhost.localdomain localhost
-192.168.0.1 localhost.localdomain localhost
+   - 127.0.0.1 localhost.localdomain localhost
+   - 192.168.0.1 localhost.localdomain localhost
 
 ii) The file should collect all node information like ipaddress,fqdn,hostname
     and it should be same as /etc/hosts file,
