@@ -33,6 +33,7 @@ enabled: yes
 
 1) Log into the CONTROL NODE as student, and create/edit a yum_repo.yml file:
 ```
+# HINT: If you can't memorize this stuff you may run "ansible-doc yum_repository" and type /EXAMPLES to search
 [student@control ansible]$ vim yum_repo.yml
 
 ---
