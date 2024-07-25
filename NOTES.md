@@ -2,6 +2,13 @@
 
 ## <a href="https://www.youtube.com/watch?v=8Ls56awCJ_U&list=PLYB6dfdhWDePZf4fd4YgGGtSX_vHKv5vz&index=1">Video #1</a> From Teach Me Tech##
 
+* How to Schedule the Exam EX294:
+```
+==============================================================
+https://rhtapps.redhat.com/individualexamscheduler/services/externaluser/login
+==============================================================
+```
+
 * Hardware Requirements for This Lab Environment:
 ```
 ============================================================
@@ -64,13 +71,6 @@ PS C:\Users\<your_username>\vagrant> vagrant plugin install vagrant-vmware-deskt
 PS C:\Users\<your_username>\vagrant> vagrant up --provider=vmware_desktop
 ```
 
-* How to Schedule the Exam EX294:
-```
-==============================================================
-https://rhtapps.redhat.com/individualexamscheduler/services/externaluser/login
-==============================================================
-```
-
 * Hostname Configuration:
 ```
 ansible control node: 
@@ -117,13 +117,15 @@ Note: In exam, if they have not given managed node username, in that case, user 
 name=BaseOS
 baseurl=file:///run/media/ansible/RHEL-9-4-BaseOS-x86_64/BaseOS
 enabled=1
-gpgcheck=0
+gpgcheck=1
+gpgkey=file:///run/media/ansible/RHEL-9-4-BaseOS-x86_64/
 
 [AppStream]
 name=BaseOS
 baseurl=file:///run/media/ansible/RHEL-9-4-BaseOS-x86_64/AppStream
 enabled=1
-gpgcheck=0
+gpgcheck=1
+gpgkey=file:///run/media/ansible/RHEL-9-4-BaseOS-x86_64/
 
 :wq
 ```
