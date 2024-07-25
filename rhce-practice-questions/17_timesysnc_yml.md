@@ -27,4 +27,24 @@ Instructions:
 ```
 [student@control ansible]$ ﻿vim timesync.yml
 
+---
+- name: use timesync
+  hosts: all
+  vars:
+     timesync_ntp_servers:
+         - hostname: classroom.example.com
+           iburst: yes
+  roles:
+     - rhel-system-roles.timesync
+
+:wq
 ```
+
+2) Run the "timesync.yml" playbook:
+```
+[student@control ansible]$ ﻿ansible-navigator run -m stdout timesync.yml
+```
+output: \
+![image](https://github.com/user-attachments/assets/0e095f8c-d8eb-4fcc-b254-577f56b4cc0e)
+
+
