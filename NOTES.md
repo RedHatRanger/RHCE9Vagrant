@@ -6,6 +6,7 @@
 ```
 ============================================================
 In the Exam we will have 6 Vms.
+
 1-  One is controller node
 2-  Five Vms will be used as Managed nodes.
 ============================================================
