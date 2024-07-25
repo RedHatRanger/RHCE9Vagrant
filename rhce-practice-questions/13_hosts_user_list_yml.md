@@ -34,16 +34,13 @@ iii) Use when condition for each play
 ```
 [student@control ansible]$ ﻿wget http://content.example.com/Rhce/user_list.yml
 [student@control ansible]$ vim user_list.yml
-myusers:
+users:
     - name: david
       job: developer
-      password_expire_days: 10
     - name: nancy
       job: manager
-      password_expire_days: 10
     - name: haley
       job: developer
-      password_expire_days: 10
 
 :wq
 ```
@@ -54,37 +51,38 @@ output: \
 ```
 
 ---
-- name: user creation
+- name: create developer user
   hosts: dev,test
   vars_files:
      - user_list.yml
      - vault.yml
   tasks:
-     - name: add group
+     - name: create opsdev group
        group:
            name: opsdev
            state: present
 
-     - name: adding users
+     - name: add users who have developer job
        user:
            name: "{{ item.name }}"
            groups: opsdev
            password: "{{ pw_developer | password_hash('sha512') }}"
-       when: item.job=='developer'
+       when: item.job =='developer'
        loop: "{{ users }}"
 
-- name: Create users and groups
+
+- name: create manager users
   hosts: prod
   vars_file:
      - user_list.yml
      - vault.yml
   tasks:
-     - name: add group
+     - name: create opsmgr group
        group:
            name: opsmgr
            state: present
 
-     - name: adding users
+     - name: add users who have manager job
        user:
            name: "{{ item.name }}"
            groups: opsmgr
