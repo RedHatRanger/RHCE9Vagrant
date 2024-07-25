@@ -29,10 +29,20 @@ iii) playbook name should be hwreport.yml
 <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 
 ### ANSWER #9:
-
-1) Log into the CONTROL NODE as student, and create the hwreport.yml:
+1) Log into the CONTROL NODE as student, and create the "hwreport.empty" file in the ~/ansible directory:
 ```
-# If you are unsure you can run "ansible-doc get_url" and search /EXAMPLES for Download foo.conf
+[student@control ansible]$ vim hwreport.empty
+﻿
+HOSTNAME= inventoryhostname
+MEMORY= memory_in_MB
+BIOS= BIOS_version
+DISK_SIZE_SDA= disk_sda_size
+DISK_SIZE_SDB= disk_sdb_size
+```
+
+1) Next, create the "hwreport.yml" file:
+```
+# NOTE: If you are unsure you can run "ansible-doc get_url" and search /EXAMPLES for Download foo.conf
   AND "ansible-doc copy" for information and EXAMPLES for the copy command.
   AND "ansible all -m setup > test" will get you the correct parameters you are looking for the replace: option.
 
