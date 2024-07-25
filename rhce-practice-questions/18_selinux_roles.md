@@ -41,4 +41,10 @@ Instructions:
 output: \
 ![image](https://github.com/user-attachments/assets/7159724d-26e6-452b-87a1-333c4fc77023)
 
+3) Finally, you may validate the selinux status on all the nodes:
+```
+[student@control ansible]$ ansible all -m command -a "getenforce"
+<output omitted>
+```
+
 * Done!!
