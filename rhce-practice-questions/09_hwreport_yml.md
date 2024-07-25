@@ -33,10 +33,51 @@ iii) playbook name should be hwreport.yml
 
 1) Log into the CONTROL NODE as student, and create the hwreport.yml:
 ```
+# If you are unsure you can run "ansible-doc get_url" and search /EXAMPLES for Download foo.conf
+
 [student@control ansible]$ vim hwreport.yml
+
+---
+- name: Generate a hardware report
+  hosts: all
+  tasks:
+     - name: Download this file
+       #get_url:
+           #url: http://example.com/path/file.conf
+       copy:
+          src: hwreport.empty
+          dest: /root/hwreport.txt
+
+      - name: Generate information for the Inventory hostname
+        replace:
+           path: /root/hwreport.txt
+           regexp: "inventoryhostname"
+           replace: "{{ ansible_hostname | default ('NONE') }}"
+
+      - name: Generate information for memory_in_MB
+        replace:
+           path: /root/hwreport.txt
+           regexp: "memory_in_MB"
+           replace: "{{ ansible_memory_mb | default ('NONE') }}"
+
+      - name: Generate information for BIOS_version
+        replace:
+           path: /root/hwreport.txt
+           regexp: "BIOS_version"
+           replace: "{{ ansible_bios_version | default ('NONE') }}"
+
+      - name: Generate information for disk_sda_size
+        replace:
+           path: /root/hwreport.txt
+           regexp: "disk_sda_size"
+           replace: "{{ ansible_devices.sda.size | default ('NONE') }}"
+
+      - name: Generate information for disk_sdb_size
+        replace:
+           path: /root/hwreport.txt
+           regexp: "disk_sdb_size"
+           replace: "{{ ansible_devices.sdb.size | default ('NONE') }}"
 ```
-file contents: \
-![image](https://github.com/user-attachments/assets/9a4950d4-3da6-4f95-9685-6d18220076af)
 
 2) Test and run the hwreport.yml playbook:
 ```
