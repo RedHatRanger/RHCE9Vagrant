@@ -4,7 +4,7 @@
 ***On the Control Node***
 
 # Create an timesync.yml playbook
-### QUESTION #16:
+### QUESTION #17:
 ```
 Instructions:
 
@@ -22,7 +22,7 @@ Instructions:
 <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 
-### ANSWER #16:
+### ANSWER #17:
 1) Log into the CONTROL NODE as student, and install the "rhel-system-roles" package if it isn't installed:
 ```
 [student@control ansible]$ sudo yum install rhel-system-roles -y
