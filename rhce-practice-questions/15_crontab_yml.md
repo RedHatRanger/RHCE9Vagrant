@@ -28,7 +28,7 @@ Instructions:
   tasks:
      - name: use cron job
        ansible.builtin.cron:
-           name: "test"
+           name: "logger job"
            minute: "*/2"
            user: student
            job: logger "EX294 in progress"
@@ -36,3 +36,12 @@ Instructions:
 
 :wq
 ```
+
+2) Test and run the "crontab.yml" playbook:
+```
+[student@control ansible]$ ansible-navigator run -m stdout crontab.yml -C
+<output omitted>
+[student@control ansible]$ ansible-navigator run -m stdout crontab.yml
+```
+output: \
+![image](https://github.com/user-attachments/assets/fc27b523-5919-4c67-a10a-86f8de8bb166)
