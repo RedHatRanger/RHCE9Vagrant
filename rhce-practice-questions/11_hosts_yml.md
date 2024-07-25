@@ -1,5 +1,5 @@
 <a href="https://www.youtube.com/watch?v=Oxd2Zuuv9Cs&list=PLYB6dfdhWDePZf4fd4YgGGtSX_vHKv5vz&index=14">Video Tutorial</a> by Teach Me Tech \
-<a href="https://www.youtube.com/watch?v=yGJfoLGaN0E&list=PLL_setXLS0tiYMipvQI4oUGkJwhOhn42J&index=11">Video Tutorial</a> by codeXchange
+<a href="https://www.youtube.com/watch?v=yGJfoLGaN0E&list=PLL_setXLS0tiYMipvQI4oUGkJwhOhn42J&index=11">Video Tutorial</a> by codeXchange (BEST)
 
 ***On the Control Node***
 
@@ -36,7 +36,16 @@ iii) The playbook name should be "hosts.yml" and run it on dev group.
 <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 
 ### ANSWER #11:
-1) Log into the CONTROL NODE as student, and create the "hosts.j2" file:
+1) Log into the CONTROL NODE as student, and create the "myhosts.j2" file:
 ```
+[student@control ansible]$ ﻿vim myhosts.j2
 
+127.0.0.1 localhost localhost.localdomain localhost4 localhost4.localdomain4
+::1 localhost localhost.localdomain localhost6 localhost.localdomain6
+
+{% for host in groups['all'] %}
+{{ hostvars[host].ansible_default_ipv4.address }} {{ hostvars[host].ansible_fqdn }} {{ hostvars[host].ansible_hostname }}
+{%endfor%}
+
+:wq
 ```
