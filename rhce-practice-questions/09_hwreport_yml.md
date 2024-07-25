@@ -95,9 +95,37 @@ DISK_SIZE_SDB= disk_sdb_size
 [student@control ansible]$ ansible-navigator run -m stdout hwreport.yml -C
 <output omitted>
 [student@control ansible]$ ansible-navigator run -m stdout hwreport.yml
+﻿...
+TASK [Downlod this file] *************************************************************
+changed: [node3.example.com]
+changed: [node5.example.com]
+changed: [node4.example.com]
+changed: [node2.example.com]
+changed: [node1.example.com]
+
+TASK [Generate a hardware report information for Inventory hostname] *****************
+changed: [node4.example.com]
+changed: [node3.example.com]
+changed: [node5.example.com]
+changed: [node2.example.com]
+changed: [node1.example.com]
+
+TASK [Generate a hardware report information for memory_in_MB] *******
+changed: [node3.example.com]
+changed: [node5.example.com]
+changed: [node4.example.com]
+changed: [node1.example.com]
+changed: [node2.example.com]
+
+TASK [Generate a hardware report information for BIOS version] ****
+changed: [node5.example.com]
+changed: [node3.example.com]
+changed: [node4.example.com]
+changed: [node1.example.com]
+changed: [node2.example.com]
+TASK [Generate a hardware report information for disk_sda_size]
+...
 ```
-output: \
-![image](https://github.com/user-attachments/assets/625aace1-5c6f-449c-97e4-6cd2c8977c6c)
 
 * Validate the /root/hwreport.txt file for each of the nodes:
 ```
