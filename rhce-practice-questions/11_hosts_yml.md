@@ -3,7 +3,7 @@
 
 ***On the Control Node***
 
-# Create an hosts.yml playbook
+# Create a hosts.yml playbook
 ### QUESTION #11:
 ```
 Instructions:
