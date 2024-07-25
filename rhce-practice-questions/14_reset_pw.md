@@ -26,3 +26,18 @@ ii) New password: redhat
 output: \
 ![image](https://github.com/user-attachments/assets/a860dfd2-5ed6-4c95-855f-cab88f35ae43)
 
+2) Next, run the "ansible-vault rekey" command to change the password on "solaris.yml":
+```
+NOTE:
+# OLD PASSWORD = cisco
+# NEW PASSWORD = redhat
+
+[student@control ansible]$ ansible-vault rekey solaris.yml
+Vault password:
+New Vault password:
+Confirm New Vault password:
+Rekey successful
+[student@control ansible]$
+```
+
+* Done!!
