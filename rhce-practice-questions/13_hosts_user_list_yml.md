@@ -51,7 +51,7 @@ output: \
 ```
 
 ---
-- name: create developer user
+- name: create developer users
   hosts: dev,test
   vars_files:
      - user_list.yml
