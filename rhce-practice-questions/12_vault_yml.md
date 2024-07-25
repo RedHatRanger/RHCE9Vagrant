@@ -10,10 +10,10 @@ Instructions:
 
 ﻿12. Create a variable file vault.yml and that file should contain variable and its value.
 
-  pw_developer is value lamdev
-  pw_manager is value lammgr
+  pw_developer is value Iamdev
+  pw_manager is value Iammgr
 
-  i) vault.yml file should be encrypted using password "P@ssword"
+  i) vault.yml file should be encrypted using password "P@ssw0rd"
   ii) store password in a file named secret.txt, which is used to encrypt the variable file.
 ```
 
@@ -22,4 +22,38 @@ Instructions:
 <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 
 ### ANSWER #12:
-1) Log into the CONTROL NODE as student, and 
+1) Log into the CONTROL NODE as student, and create a "secret.txt" file in the ~/ansible folder:
+```
+[student@control ansible]$ vim secret.txt
+
+P@ssw0rd
+
+:wq
+```
+
+2) Use the "ansible-vault" command to create & encrypt the "vault.yml" using the "secret.txt" file:
+```
+[student@control ansible]$ ansible-vault create vault.yml --vault-password-file=secret.txt
+
+pw_developer: Iamdev
+pw_manager: Iammgr
+
+:wq
+``` 
+
+3) View the encrypted playbook:
+```
+[student@control ansible]$ ansible-vault view vault.yml --vault-password-file=secret.txt
+pw_developer: Iamdev
+pw_manager: Iammgr
+```
+4) Optionally, you may configure the secret to be used each time without the --vault flag:
+```
+[student@control ansible]$ vim ansible.cfg
+
+[defaults]
+inventory=/home/student/ansible/inventory
+remote_user=student
+roles_path=/home/student/ansible/roles
+collection_path=/home/student/ansible/mycollection
+```
