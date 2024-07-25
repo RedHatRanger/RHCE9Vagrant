@@ -3,7 +3,7 @@
 
 ***On the Control Node***
 
-# Create an timesync.yml playbook
+# Create a timesync.yml playbook
 ### QUESTION #17:
 ```
 Instructions:
