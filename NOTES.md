@@ -54,14 +54,14 @@ Possible Issues: Don't install two hypervisers at the same time (VMWare Workstat
 3) <a href=https://developer.hashicorp.com/vagrant/install/vmware>Download and install the VMWare Vagrant Package</a>
 4) Run these commands in PowerShell:
 ```
-[student@control ansible]$ mkdir ~\vagrant
-[student@control ansible]$ cd ~\vagrant
+PS C:\Users\<your_username>> mkdir ~\vagrant
+PS C:\Users\<your_username>> cd ~\vagrant
 
 # IMPORTANT: Before you run these two commands, YOU MUST FIRST COPY THE Vagrantfile FROM:
 https://github.com/RedHatRanger/RHCE9Vagrant/Vagrantfiles/vmware/Vagrantfile to your ~/vagrant directory.
 
-[student@control vagrant]$ vagrant plugin install vagrant-vmware-desktop
-[student@control vagrant]$ vagrant up --provider=vmware_desktop
+PS C:\Users\<your_username>\vagrant> vagrant plugin install vagrant-vmware-desktop
+PS C:\Users\<your_username>\vagrant> vagrant up --provider=vmware_desktop
 ```
 
 * How to Schedule the Exam EX294:
