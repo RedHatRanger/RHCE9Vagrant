@@ -1,4 +1,5 @@
 <a href="https://www.youtube.com/watch?v=W2pMZLWK-B4&list=PLYB6dfdhWDePZf4fd4YgGGtSX_vHKv5vz&index=6">Video Tutorial</a> by Teach Me Tech
+<a href="https://www.youtube.com/watch?v=jvyfNTuxyjE&list=PLL_setXLS0tiYMipvQI4oUGkJwhOhn42J&index=4">Video Tutorial</a> by codeXchange (BEST)
 
 ***On the Control Node***
 
@@ -11,9 +12,9 @@ Instructions:
 i) install the httpd package and the service should be started and enabled.
 ii) host the webpage using the template.j2
 iii) the template.j2 should contain:
-     my host is HOSTNAME on IPADDRESS
+     Welcome to HOSTNAME ON IPADDRESS
      where hostname is the Fully Qualified Domain Name (FQDN)
-iv) create the playbook called apache_role.yml and run the role on the dev group.
+iv) create the playbook called "apache_role.yml" and run the role on the dev group.
 ```
 
 (scroll down for an answer)
@@ -28,21 +29,21 @@ iv) create the playbook called apache_role.yml and run the role on the dev group
 /home/student/ansible
 [student@control ansible]$ cd roles
 [student@control roles]$ ansible-galaxy init apache
-- Role apache2 was created successfully
+- Role apache was created successfully
 ```
 2) Next, let's create the "template.j2" file for the apache server:
 ```
-[student@control tasks]$ cd ../templates
+[student@control roles]$ cd apache/templates/
 [student@control templates]$ vim template.j2
 
-My host is {{ ansible_fqdn }} {{ ansible_default_ipv4.address }}
+Welcome to {{ ansible_fqdn }} ON {{ ansible_default_ipv4.address }}
 
 :wq
 ```
 
-3) Let's examine the main.yml file, as this is how it SHOULD LOOK:
+3) Let's create the "main.yml" file:
 ```
-[student@control roles]$ cd ./apache/tasks
+[student@control roles]$ cd apache/tasks/
 [student@control tasks]$ vim main.yml
 
 ---
@@ -54,26 +55,26 @@ My host is {{ ansible_fqdn }} {{ ansible_default_ipv4.address }}
         - firewalld
       state: latest
 
-- name: start the httpd service
+- name: start httpd service
   ansible.builtin.service:
         name: httpd
         state: started
-        enabled: true
+        enabled: yes
 
-- name: start the firewalld service
+- name: start firewalld service
   ansible.builtin.service:
         name: firewalld
         state: restarted
-        enabled: true
+        enabled: yes
 
 - name: add http service in firewall rule
   ansible.posix.firewalld:
         service: http
-        permanent: true
         state: enabled
-        immediate: true
+        permanent: yes
+        immediate: yes
 
-- name: host the web page using the template
+- name: copy the template.j2 file to the webserver directory
   ansible.builtin.template:
         src: template.j2
         dest: /var/www/html/index.html
@@ -91,7 +92,7 @@ My host is {{ ansible_fqdn }} {{ ansible_default_ipv4.address }}
 
 5) Now, let's create the "apache_role.yml" file:
 ```
-[student@control templates]$ cd ../../../
+[student@control templates]$ cd ~/ansible
 [student@control ansible]$ vim apache_role.yml
 
 ---
