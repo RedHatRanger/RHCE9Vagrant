@@ -103,27 +103,27 @@ changed: [node4.example.com]
 changed: [node2.example.com]
 changed: [node1.example.com]
 
-TASK [Generate a hardware report information for Inventory hostname] *****************
+TASK [Generate information for the Inventory hostname] *****************
 changed: [node4.example.com]
 changed: [node3.example.com]
 changed: [node5.example.com]
 changed: [node2.example.com]
 changed: [node1.example.com]
 
-TASK [Generate a hardware report information for memory_in_MB] *******
+TASK [Generate information for memory_in_MB] *******
 changed: [node3.example.com]
 changed: [node5.example.com]
 changed: [node4.example.com]
 changed: [node1.example.com]
 changed: [node2.example.com]
 
-TASK [Generate a hardware report information for BIOS version] ****
+TASK [Generate information for BIOS_version] ****
 changed: [node5.example.com]
 changed: [node3.example.com]
 changed: [node4.example.com]
 changed: [node1.example.com]
 changed: [node2.example.com]
-TASK [Generate a hardware report information for disk_sda_size]
+TASK [Generate information for disk_sda_size]
 ...
 ```
 
