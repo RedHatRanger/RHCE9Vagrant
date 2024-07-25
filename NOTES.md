@@ -42,8 +42,8 @@ Redhat RHCE Ex294-V9 Exam Preparation ( AUG-2024 )
 RHEL 9.4 (That's fine no issue)
 RHEL 9.0 (That's A good thing to practice but not essential)
 
-3-  Hyperviser
-    Vmware Workstation                           Done (with Advance features)
+3-  Best Hyperviser
+    Vmware Workstation (FREE)                    Done (with Advance features)
 --------------------------------------------------------------
 Possible Issues: Don't install two hypervisers at the same time (VMWare Workstation and Virtualbox)
 ```
