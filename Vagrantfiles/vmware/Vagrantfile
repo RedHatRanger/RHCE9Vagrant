@@ -10,12 +10,12 @@ Vagrant.configure("2") do |config|
 
   # Hosts file content
   hostsfile = <<-SCRIPT
-echo "172.28.128.100   control" >> /etc/hosts
-echo "172.28.128.101   node1" >> /etc/hosts
-echo "172.28.128.102   node2" >> /etc/hosts
-echo "172.28.128.103   node3" >> /etc/hosts
-echo "172.28.128.104   node4" >> /etc/hosts
-echo "172.28.128.105   node5" >> /etc/hosts
+echo "172.28.128.100   control.example.com    control" >> /etc/hosts
+echo "172.28.128.101   node1.example.com      node1" >> /etc/hosts
+echo "172.28.128.102   node2.example.com      node2" >> /etc/hosts
+echo "172.28.128.103   node3.example.com      node3" >> /etc/hosts
+echo "172.28.128.104   node4.example.com      node4" >> /etc/hosts
+echo "172.28.128.105   node5.example.com      node5" >> /etc/hosts
 SCRIPT
 
   # User setup script
