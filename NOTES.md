@@ -48,6 +48,13 @@ RHEL 9.0 (That's A good thing to practice but not essential)
 Possible Issues: Don't install two hypervisers at the same time (VMWare Workstation and Virtualbox)
 ```
 
+* How to Schedule the Exam EX294:
+```
+==============================================================
+https://rhtapps.redhat.com/individualexamscheduler/services/externaluser/login
+==============================================================
+```
+
 * Hostname Configuration:
 ```
 ansible control node: 
