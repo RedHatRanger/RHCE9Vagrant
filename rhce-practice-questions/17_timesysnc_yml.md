@@ -46,11 +46,11 @@ Instructions:
 :wq
 ```
 
-2) Run the "timesync.yml" playbook:
+3) Run the "timesync.yml" playbook:
 ```
 [student@control ansible]$ ﻿ansible-navigator run -m stdout timesync.yml
 ```
 output: \
 ![image](https://github.com/user-attachments/assets/0e095f8c-d8eb-4fcc-b254-577f56b4cc0e)
 
-
+* Done!!
