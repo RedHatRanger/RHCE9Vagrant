@@ -1,6 +1,6 @@
 <a href="https://www.youtube.com/watch?v=7-hhX6rcuvY&list=PLYB6dfdhWDePZf4fd4YgGGtSX_vHKv5vz&index=12">Video Tutorial</a> by Teach Me Tech \
 <a href="https://www.youtube.com/watch?v=m5KhsZonGBY&list=PLL_setXLS0tiYMipvQI4oUGkJwhOhn42J&index=9">Video Tutorial</a> by codeXchange \
-<a href="https://www.youtube.com/watch?v=8gOgJbQ29Bc">Video Tutorial</a> by Silent Solution
+<a href="https://www.youtube.com/watch?v=8gOgJbQ29Bc">Video Tutorial</a> by Silent Solution (BEST)
 
 
 ***On the Control Node***
@@ -132,3 +132,5 @@ TASK [Generate information for disk_sda_size]
 [student@control ansible]$ ansible all -m command -a "cat /root/hwreport.txt"
 <output omitted>
 ```
+
+* Done!!
