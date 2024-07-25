@@ -79,3 +79,12 @@ should be displayed
 ```
 output: \
 ![image](https://github.com/user-attachments/assets/82f366cb-ba57-4a28-9f4c-b6088c319994)
+
+3) Finally, you may validate by checking "lsblk" on all nodes:
+```
+[student@control ansible]$ ansible all -m command -a "lsblk"
+```
+output: \
+![image](https://github.com/user-attachments/assets/39e607c3-897f-4ef6-a327-6457c08ff2f5)
+
+* Done!!
