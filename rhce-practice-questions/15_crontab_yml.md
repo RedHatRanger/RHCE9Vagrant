@@ -51,4 +51,5 @@ output: \
 [student@control ansible]$ ansible all -m command -a "crontab -lu student"
 ```
 output: \
-![image](https://github.com/user-attachments/assets/66a1f35d-d757-4277-a512-1b8064828331)
+![image](https://github.com/user-attachments/assets/11ff89a6-4b91-4cd7-b4d5-e5b1bd0fe70a)
+
