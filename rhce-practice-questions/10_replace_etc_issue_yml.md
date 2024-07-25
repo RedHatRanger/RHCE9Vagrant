@@ -13,7 +13,7 @@ Instructions:
 i)   In dev group /etc/issue should have content "Development"
 ii)  In test group /etc/issue should have content "Test"
 iii) In prod group /etc/issue should have content "Production"
-iv)  Playbook name issue.yml and run on all managed nodes
+iv)  Playbook name should be issue.yml and run on all managed nodes
 ```
 
 (scroll down for an answer)
