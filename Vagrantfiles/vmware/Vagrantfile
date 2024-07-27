@@ -37,7 +37,7 @@ SCRIPT
       #{hostsfile}
       #{user_setup}
     SHELL
-    control.vm.provider "vmware_workstation" do |vb|
+    control.vm.provider "vmware_desktop" do |vb|
       vb.vmx["memsize"] = "2048"
       vb.vmx["numvcpus"] = "1"
       vb.vmx["disk.size"] = "20480"
@@ -53,7 +53,7 @@ SCRIPT
         #{hostsfile}
         #{user_setup}
       SHELL
-      node.vm.provider "vmware_workstation" do |vb|
+      node.vm.provider "vmware_desktop" do |vb|
         vb.vmx["memsize"] = "2048"
         vb.vmx["numvcpus"] = "1"
         vb.vmx["disk.size"] = "20480"
