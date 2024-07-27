@@ -21,8 +21,8 @@ SCRIPT
   # User setup script
   user_setup = <<-SCRIPT
 useradd ansible
-echo "ansible:student" | chpasswd
-usermod -aG wheel ansible
+echo "student:student" | chpasswd
+usermod -aG wheel student
 echo "%wheel ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 SCRIPT
 
