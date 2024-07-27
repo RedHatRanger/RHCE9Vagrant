@@ -9,6 +9,6 @@ cd ~\vagrant
 
 * Copy the Vagrantfile to this folder and then run these commands:
 ```
-vagrant plugin install vagrant-vmware-desktop
-vagrant up --provider=vmware_desktop
+vagrant plugin install vagrant-vmware-workstation
+vagrant up --provider=vmware_workstation
 ```
