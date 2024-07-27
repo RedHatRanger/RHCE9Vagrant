@@ -21,7 +21,7 @@ SCRIPT
   # User setup script
   user_setup = <<-SCRIPT
 useradd student
-echo "student:student" | chpasswd
+echo "student:redhat" | chpasswd
 usermod -aG wheel student
 echo "%wheel ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 SCRIPT
@@ -37,7 +37,7 @@ SCRIPT
       #{hostsfile}
       #{user_setup}
     SHELL
-    control.vm.provider "vmware_desktop" do |vb|
+    control.vm.provider "vmware_workstation" do |vb|
       vb.vmx["memsize"] = "2048"
       vb.vmx["numvcpus"] = "1"
       vb.vmx["disk.size"] = "20480"
@@ -53,7 +53,7 @@ SCRIPT
         #{hostsfile}
         #{user_setup}
       SHELL
-      node.vm.provider "vmware_desktop" do |vb|
+      node.vm.provider "vmware_workstation" do |vb|
         vb.vmx["memsize"] = "2048"
         vb.vmx["numvcpus"] = "1"
         vb.vmx["disk.size"] = "20480"
