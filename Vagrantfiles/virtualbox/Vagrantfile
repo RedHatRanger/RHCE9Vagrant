@@ -8,9 +8,9 @@ echo "172.28.128.105   node5.example.com     node5" >> /etc/hosts
 SCRIPT
 
 $user_setup = <<-SCRIPT
-useradd ansible
-echo "ansible:student" | chpasswd
-usermod -aG wheel ansible
+useradd student
+echo "student:redhat" | chpasswd
+usermod -aG wheel student
 echo "%wheel ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 SCRIPT
 
