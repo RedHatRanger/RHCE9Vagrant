@@ -1,3 +1,5 @@
+https://docs.google.com/document/d/1FpOk2q4i9S9nNH1HPTp946SUPcpN4E7HwSoy89FJJ4w/edit?usp=drivesdk
+
 # RHCE_EX294 Study Guide & Exam Prep
 This repository is built to help you as beginner to Understand Ansible, And
 walk you through RHCE_EX294 study Topics from setting up a lab to mastry in Ansible, and ensure that you're ready for the RHCE EX294 exam.
