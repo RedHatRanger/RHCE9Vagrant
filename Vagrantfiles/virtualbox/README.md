@@ -34,6 +34,11 @@ gpgkey=file:///media/RPM-GPG-KEY-redhat-release
 :wq
 ```
 
+* Install container-tools, python3-pip, and ansible-core:
+```
+[student@control ~]$ sudo yum install -y ansible-core container-tools python3-pip
+```
+
 * If you have the python error with "curses", you can run:
 ```
 # place it in your ~/.bashrc to make permanent
