@@ -1,4 +1,4 @@
-https://docs.google.com/document/d/1FpOk2q4i9S9nNH1HPTp946SUPcpN4E7HwSoy89FJJ4w/edit?usp=drivesdk
+<a href="https://www.computernetworkingnotes.com/linux-tutorials/rhce-practice-lab-setup-in-vmware-and-in-virtualbox.html">HOW TO GUIDE HERE FOR LAB SETUP with Virtualbox and VMWare</a>
 
 # RHCE_EX294 Study Guide & Exam Prep
 This repository is built to help you as beginner to Understand Ansible, And
