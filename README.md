@@ -1,4 +1,4 @@
-<a href="https://www.computernetworkingnotes.com/linux-tutorials/rhce-practice-lab-setup-in-vmware-and-in-virtualbox.html">HOW TO GUIDE HERE FOR LAB SETUP with Virtualbox and VMWare</a>
+<a href="https://www.computernetworkingnotes.com/linux-tutorials/rhce-practice-lab-setup-in-vmware-and-in-virtualbox.html">HOW TO GUIDE HERE FOR LAB SETUP with Virtualbox and VMWare</a> (If you opt for not using Vagrant
 
 # RHCE_EX294 Study Guide & Exam Prep
 This repository is built to help you as beginner to Understand Ansible, And
