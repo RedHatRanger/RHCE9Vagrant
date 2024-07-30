@@ -1,0 +1,52 @@
+---
+- name: Q 12
+  hosts: webservers
+  vars_files:
+    - lock.yml
+  tasks:
+    - name: Create webdev user
+      user:
+        name: webdev
+        password: "{{ pw_dev | password_hash('sha512', 'mysecretsalt') }}"
+        state: present
+
+    - name: create dir
+      file:
+        path: /webdev
+        state: directory
+        owner: webdev
+        mode: '2755'
+
+    - name: install selinux python
+      yum:
+        name: python3-policycoreutils
+        state: present
+
+    - name: set selinux context
+      sefcontext:
+        target: '/webdev(/.*)?'
+        setype: httpd_sys_content_t
+        state: present
+
+    - name: Apply new SELinux file context to filesystem
+      command: restorecon -irv /webdev
+
+    - name: create link
+      file:
+        src: /webdev
+        dest: /var/www/html/webdev
+        state: link
+
+    - name: create file
+      copy:
+        content: Development
+        dest: /webdev/index.html
+        owner: webdev
+        setype: http_sys_content_t
+      notify: restart httpd
+
+  handlers:
+    - name: restart httpd
+      service:
+        name: httpd
+        state: restarted

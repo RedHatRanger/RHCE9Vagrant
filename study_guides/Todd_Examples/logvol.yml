@@ -1,0 +1,81 @@
+---
+- name: Q11
+  hosts: all
+  tasks:
+    - name: partition dev 
+      parted:
+        device: /dev/sdb
+        number: 1
+        state: present
+      when: "'dev' in group_names"
+
+    - name: partition test
+      parted:
+        device: /dev/sdb
+        number: 1
+        state: present
+      when: "'test' in group_names"
+
+
+    - name: partition proxy
+      parted:
+        device: /dev/sdb
+        number: 1
+        state: present
+        part_end: 400MiB
+      when: "'proxy' in group_names"
+
+    - name: partition prod
+      parted:
+        device: /dev/sdb
+        number: 1
+        state: present
+        part_end: 900MiB
+      when: "'prod' in group_names"
+
+    - name: gather facts
+      setup:
+
+    - name: create VG
+      lvg:
+        vg: vg0
+        pvs: /dev/sdb1
+      when: ansible_facts['devices']['sdb']['partitions']['sdb1']['size'] > '500 MB' or '1 GB' and not 'proxy' in group_names
+    
+    - name: gather facts
+      setup:
+
+    - name: msg when VG under 1500M
+      debug:
+        msg: Not enough space for logical volume
+      when: ansible_facts['lvm']['vgs']['vg0'] is defined and ansible_facts['lvm']['vgs']['vg0']['size_g']  < '1.5'
+
+    - name: LV block
+      block:
+        - name: make 1500M lvol
+          lvol:
+            vg: vg0
+            lv: lv0
+            size: 1500M
+          when: ansible_facts['lvm']['vgs']['vg0'] is defined
+         
+      
+      rescue:
+        - name: make 800M lvol
+          lvol:
+            vg: vg0
+            lv: lv0
+            size: 800M
+          when: ansible_facts['lvm']['vgs']['vg0'] is defined
+          ignore_errors: yes  
+
+    - name: Report if VG not there
+      debug:
+        msg: Volume Group doesn't exist
+      when: not ansible_facts['lvm']['vgs']['vg0'] is defined
+
+    - name: make filesystem
+      filesystem:
+        fstype: xfs
+        dev: /dev/vg0/lv0
+      when: ansible_facts['lvm']['vgs']['vg0'] is defined

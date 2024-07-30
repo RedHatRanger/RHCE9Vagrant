@@ -1,0 +1,10 @@
+---
+- name: Q 15
+  hosts: all
+  tasks:
+    - name: set /etc/issue
+      copy:
+        content: "{{ issue }}"
+        dest: /etc/issue
+        mode: '0755'
+      ignore_errors: yes

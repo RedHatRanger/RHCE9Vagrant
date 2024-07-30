@@ -1,0 +1,22 @@
+---
+- name: Q3
+  hosts: dev,prod,webservers
+  tasks:
+    - name: Install packages on all
+      yum:
+        name:
+          - httpd
+          - mod_ssl
+          - mariadb
+        state: present
+
+    - name: Install packages on dev only
+      yum:
+        name: '@Development tools'
+        state: present
+      notify: update dev
+
+    - name: update dev
+      yum:
+        name: "*"
+        state: latest

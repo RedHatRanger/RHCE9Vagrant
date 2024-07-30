@@ -1,0 +1,11 @@
+[dev]
+node1.ansi.example.com
+[test]
+node2.ansi.example.com
+[proxy]
+node3.ansi.example.com
+[prod]
+node4.ansi.example.com
+node5.ansi.example.com
+[webservers:children]
+prod

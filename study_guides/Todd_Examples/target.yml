@@ -1,0 +1,9 @@
+---
+- name: Q 17
+  hosts: all
+  tasks:
+    - name: set default boot target
+      file:
+        state: link
+        src:  /usr/lib/systemd/system/multi-user.target
+        dest: /etc/systemd/system/default.target

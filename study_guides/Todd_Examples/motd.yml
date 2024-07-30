@@ -1,0 +1,10 @@
+---
+- name: Q18
+  hosts: all
+  tasks:
+    - name: set /etc/motd
+      copy:
+        content: "{{ motd }}"
+        dest: /etc/motd
+        mode: '0755'
+      ignore_errors: yes

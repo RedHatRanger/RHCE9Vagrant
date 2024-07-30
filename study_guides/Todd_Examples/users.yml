@@ -1,0 +1,34 @@
+---
+- name: Q8
+  hosts: all
+  vars_files:
+    - lock.yml
+    - userslist.yml
+  tasks:
+    - name: create group on dev
+      group:
+        name: devops
+        state: present
+      when: "'dev' in group_names"
+
+    - name: create group on proxy
+      group:
+        name: managers
+        state: present
+      when: "'proxy' in group_names"
+
+    - name: create users on dev
+      user:
+        name: "{{ item.username }}"
+        groups: devops
+        password: "{{ pw_dev | password_hash('sha512') }}"
+      when: "'dev' in group_names and item.job == 'developer'"
+      loop: "{{ users }}"
+
+    - name: create users on proxy
+      user:
+        name: "{{ item.username }}"
+        groups: managers
+        password: "{{ pw_mgr | password_hash('sha512') }}"
+      when: "'proxy' in group_names and item.job == 'manager'"
+      loop: "{{ users }}"

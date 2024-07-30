@@ -1,0 +1,54 @@
+---
+- name: Q9
+  hosts: all
+  tasks:
+    - name: copy file to hosts
+      copy:
+        src: report.empty
+        dest: /root/report.txt
+        mode: '755'
+
+    - name: populate HOST
+      lineinfile:
+        path: /root/report.txt
+        regex: ^HOST
+        state: present
+        line: HOST= {{ ansible_facts['hostname'] }}
+
+    - name: populate MEMORY
+      lineinfile:
+        path: /root/report.txt
+        regex: ^MEMORY
+        state: present
+        line: MEMORY= {{ ansible_facts['memtotal_mb'] }}
+
+    - name: populate BIOS version
+      lineinfile:
+        path: /root/report.txt
+        regex: ^BIOS
+        state: present
+        line: BIOS= {{ ansible_facts['bios_version'] }}
+
+    - name: populate SDA size
+      lineinfile:
+        path: /root/report.txt
+        regex: ^SDA_DISK_SIZE
+        state: present
+        line: >
+          SDA_DISK_SIZE={% if ansible_facts['devices']['sda'] is defined %}
+          {{ ansible_facts['devices']['sda']['size'] }}
+          {% else %}
+          NONE
+          {% endif %}
+
+    - name: populate SDB size
+      lineinfile:
+        path: /root/report.txt
+        regex: ^SDB_DISK_SIZE
+        state: present
+        line: >
+          SDB_DISK_SIZE={% if ansible_facts['devices']['sdb'] is defined %}
+          {{ ansible_facts['devices']['sdb']['size'] }}
+          {% else %}
+          NONE
+          {% endif %}

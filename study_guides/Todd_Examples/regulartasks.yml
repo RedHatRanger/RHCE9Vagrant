@@ -1,0 +1,15 @@
+---
+- name: Q14
+  hosts: all
+  tasks:
+    - name: create file
+      file:
+        path: /root/datefile
+        state: touch
+
+    - name: set cron job
+      cron:
+        name: datejob
+        user: root
+        hour: 12
+        job: date >> /root/datefile

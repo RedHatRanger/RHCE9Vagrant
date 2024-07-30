@@ -1,0 +1,27 @@
+---
+- name: Q6
+  hosts: proxy,prod
+  vars:
+    haproxy_backend_servers:
+      - name: web1
+        address: node4.ansi.example.com:80
+      - name: web2
+        address: node5.ansi.example.com:80
+  tasks:
+    - name: Import haproxy-role
+      include_role:
+        name: haproxy-role
+      when: "'proxy' in group_names"
+
+    - name: Import php-role
+      include_role:
+        name: php-role
+      when: "'prod' in group_names"
+
+    - name: allow http in firewall on proxy
+      firewalld:
+        service: http
+        permanent: yes
+        immediate: yes
+        state: enabled
+      when: "'proxy' in group_names"
