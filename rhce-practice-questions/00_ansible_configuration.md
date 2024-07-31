@@ -1,3 +1,5 @@
+<a href="https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html">HOW TO INSTALL ANSIBLE</a>
+
 # Ansible Configuration
 ### THE SETUP ###
 
