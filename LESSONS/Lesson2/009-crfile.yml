@@ -4,12 +4,12 @@
   
   tasks:
   - name: Create a directory
-    file:
-        path: /tmp/seinfeld
+    file:                           # file module
+        path: /tmp/seinfeld         # Location
         owner: iafzal
         group: iafzal
         mode: 770
-        state: directory
+        state: directory            # Create a directory
   - name: Create a file in that directory
     file:
         path: /tmp/seinfeld/jerry
