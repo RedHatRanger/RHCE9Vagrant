@@ -1,0 +1,14 @@
+---
+- name: Create a file and add text
+  hosts: localhost
+
+  tasks:
+          - name: Create a new file
+            file:
+                    path: /tmp/george
+                    state: touch
+
+          - name: Add text to the file
+            blockinfile:
+                    path: /tmp/george
+                    block: George is one of the main character of Seinfeld show and he is Jerry’s best friend
