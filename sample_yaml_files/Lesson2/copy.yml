@@ -1,0 +1,13 @@
+---
+- name: Copy file from local to remote clients
+  hosts: all
+  
+  tasks:
+  - name: Copying file 
+    become: true
+    copy:
+     src: /home/iafzal/some.cfg
+     dest: /tmp
+     owner: iafzal
+     group: iafzal
+     mode: 0644
