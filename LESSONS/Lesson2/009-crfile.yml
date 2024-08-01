@@ -12,14 +12,14 @@
         state: directory            # Create a directory
   - name: Create a file in that directory
     file:
-        path: /tmp/seinfeld/jerry
+        path: /tmp/seinfeld/jerry   # Create a file called jerry
         state: touch
   - name: Stat the new file jerry
     stat:
         path: /tmp/seinfeld/jerry
-        register: jfile
+        register: jf                # Put the result in jf container
   - debug:
-        msg: Show new file system {{ jfile }}
+        msg: Show new file system {{ jf }}    # Print the container or variable contents
   - name: Remove file
     file:
        	path: /tmp/seinfeld/jerry
