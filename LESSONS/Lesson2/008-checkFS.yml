@@ -4,10 +4,10 @@
 
   tasks:
           - name: Check file status and attributes
-            stat:
-                    path: /etc/hosts
-            register: fs
+            stat:                 # stat module
+               path: /etc/hosts   # File path/location
+            register: fs  # Register or output to fs container
 
           - name: Show values
             debug:
-                    msg: File attributes {{ fs }}
+                    msg: File attributes {{ fs }}  # Print what's inside the fs container
