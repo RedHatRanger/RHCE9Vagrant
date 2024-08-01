@@ -23,4 +23,4 @@
   - name: Remove file
     file:
        	path: /tmp/seinfeld/jerry
-        state: absent
+        state: absent                         # Delete the file
