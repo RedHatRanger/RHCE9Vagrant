@@ -1,0 +1,26 @@
+---
+- name: Create and Remove file
+  hosts: all
+  
+  tasks:
+  - name: Create a directory
+    file:
+        path: /tmp/seinfeld
+        owner: iafzal
+        group: iafzal
+        mode: 770
+        state: directory
+  - name: Create a file in that directory
+    file:
+        path: /tmp/seinfeld/jerry
+        state: touch
+  - name: Stat the new file jerry
+    stat:
+        path: /tmp/seinfeld/jerry
+        register: jfile
+  - debug:
+        msg: Show new file system {{ jfile }}
+  - name: Remove file
+    file:
+       	path: /tmp/seinfeld/jerry
+        state: absent
