@@ -1,3 +1,6 @@
+# echo somestuff > /home/iafzal/some.cfg
+# vim copy.yml
+
 ---
 - name: Copy file from local to remote clients
   hosts: all
