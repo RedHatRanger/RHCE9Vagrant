@@ -1,0 +1,9 @@
+---
+- name: Change file permissions
+  hosts: all
+  
+  tasks:
+  - name: Files Permissions
+    file:
+     path: /home/iafzal/linux2
+     mode: a+w 
