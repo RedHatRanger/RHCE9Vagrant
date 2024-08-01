@@ -1,0 +1,13 @@
+---
+- name: Run stat module
+  hosts: localhost
+
+  tasks:
+          - name: Check file status and attributes
+            stat:
+                    path: /etc/hosts
+            register: fs
+
+          - name: Show values
+            debug:
+                    msg: File attributes {{ fs }}
