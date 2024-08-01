@@ -4,11 +4,11 @@
 
   tasks:
           - name: Create a new file
-            file:
-                    path: /tmp/george
-                    state: touch
+            file:                             # file module
+                    path: /tmp/george         # File path/location
+                    state: touch              # Create a File
 
           - name: Add text to the file
-            blockinfile:
+            blockinfile:                      # blockinfile module
                     path: /tmp/george
-                    block: George is one of the main character of Seinfeld show and he is Jerry’s best friend
+                    block: George is one of the main character of Seinfeld show and he is Jerry’s best friend    # Add text to the file
