@@ -40,7 +40,7 @@ managed nodes:
 
 ### ANSWER #1:
 
-* First, install ANSIBLE-CORE, PYTHON3-PIP, and CONTAINER-TOOLS on the CONTROL NODE:
+1) First, install ANSIBLE-CORE, PYTHON3-PIP, and CONTAINER-TOOLS on the CONTROL NODE:
 ```
 [ansible@control ~]# yum clean all
 [ansible@control ~]# yum install -y ansible python3-pip container-tools
@@ -144,7 +144,7 @@ autocmd FileType yaml setlocal ai ts=2 sw=2 et cuc nu
 [student@control ansible]$
 ```
 
-7) Lastly, we need to use the ping module to see if our nodes respond:
+7) We can ping to see if our nodes respond:
 ```
 [student@control ansible]$ ansible all -m ping
 node1 | SUCCESS => {
