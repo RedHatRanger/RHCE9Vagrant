@@ -1,4 +1,5 @@
-<a href="https://www.youtube.com/watch?v=oaeFCXhvG8w&list=PLLBLysazAN3UGnuC5Kb4HepFDZlaDGwkq&index=11">Video Tutorial</a> by HSN Tech Village
+<a href="https://www.youtube.com/watch?v=oaeFCXhvG8w&list=PLLBLysazAN3UGnuC5Kb4HepFDZlaDGwkq&index=11">Video Tutorial</a> by HSN Tech Village \
+<a href="https://www.youtube.com/watch?v=a4UEQ6db3sQ&list=PLL_setXLS0tiYMipvQI4oUGkJwhOhn42J&index=2">Video Tutorial</a> by codeXchange (BEST)
 
 ***On the Control Node***
 
@@ -47,15 +48,6 @@ enabled: yes
            state: present
            key: file:///media/RPM-GPG-KEY-redhat-release
 
-     - name: configure AppStream
-       ansible.builtin.yum_repository:
-           name: "Applications"
-           description: "Apps"
-           baseurl: file:///media/AppStream
-           enabled: yes
-           gpgcheck: yes
-           gpgkey: file:///media/RPM-GPG-KEY-redhat-release
-
      - name: configure BaseOS
        ansible.builtin.yum_repository:
            name: "OperatingSystem"
@@ -65,10 +57,20 @@ enabled: yes
            gpgcheck: yes
            gpgkey: file:///media/RPM-GPG-KEY-redhat-release
 
+     - name: configure AppStream
+       ansible.builtin.yum_repository:
+           name: "Applications"
+           description: "Apps"
+           baseurl: file:///media/AppStream
+           enabled: yes
+           gpgcheck: yes
+           gpgkey: file:///media/RPM-GPG-KEY-redhat-release
+
+
 :wq
 ```
 
-2) Configure the ANSIBLE-NAVIGATOR settings, so you don't have to type the "ansible-playbook run -m stdout <playbook>.yml" each time:
+2) OPTIONALLY YOU CAN Configure the ANSIBLE-NAVIGATOR settings, so you don't have to "ansible-playbook run -m stdout <playbook>.yml" each time:
 ```
 vim ~/ansible/ansible-navigator.yml
 
