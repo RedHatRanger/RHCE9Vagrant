@@ -96,6 +96,7 @@ inventory=/home/student/ansible/inventory
 roles_path=/home/student/ansible/roles
 collections_path=/home/student/ansible/mycollections
 ask_pass=false
+host_key_checking=false
 
 [privilege_escalation]
 become=true
