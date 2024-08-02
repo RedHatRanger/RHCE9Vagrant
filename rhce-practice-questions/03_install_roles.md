@@ -1,4 +1,5 @@
 <a href="https://www.youtube.com/watch?v=jOUqUUuca0w&list=PLYB6dfdhWDePZf4fd4YgGGtSX_vHKv5vz&index=5">Video Tutorial</a> by Teach Me Tech \
+<a href="https://www.youtube.com/watch?v=nqxoLgIMHhY&list=PLL_setXLS0tiYMipvQI4oUGkJwhOhn42J&index=3">Video Tutorial</a> by codeXchange
 
 ***On the Control Node***
 
