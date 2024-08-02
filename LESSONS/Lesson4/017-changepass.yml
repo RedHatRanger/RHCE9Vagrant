@@ -1,4 +1,6 @@
 # NOTE: Ansible does not allow us to pass a cleartext password through the user module
+# the "newpassword" below is only a variable name.  You can use anything there.
+
 
 ---
 - name: Add or update user password
