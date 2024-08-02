@@ -1,3 +1,6 @@
+# ansible-galaxy collection install ansible.posix
+# vim httpsetup.yml
+
 ---
 - name: Setup httpd and open firewall port
   hosts: all
