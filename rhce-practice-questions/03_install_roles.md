@@ -30,7 +30,7 @@ https://github.com/geerlingguy/ansible-role-haproxy.git            (balancer)
 
 1) Log into the CONTROL NODE as student, and run:
 ```
-[student@control ansible]$ mkdir roles
+[student@control ansible]$ mkdir roles  # If did not create it in Lab #1
 [student@control ansible]$ cd roles
 [student@control roles]$ vim requirements.yml
 
