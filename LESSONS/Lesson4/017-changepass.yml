@@ -1,3 +1,5 @@
+# NOTE: Ansible does not allow us to pass a cleartext password through the user module
+
 ---
 - name: Add or update user password
   hosts: all
