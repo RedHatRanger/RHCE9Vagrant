@@ -1,3 +1,7 @@
+# yum install parted mount -y
+# ansible-galaxy collection install community.general
+# ansible-galaxy collection install ansible.posix
+
 ---
 - name: Create and mount storage
   hosts: localhost
