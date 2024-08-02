@@ -9,17 +9,19 @@
 Instructions:
 
 1. Install and configure Ansible on control node as follows:
-a) install the required packages.
-b) create static inventory file called /home/student/ansible/inventory as follows:
-   i)   node1 is a member of dev host group.
-   ii)  node2 is a member of test host group.
-   iii) node3 and node4 are the members of the prod host group.
-   iv)  node5 is a member of the balancers host group.
-c) The prod group is a member of the webservers group.
-d) Create a configuration file called /home/student/ansible/ansible.cfg so that:
-   i)   The host inventory file should be defined as /home/student/ansible/inventory
-   ii)  The default content collections directory is /home/student/ansible/mycollections
-   iii) The default roles directory is /home/student/ansible/roles
+
+   * Install the required packages.
+   * Create a static inventory file called /home/student/ansible/inventory as follows:
+          -- node1 is a member of dev host group.
+          -- node2 is a member of test host group.
+          -- node3 and node4 are the members of the prod host group.
+          -- node5 is a member of the balancers host group.
+          -- The prod group is a member of the webservers group.
+
+   * Create a configuration file called /home/student/ansible/ansible.cfg so that:
+          -- The host inventory file should be defined as /home/student/ansible/inventory
+          -- The default roles directory is /home/student/ansible/roles
+          -- The default content collections directory is /home/student/ansible/mycollections
 ```
 
 (scroll down for an answer)
@@ -31,20 +33,28 @@ d) Create a configuration file called /home/student/ansible/ansible.cfg so that:
 * First, install ANSIBLE-CORE, PYTHON3-PIP, and CONTAINER-TOOLS on the CONTROL NODE:
 ```
 [ansible@control ~]# yum clean all
-[ansible@control ~]# yum install -y ansible ansible-core python3-pip container-tools
+[ansible@control ~]# yum install -y ansible python3-pip container-tools
 ```
 
-* Next, install and run ANSIBLE-NAVIGATOR (ONLY INSTALL ON CONTROL NODE):
+2) Next, install and run ANSIBLE-NAVIGATOR (ONLY INSTALL ON CONTROL NODE):
 ```
-[ansible@control ~]# pip install ansible-navigator
-[ansible@control ~]# ansible-navigator
+[ansible@control ~]# exit
+[ansible@control ~]$ pipx install ansible-navigator
+[ansible@control ~]$ ansible-navigator
 <output omitted>
 
 # It will begin pulling down the container execution environment and it will execute the process.
 ```
 
-2) Next, you need to edit the inventory file:
+3) Now, we need to create the two folders for roles and collections:
 ```
+[ansible@control ~]$ mkdir -p /home/student/ansible/roles
+[ansible@control ~]$ mkdir -p /home/student/ansible/mycollections
+```
+
+4) Next, you need to edit the inventory file:
+```
+[student@control ~]$ cd ansible
 [student@control ansible]$ vim inventory
 
 [dev]
@@ -66,9 +76,9 @@ prod
 :wq
 ```
 
-3) Then, configure Ansible:
+4) Then, configure Ansible:
 ```
-[student@control ansible]$ vim /home/student/ansible/ansible.cfg
+[student@control ansible]$ vim ansible.cfg
 
 [defaults]
 remote_user=student
@@ -86,7 +96,7 @@ become_ask_pass=false
 :wq
 ```
 
-4) As a test, you can run ANSIBLE --VERSION:
+5) As a test, you can run ANSIBLE --VERSION:
 ```
 [student@control ansible]$ ansible --version
 ansible [core 2.12.2]
