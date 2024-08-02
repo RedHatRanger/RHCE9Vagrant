@@ -15,4 +15,4 @@ touch example1
   
   tasks:
   - name: Run shell script
-    shell: “/home/iafzal/cfile.sh”
+    shell: “/home/student/cfile.sh”
