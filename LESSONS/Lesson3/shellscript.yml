@@ -1,0 +1,7 @@
+---
+- name: Playbook for shell script
+  hosts: all
+  
+  tasks:
+  - name: Run shell script
+    shell: “/home/iafzal/cfile.sh”
