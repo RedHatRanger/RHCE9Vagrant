@@ -10,7 +10,7 @@
 
 * To bring up the last part of the last command that you typed, use ESC+period:
 ```
-ESC+.
+ESC + .
 ```
 
 * If you don't want to retype a long command only to modify one word, you may use substitution:
