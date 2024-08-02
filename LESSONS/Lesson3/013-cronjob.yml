@@ -10,6 +10,6 @@
 	   hour: “10”
 	   day: “*”
 	   month: “*”
-	   weekday: “4“
+	   weekday: “4“                           # The day of the week we want it to run is on Thursday
 	   user: root
 	   job: “/home/student/cfile.sh”
