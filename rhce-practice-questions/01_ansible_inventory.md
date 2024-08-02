@@ -3,7 +3,7 @@
 
 ***On the Control Node***
 
-# Setup Ansible Inventory
+# Configure Ansible
 ### QUESTION #1:
 ```
 Instructions:
