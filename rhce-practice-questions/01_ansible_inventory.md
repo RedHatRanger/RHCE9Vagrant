@@ -8,6 +8,16 @@
 ```
 Instructions:
 
+control node: 
+              control.example.com     172.28.128.100/24
+
+managed nodes:
+              node1.example.com       172.28.128.101/24
+              node2.example.com       172.28.128.102/24
+              node3.example.com       172.28.128.103/24
+              node4.example.com       172.28.128.104/24
+              node5.example.com       172.28.128.105/24
+
 1. Install and configure Ansible on control node as follows:
 
    * Install the required packages.
