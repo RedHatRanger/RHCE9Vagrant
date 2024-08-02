@@ -4,7 +4,7 @@
 ***On the Control Node***
 
 # Install the Roles
-### QUESTION #4:
+### QUESTION #3:
 ```
 Instructions:
 
@@ -26,7 +26,7 @@ https://github.com/geerlingguy/ansible-role-haproxy.git            (balancer)
 <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 
-### ANSWER #4:
+### ANSWER #3:
 
 1) Log into the CONTROL NODE as student, and run:
 ```
