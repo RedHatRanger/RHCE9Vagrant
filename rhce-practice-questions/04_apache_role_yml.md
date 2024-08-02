@@ -58,7 +58,7 @@ Welcome to {{ ansible_fqdn }} ON {{ ansible_default_ipv4.address }}
 - name: start httpd service
   ansible.builtin.service:
         name: httpd
-        state: started
+        state: restarted
         enabled: yes
 
 - name: start firewalld service
