@@ -1,3 +1,14 @@
+```
+# vim cfile.sh
+
+#!/bin/bash
+touch example1
+
+:wq
+
+# vim shellscript.yml
+``` 
+
 ---
 - name: Playbook for shell script
   hosts: all
