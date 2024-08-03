@@ -43,7 +43,31 @@ autocmd Filetype yaml setlocal ai et ts=2 sw=2 cuc cul
 :wq
 ```
 
-2) Next, we create our 1st playbook called "yum_repo.yml":
+3) For our lab, we need to set the /etc/fstab to automount /dev/sr0 to /media:
+```
+vim fstab.yml
+
+---
+- name: Ensure fstab entry exists
+  hosts: nodes
+  become: true
+  tasks:
+    - name: Ensure /media mount point exists
+      file:
+        path: /media
+        state: directory
+
+    - name: Ensure fstab entry for /dev/sr0 exists
+      lineinfile:
+        path: /etc/fstab
+        line: '/dev/sr0  /media    iso9660    defaults 0 0'
+        state: present
+        create: yes
+
+:wq
+```
+
+3) Next, we create our 1st playbook called "yum_repo.yml":
 ```
 # HINT: If you can't memorize this stuff you may run "ansible-doc yum_repository" and type /EXAMPLES to search.
         OR you may refer to docs.ansible.com
@@ -83,7 +107,7 @@ autocmd Filetype yaml setlocal ai et ts=2 sw=2 cuc cul
 :wq
 ```
 
-3) OPTIONALLY YOU CAN Configure the ANSIBLE-NAVIGATOR settings, so you don't have to "ansible-playbook run -m stdout <playbook>.yml" each time:
+4) OPTIONALLY YOU CAN Configure the ANSIBLE-NAVIGATOR settings, so you don't have to "ansible-playbook run -m stdout <playbook>.yml" each time:
 ```
 vim ~/ansible/ansible-navigator.yml
 
@@ -93,7 +117,7 @@ ansible-navigator:
 :wq
 ```
 
-4) WE RUN THE PLAYBOOK:
+5) WE RUN THE PLAYBOOK:
 ```
 [student@control ansible]$ ansible-navigator run -m stdout yum_repo.yml
 <output omitted>
