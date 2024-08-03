@@ -68,8 +68,6 @@ vim fstab.yml
 
     - name: Mount all filesystems in fstab
       command: mount -a
-      args:
-        warn: false
 
 :wq
 ```
