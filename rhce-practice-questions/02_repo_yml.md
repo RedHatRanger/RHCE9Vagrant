@@ -63,6 +63,13 @@ vim fstab.yml
         line: '/dev/sr0  /media    iso9660    defaults 0 0'
         state: present
         create: yes
+    - name: Reload systemd to apply changes
+      command: systemctl daemon-reload
+
+    - name: Mount all filesystems in fstab
+      command: mount -a
+      args:
+        warn: false
 
 :wq
 ```
