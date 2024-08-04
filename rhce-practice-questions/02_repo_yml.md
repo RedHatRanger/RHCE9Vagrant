@@ -82,32 +82,35 @@ vim fstab.yml
 [student@control ansible]$ vim yum_repo.yml
 
 ---
-- name: configure yum repository
+- name:
   hosts: all
+
   tasks:
-     - name: Import a key from url
-       ansible.builtin.rpm_key:
-           state: present
-           key: file:///media/RPM-GPG-KEY-redhat-release
 
-     - name: configure BaseOS
-       ansible.builtin.yum_repository:
-           name: "OperatingSystem"
-           description: "BaseOS"
-           baseurl: file:///media/BaseOS
-           enabled: yes
-           gpgcheck: yes
-           gpgkey: file:///media/RPM-GPG-KEY-redhat-release
+    - name: Import a key from a url
+      ansible.builtin.rpm_key:
+          state: present
+          key: /media/RPM-GPG-KEY-redhat-release
 
-     - name: configure AppStream
-       ansible.builtin.yum_repository:
-           name: "Applications"
-           description: "Apps"
-           baseurl: file:///media/AppStream
-           enabled: yes
-           gpgcheck: yes
-           gpgkey: file:///media/RPM-GPG-KEY-redhat-release
+    - name: Add BaseOS Repo
+      ansible.builtin.yum_repository:
+          name: BaseOS
+          description: BaseOS
+          file: myrepo
+          baseurl: file:///media/BaseOS
+          gpgcheck: yes
+          enabled: yes
+          gpgkey: file:///media/RPM-GPG-KEY-redhat-release
 
+    - name: Add AppStream Repo
+      ansible.builtin.yum_repository:
+          name: AppStream
+          description: AppStream
+          file: myrepo
+          baseurl: file:///media/AppStream
+          gpgcheck: yes
+          enabled: yes
+          gpgkey: file:///media/RPM-GPG-KEY-redhat-release
 
 :wq
 ```
