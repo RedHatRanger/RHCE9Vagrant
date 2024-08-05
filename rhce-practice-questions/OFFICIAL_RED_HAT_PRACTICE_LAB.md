@@ -234,3 +234,12 @@ During execution the task is only listed once, but there are three changes liste
 ```
 ansible node1 -m shell -a "id alice"
 ```
+
+# create a new folder in ansible-files called "templates", and then create a file called motd.j2:
+```
+$ vim motd.j2
+
+Welcome to {{ ansible_hostname }}.
+OS: {{ ansible_distribution }} {{ ansible_distribution_version }}
+Architecture: {{ ansible_architecture }}
+```
