@@ -73,4 +73,13 @@ $ ansible-navigator run -m stdout system_setup.yml
         state: present
         create_home: true
 ```
-      
+
+# vim inventory:
+```
+[web]
+node1
+node2
+
+[database]
+node3
+```
