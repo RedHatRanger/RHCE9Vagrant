@@ -20,6 +20,11 @@ become_user=root
 become_ask_pass=false
 ```
 
+* If you want to get information from remote clients:
+```
+ansible all -m setup
+```
+
 * Without having to type vim:
 ```
 !v <script_name>
@@ -62,7 +67,3 @@ sudo !!
 ansible-playbook someyaml.yml --start-at-task 'Install httpd'
 ```
 
-* If you want to get information from remote clients:
-```
-ansible all -m setup
-```
