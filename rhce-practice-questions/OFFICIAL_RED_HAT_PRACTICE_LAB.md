@@ -192,3 +192,8 @@ The handlers section defines a task that is only run on notification. And the na
 ```
 ansible-navigator run system_setup.yml
 ```
+
+# check that http is working on node1:
+```
+curl http://node1 | grep "HTTP Server"
+```
