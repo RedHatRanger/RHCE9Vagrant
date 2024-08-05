@@ -1,0 +1,26 @@
+---
+- name: Verify apache installation
+  hosts: localhost
+  tasks:
+  - name: Ensure apache is at the latest version
+    yum:
+     name: httpd
+     state: latest
+
+  - name: Copy updated apache config file
+    copy:
+     src: /tmp/httpd.conf
+     dest: /etc/httpd.conf
+    notify:
+    - Restart apache
+ 
+  - name: Ensure apache is running
+    service:
+     name: httpd
+     state: started
+
+  handlers:
+    - name: Restart apache
+      service:
+       name: httpd
+       state: restarted
