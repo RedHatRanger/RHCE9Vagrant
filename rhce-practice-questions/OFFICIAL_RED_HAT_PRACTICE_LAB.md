@@ -216,3 +216,16 @@ curl http://node1 | grep "HTTP Server"
         - bob
         - carol
 ```
+
+# run the playbook "loop_users.yml":
+```
+ansible-navigator run loop_users.yml
+```
+
+# Understand the playbook and the output:
+```
+The names are not provided to the ansible.builtin.user module directly.
+Instead, there is only a variable called {{ item }} for the parameter name.
+The loop keyword lists the actual user names. Those replace the {{ item }} during the actual execution of the playbook.
+During execution the task is only listed once, but there are three changes listed underneath it.
+```
