@@ -37,7 +37,7 @@ become_ask_pass=false
 
     - name: Create a new user
       ansible.builtin.user:
-        name: myuser
+        name: student
         state: present
         create_home: true
 ```
