@@ -197,3 +197,22 @@ ansible-navigator run system_setup.yml
 ```
 curl http://node1 | grep "HTTP Server"
 ```
+
+# create a new playbook called "loop_users.yml":
+```
+---
+- name: Create multiple users with a loop
+  hosts: node1
+  become: true
+
+  tasks:
+    - name: Create a new user
+      ansible.builtin.user:
+        name: "{{ item }}"
+        state: present
+        create_home: true
+      loop:
+        - alice
+        - bob
+        - carol
+```
