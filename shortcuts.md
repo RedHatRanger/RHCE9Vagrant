@@ -27,7 +27,7 @@ ansible all -m setup
 
 * PIPES WON'T WORK IN THE COMMAND MODULE:
 ```
-If no module is specified in an ad hoc command, the default command module is used. 
+If no module is specified in an adhoc command, the default command module is used. 
 This module, however, cannot work with shell features such as pipes. Use the shell module instead
 ```
 
