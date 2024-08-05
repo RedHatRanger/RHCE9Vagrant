@@ -34,3 +34,8 @@ abbr _sh #!/bin/bash
 <previously failed command>
 sudo !!
 ```
+
+* If you want to start at a particular task:
+```
+ansible-playbook someyaml.yml --start-at-task 'Install httpd'
+```
