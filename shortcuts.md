@@ -1,3 +1,20 @@
+* Ansible.cfg:
+```
+[defaults]
+remote_user=student
+inventory=/home/student/ansible/inventory
+roles_path=/home/student/ansible/roles
+collections_path=/home/student/ansible/mycollections
+ask_pass=false
+host_key_checking=false
+
+[privilege_escalation]
+become=true
+become_medthod=sudo
+become_user=root
+become_ask_pass=false
+```
+
 * Without having to type vim:
 ```
 !v <script_name>
