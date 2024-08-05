@@ -26,7 +26,7 @@ become_ask_pass=false
 ```
 ---
 - name: Basic System Setup
-  hosts: node1
+  hosts: web
   become: true
   tasks:
     - name: Install security updates for the kernel
@@ -51,3 +51,26 @@ $ ansible-navigator run -m stdout system_setup.yml
 ```
 [rhel@control ansible-files]$ ssh node1 id myuser
 ```
+
+# vim system_setup.yml: 
+```
+---
+- name: Basic System Setup
+  hosts: web
+  become: true
+  vars:
+    user_name: 'padawan'
+  tasks:
+    - name: Install security updates for the kernel
+      ansible.builtin.dnf:
+        name: 'kernel'
+        state: latest
+        security: true
+
+    - name: Create a new user
+      ansible.builtin.user:
+        name: "{{ user_name }}"
+        state: present
+        create_home: true
+```
+      
