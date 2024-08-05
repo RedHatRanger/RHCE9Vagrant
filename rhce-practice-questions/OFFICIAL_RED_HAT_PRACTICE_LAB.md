@@ -326,3 +326,9 @@ Architecture: {{ ansible_architecture }}
 [rhel@control ansible-files]$ mkdir roles
 [rhel@control ansible-files]$ ansible-galaxy init --offline roles/apache
 ```
+
+# view the roles directory:
+```
+[rhel@control ansible-files]$ tree roles
+```
+
