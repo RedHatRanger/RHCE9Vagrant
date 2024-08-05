@@ -1,3 +1,3 @@
 ```
-ansible all -m ansible.builtin.command -a 'df -h'
+ansible all -m shell -a 'df -h'
 ```
