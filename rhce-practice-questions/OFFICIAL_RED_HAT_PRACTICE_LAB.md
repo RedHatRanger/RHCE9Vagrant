@@ -180,3 +180,11 @@ node3
         name: firewalld
         state: reloaded
 ```
+
+* Understanding this playbook:
+```
+Understanding the playbook:
+
+The notify section calls the handler only if the "Allow HTTP traffic on web servers" task makes any changes in one of the hosts. That way the service is only reloaded if needed - and not each time the playbook is run.
+The handlers section defines a task that is only run on notification. And the name field is used to call it from a task.
+```
