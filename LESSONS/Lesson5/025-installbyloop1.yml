@@ -6,7 +6,7 @@
 
   tasks:
 - name: Install package
-  yum
+  yum:
     name: ‘{{items}}’
     state: present
   with_items: ‘{{packages}}’
