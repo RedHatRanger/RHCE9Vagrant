@@ -27,17 +27,17 @@ become_ask_pass=false
 ---
 - name: Basic System Setup
   hosts: node1
-
+  become: true
   tasks:
     - name: Install security updates for the kernel
       ansible.builtin.dnf:
-        name: "kernel"
+        name: 'kernel'
         state: latest
         security: true
 
     - name: Create a new user
       ansible.builtin.user:
-        name: student
+        name: myuser
         state: present
         create_home: true
 ```
