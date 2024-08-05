@@ -25,6 +25,16 @@ become_ask_pass=false
 ansible all -m setup
 ```
 
+* PIPES WON'T WORK IN THE COMMAND MODULE:
+```
+If no module is specified in an ad hoc command, the default command module is used. 
+This module, however, cannot work with shell features such as pipes. Use the shell module instead
+```
+
+</br></br>
+
+
+
 * Without having to type vim:
 ```
 !v <script_name>
