@@ -315,3 +315,8 @@ Architecture: {{ ansible_architecture }}
         state: reloaded
 
 ```
+
+# test out the message of the day:
+```
+[rhel@control ansible-files]$ ssh node1
+```
