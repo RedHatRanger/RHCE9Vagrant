@@ -41,3 +41,13 @@ become_ask_pass=false
         state: present
         create_home: true
 ```
+
+# run the playbook:
+```
+$ ansible-navigator run -m stdout system_setup.yml
+```
+
+# Check to see if the "myuser" user has been created:
+```
+[rhel@control ansible-files]$ ssh node1 id myuser
+```
