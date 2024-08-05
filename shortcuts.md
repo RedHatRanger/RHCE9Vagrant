@@ -39,3 +39,8 @@ sudo !!
 ```
 ansible-playbook someyaml.yml --start-at-task 'Install httpd'
 ```
+
+* If you want to get information from remote clients:
+```
+ansible all -m setup
+```
