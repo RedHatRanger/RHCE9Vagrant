@@ -320,3 +320,9 @@ Architecture: {{ ansible_architecture }}
 ```
 [rhel@control ansible-files]$ ssh node1
 ```
+
+# create a "roles" directory, and build an apache role:
+```
+[rhel@control ansible-files]$ mkdir roles
+[rhel@control ansible-files]$ ansible-galaxy init --offline roles/apache
+```
