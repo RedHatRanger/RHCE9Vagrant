@@ -83,3 +83,34 @@ node2
 [database]
 node3
 ```
+
+# vim system_setup.yml:
+```
+---
+- name: Basic System Setup
+  hosts: all
+  become: true
+  vars:
+    user_name: 'padawan'
+    package_name: httpd
+  tasks:
+    - name: Install security updates for the kernel
+      ansible.builtin.dnf:
+        name: 'kernel'
+        state: latest
+        security: true
+        update_only: true
+      when: inventory_hostname in groups['web']
+
+    - name: Create a new user
+      ansible.builtin.user:
+        name: "{{ user_name }}"
+        state: present
+        create_home: true
+
+    - name: Install Apache on web servers
+      ansible.builtin.dnf:
+        name: "{{ package_name }}"
+        state: present
+      when: inventory_hostname in groups['web']
+```
