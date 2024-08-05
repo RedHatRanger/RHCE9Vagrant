@@ -21,3 +21,23 @@ become_user=root
 become_method=sudo
 become_ask_pass=false
 ```
+
+# vim system_setup.yml:
+```
+---
+- name: Basic System Setup
+  hosts: node1
+
+  tasks:
+    - name: Install security updates for the kernel
+      ansible.builtin.dnf:
+        name: "kernel"
+        state: latest
+        security: true
+
+    - name: Create a new user
+      ansible.builtin.user:
+        name: myuser
+        state: present
+        create_home: true
+```
