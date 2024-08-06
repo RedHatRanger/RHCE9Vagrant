@@ -1,0 +1,12 @@
+# vim /home/student/ansible/roles/basicinstall/tasks/main.yml
+
+---
+- name: Install httpd package
+  yum:
+      name: httpd
+      state: present
+
+  - name: Start httpd
+    service:
+      name: httpd
+      state: started
