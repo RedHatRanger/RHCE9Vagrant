@@ -2,7 +2,7 @@
 - name: Copy file to remote clients
   hosts: all
   vars:
-   srcfile: /home/iafzal/somefile
+   srcfile: /home/student/somefile
   tasks:
    
   - name: Copying file
@@ -10,6 +10,6 @@
     copy:
      src: “{{ srcfile }}”
      dest: /tmp
-     owner: iafzal
-     group: iafzal
+     owner: student
+     group: student
      mode: 0644
