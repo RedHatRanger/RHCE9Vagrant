@@ -1,3 +1,5 @@
+# Strings/words can be encrypted within a playbook
+
 ---
 - name: Test encrypted output
   hosts: localhost
