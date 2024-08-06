@@ -1,5 +1,7 @@
 # To run the install only on the http package: 
-# ansible-navigator run -m stdout -t i-httpd
+# ansible-navigator run -m stdout httpbytags.yml -t i-httpd
+# To list all tags in a playbook:
+# ansible-navigator run -m stdout httpbytags.yml --list-tags
 
 ---
 - name: Setup Apache server
