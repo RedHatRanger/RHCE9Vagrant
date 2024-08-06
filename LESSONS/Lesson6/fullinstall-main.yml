@@ -1,3 +1,5 @@
+# vim /home/student/ansible/roles/fullinstall/tasks/main.yml
+
 ---
 - name: Install httpd package
   yum:
