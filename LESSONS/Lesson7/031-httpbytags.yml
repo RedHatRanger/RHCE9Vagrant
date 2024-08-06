@@ -1,4 +1,4 @@
-# To run this: 
+# To run the install only on the http package: 
 # ansible-navigator run -m stdout -t i-httpd
 
 ---
