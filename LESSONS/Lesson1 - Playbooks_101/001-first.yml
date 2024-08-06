@@ -1,3 +1,6 @@
+# Optionally, you may run adhoc:
+# ansible -m ping localhost
+
 ---
 - name: “My first playbook”
   hosts: localhost
