@@ -1,0 +1,20 @@
+---
+- name: root login enabled
+  hosts: all
+  become: true
+  gather_facts: false
+
+  tasks:
+    - name: ssh PermitRootLogin
+      ansible.builtin.lineinfile:
+        dest: /etc/ssh/sshd_config
+        regexp: '^PermitRootLogin'
+        line: "PermitRootLogin yes"
+        state: present
+      notify: ssh restart
+
+  handlers:
+    - name: ssh restart
+      ansible.builtin.service:
+        name: sshd
+        state: restarted
