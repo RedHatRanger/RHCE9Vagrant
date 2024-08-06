@@ -16,3 +16,5 @@
      yum:
      name: named
      state: present
+
+![image](https://github.com/user-attachments/assets/b1e9dfa9-4f06-4687-ac7d-03b588b267bb)
