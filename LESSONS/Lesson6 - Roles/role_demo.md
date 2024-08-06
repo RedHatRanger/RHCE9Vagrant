@@ -17,3 +17,5 @@ roles:
 ```
 
 # ansible-galaxy install -r requirements.yml
+
+# ansible-playbook role.yml
