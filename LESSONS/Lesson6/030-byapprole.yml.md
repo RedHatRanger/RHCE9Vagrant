@@ -19,4 +19,5 @@
      state: present
 ```
 
-![image](https://github.com/user-attachments/assets/b1e9dfa9-4f06-4687-ac7d-03b588b267bb)
+
+![Screenshot 2024-08-06 084724](https://github.com/user-attachments/assets/99b50002-6b14-401d-b967-feee0f9357d4)
