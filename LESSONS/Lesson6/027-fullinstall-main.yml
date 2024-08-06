@@ -1,23 +1,27 @@
 # vim /home/student/ansible/roles/fullinstall/tasks/main.yml
 
 ---
-- name: Install httpd package
-  yum:
-   name: httpd
-   state: present
+- name: httpd fullinstall
+  hosts: webserver
+
+  tasks: 
+  - name: Install httpd package
+    yum:
+      name: httpd
+      state: present
 
   - name: Start httpd
     service:
-     name: httpd
-     state: started
+      name: httpd
+      state: started
 
   - name: Open port for http
     firewalld:
-         service: http
-         permanent: true
-         state: enabled
+    service: http
+      permanent: true
+      state: enabled
 
   - name: Reload firewalld
     service:
-         name: firewalld
-         state: reloaded
+      name: firewalld
+      state: reloaded
