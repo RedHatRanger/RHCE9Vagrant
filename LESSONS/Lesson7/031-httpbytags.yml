@@ -4,6 +4,8 @@
 # ansible-navigator run -m stdout httpbytags.yml --list-tags
 # To skip a tag:
 # ansible-navigator run -m stdout httpbytags.yml --skip-tags i-httpd
+# Optionally, you may start the playbook at a given task:
+# ansible-navigator run -m stdout httpbytags.yml --start-at-task 'Task Name'
 
 ---
 - name: Setup Apache server
