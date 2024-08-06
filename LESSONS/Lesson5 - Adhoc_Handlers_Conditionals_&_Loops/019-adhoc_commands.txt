@@ -47,4 +47,5 @@ Getting system information from remote clients
 You can run commands on the remote host without a shell module e.g. reboot client1
 # ansible client1 –a “/sbin/reboot”
 
-
+You may send an echo command:
+# ansible -a "/bin/echo hi" localhost
