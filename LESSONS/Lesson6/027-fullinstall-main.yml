@@ -10,3 +10,14 @@
     service:
      name: httpd
      state: started
+
+  - name: Open port for http
+    firewalld:
+         service: http
+         permanent: true
+         state: enabled
+
+  - name: Reload firewalld
+    service:
+         name: firewalld
+         state: reloaded
