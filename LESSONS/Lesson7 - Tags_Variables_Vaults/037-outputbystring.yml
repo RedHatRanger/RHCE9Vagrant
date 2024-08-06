@@ -1,5 +1,6 @@
 # Strings/words can be encrypted within a playbook.  To do this:
 # ansible-vault encrypt_string httpd
+# ansible-vault create/encrypt outputbystring.yml
 
 ---
 - name: Test encrypted output
