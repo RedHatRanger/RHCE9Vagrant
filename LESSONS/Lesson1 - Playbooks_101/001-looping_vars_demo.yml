@@ -15,3 +15,7 @@
         - ansible_check_mode
         - ansible_diff_mode
         - ansible_forks
+        - ansible_verbosity
+        - inventory_hostname
+        - ansible_play_hosts
+        - ansible_version
