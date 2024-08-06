@@ -3,6 +3,9 @@ Ad-hoc commands
 Ping localhost
 # ansible localhost –m ping
 
+To get a list of all the variables on a system:
+# ansible -m setup localhost
+
 Creating a file on all remote clients
 # ansible all –m file –a “path=/home/iafzal/adhoc1 state=touch mode=700”
 
