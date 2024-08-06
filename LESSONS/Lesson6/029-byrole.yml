@@ -1,3 +1,5 @@
+# vim /home/student/ansible/playbooks/byrole.yml
+
 ---
 - name: Full install
   hosts: all
