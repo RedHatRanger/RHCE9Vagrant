@@ -1,3 +1,6 @@
+# To run this: 
+# ansible-navigator run -m stdout -t i-httpd
+
 ---
 - name: Setup Apache server
   hosts: localhost
