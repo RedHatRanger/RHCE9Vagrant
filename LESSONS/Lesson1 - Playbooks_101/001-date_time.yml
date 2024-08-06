@@ -1,0 +1,13 @@
+---
+- name: date and time demo
+  hosts: all
+  gather_facts: true
+
+  tasks:
+    - name: date and time
+      ansible.builtin.debug:
+        var: ansible_date_time
+
+    - name: ISO8601
+      ansible.builtin.debug:
+        var: ansible_date_time.ISO8601
