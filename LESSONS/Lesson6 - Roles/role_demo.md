@@ -15,3 +15,5 @@
 roles:
   - name: lucab85.ansible_role_log4shell
 ```
+
+# ansible-galaxy install -r requirements.yml
