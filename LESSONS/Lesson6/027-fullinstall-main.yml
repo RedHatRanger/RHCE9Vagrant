@@ -1,12 +1,8 @@
 # vim /home/student/ansible/roles/fullinstall/tasks/main.yml
 
 ---
-- name: httpd fullinstall
-  hosts: webserver
-
-  tasks: 
-  - name: Install httpd package
-    yum:
+- name: Install httpd package
+  yum:
       name: httpd
       state: present
 
