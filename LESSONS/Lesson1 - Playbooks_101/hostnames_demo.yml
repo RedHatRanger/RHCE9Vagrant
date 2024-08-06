@@ -1,0 +1,13 @@
+---
+- name: hostnames demo
+  hosts: all
+  gather_facts: true
+  
+  tasks:
+    - name: Print inventory_hostname
+      ansible.builtin.debug:
+        var: inventory_hostname
+
+    - name: Print ansible_hostname
+      ansible.builtin.debug:
+        var: ansible_hostname
