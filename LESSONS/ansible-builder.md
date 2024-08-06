@@ -32,3 +32,4 @@ boto>=2.49.0
 
 # podman login
 # ansible-builder build -t my_ee -v 3
+# ansible-runner run -p ping.yml --inventory inventory --container-image=my_ee .
