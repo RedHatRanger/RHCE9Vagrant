@@ -11,3 +11,7 @@
     - name: Print ansible_hostname
       ansible.builtin.debug:
         var: ansible_hostname
+
+    - name: Print ansible_fqdn
+      ansible.builtin.debug:
+        var: ansible_fqdn
