@@ -14,14 +14,16 @@ node3
 ```
 [defaults]
 remote_user=rhel
-inventory=./inventory
+inventory=/home/rhel/ansible-files/inventory
+roles_path=/home/rhel/ansible-files/roles
+collections_path=/home/rhel/ansible-files/mycollections
 ask_pass=false
 host_key_checking=false
 
 [privilege_escalation]
 become=true
+become_medthod=sudo
 become_user=root
-become_method=sudo
 become_ask_pass=false
 ```
 
