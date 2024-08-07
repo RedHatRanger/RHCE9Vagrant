@@ -48,15 +48,17 @@ DISK_SIZE_SDB= disk_sdb_size
 
 [student@control ansible]$ vim hwreport.yml
 ```
+# For this example, we will 
+
 ---
 - name: Collect hardware report
   hosts: all
   become: yes
   tasks:
-    - name: Download hwreport.txt
+    - name: Download hwreport.empty
       get_url:
-        url: http://content.example.com/hwreport.txt
-        dest: /root/hwreport.txt
+        url: http://content.example.com/hwreport.empty
+        dest: /root/hwreport.empty
         mode: '0644'
 
     - name: Gather hardware information
