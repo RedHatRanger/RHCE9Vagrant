@@ -12,3 +12,6 @@
       ansible.builtin.debug:
         msg: "example 2"
       tags: tag2
+
+# Example: if you want to run the tag1 only on node1:
+# ansible-navigator run -m stdout tags_demo.yml -t tag1 -l node1
