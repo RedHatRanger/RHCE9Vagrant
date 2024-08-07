@@ -9,5 +9,5 @@
     - name: Creating a symlink
       ansible.builtin.file:
         src: "{{ mysrc }}"
-        dest: "{ mylink }}"
+        dest: "{{ mylink }}"
         state: link
