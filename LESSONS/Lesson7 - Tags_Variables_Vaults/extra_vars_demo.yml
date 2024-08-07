@@ -1,0 +1,13 @@
+---
+- name: extra variable demo
+  hosts: all
+  vars:
+    fruit: banana
+
+  tasks:
+    - name: print message
+      ansible.builtin.debug:
+        msg: "fruit is {{ fruit }}"
+
+# ansible-navigator run -m stdout extra_vars_demo.yml --extra-vars="fruit=apple"
+# This will print out "msg": "fruit is apple"
