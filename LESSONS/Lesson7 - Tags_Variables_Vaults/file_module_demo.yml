@@ -9,7 +9,8 @@
 
     - name: check permission
       ansible.builtin.file:
+        state: touch
         path: "{{ myfile }}"
         owner: "student"
         group: "student"
-        mode: '0777'
+        mode: '0775'
