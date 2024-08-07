@@ -1,9 +1,11 @@
 ---
-- name: file module symlink demo
+- name: File module symlink demo
   hosts: all
+  become: true
   vars:
-    mylink: "~/example"
-    mysrc: "/proc/cpuinfo"
+    # Define absolute paths
+    mylink: "/home/{{ ansible_user }}/example"
+    mysrc: "/etc/hosts"
 
   tasks:
     - name: Creating a symlink
