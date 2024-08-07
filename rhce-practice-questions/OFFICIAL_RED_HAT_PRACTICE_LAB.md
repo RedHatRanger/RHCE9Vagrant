@@ -34,89 +34,6 @@ become_ask_pass=false
 ```
 ---
 - name: Basic System Setup
-  hosts: web
-  become: true
-  tasks:
-    - name: Install security updates for the kernel
-      ansible.builtin.dnf:
-        name: 'kernel'
-        state: latest
-        security: true
-
-    - name: Create a new user
-      ansible.builtin.user:
-        name: myuser
-        state: present
-        create_home: true
-```
-
-# run the playbook:
-```
-$ ansible-navigator run -m stdout system_setup.yml
-```
-
-# Check to see if the "myuser" user has been created:
-```
-[rhel@control ansible-files]$ ssh node1 id myuser
-```
-
-# vim system_setup.yml: 
-```
----
-- name: Basic System Setup
-  hosts: web
-  become: true
-  vars:
-    user_name: 'padawan'
-  tasks:
-    - name: Install security updates for the kernel
-      ansible.builtin.dnf:
-        name: 'kernel'
-        state: latest
-        security: true
-
-    - name: Create a new user
-      ansible.builtin.user:
-        name: "{{ user_name }}"
-        state: present
-        create_home: true
-```
-
-# vim system_setup.yml:
-```
----
-- name: Basic System Setup
-  hosts: all
-  become: true
-  vars:
-    user_name: 'padawan'
-    package_name: httpd
-  tasks:
-    - name: Install security updates for the kernel
-      ansible.builtin.dnf:
-        name: 'kernel'
-        state: latest
-        security: true
-        update_only: true
-      when: inventory_hostname in groups['web']
-
-    - name: Create a new user
-      ansible.builtin.user:
-        name: "{{ user_name }}"
-        state: present
-        create_home: true
-
-    - name: Install Apache on web servers
-      ansible.builtin.dnf:
-        name: "{{ package_name }}"
-        state: present
-      when: inventory_hostname in groups['web']
-```
-
-# vim system_setup.yml:
-```
----
-- name: Basic System Setup
   hosts: all
   become: true
   vars:
@@ -177,6 +94,16 @@ $ ansible-navigator run -m stdout system_setup.yml
       ansible.builtin.service:
         name: firewalld
         state: reloaded
+```
+
+# run the playbook:
+```
+$ ansible-navigator run -m stdout system_setup.yml
+```
+
+# Check to see if the "myuser" user has been created:
+```
+[rhel@control ansible-files]$ ssh node1 id myuser
 ```
 
 * Understanding this playbook:
