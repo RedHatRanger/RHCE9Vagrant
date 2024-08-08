@@ -5,7 +5,7 @@
     mypath: "/home/student/example"
 
   tasks:
-    - name: collect files
+    - name: Collect files
       ansible.builtin.find:
         paths: "{{ mypath }}"
         hidden: true
@@ -13,8 +13,8 @@
         file_type: any
       register: collected_files
 
-    - name: remove collected files
+    - name: Remove collected files
       ansible.builtin.file:
         path: "{{ item.path }}"
         state: absent
-      with_items: "{{ collected_files }}"
+      with_items: "{{ collected_files.files }}"
