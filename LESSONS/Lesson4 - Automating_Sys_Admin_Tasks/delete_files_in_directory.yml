@@ -1,0 +1,20 @@
+---
+- name: delete file(s) in a dir demo
+  hosts: all
+  vars:
+    mypath: "/home/student/example"
+  
+  tasks:
+    - name: collect files
+      ansible.builtin.find:
+        paths: "{{ mypath }}"
+        hidden: true
+        recurse: true
+        file_type: any
+      register: collected_files
+
+    - name: remove collected files
+      ansible.builtin.file:
+        path: "{{ item.path }}"
+        state: absent
+      loop: "{{ collected_files }}"
