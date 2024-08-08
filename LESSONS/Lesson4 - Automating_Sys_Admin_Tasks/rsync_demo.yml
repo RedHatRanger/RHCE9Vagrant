@@ -3,7 +3,7 @@
   hosts: all
   become: false
   vars:
-    source: '~/ansible/ansible.cfg'
+    source: '/home/student/ansible/ansible.cfg'
     dest: 'example-backup'
 
   tasks:
