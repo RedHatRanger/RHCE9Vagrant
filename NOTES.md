@@ -12,8 +12,8 @@ One VM will be configured as an Ansible control node. Other four VMs will be use
 | FQDN                      | Description                            |
 | ------------------------- | -------------------------------------- |
 | repo.ansi.example.com     | install packages from                  |
-|                           | http://repo.ansi.example.com/BaseOS    |
-|                           | http://repo.ansi.example.com/AppStream |
+|                           | file:///media/BaseOS/                  |
+|                           | file:///media/AppStream                |
 | control.ansi.example.com  | Ansible control node                   |
 | managed1.ansi.example.com | managed host                           |
 | managed2.ansi.example.com | managed host                           |
