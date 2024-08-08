@@ -116,12 +116,12 @@ EOF
 
 2) Run the playbook:
 ```
-$ ansible-navigator run -m stdout system_setup.yml
+ansible-navigator run -m stdout system_setup.yml
 ```
 
 3) Check to see if the "myuser" user has been created:
 ```
-[rhel@control ansible-files]$ ssh node1 id myuser
+ssh node1 id myuser
 ```
 
 4) Run the updated playbook:
@@ -136,6 +136,7 @@ curl http://node1 | grep "HTTP Server"
 
 6) Create a new playbook called "loop_users.yml":
 ```
+cat << EOF > loop_users.yml
 ---
 - name: Create multiple users with a loop
   hosts: node1
@@ -151,6 +152,7 @@ curl http://node1 | grep "HTTP Server"
         - alice
         - bob
         - carol
+EOF
 ```
 
 7) Run the playbook "loop_users.yml":
@@ -165,15 +167,16 @@ ansible node1 -m shell -a "id alice"
 
 9) Create a file called motd.j2 in the templates folder:
 ```
-$ vim motd.j2
-
+cat << EOF > /home/rhel/ansible-files/templates/motd.j2
 Welcome to {{ ansible_hostname }}.
 OS: {{ ansible_distribution }} {{ ansible_distribution_version }}
 Architecture: {{ ansible_architecture }}
+EOF
 ```
 
 10) Update the "system_setup.yml" file to include the new Jinja template:
 ```
+cat << EOF > system_setup.yml
 ---
 - name: Basic System Setup
   hosts: all
@@ -241,12 +244,12 @@ Architecture: {{ ansible_architecture }}
       ansible.builtin.service:
         name: firewalld
         state: reloaded
-
+EOF
 ```
 
 11) Test out the message of the day:
 ```
-[rhel@control ansible-files]$ ssh node1
+ssh node1
 ```
 
 12) Build a templated role called "apache"
@@ -254,7 +257,7 @@ Architecture: {{ ansible_architecture }}
 ansible-galaxy init --offline roles/apache
 ```
 
-13) iew the roles directory:
+13) View the roles directory:
 ```
 tree roles
 ```
