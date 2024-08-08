@@ -34,6 +34,8 @@ managed nodes:
           -- The default content collections directory is /home/student/ansible/mycollections
 
    * The topography will be as follows:
+
+
                                       +---------------------+
                                       |       control       |
                                       | control.example.com |
