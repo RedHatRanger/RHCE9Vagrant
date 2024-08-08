@@ -153,14 +153,6 @@ curl http://node1 | grep "HTTP Server"
 ansible-navigator run loop_users.yml
 ```
 
-# Understand the playbook and the output:
-```
-The names are not provided to the ansible.builtin.user module directly.
-Instead, there is only a variable called {{ item }} for the parameter name.
-The loop keyword lists the actual user names. Those replace the {{ item }} during the actual execution of the playbook.
-During execution the task is only listed once, but there are three changes listed underneath it.
-```
-
 # check if the user Alice has been created on node1:
 ```
 ansible node1 -m shell -a "id alice"
