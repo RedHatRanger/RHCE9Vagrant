@@ -33,11 +33,21 @@ become_medthod=sudo
 become_user=root
 become_ask_pass=false
 EOF
+
+# Create a templates directory on the Ansible controller:
+mkdir -p /home/rhel/ansible-files/templates
+mkdir -p /home/rhel/ansible-files/roles
+mkdir -p /home/rhel/ansible-files/mycollections
 ```
+# Scroll down for the exercises:
 
 
-# vim system_setup.yml:
+</br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br>
+</br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br>
+
+1) Create your 1st playbook called "system_setup.yml":
 ```
+cat << EOF > system_setup.yml
 ---
 - name: Basic System Setup
   hosts: all
@@ -100,9 +110,10 @@ EOF
       ansible.builtin.service:
         name: firewalld
         state: reloaded
+EOF
 ```
 
-# run the playbook:
+2) Run the playbook:
 ```
 $ ansible-navigator run -m stdout system_setup.yml
 ```
@@ -112,12 +123,7 @@ $ ansible-navigator run -m stdout system_setup.yml
 [rhel@control ansible-files]$ ssh node1 id myuser
 ```
 
-* Understanding this playbook:
-```
-The notify section calls the handler only if the "Allow HTTP traffic on web servers" task makes any changes in one of the hosts.
-That way the service is only reloaded if needed - and not each time the playbook is run.
-The handlers section defines a task that is only run on notification. And the name field is used to call it from a task.
-```
+
 
 # run the updated playbook:
 ```
@@ -255,3 +261,9 @@ Architecture: {{ ansible_architecture }}
 [rhel@control ansible-files]$ tree roles
 ```
 
+* NOTES:
+---
+The notify section calls the handler only if the "Allow HTTP traffic on web servers" task makes any changes in one of the hosts.
+That way the service is only reloaded if needed - and not each time the playbook is run.
+The handlers section defines a task that is only run on notification. And the name field is used to call it from a task.
+```
