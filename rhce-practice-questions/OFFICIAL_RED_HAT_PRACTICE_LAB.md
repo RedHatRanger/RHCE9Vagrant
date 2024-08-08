@@ -34,7 +34,7 @@ become_user=root
 become_ask_pass=false
 EOF
 
-# 4. Create a templates directory on the Ansible controller:
+# 4. Create our directories on the Ansible controller:
 for i in {templates,roles,mycollections}; do mkdir -p /home/rhel/ansible-files/${i}; done
 
 # 5. Download and install the two collections from Ansible Galaxy:
