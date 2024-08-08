@@ -1,0 +1,19 @@
+---
+- name: synchronize module demo
+  hosts: all
+  become: false
+  vars:
+    source: '~/ansible/ansible.cfg'
+    dest: 'example-backup'
+
+  tasks:
+    - name: rsync installed
+      ansible.builtin.yum:
+        name: rsync
+        state: present
+      become: true
+
+    - name: data synchronization
+      ansible.posix.synchronize:
+      src: '{{ source }}'
+      dest: '{{ destination }}'
