@@ -118,7 +118,7 @@ cat << EOF > system_setup.yml
 EOF
 ```
 
-2) Run the playbook:
+2) Re-run the playbook:
 ```
 ansible-navigator run -m stdout system_setup.yml
 ```
