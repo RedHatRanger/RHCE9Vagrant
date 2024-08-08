@@ -1,20 +1,24 @@
 <a href="https://developers.redhat.com/learning/learn:ansible:yaml-essentials-ansible/resource/resources:hands-interactive-lab-and-helpful-resources">Hands-on interactive lab by Red Hat</a>
 
-
-# echo "cd ~/ansible-files" >> ~/.bashrc; . ~/.bashrc
-
-# vim inventory:
 ```
+### Copy and paste these 3 lines of code to setup your system in a flash ###
+
+# 1. Change the directory to the ansible working directory:
+echo "cd ~/ansible-files" >> ~/.bashrc; . ~/.bashrc
+
+# 2. Create the inventory file:
+cat << EOF > inventory
 [web]
 node1
 node2
 
 [database]
 node3
-```
+EOF
 
-# vim ansible.cfg:
-```
+# 3. Create the ansible.cfg:
+
+cat << EOF > ansible.cfg
 [defaults]
 remote_user=rhel
 inventory=/home/rhel/ansible-files/inventory
@@ -28,7 +32,9 @@ become=true
 become_medthod=sudo
 become_user=root
 become_ask_pass=false
+EOF
 ```
+
 
 # vim system_setup.yml:
 ```
