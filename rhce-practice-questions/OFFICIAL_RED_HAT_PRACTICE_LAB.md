@@ -118,24 +118,22 @@ EOF
 $ ansible-navigator run -m stdout system_setup.yml
 ```
 
-# Check to see if the "myuser" user has been created:
+3) Check to see if the "myuser" user has been created:
 ```
 [rhel@control ansible-files]$ ssh node1 id myuser
 ```
 
-
-
-# run the updated playbook:
+4) Run the updated playbook:
 ```
 ansible-navigator run system_setup.yml
 ```
 
-# check that http is working on node1:
+5) Check that http is working on node1:
 ```
 curl http://node1 | grep "HTTP Server"
 ```
 
-# create a new playbook called "loop_users.yml":
+6) Create a new playbook called "loop_users.yml":
 ```
 ---
 - name: Create multiple users with a loop
@@ -154,17 +152,17 @@ curl http://node1 | grep "HTTP Server"
         - carol
 ```
 
-# run the playbook "loop_users.yml":
+7) Run the playbook "loop_users.yml":
 ```
 ansible-navigator run loop_users.yml
 ```
 
-# check if the user Alice has been created on node1:
+8) Check if the user Alice has been created on node1:
 ```
 ansible node1 -m shell -a "id alice"
 ```
 
-# create a new folder in ansible-files called "templates", and then create a file called motd.j2:
+9) Create a file called motd.j2 in the templates folder:
 ```
 $ vim motd.j2
 
@@ -173,7 +171,7 @@ OS: {{ ansible_distribution }} {{ ansible_distribution_version }}
 Architecture: {{ ansible_architecture }}
 ```
 
-# update the "system_setup.yml" file to include the new Jinja template:
+10) Update the "system_setup.yml" file to include the new Jinja template:
 ```
 ---
 - name: Basic System Setup
@@ -245,20 +243,19 @@ Architecture: {{ ansible_architecture }}
 
 ```
 
-# test out the message of the day:
+11) Test out the message of the day:
 ```
 [rhel@control ansible-files]$ ssh node1
 ```
 
-# create a "roles" directory, and build an apache role:
+12) Build a templated role called "apache"
 ```
-[rhel@control ansible-files]$ mkdir roles
-[rhel@control ansible-files]$ ansible-galaxy init --offline roles/apache
+ansible-galaxy init --offline roles/apache
 ```
 
-# view the roles directory:
+13) iew the roles directory:
 ```
-[rhel@control ansible-files]$ tree roles
+tree roles
 ```
 
 * NOTES:
