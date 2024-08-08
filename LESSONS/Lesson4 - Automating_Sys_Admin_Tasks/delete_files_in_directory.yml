@@ -3,7 +3,7 @@
   hosts: all
   vars:
     mypath: "/home/student/example"
-  
+
   tasks:
     - name: collect files
       ansible.builtin.find:
@@ -17,4 +17,4 @@
       ansible.builtin.file:
         path: "{{ item.path }}"
         state: absent
-      loop: "{{ collected_files }}"
+      with_items: "{{ collected_files }}"
