@@ -32,6 +32,19 @@ managed nodes:
           -- The host inventory file should be defined as /home/student/ansible/inventory
           -- The default roles directory is /home/student/ansible/roles
           -- The default content collections directory is /home/student/ansible/mycollections
+
+   * The topography will be as follows:
+                                      +---------------------+
+                                      |       control       |
+                                      | control.example.com |
+                                      |    172.28.128.100   |
+                                      +-----------+---------+
+        __________________________________________|________________________________________
+       /                      /                   |                  \                     \
++------+---------+   +-------+--------+   +-------+--------+   +------+---------+   +-------+--------+
+|     node1      |   |     node2      |   |     node3      |   |     node4      |   |      node5     |
+| 172.28.128.101 |   | 172.28.128.102 |   | 172.28.128.103 |   | 172.28.128.104 |   | 172.28.128.105 |
++----------------+   +----------------+   +----------------+   +----------------+   +----------------+
 ```
 
 (scroll down for an answer)
