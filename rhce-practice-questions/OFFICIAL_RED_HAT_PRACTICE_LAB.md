@@ -34,10 +34,14 @@ become_user=root
 become_ask_pass=false
 EOF
 
-# Create a templates directory on the Ansible controller:
+# 4. Create a templates directory on the Ansible controller:
 mkdir -p /home/rhel/ansible-files/templates
 mkdir -p /home/rhel/ansible-files/roles
 mkdir -p /home/rhel/ansible-files/mycollections
+
+# 5. Download and install the two collections from Ansible Galaxy:
+ansible-galaxy collection install ansible.posix
+ansible-galaxy collection install community.general
 ```
 # Scroll down for the Exercises:
 
