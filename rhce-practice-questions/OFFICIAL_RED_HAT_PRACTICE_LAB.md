@@ -161,7 +161,7 @@ EOF
 
 7) Run the playbook "loop_users.yml":
 ```
-ansible-navigator run loop_users.yml
+ansible-navigator run -m stdout loop_users.yml
 ```
 
 8) Check if the user Alice has been created on node1:
@@ -251,17 +251,22 @@ cat << EOF > system_setup.yml
 EOF
 ```
 
-11) Test out the message of the day:
+11) Run the playbook:
+```
+ansible-navigator run -m stdout system_setup.yml
+```
+
+12) Test out the message of the day:
 ```
 ssh node1
 ```
 
-12) Build a templated role called "apache"
+13) Build a templated role called "apache"
 ```
 ansible-galaxy init --offline roles/apache
 ```
 
-13) View the roles directory:
+14) View the roles directory:
 ```
 tree roles
 ```
