@@ -42,9 +42,10 @@ mkdir -p /home/rhel/ansible-files/mycollections
 # Scroll down for the exercises:
 
 
-</br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br>
-</br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br>
+</br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br>
+</br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br>
 
+### EXERCISES: ###
 1) Create your 1st playbook called "system_setup.yml":
 ```
 cat << EOF > system_setup.yml
