@@ -155,15 +155,19 @@ curl http://node1 | grep "HTTP Server"
 6) Test out the message of the day:
 ```
 ssh node1
+```
+
+7) Exit node1
+```
 exit
 ```
 
-7) Build a templated role called "apache"
+8) Build a templated role called "apache"
 ```
 ansible-galaxy init --offline roles/apache
 ```
 
-8) View the roles directory:
+9) View the roles directory:
 ```
 tree roles
 ```
