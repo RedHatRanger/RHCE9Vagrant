@@ -39,13 +39,13 @@ mkdir -p /home/rhel/ansible-files/templates
 mkdir -p /home/rhel/ansible-files/roles
 mkdir -p /home/rhel/ansible-files/mycollections
 ```
-# Scroll down for the exercises:
+# Scroll down for the Exercises:
 
 
 </br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br>
 </br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br>
 
-### EXERCISES: ###
+### Exercises: ###
 1) Create your 1st playbook called "system_setup.yml":
 ```
 cat << EOF > system_setup.yml
