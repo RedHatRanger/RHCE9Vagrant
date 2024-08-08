@@ -35,9 +35,9 @@ become_ask_pass=false
 EOF
 
 # 4. Create a templates directory on the Ansible controller:
-mkdir -p /home/rhel/ansible-files/templates
-mkdir -p /home/rhel/ansible-files/roles
-mkdir -p /home/rhel/ansible-files/mycollections
+for i in {templates,roles,mycollections}; do mkdir -p /home/rhel/ansible-files/${i}; done
+# mkdir -p /home/rhel/ansible-files/roles
+# mkdir -p /home/rhel/ansible-files/mycollections
 
 # 5. Download and install the two collections from Ansible Galaxy:
 ansible-galaxy collection install ansible.posix
