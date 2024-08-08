@@ -166,7 +166,7 @@ ansible-navigator run -m stdout loop_users.yml
 
 8) Check if the user Alice has been created on node1:
 ```
-ansible node1 -m shell -a "id alice"
+ssh node1 id alice
 ```
 
 9) Create a file called motd.j2 in the templates folder:
