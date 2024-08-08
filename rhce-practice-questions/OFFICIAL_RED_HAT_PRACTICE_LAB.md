@@ -1,7 +1,7 @@
 Link to the <a href="https://developers.redhat.com/learning/learn:ansible:yaml-essentials-ansible/resource/resources:hands-interactive-lab-and-helpful-resources">Hands-on interactive lab by Red Hat</a>
 
 ```
-### Copy and paste these 3 lines of code to setup your system in a flash ###
+### Copy and paste these lines of code to setup your system in a flash ###
 
 # 1. Change the directory to the ansible working directory:
 echo "cd ~/ansible-files" >> ~/.bashrc; . ~/.bashrc
