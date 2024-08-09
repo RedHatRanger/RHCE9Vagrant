@@ -91,44 +91,13 @@ MODULES USED:
 
 2) Test and run the hwreport.yml playbook:
 ```
-[student@control ansible]$ ansible-navigator run -m stdout hwreport.yml -C
-<output omitted>
 [student@control ansible]$ ansible-navigator run -m stdout hwreport.yml
-﻿...
-TASK [Downlod this file] *************************************************************
-changed: [node3.example.com]
-changed: [node5.example.com]
-changed: [node4.example.com]
-changed: [node2.example.com]
-changed: [node1.example.com]
-
-TASK [Generate information for the Inventory hostname] *****************
-changed: [node4.example.com]
-changed: [node3.example.com]
-changed: [node5.example.com]
-changed: [node2.example.com]
-changed: [node1.example.com]
-
-TASK [Generate information for memory_in_MB] *******
-changed: [node3.example.com]
-changed: [node5.example.com]
-changed: [node4.example.com]
-changed: [node1.example.com]
-changed: [node2.example.com]
-
-TASK [Generate information for BIOS_version] ****
-changed: [node5.example.com]
-changed: [node3.example.com]
-changed: [node4.example.com]
-changed: [node1.example.com]
-changed: [node2.example.com]
-TASK [Generate information for disk_sda_size]
-...
+﻿<output omitted>
 ```
 
 * Validate the /root/hwreport.txt file for each of the nodes:
 ```
-[student@control ansible]$ ansible all -m command -a "cat /root/hwreport.txt"
+[student@control ansible]$ ansible all -m shell -a "cat /root/hwreport.txt"
 <output omitted>
 ```
 
