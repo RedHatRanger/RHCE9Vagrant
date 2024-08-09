@@ -29,7 +29,7 @@ host_key_checking=false
 
 [privilege_escalation]
 become=true
-become_medthod=sudo
+become_method=sudo
 become_user=root
 become_ask_pass=false
 EOF
