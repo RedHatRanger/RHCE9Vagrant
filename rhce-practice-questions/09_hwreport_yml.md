@@ -11,12 +11,13 @@
 Instructions:
 
 9. Collect a hardware report using a playbook on all nodes.
-  i)   Download "hwreport.txt" from the url "http://content.example.com/hwreport.txt and save it under /root.
+  i)   Download "hwreport.txt" from the url "http://content.example.com/hwreport.txt" and save it under /root.
   ii)  If there is no information it should show "NONE"
   iii) The name of the laybook should be "hwreport.yml"
 
 
-NOTE: For this example we will download the file from:
+                                    *** NOTE ***:
+For this example we will download the file from:
 https://raw.githubusercontent.com/RedHatRanger/RHCE9Vagrant/main/rhce-practice-questions/golden_files/hwreport.txt
 
 /root/hwreport.txt should have content with node information as key=value
