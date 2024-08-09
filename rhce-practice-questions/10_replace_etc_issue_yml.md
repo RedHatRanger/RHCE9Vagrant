@@ -60,12 +60,8 @@ MODULES USED:
 
 2) Test and run the playbook:
 ```
-[student@control ansible]$ ansible-navigator run -m stdout issue.yml -C
-<output omitted>
 [student@control ansible]$ ansible-navigator run -m stdout issue.yml
 ```
-output: \
-![image](https://github.com/user-attachments/assets/5ca68c80-9a8e-48fd-9c83-72859b0d3924)
 
 3) Validate the /etc/issue file on all nodes:
 ```
