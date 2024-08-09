@@ -38,7 +38,7 @@ MODULES USED:
 - get_url
 - replace
 
-</br</br>
+</br></br>
 
 1) Create the "hwreport.yml" file:
 ```
