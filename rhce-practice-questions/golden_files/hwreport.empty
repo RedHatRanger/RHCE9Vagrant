@@ -1,0 +1,5 @@
+HOSTNAME= inventoryhostname
+MEMORY= memory_in_MB
+BIOS= BIOS_version
+DISK_SIZE_SDA= disk_sda_size
+DISK_SIZE_SDB= disk_sdb_size
