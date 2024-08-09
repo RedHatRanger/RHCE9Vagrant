@@ -51,15 +51,13 @@ backend app
 [student@control ansible]$ vim roles.yml
 
 ---
-- name: use balancer role
-  hosts: balancers
-  roles:
-    - balancer
-
-- name: use phpinfo
-  hosts: webservers
+- hosts: webservers
   roles:
     - phpinfo
+
+- hosts: balancers
+  roles:
+    - balancer
 
 :wq
 ```
