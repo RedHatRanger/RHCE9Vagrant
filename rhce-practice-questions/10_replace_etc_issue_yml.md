@@ -37,14 +37,13 @@ MODULES USED:
     environments:
       - { name: dev, content: "Development" }
       - { name: prod, content: "Production" }
-      - { name: test, content: "Test }
-
+      - { name: test, content: "Test" }
   tasks:
     - name: Set /etc/issue content based on environment
       ansible.builtin.copy:
         content: "{{ item.content }}"
         dest: /etc/issue
-      when: inventory_hostname in groups[item.name]
+      when: "'{{ inventory_hostname }}' in groups[item.name]"
       loop: "{{ environments }}"
 ﻿
 :wq
