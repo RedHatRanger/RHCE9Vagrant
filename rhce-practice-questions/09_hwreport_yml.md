@@ -11,9 +11,9 @@
 Instructions:
 
 9. Collect a hardware report using a playbook on all nodes.
-i) download hwreport.txt from the url "http://content.example.com/hwreport.txt and save it under /root.
-ii) if there is no information it should show "NONE"
-iii) playbook name should be hwreport.yml
+  i)   Download hwreport.txt from the url "http://content.example.com/hwreport.txt and save it under /root.
+  ii)  if there is no information it should show "NONE"
+  iii) playbook name should be hwreport.yml
 
 
 NOTE: For this example we will download the file from:
