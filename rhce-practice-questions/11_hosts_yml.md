@@ -1,5 +1,5 @@
 <a href="https://www.youtube.com/watch?v=Oxd2Zuuv9Cs&list=PLYB6dfdhWDePZf4fd4YgGGtSX_vHKv5vz&index=14">Video Tutorial</a> by Teach Me Tech \
-<a href="https://www.youtube.com/watch?v=yGJfoLGaN0E&list=PLL_setXLS0tiYMipvQI4oUGkJwhOhn42J&index=11">Video Tutorial</a> by codeXchange (BEST)
+<a href="https://www.youtube.com/watch?v=yGJfoLGaN0E&list=PLL_setXLS0tiYMipvQI4oUGkJwhOhn42J&index=11">Video Tutorial</a> by codeXchange (BEST) \
 <a href="https://docs.ansible.com/ansible/latest/collections/amazon/aws/docsite/aws_ec2_guide.html#hostvars-prefix-and-hostvars-suffix">Link</a> to the Ansible Documentation
 
 ***On the Control Node***
