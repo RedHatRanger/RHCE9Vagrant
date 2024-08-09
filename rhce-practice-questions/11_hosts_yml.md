@@ -37,6 +37,12 @@ iii) The playbook name should be "hosts.yml" and run it on dev group.
 <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 
 ### ANSWER #11:
+MODULES USED:
+- template
+- file
+
+</br></br>
+
 1) Log into the CONTROL NODE as student, and create the "myhosts.j2" file:
 ```
 [student@control ansible]$ ﻿vim myhosts.j2
