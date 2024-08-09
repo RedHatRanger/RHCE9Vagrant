@@ -43,11 +43,11 @@ MODULES USED:
 1) Create the "hwreport.yml" file:
 ```
 # NOTE: If you are unsure you can run "ansible-doc get_url" and search /EXAMPLES for Download foo.conf
-  AND "ansible-doc copy" for information and EXAMPLES for the copy command.
-  AND "ansible all -m setup > test" will get you the correct parameters you are looking for the replace: option.
+# AND "ansible all -m setup > test" will get you the correct parameters you are looking for the replace: option.
 
-[student@control ansible]$ vim hwreport.yml
+# [student@control ansible]$ vim hwreport.yml
 
+cat << EOF > hwreport.yml
 ---
 - name: Generate a hardware report
   hosts: all
@@ -88,6 +88,7 @@ MODULES USED:
         path: /root/hwreport.txt
         regexp: "disk_sdb_size"
         replace: "{{ ansible_devices.sdb.size | default ('NONE') }}"
+EOF
 ```
 
 2) Test and run the hwreport.yml playbook:
