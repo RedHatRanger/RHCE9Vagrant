@@ -61,13 +61,21 @@ MODULES USED:
 ```
 
 ---
-- name: use template
-  hosts: dev
+- name: Copy from template
+  hosts: all
   tasks:
     - name: use template
       ansible.builtin.template:
         src: myhosts.j2
         dest: /etc/myhosts
+
+- name: Remove /etc/myhosts from everything but dev
+  hosts: all,!dev
+  tasks:
+    - name: delete from all
+      ansible.builtin.file:
+        path: /etc/myhosts
+        state: absent
 
 :wq
 ```
