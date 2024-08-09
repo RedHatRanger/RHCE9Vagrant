@@ -65,13 +65,16 @@ MODULES USED:
 
 3) Validate the /etc/issue file on all nodes:
 ```
-[student@control ansible]$ ansible dev,test,prod -m command -a "cat /etc/issue"
+[student@control ansible]$ ansible dev,test,prod -m command -a "cat /etc/issue; echo -e '\n '"
 nodel | CHANGED | rc=0 >>
-Developmet
+Development
+
 node2 | CHANGED | rc=0 >>
 Test
+
 node3 | CHANGED | rc=0 >>
 Production
+
 node4 | CHANGED | rc=0 >>
 Production
 ```
