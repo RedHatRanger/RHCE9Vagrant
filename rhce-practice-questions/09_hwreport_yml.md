@@ -97,7 +97,7 @@ MODULES USED:
 
 * Validate the /root/hwreport.txt file for each of the nodes:
 ```
-[student@control ansible]$ ansible all -m shell -a "cat /root/hwreport.txt"
+[student@control ansible]$ ansible all -m shell -a "cat /root/hwreport.txt; echo ' '"
 <output omitted>
 ```
 
