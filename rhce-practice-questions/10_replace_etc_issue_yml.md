@@ -31,29 +31,21 @@ MODULES USED:
 [student@control ansible]$ vim issue.yml
 
 ---
-- name: content in dev
-  hosts: dev
-  tasks:
-    - name: copy using inline content
-      ansible.builtin.copy:
-          content: "Development"
-          dest: /etc/issue
+- name: Configure /etc/issue content based on environment
+  hosts: all
+  vars:
+    environments:
+      - { name: dev, content: "Development" }
+      - { name: prod, content: "Production" }
+      - { name: test, content: "Test }
 
-- name: content in prod hosts prod
-  hosts: prod
   tasks:
-    - name: copy using inline content
+    - name: Set /etc/issue content based on environment
       ansible.builtin.copy:
-          content: "Production"
-          dest: /etc/issue
-
-- name: content in test
-  hosts: test
-  tasks:
-    - name: copy using inline content
-      ansible.builtin.copy:
-          content: "Test"
-          dest: /etc/issue
+        content: "{{ item.content }}"
+        dest: /etc/issue
+      when: inventory_hostname in groups[item.name]
+      loop: "{{ environments }}"
 ﻿
 :wq
 ```
