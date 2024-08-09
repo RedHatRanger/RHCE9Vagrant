@@ -33,7 +33,7 @@ iii) playbook name should be hwreport.yml
 <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 
 ### ANSWER #9:
-1) Log into the CONTROL NODE as student, and create the "hwreport.txt" file in the ~/ansible directory:
+1) Log into the CONTROL NODE as student, and download the "hwreport.txt" file to the ~/ansible directory:
 ```
 wget https://raw.githubusercontent.com/RedHatRanger/RHCE9Vagrant/main/rhce-practice-questions/golden_files/hwreport.txt
 ```
