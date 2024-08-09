@@ -24,7 +24,7 @@ iv)  Playbook name should be issue.yml and run on all managed nodes
 MODULES USED:
 - copy
 
-</br></br>
+</br>
 
 1) Log into the CONTROL NODE as student, and create the "issue.yml" playbook:
 ```
