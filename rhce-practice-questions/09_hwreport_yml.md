@@ -34,12 +34,11 @@ DISK_SIZE_SDB=
 <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 
 ### ANSWER #9:
-1) Log into the CONTROL NODE as student, and download the "hwreport.txt" file to the ~/ansible directory:
-```
-wget https://raw.githubusercontent.com/RedHatRanger/RHCE9Vagrant/main/rhce-practice-questions/golden_files/hwreport.txt
-```
+MODULES USED:
+- get_url
+- replace
 
-1) Next, create the "hwreport.yml" file:
+1) Create the "hwreport.yml" file:
 ```
 # NOTE: If you are unsure you can run "ansible-doc get_url" and search /EXAMPLES for Download foo.conf
   AND "ansible-doc copy" for information and EXAMPLES for the copy command.
