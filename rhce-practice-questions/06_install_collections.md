@@ -21,7 +21,7 @@ Example url: http://content.example.com/rhce/ansible-posix....
 
 You will have to install:
 - ansible.posix or redhat-insights
-- community-general
+- community.general
 - rhel-system-roles
 ```
 
