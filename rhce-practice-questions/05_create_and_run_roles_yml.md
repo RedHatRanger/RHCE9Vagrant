@@ -37,12 +37,10 @@ along with various details of the PHP configuration including the version of PHP
 ```
 [student@control ansible]$ vim roles/balancer/templates/balancer.j2
 
-...
 backend app
     balance         roundrobin
   server  node3.example.com  172.28.128.103:80 check
   server  node4.example.com  172.28.128.104:80 check
-...
 
 :wq
 ```   
