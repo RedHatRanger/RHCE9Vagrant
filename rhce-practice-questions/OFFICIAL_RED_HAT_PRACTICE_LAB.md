@@ -8,12 +8,20 @@ echo "cd ~/ansible-files" >> ~/.bashrc; . ~/.bashrc
 
 # 2. Create the inventory file:
 cat << EOF > inventory
-[web]
+[dev]
 node1
+
+[test]
 node2
 
-[database]
+[prod]
 node3
+
+[balancers]
+node3
+
+[webservers:children]
+prod
 EOF
 
 # 3. Create the ansible.cfg:
