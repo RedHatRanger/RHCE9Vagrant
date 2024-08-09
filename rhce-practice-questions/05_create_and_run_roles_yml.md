@@ -18,6 +18,7 @@ Create a playbook called /home/student/ansible/roles.yml
 Welcome to node3.example.com on 172.28.128.103
 - Reloading the Browser produces output from the alternet web server:
 Welcome to node4. lab.example.com on 172.28.128.104
+
 * The Playbook contains a play the runs on hosts in webserver host group and uses the phpinfo role.
 - Browsing to host in the webserver host group with the URL /hell.php produces the following out [ut: Hello PHP World from FQDN
 - For example Browsing to http://node3.example.com/hello.php produces the following output:
