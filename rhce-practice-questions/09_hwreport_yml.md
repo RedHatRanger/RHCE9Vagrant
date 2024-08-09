@@ -48,45 +48,44 @@ wget https://raw.githubusercontent.com/RedHatRanger/RHCE9Vagrant/main/rhce-pract
 
 ---
 - name: Generate a hardware report
-  hosts: all
+  hosts: all 
   become: true
   tasks:
-     - name: copy from folder (only for practice; get_url will be used on the exam)
-       #get_url:
-           #url: http://example.com/path/file.conf
-       ansible.builtin.copy:
-          src: hwreport.txt
-          dest: /root/hwreport.txt
+    - name: Get the file from the url 
+      ansible.builtin.get_url:
+        url: https://raw.githubusercontent.com/RedHatRanger/RHCE9Vagrant/main/rhce-practice-questions/golden_files/hwreport.txt
+        dest: /root/hwreport.txt
+        mode: '0755'
 
-      - name: Generate information for the Inventory hostname
-        replace:
-           path: /root/hwreport.txt
-           regexp: "inventoryhostname"
-           replace: "{{ ansible_hostname | default ('NONE') }}"
+    - name: Generate information for the Inventory hostname
+      ansible.builtin.replace:
+        path: /root/hwreport.txt
+        regexp: "inventoryhostname"
+        replace: "{{ ansible_hostname | default ('NONE') }}"
 
       - name: Generate information for memory_in_MB
-        replace:
-           path: /root/hwreport.txt
-           regexp: "memory_in_MB"
-           replace: "{{ ansible_memory_mb | default ('NONE') }}"
+        ansible.builtin.replace:
+          path: /root/hwreport.txt
+          regexp: "memory_in_MB"
+          replace: "{{ ansible_memory_mb | default ('NONE') }}"
 
       - name: Generate information for BIOS_version
-        replace:
-           path: /root/hwreport.txt
-           regexp: "BIOS_version"
-           replace: "{{ ansible_bios_version | default ('NONE') }}"
+        ansible.builtin.replace:
+          path: /root/hwreport.txt
+          regexp: "BIOS_version"
+          replace: "{{ ansible_bios_version | default ('NONE') }}"
 
       - name: Generate information for disk_sda_size
-        replace:
-           path: /root/hwreport.txt
-           regexp: "disk_sda_size"
-           replace: "{{ ansible_devices.sda.size | default ('NONE') }}"
+        ansible.builtin.replace:
+          path: /root/hwreport.txt
+          regexp: "disk_sda_size"
+          replace: "{{ ansible_devices.sda.size | default ('NONE') }}"
 
       - name: Generate information for disk_sdb_size
-        replace:
-           path: /root/hwreport.txt
-           regexp: "disk_sdb_size"
-           replace: "{{ ansible_devices.sdb.size | default ('NONE') }}"
+        ansible.builtin.replace:
+          path: /root/hwreport.txt
+          regexp: "disk_sdb_size"
+          replace: "{{ ansible_devices.sdb.size | default ('NONE') }}"
 ```
 
 2) Test and run the hwreport.yml playbook:
