@@ -14,7 +14,7 @@ Instructions:
 i) download hwreport.txt from the url "http://content.example.com/hwreport.txt and save it under /root.
 
 NOTE: For this example we will download the file from:
-https://github.com/RedHatRanger/RHCE9Vagrant/blob/main/rhce-practice-questions/golden_files/hwreport.empty
+https://raw.githubusercontent.com/RedHatRanger/RHCE9Vagrant/main/rhce-practice-questions/golden_files/hwreport.txt
 
 /root/hwreport.txt should have content with node information as key=value
 #hwreport
@@ -35,13 +35,7 @@ iii) playbook name should be hwreport.yml
 ### ANSWER #9:
 1) Log into the CONTROL NODE as student, and create the "hwreport.empty" file in the ~/ansible directory:
 ```
-[student@control ansible]$ vim hwreport.empty
-﻿
-HOSTNAME= inventoryhostname
-MEMORY= memory_in_MB
-BIOS= BIOS_version
-DISK_SIZE_SDA= disk_sda_size
-DISK_SIZE_SDB= disk_sdb_size
+[student@control ansible]$ wget https://raw.githubusercontent.com/RedHatRanger/RHCE9Vagrant/main/rhce-practice-questions/golden_files/hwreport.txt
 ```
 
 1) Next, create the "hwreport.yml" file:
@@ -55,12 +49,13 @@ DISK_SIZE_SDB= disk_sdb_size
 ---
 - name: Generate a hardware report
   hosts: all
+  become: true
   tasks:
      - name: copy from folder (only for practice; get_url will be used on the exam)
        #get_url:
            #url: http://example.com/path/file.conf
        ansible.builtin.copy:
-          src: hwreport.empty
+          src: hwreport.txt
           dest: /root/hwreport.txt
 
       - name: Generate information for the Inventory hostname
