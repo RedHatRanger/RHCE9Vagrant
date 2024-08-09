@@ -1,6 +1,6 @@
 <a href="https://www.youtube.com/watch?v=jOUqUUuca0w&list=PLYB6dfdhWDePZf4fd4YgGGtSX_vHKv5vz&index=5">Video Tutorial</a> by Teach Me Tech (BEST) \
 <a href="https://www.youtube.com/watch?v=nqxoLgIMHhY&list=PLL_setXLS0tiYMipvQI4oUGkJwhOhn42J&index=3">Video Tutorial</a> by codeXchange \
-<a href="https://docs.ansible.com/ansible/latest/galaxy/user_guide.html#installing-roles-from-galaxy">Link</a> to the Ansible Documentation
+<a href="https://docs.ansible.com/ansible/latest/galaxy/user_guide.html#installing-roles">Link</a> to the Ansible Documentation
 
 ***On the Control Node***
 
