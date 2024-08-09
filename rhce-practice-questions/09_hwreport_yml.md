@@ -12,9 +12,9 @@ Instructions:
 
 9. Collect a hardware report using a playbook on all nodes.
 i) download hwreport.txt from the url "http://content.example.com/hwreport.txt and save it under /root.
-(For this example we will download the file from:
 
-https://github.com/RedHatRanger/RHCE9Vagrant/blob/main/rhce-practice-questions/golden_files/hwreport.empty)
+NOTE: For this example we will download the file from:
+https://github.com/RedHatRanger/RHCE9Vagrant/blob/main/rhce-practice-questions/golden_files/hwreport.empty
 
 /root/hwreport.txt should have content with node information as key=value
 #hwreport
@@ -23,6 +23,7 @@ MEMORY=
 BIOS=
 DISK_SIZE_SDA=
 DISK_SIZE_SDB=
+
 ii) if there is no information it should show "NONE"
 iii) playbook name should be hwreport.yml
 ```
