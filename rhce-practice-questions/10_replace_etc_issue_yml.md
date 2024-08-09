@@ -21,6 +21,11 @@ iv)  Playbook name should be issue.yml and run on all managed nodes
 <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 
 ### ANSWER #10:
+MODULES USED:
+- copy
+
+</br></br>
+
 1) Log into the CONTROL NODE as student, and create the "issue.yml" playbook:
 ```
 [student@control ansible]$ vim issue.yml
