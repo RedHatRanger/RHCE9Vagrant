@@ -38,6 +38,8 @@ MODULES USED:
 - get_url
 - replace
 
+</br</br>
+
 1) Create the "hwreport.yml" file:
 ```
 # NOTE: If you are unsure you can run "ansible-doc get_url" and search /EXAMPLES for Download foo.conf
