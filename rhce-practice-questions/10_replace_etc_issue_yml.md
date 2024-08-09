@@ -47,7 +47,7 @@ MODULES USED:
           content: "Production"
           dest: /etc/issue
 
-- name: content in dev
+- name: content in test
   hosts: test
   tasks:
     - name: copy using inline content
