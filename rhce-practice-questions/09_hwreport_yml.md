@@ -68,7 +68,7 @@ MODULES USED:
       ansible.builtin.replace:
         path: /root/hwreport.txt
         regexp: "memory_in_MB"
-        replace: "{{ ansible_memory_mb | default ('NONE') }}"
+        replace: "{{ ansible_memory_mb.real.free | default ('NONE') }}"
 
     - name: Generate information for BIOS_version
       ansible.builtin.replace:
