@@ -12,6 +12,9 @@ Instructions:
 
 9. Collect a hardware report using a playbook on all nodes.
 i) download hwreport.txt from the url "http://content.example.com/hwreport.txt and save it under /root.
+ii) if there is no information it should show "NONE"
+iii) playbook name should be hwreport.yml
+
 
 NOTE: For this example we will download the file from:
 https://raw.githubusercontent.com/RedHatRanger/RHCE9Vagrant/main/rhce-practice-questions/golden_files/hwreport.txt
@@ -23,9 +26,6 @@ MEMORY=
 BIOS=
 DISK_SIZE_SDA=
 DISK_SIZE_SDB=
-
-ii) if there is no information it should show "NONE"
-iii) playbook name should be hwreport.yml
 ```
 
 (scroll down for an answer)
