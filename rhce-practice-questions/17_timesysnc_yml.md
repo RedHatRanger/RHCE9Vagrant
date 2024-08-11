@@ -34,14 +34,25 @@ Instructions:
 [student@control ansible]$ ﻿vim timesync.yml
 
 ---
-- name: use timesync
-  hosts: all
+#- name: use timesync
+#  hosts: all
+#  vars:
+#     timesync_ntp_servers:
+#         - hostname: classroom.example.com
+#           iburst: yes
+#  roles:
+#     - rhel-system-roles.timesync
+
+# For this example we will use what redhat has provided us:
+---
+- hosts: all
   vars:
-     timesync_ntp_servers:
-         - hostname: classroom.example.com
-           iburst: yes
+    timesync_ntp_servers:
+      - hostname: 2.rhel.pool.ntp.org
+        pool: yes
+        iburst: yes
   roles:
-     - rhel-system-roles.timesync
+    - rhel-system-roles.timesync
 
 :wq
 ```
