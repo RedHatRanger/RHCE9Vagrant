@@ -1,5 +1,6 @@
 <a href="https://www.youtube.com/watch?v=Hfdhnn3bHdw&list=PLYB6dfdhWDePZf4fd4YgGGtSX_vHKv5vz&index=15">Video Tutorial</a> by Teach Me Tech \
-<a href="https://www.youtube.com/watch?v=ZRWzucbEoVU&list=PLL_setXLS0tiYMipvQI4oUGkJwhOhn42J&index=12">Video Tutorial</a> by codeXchange (BEST)
+<a href="https://www.youtube.com/watch?v=ZRWzucbEoVU&list=PLL_setXLS0tiYMipvQI4oUGkJwhOhn42J&index=12">Video Tutorial</a> by codeXchange (BEST) \
+<a href="https://docs.ansible.com/ansible/latest/vault_guide/vault_using_encrypted_content.html#passing-a-single-password">Link</a> to the Ansible Documentation
 
 ***On the Control Node***
 
