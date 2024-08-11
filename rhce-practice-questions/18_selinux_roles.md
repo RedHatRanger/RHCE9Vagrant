@@ -21,8 +21,7 @@ Instructions:
 1) Log into the CONTROL NODE as student, and create the "selinux.yml" file:
 ```
 [student@control ansible]$ cd /home/student/ansible/roles
-[student@control roles]$ sudo rsync -av --progress /usr/share/ansible/roles/rhel-system-roles.selinux .
-[student@control roles]$ sudo chown -R student:student rhel-system-roles.selinux/
+[student@control roles]$ cp -rf /usr/share/ansible/roles/rhel-system-roles.selinux/ .
 [student@control roles]$ cd /home/student/ansible
 [student@control ansible]$ vim selinux.yml
 
