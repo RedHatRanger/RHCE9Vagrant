@@ -30,9 +30,10 @@ Instructions:
 - name: configure selinux
   hosts: all
   vars:
-      selinux_state: enforcing
+    selinux_policy: targeted
+    selinux_state: enforcing
   roles:
-    - role: rhel-system-roles.selinux
+    - rhel-system-roles.selinux
 
 :wq
 ```
