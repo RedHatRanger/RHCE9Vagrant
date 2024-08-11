@@ -28,6 +28,9 @@ Instructions:
 ```
 [student@control ansible]$ sudo yum install rhel-system-roles -y
 <output omitted>
+[student@control ansible]$ sudo rsync -av --progress /usr/share/ansible/roles/rhel-system-roles.timesync /home/student/ansible/roles
+<output omitted>
+[student@control roles]$ sudo chown -R student:student rhel-system-roles.timesync/
 ```
 
 2) Create the "timesync.yml" playbook
