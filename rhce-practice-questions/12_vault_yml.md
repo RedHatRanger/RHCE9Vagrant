@@ -48,25 +48,4 @@ pw_developer: Iamdev
 pw_manager: Iammgr
 ```
 
-4) Optionally, you may configure the secret to be used each time without the --vault flag:
-```
-[student@control ansible]$ vim ansible.cfg
-
-[defaults]
-remote_user=student
-inventory=/home/student/ansible/inventory
-roles_path=/home/student/ansible/roles
-collections_path=/home/student/ansible/mycollections
-ask_pass=false
-vault_password_file=/home/student/ansible/secret.txt
-
-[privilege_escalation]
-become=true
-become_medthod=sudo
-become_user=root
-become_ask_pass=false
-
-:wq
-```
-
 * Done!!
