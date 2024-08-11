@@ -1,5 +1,5 @@
-<a href="https://www.youtube.com/watch?v=7fb98SMGOcw&list=PLYB6dfdhWDePZf4fd4YgGGtSX_vHKv5vz&index=9">Video Tutorial</a> by Teach Me Tech \
-<a href="https://www.youtube.com/watch?v=2u1eNdrGhjE&list=PLL_setXLS0tiYMipvQI4oUGkJwhOhn42J&index=18">Video Tutorial</a> by codeXchange (BEST)
+<a href="https://www.youtube.com/watch?v=7fb98SMGOcw&list=PLYB6dfdhWDePZf4fd4YgGGtSX_vHKv5vz&index=9">Video Tutorial</a> by Teach Me Tech (BEST) \
+<a href="https://www.youtube.com/watch?v=2u1eNdrGhjE&list=PLL_setXLS0tiYMipvQI4oUGkJwhOhn42J&index=18">Video Tutorial</a> by codeXchange
 
 ***On the Control Node***
 
