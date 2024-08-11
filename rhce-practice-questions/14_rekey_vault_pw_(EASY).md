@@ -1,5 +1,6 @@
 <a href="https://www.youtube.com/watch?v=icqzQA6-7dU&list=PLYB6dfdhWDePZf4fd4YgGGtSX_vHKv5vz&index=17">Video Tutorial</a> by Teach Me Tech \
-<a href="https://www.youtube.com/watch?v=ZrZDEMCsQLw&list=PLL_setXLS0tiYMipvQI4oUGkJwhOhn42J&index=14">Video Tutorial</a> by codeXchange (BEST)
+<a href="https://www.youtube.com/watch?v=ZrZDEMCsQLw&list=PLL_setXLS0tiYMipvQI4oUGkJwhOhn42J&index=14">Video Tutorial</a> by codeXchange (BEST) \
+<a href="https://docs.ansible.com/ansible/latest/cli/ansible-vault.html#rekey">Link</a> to the Ansible Documentation
 
 ***On the Control Node***
 
