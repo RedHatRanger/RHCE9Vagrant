@@ -198,4 +198,14 @@ node5 | SUCCESS => {
     "changed": false,
     "ping": "pong"
 }
+
+vim ansible-navigator.yml
+---
+ansible-navigator:
+execution-environment:
+ image: ghcr.io/ansible/creator-ee:v0.14.1
+ pull:
+  policy: missing
+playbook-artifact:
+ enable: false
 ```
