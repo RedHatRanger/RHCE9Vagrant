@@ -156,7 +156,8 @@ autocmd FileType yaml setlocal ai ts=2 sw=2 et cuc nu
     node5
     node3
     node4
-[student@control ansible]$
+[student@control ansible]$ ansible-navigator inventory -i inventory -m stdout --graph
+<output omitted>
 ```
 
 7) We can ping to see if our nodes respond:
