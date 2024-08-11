@@ -64,7 +64,7 @@ managed nodes:
 2) Next, install and run ANSIBLE-NAVIGATOR (ONLY INSTALL ON CONTROL NODE):
 ```
 [ansible@control ~]# exit
-[ansible@control ~]$ pipx install ansible-navigator
+[ansible@control ~]$ python3 -m pip install ansible-navigator --user
 [ansible@control ~]$ ansible-navigator
 <output omitted>
 
