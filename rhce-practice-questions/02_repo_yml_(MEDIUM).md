@@ -54,7 +54,7 @@ vim fstab.yml
 
 ---
 - name: Ensure fstab entry exists
-  hosts: nodes
+  hosts: all
   become: true
   tasks:
     - name: Ensure /media mount point exists
