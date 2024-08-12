@@ -48,6 +48,9 @@ for i in {templates,roles,mycollections}; do mkdir -p /home/rhel/ansible-files/$
 # 5. Download and install the two collections from Ansible Galaxy (ignore errors):
 ansible-galaxy collection install ansible.posix 2>/dev/null
 ansible-galaxy collection install community.general 2>/dev/null
+
+# 6. Install the "rhel-system-roles":
+sudo yum install rhel-system-roles -y
 ```
 # Scroll down for the Exercises:
 
