@@ -1,5 +1,6 @@
 <a href="https://www.youtube.com/watch?v=OXv3A2tjzWc&list=PLL_setXLS0tiYMipvQI4oUGkJwhOhn42J&index=6">Video Tutorial</a> by codeXchange \
-<a href="https://www.youtube.com/watch?v=6pFzSNY9-fs&list=PLYB6dfdhWDePZf4fd4YgGGtSX_vHKv5vz&index=7">Video Tutorial</a> by Teach Me Tech
+<a href="https://www.youtube.com/watch?v=6pFzSNY9-fs&list=PLYB6dfdhWDePZf4fd4YgGGtSX_vHKv5vz&index=7">Video Tutorial</a> by Teach Me Tech (BEST) \
+<a href="https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_reuse_roles.html#using-roles-at-the-play-level">Link</a> to the Ansible Documentation
 
 ***On the Control Node***
 
@@ -34,20 +35,9 @@ along with various details of the PHP configuration including the version of PHP
 <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 
 ### ANSWER #5:
+I RAN INTO ERRORS WITH THIS ONE, BUT ON THE TEST YOU WILL NOT HAVE ERRORS
 
-1) Log into the CONTROL NODE as student, and EDIT THE SECTION SO IT LOOKS LIKE THIS:
-```
-[student@control ansible]$ vim roles/balancer/templates/balancer.j2
-
-backend app
-    balance         roundrobin
-  server  node3.example.com  172.28.128.103:80 check
-  server  node4.example.com  172.28.128.104:80 check
-
-:wq
-```   
-
-2) Create the roles.yml file:
+1) Log into the CONTROL NODE as student, and Create the roles.yml file:
 ```
 [student@control ansible]$ vim roles.yml
 
@@ -55,7 +45,6 @@ backend app
 - hosts: webservers
   roles:
     - phpinfo
-
 - hosts: balancers
   roles:
     - balancer
@@ -63,7 +52,7 @@ backend app
 :wq
 ```
 
-3) Test and then run the roles.yml playbook:
+2) Test and then run the roles.yml playbook:
 ```
 [student@control ansible]$ ansible-navigator run -m stdout roles.yml -C
 <output omitted>
