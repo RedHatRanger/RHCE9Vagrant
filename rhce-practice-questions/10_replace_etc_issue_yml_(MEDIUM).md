@@ -1,5 +1,6 @@
 <a href="https://www.youtube.com/watch?v=1_hTAanKxOU&list=PLYB6dfdhWDePZf4fd4YgGGtSX_vHKv5vz&index=13">Video Tutorial</a> by Teach Me Tech \
-<a href="https://www.youtube.com/watch?v=lVdJ3ViMrnw&list=PLL_setXLS0tiYMipvQI4oUGkJwhOhn42J&index=10">Video Tutorial</a> by codeXchange (BEST)
+<a href="https://www.youtube.com/watch?v=lVdJ3ViMrnw&list=PLL_setXLS0tiYMipvQI4oUGkJwhOhn42J&index=10">Video Tutorial</a> by codeXchange (BEST) \
+<a href="https://docs.ansible.com/ansible/latest/collections/ansible/builtin/copy_module.html#ansible-builtin-copy-module-copy-files-to-remote-locations">Link</a> to the Ansible Documentation
 
 ***On the Control Node***
 
@@ -23,9 +24,9 @@ iv)  Playbook name should be issue.yml and run on all managed nodes
 ### ANSWER #10:
 MODULES USED:
 - copy
+- You can run "ansible-doc copy" to get the parameters for the yml file
 
-</br>
-
+</br></br>
 1) Log into the CONTROL NODE as student, and create the "issue.yml" playbook:
 ```
 [student@control ansible]$ vim issue.yml
