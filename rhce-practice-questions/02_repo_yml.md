@@ -87,7 +87,7 @@ vim fstab.yml
 [student@control ansible]$ vim yum_repo.yml
 
 ---
-- name:
+- name: my repo
   hosts: all
 
   tasks:
