@@ -54,10 +54,8 @@ iv) Use separate play for each task and playbook name should be packages.yml.
 :wq
 ```
 
-2) Test and Run the packages.yml playbook:
+2) Run the packages.yml playbook:
 ```
-[student@control ansible]$ ansible-navigator run -m stdout packages.yml -C
-<output omitted>
 [student@control ansible]$ ansible-navigator run -m stdout packages.yml
 ```
 output:
