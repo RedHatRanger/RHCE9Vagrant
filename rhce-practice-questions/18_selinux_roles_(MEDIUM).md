@@ -23,6 +23,7 @@ Instructions:
 (It will help you with the variable parameters in the yml file you create)
 - You will need to install the "rhel-system-roles" package on the control node.
 
+</br></br>
 1) Log into the CONTROL NODE as student, and create the "selinux.yml" file:
 ```
 [student@control ansible]$ cd /home/student/ansible/roles
