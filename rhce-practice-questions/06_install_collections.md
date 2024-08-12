@@ -18,11 +18,6 @@ iii) using the url "https://galaxy.ansible.com/download/community-general-9.2.0.
 
 NOTE ON THE EXAM:
 Example url: http://content.example.com/rhce/ansible-posix....
-
-You will have to install:
-- ansible.posix or redhat-insights
-- community.general
-- rhel-system-roles
 ```
 
 (scroll down for an answer)
@@ -30,7 +25,13 @@ You will have to install:
 <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 
 ### ANSWER #6:
+You will have to install:
+- ansible.posix
+- redhat-insights
+- community.general
+- rhel-system-roles
 
+</br></br>
 1) Log into the CONTROL NODE as student; download and install the collections:
 ```
 [student@control ansible]$ ansible-galaxy collection install https://galaxy.ansible.com/download/ansible-posix-1.5.4.tar.gz -p mycollections/
