@@ -20,6 +20,10 @@ v) Link /devweb to /var/www/html/devweb.
 <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 
 ### ANSWER #8:
+MODULES USED:
+- file
+- copy
+- ansible.posix.firewalld
 
 1) Log into the CONTROL NODE as student, and first check the firewalld service status on the dev group:
 ```
@@ -52,14 +56,14 @@ output: \
                 setype: httpd_sys_content_t
 
          - name: create symbolic link /devweb to /var/www/html/devweb
-           file:
+           ansible.builtin.file:
               src: /devweb
               dest: /var/www/html/devweb
               state: link
               force: yes
 
          - name: copy using inline content
-           copy:
+           ansible.builtin.copy:
               content: "Development"
               dest: /devweb/index.html
               setype: httpd_sys_content_t
