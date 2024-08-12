@@ -37,6 +37,7 @@ DISK_SIZE_SDB=
 MODULES USED:
 - get_url
 - replace
+- You will use "ansible-doc get_url" and "ansible-doc replace" for the syntax
 
 </br></br>
 
