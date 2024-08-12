@@ -22,10 +22,12 @@ Instructions:
 - YOU NEED TO READ THE /home/student/ansible/roles/rhel-system-roles.selinux/README.md
 (It will help you with the variable parameters in the yml file you create)
 - You will need to install the "rhel-system-roles" package on the control node.
+- In my lab, I had to comment out two tasks which prevented the main.yml from running.
 
 </br></br>
-1) Log into the CONTROL NODE as student, and create the "selinux.yml" file:
+1) Log into the CONTROL NODE as student, and perform these tasks:
 ```
+[student@control ansible]$ sudo yum install -y rhel-system-roles
 [student@control ansible]$ cd /home/student/ansible/roles
 [student@control roles]$ cp -rf /usr/share/ansible/roles/rhel-system-roles.selinux/ .
 [student@control roles]$ cd /home/student/ansible
