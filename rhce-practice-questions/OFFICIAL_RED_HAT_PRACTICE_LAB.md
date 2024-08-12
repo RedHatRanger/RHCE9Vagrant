@@ -4,7 +4,8 @@ Link to the <a href="https://developers.redhat.com/learning/learn:ansible:yaml-e
 ### Copy and paste these lines of code to setup your system in a flash ###
 
 # 1. Change the directory to the ansible working directory:
-echo "cd ~/ansible-files" >> ~/.bashrc; . ~/.bashrc
+echo "cd ~/ansible-files" >> ~/.bashrc
+echo "alias nav='ansible-navigator run -m stdout'" >> ~/.bashrc; . ~/.bashrc
 
 # 2. Create the inventory file:
 cat << EOF > inventory
