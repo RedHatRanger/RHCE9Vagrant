@@ -54,10 +54,7 @@ I RAN INTO ERRORS WITH THIS ONE, BUT ON THE TEST YOU WILL NOT HAVE ERRORS
 
 2) Test and then run the roles.yml playbook:
 ```
-[student@control ansible]$ ansible-navigator run -m stdout roles.yml -C
-<output omitted>
 [student@control ansible]$ ansible-navigator run -m stdout roles.yml
-<output omitted>
 ```
 
 4) Curl test node5:
