@@ -31,6 +31,11 @@ enabled: yes
 <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 
 ### ANSWER #2:
+MODULES USED:
+- yum_repository
+- rpm_key
+- file
+- lineinfile
 
 1) We can configure our ~/.vimrc file so that there is automatic indentation:
 ```
@@ -115,20 +120,14 @@ vim fstab.yml
 :wq
 ```
 
-4) OPTIONALLY YOU CAN Configure the ANSIBLE-NAVIGATOR settings, so you don't have to "ansible-playbook run -m stdout <playbook>.yml" each time:
+4) OPTIONALLY YOU CAN create an alias for ANSIBLE-NAVIGATOR so you don't have to "ansible-playbook run -m stdout" every time:
 ```
-vim ~/ansible/ansible-navigator.yml
-
-ansible-navigator:
-  mode: stdout
-
-:wq
+echo "alias nav='ansible-playbook run -m stdout'" >> ~/.bashrc; . ~/.bashrc
 ```
 
 5) WE RUN THE PLAYBOOK:
 ```
 [student@control ansible]$ ansible-navigator run -m stdout yum_repo.yml
-<output omitted>
 ```
 
 * Done!!
