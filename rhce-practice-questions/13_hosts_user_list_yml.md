@@ -39,13 +39,14 @@ MODULES USED:
 ```
 [student@control ansible]$ ﻿wget http://content.example.com/Rhce/user_list.yml
 [student@control ansible]$ vim user_list.yml
+---
 users:
-    - name: david
-      job: developer
-    - name: nancy
-      job: manager
-    - name: haley
-      job: developer
+  - name: david
+    job: developer
+  - name: nancy
+    job: manager
+  - name: haley
+    job: developer 
 
 :wq
 ```
