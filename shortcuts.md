@@ -1,6 +1,11 @@
-* ~/.vimrc:
+*vim ~/.vimrc:
 ```
 autocmd FileType yaml setlocal ai ts=2 sw=2 et cuc nu
+```
+
+* If you want to vim a file and open it up to a certain line:
+```
+vim <somefile.txt> +89
 ```
 
 * Ansible.cfg:
