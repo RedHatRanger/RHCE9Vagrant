@@ -1,6 +1,7 @@
 <a href="https://www.youtube.com/watch?v=W2pMZLWK-B4&list=PLYB6dfdhWDePZf4fd4YgGGtSX_vHKv5vz&index=6">Video Tutorial</a> by Teach Me Tech \
 <a href="https://www.youtube.com/watch?v=jvyfNTuxyjE&list=PLL_setXLS0tiYMipvQI4oUGkJwhOhn42J&index=4">Video Tutorial</a> by codeXchange (BEST) \
-<a href="https://www.youtube.com/watch?v=tq9sCeQNVYc&list=PLT98CRl2KxKEUHie1m24-wkyHpEsa4Y70&index=14">Video Tutorial</a> by Learn Linux TV \
+<a href="https://www.youtube.com/watch?v=tq9sCeQNVYc&list=PLT98CRl2KxKEUHie1m24-wkyHpEsa4Y70&index=14">Video Tutorial Link1</a> by Learn Linux TV \
+<a href="https://www.youtube.com/watch?v=s8F_YWGHeDM&list=PLT98CRl2KxKEUHie1m24-wkyHpEsa4Y70&index=16">Video Tutorial Link2</a> by Learn Linux TV
 <a href="https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_templating.html#templating-jinja2">Link1</a> <a href="https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_reuse_roles.html#using-roles-at-the-play-level">Link2</a> to the Ansible Documentation
 
 ***On the Control Node***
