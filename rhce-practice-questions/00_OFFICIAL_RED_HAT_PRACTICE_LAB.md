@@ -45,7 +45,7 @@ become_ask_pass=false
 EOF
 
 # 4. Create our directories on the Ansible controller:
-for i in {templates,roles,mycollections}; do mkdir -p /home/rhel/ansible-files/${i}; done
+for i in {templates,roles,mycollections,group_vars,host_vars}; do mkdir -p /home/rhel/ansible-files/${i}; done
 
 # 5. Download and install the two collections from Ansible Galaxy (ignore errors):
 ansible-galaxy collection install ansible.posix 2>/dev/null
