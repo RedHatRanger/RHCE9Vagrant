@@ -1,6 +1,6 @@
 ## Choose which configuration you want to start with:
-### 1. <a href="https://developers.redhat.com/learning/learn:ansible:yaml-essentials-ansible/resource/resources:hands-interactive-lab-and-helpful-resources">Link to the Hands-on Interactive lab by Red Hat</a> Then Continue Below
-### 2. [If you want to setup Ansible yourself on your own VMs](01_configure_ansible_(MEDIUM).md#configure-ansible)
+### 1. <a href="https://developers.redhat.com/learning/learn:ansible:yaml-essentials-ansible/resource/resources:hands-interactive-lab-and-helpful-resources">Link to the Hands-on Interactive lab by Red Hat</a>, Then Continue Below
+### 2. [Continue Setting Up Ansible Yourself on VMs](01_configure_ansible_(MEDIUM).md#configure-ansible)
 
 
 
