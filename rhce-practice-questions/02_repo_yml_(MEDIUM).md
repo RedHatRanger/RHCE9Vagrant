@@ -77,6 +77,8 @@ vim fstab.yml
 :wq
 ```
 
+
+## Section 2
 3) Next, we create our 1st playbook called "yum_repo.yml":
 ```
 # HINT: If you can't memorize this stuff you may run "ansible-doc yum_repository" and type /EXAMPLES to search.
