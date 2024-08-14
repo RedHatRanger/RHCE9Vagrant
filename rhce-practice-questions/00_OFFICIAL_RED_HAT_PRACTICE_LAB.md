@@ -1,4 +1,4 @@
-Link to the <a href="https://developers.redhat.com/learning/learn:ansible:yaml-essentials-ansible/resource/resources:hands-interactive-lab-and-helpful-resources">Hands-on interactive lab by Red Hat</a>
+<a href="https://developers.redhat.com/learning/learn:ansible:yaml-essentials-ansible/resource/resources:hands-interactive-lab-and-helpful-resources">Link</a> to the Hands-on interactive lab by Red Hat
 
 ```
 ### Copy and paste these lines of code to setup your system in a flash ###
