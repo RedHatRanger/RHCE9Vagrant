@@ -53,6 +53,19 @@ ansible-galaxy collection install community.general 2>/dev/null
 
 # 6. Install the "rhel-system-roles":
 sudo yum install rhel-system-roles -y
+
+# 7. Create a sample "file.yml" for debugging purposes:
+cat << EOF > file.yml
+---
+# ansible-navigator run -m stdout file.yml
+
+- name: run tasks on all hosts
+  hosts: all
+  tasks:
+    - name: debug the system
+      debug:
+        var: ansible_host
+EOF
 ```
 # Scroll down for the Exercises:
 
