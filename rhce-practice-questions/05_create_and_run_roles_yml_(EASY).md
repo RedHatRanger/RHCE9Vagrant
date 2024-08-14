@@ -15,7 +15,7 @@ Instructions:
 Create a playbook called /home/student/ansible/roles.yml
 * The playbook contains a play that runs on host in the balancers host group and uses the balancers role.
 - This role configures a service to load balance web server request between hosts in the webserver host group.
-- Browsing to host in the balances host group (for example http://node5.example.com) produces the following output:
+- Browsing to host in the balancers host group (for example http://node5.example.com) produces the following output:
 Welcome to node3.example.com on 172.28.128.103
 - Reloading the Browser produces output from the alternet web server:
 Welcome to node4. lab.example.com on 172.28.128.104
