@@ -25,21 +25,7 @@ MODULES USED:
 - copy
 - ansible.posix.firewalld
 
-1) Log into the CONTROL NODE as student, and first check the firewalld service status on the dev group:
-```
-[student@control ansible]$ ansible dev -a "systemctl status firewalld"
-```
-output: \
-![image](https://github.com/user-attachments/assets/e6ac741b-8332-47fa-a3e5-dae7dd132636)
-
-2) Let's check httpd also:
-```
-[student@control ansible]$ ansible dev -a "systemctl status httpd"
-```
-output: \
-![image](https://github.com/user-attachments/assets/f9b4f216-4900-4e4e-8b76-97b377cc6ee7)
-
-3) Next, let's create the webcontent.yml file:
+1) Log into the CONTROL NODE as student, and create the webcontent.yml file:
 ```
 [student@control ansible]$ vim webcontent.yml
 
@@ -82,17 +68,12 @@ output: \
 
 4) Test and Run the webcontent.yml playbook:
 ```
-[student@control ansible]$ ansible-navigator run -m stdout webcontent.yml -C
-<output omitted>
 [student@control ansible]$ ansible-navigator run -m stdout webcontent.yml
 ```
-output:
-![image](https://github.com/user-attachments/assets/44e5cc3c-3f97-490d-a394-e1ba513e348e)
 
 5) Finally, let's try curling the webpage:
 ```
 [student@control ansible]$ curl http://node1/devweb/index.html
-Development[student@control ansible]$
 ```
 
 * Done!!
