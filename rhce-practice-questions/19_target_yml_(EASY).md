@@ -1,22 +1,12 @@
 ***On the Control Node***
 
 # Change the Default Boot Target
-### QUESTION #3:
+### QUESTION #19:
 ```
 Instructions:
 
-4. Install the roles
-i) create directory "roles" under /home/student/ansible
-ii) create a "requirements.yml" under the roles directory and download the given roles under it using the galaxy command.
-iii) 1st role name should be "balancer" and download it using this url "http://content.example.com/rhce/balancer.tgz".
-iv)  2nd role name will be "phpinfo" and download it using this url "http://content.example.com/rhce/phpinfo.tgz".
-
-For this example we will use (This part will not be on the exam, but for real exam you will use WGET for the content files):
-https://github.com/bbatsche/Ansible-PHP-Site-Role.git            (phpinfo)
-https://github.com/geerlingguy/ansible-role-haproxy.git            (balancer)
-
-* Note: You can find them on galaxy.ansible.com and search for the roles "geerlingguy.haproxy" and "bagaswh.php".
-        Then you can open their github pages and copy the https link.
+19. Set the default boot target to multi-user.target
+i) create a playbook called "target.yml" to handle the default.target
 ```
 
 (scroll down for an answer)
@@ -25,7 +15,7 @@ https://github.com/geerlingguy/ansible-role-haproxy.git            (balancer)
 
 ### ANSWER #19:
 MODULES USED:
--copy
+- file
 
 1. Log into the control node and create the target.yml:
 ```
