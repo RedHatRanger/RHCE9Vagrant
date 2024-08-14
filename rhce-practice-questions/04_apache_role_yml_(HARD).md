@@ -105,7 +105,8 @@ Welcome to {{ ansible_fqdn }} ON {{ ansible_default_ipv4.address }}
 6) Finally, run the playbook using Ansible Navigator:
 ```
 [student@control ansible]$ ansible-navigator run -m stdout apache_role.yml
-# YOU MAY NEED TO DISABLE THE myrepo.repo IF IT GIVES YOU ERRORS ON THE RED HAT OFFICIAL LAB
+# YOU MAY NEED TO delete THE myrepo.repo IF IT GIVES YOU ERRORS ON THE RED HAT OFFICIAL LAB:
+# sudo rm -rf /etc/yum.repos.d/myrepo.repo
 ```
 
 7) Let's test out using curl on the webpage:
