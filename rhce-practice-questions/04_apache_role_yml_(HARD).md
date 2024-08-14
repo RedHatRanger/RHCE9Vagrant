@@ -51,34 +51,31 @@ Welcome to {{ ansible_fqdn }} ON {{ ansible_default_ipv4.address }}
 # tasks file for apache
 - name: install httpd and firewalld
   ansible.builtin.dnf:
-      name:
-        - httpd
-        - firewalld
-      state: latest
+    name:
+      - httpd
+      - firewalld
+    state: latest
 
-- name: start httpd service
+- name: start both services
   ansible.builtin.service:
-        name: httpd
-        state: restarted
-        enabled: yes
+    name: "{{ item }}"
+    state: restarted
+    enabled: yes
+  loop:
+    - httpd
+    - firewalld
 
-- name: start firewalld service
-  ansible.builtin.service:
-        name: firewalld
-        state: restarted
-        enabled: yes
-
-- name: add http service in firewall rule
+- name: add http service to the firewall rule
   ansible.posix.firewalld:
-        service: http
-        state: enabled
-        permanent: yes
-        immediate: yes
+    service: http
+    state: enabled
+    permanent: yes
+    immediate: yes
 
 - name: copy the template.j2 file to the webserver directory
   ansible.builtin.template:
-        src: template.j2
-        dest: /var/www/html/index.html
+    src: template.j2
+    dest: /var/www/html/index.html
 
 :wq
 ```
