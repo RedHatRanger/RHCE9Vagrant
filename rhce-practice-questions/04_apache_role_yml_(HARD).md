@@ -31,7 +31,7 @@ iv) create the playbook called "apache_role.yml" and run the role on the dev gro
 [student@control ansible]$ pwd
 /home/student/ansible
 [student@control ansible]$ cd roles
-[student@control roles]$ ansible-galaxy init apache
+[student@control roles]$ ansible-galaxy init --offline apache
 - Role apache was created successfully
 ```
 2) Next, let's create the "template.j2" file for the apache server:
@@ -88,9 +88,6 @@ Welcome to {{ ansible_fqdn }} ON {{ ansible_default_ipv4.address }}
 4) If you don't remember, you can use the ```ansible-doc firewalld``` command, and then SEARCH FOR IT:
 ```
 [student@control tasks]$ ansible-doc firewalld
-<output omitted>
-
-:ansible.posix.firewalld
 ```
 
 5) Now, let's create the "apache_role.yml" file:
@@ -107,42 +104,15 @@ Welcome to {{ ansible_fqdn }} ON {{ ansible_default_ipv4.address }}
 :wq
 ```
 
-6) Finally, run the playbook using Ansible Navigator with syntax check TO CHECK FOR ERRORS and DRY RUN IT:
+6) Finally, run the playbook using Ansible Navigator:
 ```
-[student@control ansible]$ ansible-navigator run -m stdout apache_role.yml --syntax-check
-playbook: /home/student/ansible/apache_role.yml
-[student@control ansible]$ ansible-navigator run -m stdout apache_role.yml -C
-
-PLAY [dev] ******************************************************************
-
-TASK [Gathering Facts] ******************************************************
-ok: [node1]
-
-TASK [apache : install httpd and firewalld] *********************************
-changed: [node1]
-
-TASK [apache : start and enable firewalld] **********************************
-ok: [node1]
-
-TASK [apache : host the webpage using the template] *************************
-changed: [node1]
-
-TASK [apache : allow the http traffic from the firewall] ********************
-changed: [node1]
-
-TASK [apache : start and enable httpd] **************************************
-changed: [node1]
-
-PLAY RECAP ******************************************************************
-node1                          : ok=6     changed=4     unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
-[student@control ansible]$
+[student@control ansible]$ ansible-navigator run -m stdout apache_role.yml 
 ```
 
 7) Let's test out using curl on the webpage:
 ```
 [student@control ansible]$ curl http://node1.example.com
 My host is node1.example.com 172.28.128.101
-[student@control ansible]$ 
 ```
 
 * Done!!
