@@ -35,10 +35,8 @@ You will have to install:
 </br></br>
 1) Log into the CONTROL NODE as student; download and install the collections:
 ```
-[student@control ansible]$ ansible-galaxy collection install https://galaxy.ansible.com/download/ansible-posix-1.5.4.tar.gz -p mycollections/
-<output omitted>
-[student@control ansible]$ ansible-galaxy collection install https://galaxy.ansible.com/download/community-general-9.2.0.tar.gz -p mycollections/
-<output omitted>
+ansible-galaxy collection install https://galaxy.ansible.com/download/ansible-posix-1.5.4.tar.gz -p mycollections/
+ansible-galaxy collection install https://galaxy.ansible.com/download/community-general-9.2.0.tar.gz -p mycollections/
 ```
 
 2) Run the ansible-navigator check to see if the collections are available:
