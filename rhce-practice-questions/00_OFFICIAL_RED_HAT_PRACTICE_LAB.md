@@ -63,7 +63,7 @@ cat << EOF > file.yml
   hosts: all
   tasks:
     - name: debug the system
-      debug:
+      ansible.builtin.debug:
         var: ansible_host
 EOF
 
