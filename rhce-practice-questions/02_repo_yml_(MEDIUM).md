@@ -38,7 +38,6 @@ MODULES USED:
 - lineinfile
 
 </br></br>
-
 ## Start Here
 3) Next, we create our 1st playbook called "yum_repo.yml":
 ```
