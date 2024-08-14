@@ -1,5 +1,7 @@
 <a href="https://www.youtube.com/watch?v=UkAhDPc--eI&list=PLL_setXLS0tiYMipvQI4oUGkJwhOhn42J&index=7">Video Tutorial</a> by codeXchange
 
+* NOTE: If you ran out of time or are close to running out of time on the RED HAT OFFICIAL LAB, [Click Here](#Catch Up)
+
 ***On the Control Node***
 
 # Install Packages in Muliple Groups
@@ -62,3 +64,6 @@ output:
 ![image](https://github.com/user-attachments/assets/afb234ed-1729-42ec-ae86-0452be2af6d5)
 
 * Done!!
+
+# Catch Up
+
