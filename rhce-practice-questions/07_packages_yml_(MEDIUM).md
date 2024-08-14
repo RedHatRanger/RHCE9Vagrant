@@ -145,5 +145,18 @@ cat << EOF > group_vars/defaults.yml
 ansible_user: rhel
 ansible_python_interpreter: /usr/bin/python3
 EOF
+
+# 9. Setup the Roles/Requirements.yml:
+cat << EOF > ~/ansible-files/roles/requirements.yml
+---
+- src: https://github.com/bbatsche/Ansible-PHP-Site-Role.git
+  name: phpinfo
+
+- src: https://github.com/geerlingguy/ansible-role-haproxy.git
+  name: balancer
+EOF
+
+# 10. Install the roles using the requirements.yml:
+ansible-galaxy install -r requirements.yml -p ~/ansible-files/roles --ignore-errors
 ```
 
