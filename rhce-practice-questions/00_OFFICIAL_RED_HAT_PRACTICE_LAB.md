@@ -107,7 +107,6 @@ cat << EOF > system_setup.yml
   hosts: all
   become: true
   vars:
-    user_name: 'padawan'
     package_name: httpd
     apache_service_name: httpd
   tasks:
@@ -204,11 +203,6 @@ exit
 8) Build a templated role called "apache"
 ```
 ansible-galaxy init --offline roles/apache
-```
-
-9) View the roles directory:
-```
-tree roles
 ```
 
 * NOTES:
