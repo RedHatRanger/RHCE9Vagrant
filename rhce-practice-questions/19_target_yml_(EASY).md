@@ -6,7 +6,7 @@
 Instructions:
 
 19. Set the default boot target to multi-user.target
-i) create a playbook called "target.yml" to handle the default.target
+i) create a playbook called "target.yml" to set the default.target
 ```
 
 (scroll down for an answer)
