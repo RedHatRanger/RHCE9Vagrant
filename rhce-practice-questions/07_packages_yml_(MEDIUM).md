@@ -1,6 +1,6 @@
 <a href="https://www.youtube.com/watch?v=UkAhDPc--eI&list=PLL_setXLS0tiYMipvQI4oUGkJwhOhn42J&index=7">Video Tutorial</a> by codeXchange
 
-# NOTE: If you ran out of time or are close to running out of time on the RED HAT OFFICIAL LAB, [Click Here](#Catch-Up)
+## NOTE: If you ran out of time, or are close to running out of time on the RED HAT OFFICIAL LAB, [Click Here](#Catch-Up)
 
 ***On the Control Node***
 
@@ -67,7 +67,8 @@ output:
 
 <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-# Catch Up
+
+## Catch Up
 ```
 ### Copy and paste these lines of code to setup your system in a flash ### --CLICK THE TWO SQUARES HERE TO COPY THIS CODE-->>>
 
