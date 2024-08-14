@@ -28,9 +28,7 @@ iv) create the playbook called "apache_role.yml" and run the role on the dev gro
 
 1) Log into the CONTROL NODE as student, and run:
 ```
-[student@control ansible]$ pwd
-/home/student/ansible
-[student@control ansible]$ cd roles
+[student@control ansible]$ cd /home/student/ansible/roles
 [student@control roles]$ ansible-galaxy init --offline apache
 - Role apache was created successfully
 ```
