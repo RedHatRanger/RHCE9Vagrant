@@ -49,15 +49,13 @@ https://github.com/geerlingguy/ansible-role-haproxy.git            (balancer)
 
 2) Next, run the requirements.yml file using ansible-galaxy:
 ```
-[student@control roles]$ ansible-galaxy install -r /home/student/ansible/roles/requirements.yml -p /home/student/ansible/roles
-<output omitted>
+[student@control roles]$ ansible-galaxy install -r requirements.yml -p /home/student/ansible/roles
 ```
 
 3) Finally, you can confirm that the roles have been installed by running "ls":
 ```
 [student@control roles]$ ls
-apache     bbatsche.Nginx  requirements.yml   rhel-system-roles.timesync
-balancer   phpinfo         rhel-system-roles.selinux
+balancer   phpinfo     requirements.yml
 ```
 
 * Done!!
