@@ -106,7 +106,7 @@ Welcome to {{ ansible_fqdn }} ON {{ ansible_default_ipv4.address }}
 ```
 [student@control ansible]$ ansible-navigator run -m stdout apache_role.yml
 # YOU MAY NEED TO delete THE myrepo.repo IF IT GIVES YOU ERRORS ON THE RED HAT OFFICIAL LAB:
-# sudo rm -rf /etc/yum.repos.d/myrepo.repo
+# sudo rm -rf /etc/yum.repos.d/myrepo.repo; sudo yum clean all
 ```
 
 7) Let's test out using curl on the webpage:
