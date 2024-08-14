@@ -7,7 +7,7 @@ MODULES USED:
 vim target.yml
 
 ---
-- name: Q 17
+- name: boot target
   hosts: all
   tasks:
     - name: set default boot target
