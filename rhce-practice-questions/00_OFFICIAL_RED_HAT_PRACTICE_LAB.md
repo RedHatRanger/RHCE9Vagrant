@@ -5,7 +5,7 @@
 
 
 ```
-### Copy and paste these lines of code to setup your system in a flash ### ----------------------------------------->>>>>>>>>>>>>>>
+### Copy and paste these lines of code to setup your system in a flash ### ----------------------------------------->>>>>>>>>>>>
 
 # 1. Change the directory to the ansible working directory:
 echo "cd ~/ansible-files" >> ~/.bashrc
