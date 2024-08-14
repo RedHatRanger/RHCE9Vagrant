@@ -91,7 +91,7 @@ output:
 
 5) Finally, let's try curling the webpage:
 ```
-[student@control ansible]$ curl http://node1.example.com/devweb/index.html
+[student@control ansible]$ curl http://node1/devweb/index.html
 Development[student@control ansible]$
 ```
 
