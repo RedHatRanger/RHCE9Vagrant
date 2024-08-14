@@ -163,42 +163,10 @@ autocmd FileType yaml setlocal ai ts=2 sw=2 et cuc nu
 7) We can ping to see if our nodes respond:
 ```
 [student@control ansible]$ ansible all -m ping
-node1 | SUCCESS => {
-    "ansible_facts": {
-          "discovered_interpreter_python": "/usr/bin/python3"
-    },
-    "changed": false,
-    "ping": "pong"
-}
-node3 | SUCCESS => {
-    "ansible_facts": {
-          "discovered_interpreter_python": "/usr/bin/python3"
-    },
-    "changed": false,
-    "ping": "pong"
-}
-node2 | SUCCESS => {
-    "ansible_facts": {
-          "discovered_interpreter_python": "/usr/bin/python3"
-    },
-    "changed": false,
-    "ping": "pong"
-}
-node4 | SUCCESS => {
-    "ansible_facts": {
-          "discovered_interpreter_python": "/usr/bin/python3"
-    },
-    "changed": false,
-    "ping": "pong"
-}
-node5 | SUCCESS => {
-    "ansible_facts": {
-          "discovered_interpreter_python": "/usr/bin/python3"
-    },
-    "changed": false,
-    "ping": "pong"
-}
+```
 
+8) Optionally, we may configure ansible-navigator:
+```
 vim ansible-navigator.yml
 ---
 ansible-navigator:
@@ -209,3 +177,45 @@ execution-environment:
 playbook-artifact:
  enable: false
 ```
+
+9) Optionally, we may also configure our ~/.vimrc file so that there is automatic indentation:
+```
+vim ~/.vimrc
+
+syntax on
+set bg=dark
+autocmd Filetype yaml setlocal ai et ts=2 sw=2 cuc cul
+
+:wq
+```
+
+10) Lastly for our lab, we need to set the /etc/fstab to automount /dev/sr0 to /media:
+```
+vim fstab.yml
+
+---
+- name: Ensure fstab entry exists
+  hosts: all
+  become: true
+  tasks:
+    - name: Ensure /media mount point exists
+      file:
+        path: /media
+        state: directory
+
+    - name: Ensure fstab entry for /dev/sr0 exists
+      lineinfile:
+        path: /etc/fstab
+        line: '/dev/sr0  /media    iso9660    defaults 0 0'
+        state: present
+        create: yes
+    - name: Reload systemd to apply changes
+      command: systemctl daemon-reload
+
+    - name: Mount all filesystems in fstab
+      command: mount -a
+
+:wq
+```
+
+[Continue to the next lab](#
