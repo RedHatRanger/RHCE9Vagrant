@@ -37,48 +37,9 @@ MODULES USED:
 - file
 - lineinfile
 
-1) We can configure our ~/.vimrc file so that there is automatic indentation:
-```
-vim ~/.vimrc
+</br></br>
 
-syntax on
-set bg=dark
-autocmd Filetype yaml setlocal ai et ts=2 sw=2 cuc cul
-
-:wq
-```
-
-3) For our lab, we need to set the /etc/fstab to automount /dev/sr0 to /media:
-```
-vim fstab.yml
-
----
-- name: Ensure fstab entry exists
-  hosts: all
-  become: true
-  tasks:
-    - name: Ensure /media mount point exists
-      file:
-        path: /media
-        state: directory
-
-    - name: Ensure fstab entry for /dev/sr0 exists
-      lineinfile:
-        path: /etc/fstab
-        line: '/dev/sr0  /media    iso9660    defaults 0 0'
-        state: present
-        create: yes
-    - name: Reload systemd to apply changes
-      command: systemctl daemon-reload
-
-    - name: Mount all filesystems in fstab
-      command: mount -a
-
-:wq
-```
-
-
-## Section 2
+## Start Here
 3) Next, we create our 1st playbook called "yum_repo.yml":
 ```
 # HINT: If you can't memorize this stuff you may run "ansible-doc yum_repository" and type /EXAMPLES to search.
