@@ -15,13 +15,13 @@ echo "alias task='ansible -m shell -a'" >> ~/.bashrc; . ~/.bashrc
 # 2. Create the inventory file:
 cat << EOF > inventory
 [dev]
-node1 ansible_host=10.5.1.93
+node1
 
 [test]
-node2 ansible_host=10.5.1.91
+node2
 
 [prod]
-node3 ansible_host=10.5.1.131
+node3
 
 [balancers]
 node3
