@@ -44,36 +44,38 @@ output: \
 [student@control ansible]$ vim webcontent.yml
 
 ---
-- name: Create a web content directory
+# ansible-navigator run -m stdout webcontent.yml
+
+- name: none for now
   hosts: dev
   tasks:
-         - name: create /devweb directory
-           ansible.builtin.file:
-                path: /devweb
-                state: directory
-                mode: '02775'
-                group: apache
-                setype: httpd_sys_content_t
+    - name: create a /devweb direectory
+      file:
+        path: /devweb
+        state: directory
+        group: apache
+        mode: 2775
+        setype: httpd_sys_content_t
 
-         - name: create symbolic link /devweb to /var/www/html/devweb
-           ansible.builtin.file:
-              src: /devweb
-              dest: /var/www/html/devweb
-              state: link
-              force: yes
-
-         - name: copy using inline content
-           ansible.builtin.copy:
-              content: "Development"
-              dest: /devweb/index.html
-              setype: httpd_sys_content_t
-
-          - name: allow http traffic from the firewall
-            ansible.posix.firewalld:
-                service: http
-                permanent: true
-                state: enabled
-                immediate: true
+    - name: create symbolic link
+      file:
+        src: /devweb
+        dest: /var/www/html/devweb
+        state: link
+        force: yes
+    
+    - name: copy using inline content
+      copy:
+        content: "Development"
+        dest: /devweb/index.html
+        setype: httpd_sys_content_t
+    
+    - name: allow http traffic
+      ansible.posix.firewalld:
+        service: http
+        permanent: true
+        immediate: true
+        state: enabled
 
 :wq
 ```
