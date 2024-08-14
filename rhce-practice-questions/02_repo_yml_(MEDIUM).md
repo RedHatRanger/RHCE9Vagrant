@@ -39,7 +39,7 @@ MODULES USED:
 
 </br></br>
 ## Start Here
-3) Next, we create our 1st playbook called "yum_repo.yml":
+3) Next, we create our 1st playbook called "repo.yml":
 ```
 # HINT: If you can't memorize this stuff you may run "ansible-doc yum_repository" and type /EXAMPLES to search.
         OR you may refer to docs.ansible.com
@@ -89,7 +89,7 @@ echo "alias nav='ansible-playbook run -m stdout'" >> ~/.bashrc; . ~/.bashrc
 
 5) WE RUN THE PLAYBOOK:
 ```
-[student@control ansible]$ ansible-navigator run -m stdout yum_repo.yml
+[student@control ansible]$ ansible-navigator run -m stdout repo.yml
 ```
 
 * Done!!
