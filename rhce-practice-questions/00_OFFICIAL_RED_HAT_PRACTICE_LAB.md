@@ -82,5 +82,5 @@ ansible_user: rhel
 ansible_python_interpreter: /usr/bin/python3
 EOF
 ```
-# CONGRATULATIONS, You may now skip to the "02_repo_yml_(MEDIUM).md":
+### CONGRATULATIONS, You may now skip to the "02_repo_yml_(MEDIUM).md":
 [Go to Section 2 of "repo.yml"](02_repo_yml_(MEDIUM).md#section-2)
