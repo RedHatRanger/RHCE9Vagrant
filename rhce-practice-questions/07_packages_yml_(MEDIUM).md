@@ -28,31 +28,33 @@ iv) Use separate play for each task and playbook name should be packages.yml.
 [student@control ansible]$ vim packages.yml
 
 ---
-- name: packages installation
+# ansible-navigator run -m stdout packages.yml
+
+- name: install packages
   hosts: dev,test
-  tasks:
-     - name: installing vsftpd and mariadb-server packages
-       ansible.builtin.dnf:
-           name:
-              - vsftpd
-              - mariadb-server
-           state: present
+  tasks:  
+    - name: yum install vsftpd and mariadb packages in dev and test
+      dnf:
+        name:
+          - vsftpd
+          - mariadb-server
+        state: present
 
-- name: group package installation
+- name: install group packages
   hosts: prod
-  tasks:
-     - name: Installing "RPM Development Tools" group package
-       ansible.builtin.dnf:
-           name: "@RPM Development Tools"
-           state: present
+  tasks:  
+    - name: yum install group package on prod group
+      dnf: 
+        name: "@RPM Development Tools"
+        state: present
 
-- name: update all packages
+- name: update dev packages
   hosts: dev
-  tasks:
-     - name: updating all packages
-       ansible.builtin.dnf:
-           name: "*"
-           state: latest
+  tasks:  
+    - name: update dev packages
+      dnf:
+        name: "*"
+        state: latest
 
 :wq
 ```
@@ -61,8 +63,6 @@ iv) Use separate play for each task and playbook name should be packages.yml.
 ```
 [student@control ansible]$ ansible-navigator run -m stdout packages.yml
 ```
-output:
-![image](https://github.com/user-attachments/assets/afb234ed-1729-42ec-ae86-0452be2af6d5)
 
 * Done!!
 
