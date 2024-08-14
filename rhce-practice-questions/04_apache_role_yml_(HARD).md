@@ -118,4 +118,8 @@ My host is node1.example.com 172.28.128.101
 * Done!!
 
 ### Some possible errors you may encounter: ###
-  Because you are not registered with Red Hat, you may have to mount the DVD each time you reboot, unless you fix it in /etc/fstab to be permanent.
+- ON VMs:
+     Because you are not registered with Red Hat, you have to mount the DVD in /etc/fstab to be permanent.
+  
+- ON RED HAT OFFICIAL LAB:
+     You will have to delete the "myrepo.repo" file you created earlier by running the adhoc command provided above.
