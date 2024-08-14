@@ -95,6 +95,10 @@ Architecture: {{ ansible_architecture }}
 EOF
 ```
 
+2) Now, you may skip to "02_repo_yml_(MEDIUM).md":
+[Go to Section 2 in Another File](02_repo_yml_(MEDIUM).md#section-2)
+
+
 2) Create your 1st "system_setup.yml" file to include the motd Jinja template:
 ```
 cat << EOF > system_setup.yml
