@@ -36,6 +36,7 @@ roles_path=/home/rhel/ansible-files/roles
 collections_path=/home/rhel/ansible-files/mycollections
 ask_pass=false
 host_key_checking=false
+callback_whitelist=profile_tasks
 
 [ssh_connection]
 pipelining=true
