@@ -17,6 +17,7 @@ Instructions:
 MODULES USED:
 - file
 
+</br></br>
 1. Log into the control node and create the target.yml:
 ```
 vim target.yml
