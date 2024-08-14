@@ -8,7 +8,7 @@
 Instructions:
 
 8. Create a playbook called webcontent.yml and it should run on dev group.
-i) create a directory /devweb and it should be owned by apache group.
+i) create a directory /devweb and it should be owned by wheel group.
 ii) /devweb directory should have context type as "httpd"
 iii) Assign permissions for user=rwx, group=rwx, others=rx and group special permission should be applied to /devweb
 iv) Create index.html file under /devweb and file should have content "Development"
@@ -53,7 +53,7 @@ output: \
       file:
         path: /devweb
         state: directory
-        group: apache
+        group: wheel
         mode: 2775
         setype: httpd_sys_content_t
 
