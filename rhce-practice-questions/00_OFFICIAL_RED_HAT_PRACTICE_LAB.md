@@ -66,6 +66,13 @@ cat << EOF > file.yml
       debug:
         var: ansible_host
 EOF
+
+# 8. Create a "defaults.yml" file inside the "group_vars" folder:
+cat << EOF > group_vars/defaults.yml
+---
+ansible_user: rhel
+ansible_python_interpreter: /usr/bin/python3
+EOF
 ```
 # Scroll down for the Exercises:
 
