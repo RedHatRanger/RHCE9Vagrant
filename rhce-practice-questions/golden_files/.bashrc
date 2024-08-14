@@ -29,3 +29,4 @@ export TERM=xterm-256color
 cd ~/ansible
 alias go='ssh -Xq -o ServerAliveInterval=60'
 alias nav='ansible-navigator run -m stdout'
+alias task='ansible -m shell -a'
