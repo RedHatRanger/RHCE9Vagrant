@@ -37,6 +37,9 @@ collections_path=/home/rhel/ansible-files/mycollections
 ask_pass=false
 host_key_checking=false
 
+[ssh_connection]
+pipelining=true
+
 [privilege_escalation]
 become=true
 become_method=sudo
