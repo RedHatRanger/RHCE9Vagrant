@@ -218,4 +218,4 @@ vim fstab.yml
 :wq
 ```
 
-[Continue to the next lab](#
+[Continue to the next lab](02_repo_yml_(MEDIUM).md#Start-Here)
