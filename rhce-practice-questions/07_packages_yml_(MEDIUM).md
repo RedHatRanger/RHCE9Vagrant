@@ -2,6 +2,7 @@
 
 ### NOTE: If you ran out of time, or are close to running out of time on the RED HAT OFFICIAL LAB, [Click Here](#Catch-Up)
 
+</br></br>
 ***On the Control Node***
 
 # Install Packages in Muliple Groups
