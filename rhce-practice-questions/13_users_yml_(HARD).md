@@ -38,8 +38,6 @@ MODULES USED:
 - user
 - group
 
-REQUIRED LAB TO COMPLETE THIS EXERCISE:
-- [Lab #12 - vault_yml](12_vault_yml_(EASY).md)
 
 </br></br>
 1) Log into the CONTROL NODE as student, and run "wget" to download the "user_list.yml" file:
