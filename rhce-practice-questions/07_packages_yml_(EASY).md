@@ -154,6 +154,7 @@ EOF
 
 ####################################################### LAB #3 #######################################################
 # 9. Setup the Roles/Requirements.yml:
+cd ~/ansible-files
 cat << EOF > /home/rhel/ansible-files/roles/requirements.yml
 ---
 - src: https://github.com/bbatsche/Ansible-PHP-Site-Role.git
