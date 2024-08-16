@@ -111,6 +111,10 @@ ansible-navigator run -m stdout users.yml
 ansible all -m shell -a "getent group opsdev"
 ```
 
+```
+ansible all -m shell -a "getent group opsdev"
+```
+
 * Done!!
 
 <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
