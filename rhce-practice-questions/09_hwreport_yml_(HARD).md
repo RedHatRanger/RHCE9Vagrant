@@ -365,6 +365,7 @@ cat << EOF > webcontent.yml
         permanent: true
         immediate: true
         state: enabled
+EOF
 
 ansible-navigator run -m stdout webcontent.yml
 curl http://node1/devweb/index.html
