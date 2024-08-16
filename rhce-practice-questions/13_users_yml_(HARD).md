@@ -504,6 +504,20 @@ ansible-navigator run -m stdout hosts.yml
 ##################################################### LAB #12 #######################################################
 # 23. vault.yml
 cd ~/ansible-files
+cat << EOF > secret.txt
+P@ssw0rd
+EOF
 
+# Write the YAML content to the file first
+cat << EOF > vault.yml
+pw_developer: Iamdev
+pw_manager: Iammgr
+EOF
+
+# Encrypt the file with ansible-vault using the password in secret.txt:
+ansible-vault encrypt vault.yml --vault-password-file=secret.txt
+
+# View the contents:
+ansible-vault view vault.yml --vault-password-file=secret.txt
 ```
 [Back to Top](#Create-a-users-playbook)
