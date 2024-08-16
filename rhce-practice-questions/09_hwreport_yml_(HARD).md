@@ -103,6 +103,7 @@ MODULES USED:
 ```
 
 * Done!!
+[Continue to next lab](10_replace_etc_issue_yml_(MEDIUM).md)
 
 <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
