@@ -6,7 +6,7 @@
 ### 5. Skip to Checkpoint: [Lab #16 - lvm.yml](16_lvm_yml_(HARD).md)
 
 OR....
-### 6. [Continue Setting Up Ansible Yourself on VMs](01_configure_ansible_(MEDIUM).md#configure-ansible)
+### 6. [Continue Setting Up Ansible Yourself on Virtualbox VMs](01_configure_ansible_(MEDIUM).md#configure-ansible)
 
 
 
