@@ -41,8 +41,10 @@ MODULES USED:
 </br></br>
 1) Log into the CONTROL NODE as student, and run "wget" to download the "user_list.yml" file:
 ```
-[student@control ansible]$ ﻿wget http://content.example.com/Rhce/user_list.yml
-[student@control ansible]$ vim user_list.yml
+cd ~/ansible-files
+wget https://raw.githubusercontent.com/RedHatRanger/RHCE9Vagrant/main/rhce-practice-questions/golden_files/user_list.yml
+
+[student@control ansible]$ cat user_list.yml
 ---
 users:
   - name: david
@@ -51,8 +53,6 @@ users:
     job: manager
   - name: haley
     job: developer 
-
-:wq
 ```
 
 2) Create the "users.yml" playbook:
