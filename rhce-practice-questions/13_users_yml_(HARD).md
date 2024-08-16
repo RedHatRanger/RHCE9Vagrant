@@ -38,7 +38,6 @@ MODULES USED:
 - user
 - group
 
-
 </br></br>
 1) Log into the CONTROL NODE as student, and run "wget" to download the "user_list.yml" file:
 ```
