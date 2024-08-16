@@ -89,7 +89,10 @@ MODULES USED:
 
 * Finally, you may validate the changes you made:
 ```
-[student@control ansible]$ ansible all -m command -a "cat /etc/myhosts"
+[student@control ansible]$ ansible all -m shell -a "cat /etc/myhosts; echo ' '"
 ```
 
 * Done!!
+
+</br></br>
+[Continue to next lab](12_vault_yml_(EASY).md)
