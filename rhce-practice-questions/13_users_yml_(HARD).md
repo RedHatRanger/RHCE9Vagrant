@@ -387,6 +387,7 @@ echo -e "\n"
 
 ##################################################### LAB #9 #######################################################
 # 20. hwreport
+cd ~/ansible-files
 cat << EOF > hwreport.yml
 ---
 - name: Generate a hardware report
@@ -435,5 +436,40 @@ ansible-navigator run -m stdout hwreport.yml
 
 ##################################################### LAB #10 #######################################################
 # 21. issue.yml
+cd ~/ansible-files
+cat << EOF > issue.yml
+---
+- name: Configure /etc/issue content based on environment
+  hosts: dev
+  tasks:
+    - name: copy using inline content
+      ansible.builtin.copy:
+          content: "Development"
+          dest: /etc/issue
+
+- name: content in prod hosts prod
+  hosts: prod
+  tasks:
+    - name: copy using inline content
+      ansible.builtin.copy:
+          content: "Production"
+          dest: /etc/issue
+
+- name: content in dev
+  hosts: test
+  tasks:
+    - name: copy using inline content
+      ansible.builtin.copy:
+          content: "Test"
+          dest: /etc/issue
+EOF
+
+ansible-navigator run -m stdout issue.yml
+
+
+##################################################### LAB #11 #######################################################
+# 22. hosts.yml
+cd ~/ansible-files
+
 ```
 [Back to Top](#Create-a-users-playbook)
