@@ -54,10 +54,8 @@ users:
 
 :wq
 ```
-output: \
-![image](https://github.com/user-attachments/assets/01b5fd2b-2feb-4f9a-a274-11118e3cd88e)
 
-2) Edit the "users.yml" playbook:
+2) Create the "users.yml" playbook:
 ```
 
 ---
@@ -105,16 +103,11 @@ output: \
 
 3) Test and run the "hosts.yml" playbook:
 ```
-[student@control ansible]$ ansible-navigator run -m stdout hosts.yml -C
-<output omitted>
 [student@control ansible]$ ansible-navigator run -m stdout hosts.yml
 ```
-output: \
-![image](https://github.com/user-attachments/assets/850a704e-ad58-41f6-8a2e-70a2060113dc)
 
-4) Finally, you may validate using the "ansible all -m command -a 'getent group opsdev'" and the same for opsmgr: \
-output: \
-![image](https://github.com/user-attachments/assets/3c312b57-aa6d-418a-8ee9-16a4d02ae14d)
+
+4) Finally, you may validate using the "ansible all -m shell -a 'getent group opsdev'" and the same for opsmgr.
 
 * Done!!
 
