@@ -102,7 +102,9 @@ MODULES USED:
 [student@control ansible]$ ansible all -m shell -a "cat /root/hwreport.txt; echo ' '"
 ```
 
-* Done!! \
+* Done!!
+</br></br>
+
 [Continue to next lab](10_replace_etc_issue_yml_(MEDIUM).md)
 
 <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
