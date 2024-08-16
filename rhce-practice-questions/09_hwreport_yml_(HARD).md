@@ -330,7 +330,43 @@ ansible-navigator run -m stdout packages.yml
 
 
 ##################################################### LAB #8 #######################################################
+cd ~/ansible-files
+cat << EOF > webcontent.yml
+---
+# ansible-navigator run -m stdout webcontent.yml
 
+- name: none for now
+  hosts: dev
+  tasks:
+    - name: create a /devweb direectory
+      file:
+        path: /devweb
+        state: directory
+        group: wheel
+        mode: 2775
+        setype: httpd_sys_content_t
 
+    - name: create symbolic link
+      file:
+        src: /devweb
+        dest: /var/www/html/devweb
+        state: link
+        force: yes
+    
+    - name: copy using inline content
+      copy:
+        content: "Development"
+        dest: /devweb/index.html
+        setype: httpd_sys_content_t
+    
+    - name: allow http traffic
+      ansible.posix.firewalld:
+        service: http
+        permanent: true
+        immediate: true
+        state: enabled
+
+ansible-navigator run -m stdout webcontent.yml
+curl http://node1/devweb/index.html
 ```
 [Back to Top](#Create-a-hwreport)
