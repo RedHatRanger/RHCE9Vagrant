@@ -290,5 +290,47 @@ ansible-navigator run -m stdout roles.yml &>/dev/null
 cd ~/ansible-files
 ansible-galaxy collection install https://galaxy.ansible.com/download/ansible-posix-1.5.4.tar.gz -p mycollections/
 ansible-galaxy collection install https://galaxy.ansible.com/download/community-general-9.2.0.tar.gz -p mycollections/
+
+
+##################################################### LAB #7 #######################################################
+# 18. Multi-Packages Installation
+cd ~/ansible-files
+cat << EOF > packages.yml
+---
+# ansible-navigator run -m stdout packages.yml
+
+- name: install packages
+  hosts: dev,test
+  tasks:  
+    - name: yum install vsftpd and mariadb packages in dev and test
+      dnf:
+        name:
+          - vsftpd
+          - mariadb-server
+        state: present
+
+- name: install group packages
+  hosts: prod
+  tasks:  
+    - name: yum install group package on prod group
+      dnf: 
+        name: "@RPM Development Tools"
+        state: present
+
+- name: update dev packages
+  hosts: dev
+  tasks:  
+    - name: update dev packages
+      dnf:
+        name: "*"
+        state: latest
+EOF
+
+ansible-navigator run -m stdout packages.yml
+
+
+##################################################### LAB #8 #######################################################
+
+
 ```
 [Back to Top](#Create-a-hwreport)
