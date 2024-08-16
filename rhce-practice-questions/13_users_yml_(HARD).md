@@ -342,6 +342,7 @@ ansible-navigator run -m stdout packages.yml
 
 
 ##################################################### LAB #8 #######################################################
+# 19. webcontent
 cd ~/ansible-files
 cat << EOF > webcontent.yml
 ---
@@ -383,5 +384,56 @@ ansible-navigator run -m stdout webcontent.yml
 echo -e "\n"
 curl http://node1/devweb/index.html
 echo -e "\n"
+
+##################################################### LAB #9 #######################################################
+# 20. hwreport
+cat << EOF > hwreport.yml
+---
+- name: Generate a hardware report
+  hosts: all
+  become: true
+  tasks:
+    - name: Get the file from the url
+      ansible.builtin.get_url:
+        url: https://raw.githubusercontent.com/RedHatRanger/RHCE9Vagrant/main/rhce-practice-questions/golden_files/hwreport.txt
+        dest: /root/hwreport.txt
+        mode: '0755'
+
+    - name: Generate information for the Inventory hostname
+      ansible.builtin.replace:
+        path: /root/hwreport.txt
+        regexp: "inventoryhostname"
+        replace: "{{ ansible_hostname | default ('NONE') }}"
+
+    - name: Generate information for memory_in_MB
+      ansible.builtin.replace:
+        path: /root/hwreport.txt
+        regexp: "memory_in_MB"
+        replace: "{{ ansible_memory_mb.real.free | default ('NONE') }}"
+
+    - name: Generate information for BIOS_version
+      ansible.builtin.replace:
+        path: /root/hwreport.txt
+        regexp: "BIOS_version"
+        replace: "{{ ansible_bios_version | default ('NONE') }}"
+
+    - name: Generate information for disk_sda_size
+      ansible.builtin.replace:
+        path: /root/hwreport.txt
+        regexp: "disk_sda_size"
+        replace: "{{ ansible_devices.sda.size | default ('NONE') }}"
+
+    - name: Generate information for disk_sdb_size
+      ansible.builtin.replace:
+        path: /root/hwreport.txt
+        regexp: "disk_sdb_size"
+        replace: "{{ ansible_devices.sdb.size | default ('NONE') }}"
+EOF
+
+ansible-navigator run -m stdout hwreport.yml
+
+
+##################################################### LAB #10 #######################################################
+# 21. issue.yml
 ```
 [Back to Top](#Create-a-users-playbook)
