@@ -95,13 +95,11 @@ MODULES USED:
 2) Test and run the hwreport.yml playbook:
 ```
 [student@control ansible]$ ansible-navigator run -m stdout hwreport.yml
-﻿<output omitted>
 ```
 
 * Validate the /root/hwreport.txt file for each of the nodes:
 ```
 [student@control ansible]$ ansible all -m shell -a "cat /root/hwreport.txt; echo ' '"
-<output omitted>
 ```
 
 * Done!!
