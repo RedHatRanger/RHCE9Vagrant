@@ -101,9 +101,9 @@ users:
 :wq      
 ```
 
-3) Test and run the "hosts.yml" playbook:
+3) Test and run the "users.yml" playbook:
 ```
-[student@control ansible]$ ansible-navigator run -m stdout hosts.yml
+ansible-navigator run -m stdout users.yml
 ```
 
 
