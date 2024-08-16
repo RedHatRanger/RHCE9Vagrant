@@ -38,7 +38,7 @@ MODULES USED:
 - user
 - group
 
-### REQUIRED LAB TO COMPLETE THIS EXERCISE:
+REQUIRED LAB TO COMPLETE THIS EXERCISE:
 [Lab #12 - vault_yml](12_vault_yml_(EASY).md)
 
 </br></br>
