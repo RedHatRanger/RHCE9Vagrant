@@ -38,7 +38,7 @@ MODULES USED:
 - user
 - group
 
-REQUIRED LAB TO COMPLETE THIS EXERCISE:
+REQUIRED LAB TO COMPLETE THIS EXERCISE: \
 [Lab #12 - vault_yml](12_vault_yml_(EASY).md)
 
 </br></br>
@@ -60,7 +60,6 @@ users:
 
 2) Create the "users.yml" playbook:
 ```
-
 ---
 - name: create developer users
   hosts: dev,test
@@ -100,8 +99,6 @@ users:
         password: "{{ pw_manager | password_hash('sha512') }}"
       when: item.job == 'manager'
       loop: "{{ users }}"
-
-:wq      
 ```
 
 3) Test and run the "users.yml" playbook:
