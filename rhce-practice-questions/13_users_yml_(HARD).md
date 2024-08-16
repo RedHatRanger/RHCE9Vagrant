@@ -117,7 +117,7 @@ ansible all -m shell -a "getent group opsdev"
 
 * Done!!
 </br></br>
-[Continue to the next lab](14_rekey_vault_ps_(EASY).md)
+[Continue to the next lab](14_rekey_vault_pw_(EASY).md)
 
 <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
