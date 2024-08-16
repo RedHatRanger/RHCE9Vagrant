@@ -62,41 +62,41 @@ users:
 - name: create developer users
   hosts: dev,test
   vars_files:
-     - user_list.yml
-     - vault.yml
+    - user_list.yml
+    - vault.yml
   tasks:
-     - name: create opsdev group
-       group:
-           name: opsdev
-           state: present
+    - name: create opsdev group
+      group:
+        name: opsdev
+        state: present
 
-     - name: add users who have developer job
-       user:
-           name: "{{ item.name }}"
-           groups: opsdev
-           password: "{{ pw_developer | password_hash('sha512') }}"
-       when: item.job =='developer'
-       loop: "{{ users }}"
+    - name: add users who have developer job
+      user:
+        name: "{{ item.name }}"
+        groups: opsdev
+        password: "{{ pw_developer | password_hash('sha512') }}"
+      when: item.job == 'developer'
+      loop: "{{ users }}"
 
 
 - name: create manager users
   hosts: prod
-  vars_file:
-     - user_list.yml
-     - vault.yml
+  vars_files:
+    - user_list.yml
+    - vault.yml
   tasks:
-     - name: create opsmgr group
-       group:
-           name: opsmgr
-           state: present
+    - name: create opsmgr group
+      group:
+        name: opsmgr
+        state: present
 
-     - name: add users who have manager job
-       user:
-           name: "{{ item.name }}"
-           groups: opsmgr
-           password: "{{ pw_manager | password_hash('sha512') }}"
-       when: item.job=='manager'
-       loop: "{{ users }}"
+    - name: add users who have manager job
+      user:
+        name: "{{ item.name }}"
+        groups: opsmgr
+        password: "{{ pw_manager | password_hash('sha512') }}"
+      when: item.job == 'manager'
+      loop: "{{ users }}"
 
 :wq      
 ```
