@@ -58,6 +58,7 @@ iv) Use separate play for each task and playbook name should be packages.yml.
 
 :wq
 ```
+* NOTE: This can take a couple of minutes to complete...
 
 2) Run the packages.yml playbook:
 ```
