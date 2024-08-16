@@ -7,7 +7,7 @@
 
 ***On the Control Node***
 
-# Create a users.yml
+## Create a users.yml
 ### QUESTION #13:
 ```
 Instructions:
