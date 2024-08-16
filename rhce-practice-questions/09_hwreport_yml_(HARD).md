@@ -105,7 +105,7 @@ MODULES USED:
 * Done!!
 </br></br>
 
-[Continue to next lab](10_replace_etc_issue_yml_(MEDIUM).md)
+[Continue to next lab](10_replace_etc_issue_yml_(EASY).md)
 
 <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
