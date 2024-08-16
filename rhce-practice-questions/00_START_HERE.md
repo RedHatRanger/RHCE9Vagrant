@@ -1,7 +1,8 @@
 ## Choose which configuration you want to start with:
 ### 1. <a href="https://developers.redhat.com/learning/learn:ansible:yaml-essentials-ansible/resource/resources:hands-interactive-lab-and-helpful-resources">Link to the Hands-on Interactive lab by Red Hat</a>, Then Continue [HERE](#Continue-Here)
 ### 2. [Continue Setting Up Ansible Yourself on VMs](01_configure_ansible_(MEDIUM).md#configure-ansible)
-### 3. Skip to [Lab #7 - packages.yml](07_packages_yml_(EASY).md)
+### 3. Skip to Checkpoint: [Lab #7 - packages.yml](07_packages_yml_(EASY).md)
+### 4. Skip to Checkpoint: [Lab #9 - hwreport.yml](09_hwreport_yml_(HARD).md)
 
 
 </br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br>
