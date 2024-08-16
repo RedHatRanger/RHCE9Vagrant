@@ -208,7 +208,7 @@ cat << EOF > /home/rhel/ansible-files/roles/requirements.yml
 EOF
 
 # 10. Install the roles using the requirements.yml:
-ansible-galaxy install -r requirements.yml -p ~/ansible-files/roles --ignore-errors
+ansible-galaxy install -r /home/rhel/ansible-files/roles/requirements.yml -p ~/ansible-files/roles --ignore-errors
 
 
 
@@ -275,6 +275,7 @@ curl http://node1
 
 ##################################################### LAB #5 ########################################################
 # 16. Create and run roles.yml:
+cd ~/ansible-files
 cat << EOF > roles.yml
 ---
 - hosts: webservers
