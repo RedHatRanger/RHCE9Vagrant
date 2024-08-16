@@ -3,6 +3,7 @@
 ### 2. [Continue Setting Up Ansible Yourself on VMs](01_configure_ansible_(MEDIUM).md#configure-ansible)
 ### 3. Skip to Checkpoint: [Lab #7 - packages.yml](07_packages_yml_(EASY).md)
 ### 4. Skip to Checkpoint: [Lab #9 - hwreport.yml](09_hwreport_yml_(HARD).md)
+### 5. Skip to Checkpoint: [Lab #13 - users.yml](13_users_yml_(HARD).md)
 
 
 </br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br>
