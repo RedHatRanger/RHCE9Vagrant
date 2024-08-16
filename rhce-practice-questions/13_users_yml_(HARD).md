@@ -106,8 +106,10 @@ users:
 ansible-navigator run -m stdout users.yml
 ```
 
-
-4) Finally, you may validate using the "ansible all -m shell -a 'getent group opsdev'" and the same for opsmgr.
+4) Finally, you may validate:
+```
+ansible all -m shell -a "getent group opsdev"
+```
 
 * Done!!
 
