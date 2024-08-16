@@ -8,11 +8,13 @@
 Instructions:
 
 8. Create a playbook called webcontent.yml and it should run on dev group.
-i) create a directory /devweb and it should be owned by wheel group.
-ii) /devweb directory should have context type as "httpd"
-iii) Assign permissions for user=rwx, group=rwx, others=rx and group special permission should be applied to /devweb
-iv) Create index.html file under /devweb and file should have content "Development"
-v) Link /devweb to /var/www/html/devweb.
+   i) create a directory /devweb and it should be owned by wheel group.
+  ii) Assign permissions for user=rwx, group=rwx, others=rx and group special permission should be applied to /devweb.
+ iii) /devweb directory should have the same selinux context type as "httpd"
+  iv) Create a soft link /devweb to /var/www/html/devweb.
+   v) Create index.html file under /devweb and file should have content "Development".
+  vi) Allow traffic through the firewall for http.
+
 ```
 
 (scroll down for an answer)
