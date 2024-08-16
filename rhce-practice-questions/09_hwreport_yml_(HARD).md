@@ -369,5 +369,6 @@ EOF
 
 ansible-navigator run -m stdout webcontent.yml
 curl http://node1/devweb/index.html
+echo -e "\n"
 ```
 [Back to Top](#Create-a-hwreport)
