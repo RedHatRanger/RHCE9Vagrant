@@ -81,6 +81,5 @@ Production
 ```
 
 * Done!!
-
 </br></br>
 [Continue to next lab](11_hosts_yml_(MEDIUM).md)
