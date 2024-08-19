@@ -24,12 +24,18 @@ Instructions:
 <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 
 ### ANSWER #17:
-1) Log into the CONTROL NODE as student, and install the "rhel-system-roles" package if it isn't installed:
+1) vim mycollections/requrirements.yml
 ```
-[student@control ansible]$ ansible-galaxy collection install -r collections/requirements.yml -p mycollections/
+---
+collections:
+  - name: redhat.rhel_system_roles
+```
+2) Log into the CONTROL NODE as student, and install the "redhat.rhel-system-roles" collection if it isn't installed:
+```
+[student@control ansible]$ ansible-galaxy collection install -r mycollections/requirements.yml -p mycollections/
 ```
 
-2) Create the "timesync.yml" playbook
+3) Create the "timesync.yml" playbook
 ```
 [student@control ansible]$ ﻿vim timesync.yml
 
@@ -60,12 +66,12 @@ roles:
 :wq
 ```
 
-3) Run the "timesync.yml" playbook:
+4) Run the "timesync.yml" playbook:
 ```
 [student@control ansible]$ ﻿ansible-navigator run -m stdout timesync.yml
 ```
 
-4) Validate the modified settings on the nodes:
+5) Validate the modified settings on the nodes:
 ```
 [student@control ansible]$ ansible all -m shell -a "cat /etc/chrony.conf"
 
