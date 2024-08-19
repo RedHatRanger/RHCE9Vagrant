@@ -26,9 +26,7 @@ Instructions:
 ### ANSWER #17:
 1) Log into the CONTROL NODE as student, and install the "rhel-system-roles" package if it isn't installed:
 ```
-[student@control ansible]$ sudo yum install rhel-system-roles -y
-[student@control ansible]$ sudo rsync -av --progress /usr/share/ansible/roles/rhel-system-roles.timesync /home/student/ansible/roles
-[student@control roles]$ sudo chown -R student:student rhel-system-roles.timesync/
+[student@control ansible]$ ansible-galaxy collection install -r collections/requirements.yml -p mycollections/
 ```
 
 2) Create the "timesync.yml" playbook
@@ -43,7 +41,7 @@ Instructions:
 #         - hostname: classroom.example.com
 #           iburst: yes
 #  roles:
-#     - rhel-system-roles.timesync
+#     - redhat.rhel-system-roles.timesync
 
 # For this example we will use what redhat has provided us:
 - name: Time Synchronization Play
