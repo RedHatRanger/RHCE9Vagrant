@@ -3052,3 +3052,18 @@ The groups parameter, when used with the append parameter, tells the machine to 
 the supplementary groups sys_admins and developers to this user. If you do not use
 the append parameter then the groups provided overwrite a user's existing supplementary
 groups. To set the primary group for a user, use the group option.
+
+The following example task mounts the NFS share available at 172.25.250.100:/share on the
+/nfsshare directory on the managed hosts.
+```
+---
+- name: Mount NFS share
+  ansible.posix.mount:
+    path: /nfsshare
+    src: 172.25.250.100:/share
+    fstype: nfs
+    opts: defaults
+    dump: '0'
+    passno: '0'
+    state: mounted
+```
