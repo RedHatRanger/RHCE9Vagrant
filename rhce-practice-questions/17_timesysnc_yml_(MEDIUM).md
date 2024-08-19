@@ -46,15 +46,18 @@ Instructions:
 #     - rhel-system-roles.timesync
 
 # For this example we will use what redhat has provided us:
----
-- hosts: all
+- name: Time Synchronization Play
+  hosts: webservers
   vars:
     timesync_ntp_servers:
-      - hostname: 2.rhel.pool.ntp.org
-        pool: yes
+      - hostname: 0.rhel.pool.ntp.org
         iburst: yes
-  roles:
-    - rhel-system-roles.timesync
+      - hostname: 1.rhel.pool.ntp.org
+        iburst: yes
+      - hostname: 2.rhel.pool.ntp.org
+        iburst: yes
+roles:
+- redhat.rhel_system_roles.timesync
 
 :wq
 ```
