@@ -23,6 +23,7 @@ roles_path=/home/student/ansible/roles
 collections_path=/home/student/ansible/mycollections
 ask_pass=false
 host_key_checking=false
+callbacks_enabled=profile_tasks
 
 [privilege_escalation]
 become=true
