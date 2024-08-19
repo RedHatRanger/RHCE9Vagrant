@@ -1,3 +1,9 @@
+```
+ansible-navigator:
+playbook-artifact:
+enable: false
+```
+
 *vim ~/.vimrc:
 ```
 autocmd FileType yaml setlocal ai ts=2 sw=2 et cuc nu
