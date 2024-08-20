@@ -20,9 +20,9 @@ SCRIPT
 
   # User setup script
   user_setup = <<-SCRIPT
-useradd student
-echo "student:redhat" | chpasswd
-usermod -aG wheel student
+useradd redhat
+echo "redhat:redhat" | chpasswd
+usermod -aG wheel redhat
 echo "%wheel ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 SCRIPT
 
