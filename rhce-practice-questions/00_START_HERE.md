@@ -8,6 +8,8 @@
 OR....
 ### 6. [Continue Setting Up Ansible Yourself on Virtualbox VMs](01_configure_ansible_(MEDIUM).md#configure-ansible)
 
+OR....
+### 7. If you have downloaded my pre-configured VMs, [Click Here](03_install_roles_(EASY).md)
 
 
 </br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br>
