@@ -10,7 +10,7 @@
 Instructions:
 
 4. Install the roles
-i) create directory "roles" under /home/student/ansible
+i) create directory "roles" under /home/rhel/ansible-files
 ii) create a "requirements.yml" under the roles directory and download the given roles under it using the galaxy command.
 iii) 1st role name should be "balancer" and download it using this url "http://content.example.com/rhce/balancer.tgz".
 iv)  2nd role name will be "phpinfo" and download it using this url "http://content.example.com/rhce/phpinfo.tgz".
@@ -29,7 +29,7 @@ https://github.com/geerlingguy/ansible-role-haproxy.git            (balancer)
 
 ### ANSWER #3:
 
-1) Log into the CONTROL NODE as student, and run:
+1) Log into the CONTROL NODE as rhel, and run:
 ```
 # NOTE: On the actual exam you may have to wget from an http://content/.../.../ repository and install them locally
  
@@ -49,7 +49,7 @@ https://github.com/geerlingguy/ansible-role-haproxy.git            (balancer)
 
 2) Next, run the requirements.yml file using ansible-galaxy:
 ```
-[rhel@control roles]$ ansible-galaxy install -r requirements.yml -p /home/student/ansible/roles
+[rhel@control roles]$ ansible-galaxy install -r requirements.yml -p /home/rhel/ansible-files/roles
 ```
 
 3) Finally, you can confirm that the roles have been installed by running "ls":
