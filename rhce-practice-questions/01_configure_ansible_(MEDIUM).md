@@ -129,6 +129,8 @@ ssh-keygen -t rsa -b 4096 -N ""
 
 6) Then distribute them to the nodes for the rhel user:
 ```
+vim authorized_keys.yml
+
 ---
 - name: set rhel authorized keys
   hosts: all
@@ -149,7 +151,12 @@ ssh-keygen -t rsa -b 4096 -N ""
         key: "{{ lookup('file', '/home/rhel/.ssh/id_rsa.pub') }}"
 ```
 
-6) We can ping to see if our nodes respond:
+7) Run the playbook:
+```
+ansible-navigator run -m stdout authorized_keys.yml --ask-pass
+```
+
+8) We can ping to see if our nodes respond:
 ```
 [rhel@control ansible]$ ansible all -m ping
 ```
@@ -160,7 +167,7 @@ ssh-keygen -t rsa -b 4096 -N ""
 
 </br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br>
 ## OPTIONAL SETTINGS
-7) It's advised to set your ~/.vimrc to auto indent yaml file types:
+10) It's advised to set your ~/.vimrc to auto indent yaml file types:
 ```
 [rhel@control ansible]$ vim ~/.vimrc
 
@@ -169,7 +176,7 @@ autocmd FileType yaml setlocal ai ts=2 sw=2 et cuc cul
 :wq
 ```
 
-8) We can choose to list our hosts to validate our inventory file:
+10) We can choose to list our hosts to validate our inventory file:
 ```
 [rhel@control ansible]$ ansible all --list-hosts
   hosts (5):
@@ -182,7 +189,7 @@ autocmd FileType yaml setlocal ai ts=2 sw=2 et cuc cul
 <output omitted>
 ```
 
-9) We may configure ansible-navigator:
+11) We may configure ansible-navigator:
 ```
 vim ansible-navigator.yml
 ---
@@ -195,7 +202,7 @@ playbook-artifact:
  enable: false
 ```
 
-10) Lastly for our lab, we need to set the /etc/fstab to automount /dev/sr0 to /media:
+12) Lastly for our lab, we need to set the /etc/fstab to automount /dev/sr0 to /media:
 ```
 vim fstab.yml
 
