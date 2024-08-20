@@ -21,17 +21,17 @@ managed nodes:
 1. Install and configure Ansible on control node as follows:
 
    * Install the required packages.
-   * Create a static inventory file called /home/student/ansible/inventory as follows:
+   * Create a static inventory file called /home/rhel/ansible/inventory as follows:
           -- node1 is a member of dev host group.
           -- node2 is a member of test host group.
           -- node3 and node4 are the members of the prod host group.
           -- node5 is a member of the balancers host group.
           -- The prod group is a member of the webservers group.
 
-   * Create a configuration file called /home/student/ansible/ansible.cfg so that:
-          -- The host inventory file should be defined as /home/student/ansible/inventory
-          -- The default roles directory is /home/student/ansible/roles
-          -- The default content collections directory is /home/student/ansible/mycollections
+   * Create a configuration file called /home/rhel/ansible/ansible.cfg so that:
+          -- The host inventory file should be defined as /home/rhel/ansible/inventory
+          -- The default roles directory is /home/rhel/ansible/roles
+          -- The default content collections directory is /home/rhel/ansible/mycollections
 
    * The topography will be as follows:
 
@@ -73,14 +73,14 @@ managed nodes:
 
 3) Now, we need to create the two folders for roles and collections:
 ```
-[ansible@control ~]$ mkdir -p /home/student/ansible/roles
-[ansible@control ~]$ mkdir -p /home/student/ansible/mycollections
+[ansible@control ~]$ mkdir -p /home/rhel/ansible/roles
+[ansible@control ~]$ mkdir -p /home/rhel/ansible/mycollections
 ```
 
 4) Next, you need to edit the inventory file:
 ```
-[student@control ~]$ cd ansible
-[student@control ansible]$ vim inventory
+[rhel@control ~]$ cd ansible
+[rhel@control ansible]$ vim inventory
 
 [dev]
 node1
@@ -103,13 +103,13 @@ prod
 
 4) Then, configure Ansible:
 ```
-[student@control ansible]$ vim ansible.cfg
+[rhel@control ansible]$ vim ansible.cfg
 
 [defaults]
-remote_user=student
-inventory=/home/student/ansible/inventory
-roles_path=/home/student/ansible/roles
-collections_path=/home/student/ansible/mycollections
+remote_user=rhel
+inventory=/home/rhel/ansible/inventory
+roles_path=/home/rhel/ansible/roles
+collections_path=/home/rhel/ansible/mycollections
 ask_pass=false
 host_key_checking=false
 callbacks_enabled=profile_tasks
@@ -123,25 +123,36 @@ become_ask_pass=false
 :wq
 ```
 
-5) As a test, you can run ANSIBLE --VERSION:
+5) We need to create the ssh-keys:
 ```
-[student@control ansible]$ ansible --version
-ansible [core 2.12.2]
-  config file = /home/student/ansible/ansible.cfg
-  configured module search path = ['/home/student/.ansible/plugins/modules', '/usr/share/ansible/plu
-gins/modules']
-  ansible python module location = /usr/lib/python3.9/site-packages/ansible
-  ansible collection location = /home/student/ansible/mycollections
-  executable location = /usr/bin/ansible
-  python version = 3.9.10 (main, Feb 9 2022, 00:00:00) [GCC 11.2.1 20220127 (Red Hat 11.2.1-9)]
-  jinja version = 2.11.3
-  libyaml = True
-[student@control ansible]$
+ssh-keygen -t rsa -b 4096 -N ""
+```
+
+6) Then distribute them to the nodes for the rhel user:
+```
+---
+- name: set rhel authorized keys
+  hosts: all
+  become: false
+  tasks:
+    - name: ensure that .ssh directory is there
+      ansible.builtin.file:
+        path: /home/rhel/.ssh
+        state: directory
+        mode: '0700'
+        owner: rhel
+        group: rhel
+
+    - name: Set authorized key taken from file
+      ansible.posix.authorized_key:
+        user: rhel
+        state: present
+        key: "{{ lookup('file', '/home/rhel/.ssh/id_rsa.pub') }}"
 ```
 
 5) VERY IMPORTANT - It's advised to set your ~/.vimrc to auto indent yaml file types:
 ```
-[student@control ansible]$ vim ~/.vimrc
+[rhel@control ansible]$ vim ~/.vimrc
 
 autocmd FileType yaml setlocal ai ts=2 sw=2 et cuc nu
 
@@ -150,20 +161,20 @@ autocmd FileType yaml setlocal ai ts=2 sw=2 et cuc nu
 
 6) We can choose to list our hosts to validate our inventory file:
 ```
-[student@control ansible]$ ansible all --list-hosts
+[rhel@control ansible]$ ansible all --list-hosts
   hosts (5):
     node1
     node2
     node5
     node3
     node4
-[student@control ansible]$ ansible-navigator inventory -i inventory -m stdout --graph
+[rhel@control ansible]$ ansible-navigator inventory -i inventory -m stdout --graph
 <output omitted>
 ```
 
 7) We can ping to see if our nodes respond:
 ```
-[student@control ansible]$ ansible all -m ping
+[rhel@control ansible]$ ansible all -m ping
 ```
 
 8) Optionally, we may configure ansible-navigator:
