@@ -58,5 +58,6 @@ https://github.com/geerlingguy/ansible-role-haproxy.git            (balancer)
 balancer   phpinfo     requirements.yml
 ```
 
-* Done!!
+* Done!! \
+
 [Continue to the Next Lab](04_apache_role_yml_(HARD).md)
