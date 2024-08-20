@@ -33,9 +33,9 @@ https://github.com/geerlingguy/ansible-role-haproxy.git            (balancer)
 ```
 # NOTE: On the actual exam you may have to wget from an http://content/.../.../ repository and install them locally
  
-[student@control ansible]$ mkdir roles  # If did not create it in Lab #1
-[student@control ansible]$ cd roles
-[student@control roles]$ vim requirements.yml
+[rhel@control ansible]$ mkdir roles  # If did not create it in Lab #1
+[rhel@control ansible]$ cd roles
+[rhel@control roles]$ vim requirements.yml
 
 ---
 - src: https://github.com/bbatsche/Ansible-PHP-Site-Role.git
@@ -49,12 +49,12 @@ https://github.com/geerlingguy/ansible-role-haproxy.git            (balancer)
 
 2) Next, run the requirements.yml file using ansible-galaxy:
 ```
-[student@control roles]$ ansible-galaxy install -r requirements.yml -p /home/student/ansible/roles
+[rhel@control roles]$ ansible-galaxy install -r requirements.yml -p /home/student/ansible/roles
 ```
 
 3) Finally, you can confirm that the roles have been installed by running "ls":
 ```
-[student@control roles]$ ls
+[rhel@control roles]$ ls
 balancer   phpinfo     requirements.yml
 ```
 
