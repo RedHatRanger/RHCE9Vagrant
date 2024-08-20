@@ -46,7 +46,7 @@ MODULES USED:
 
 # NOTE: On the actual exam, you may see an http://content/rhel9.0/x86_64/dvd/RPM-GPG-KEY-redhat-release being used for the GPG Keys.
          
-[student@control ansible]$ vim yum_repo.yml
+[rhel@control ansible]$ vim yum_repo.yml
 
 ---
 - name: my repo
@@ -82,16 +82,18 @@ MODULES USED:
 :wq
 ```
 
-4) OPTIONALLY YOU CAN create an alias for ANSIBLE-NAVIGATOR so you don't have to "ansible-playbook run -m stdout" every time:
-```
-echo "alias nav='ansible-playbook run -m stdout'" >> ~/.bashrc; . ~/.bashrc
-```
-
 5) WE RUN THE PLAYBOOK:
 ```
-[student@control ansible]$ ansible-navigator run -m stdout repo.yml
+[rhel@control ansible]$ ansible-navigator run -m stdout repo.yml
 ```
 
 * Done!!
 
 [Continue to the Next Lab](03_install_roles_(EASY).md)
+
+</br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br>
+
+OPTIONALLY YOU CAN create an alias for ANSIBLE-NAVIGATOR so you don't have to "ansible-playbook run -m stdout" every time:
+```
+echo "alias nav='ansible-playbook run -m stdout'" >> ~/.bashrc; . ~/.bashrc
+```
