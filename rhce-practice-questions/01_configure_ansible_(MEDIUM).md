@@ -57,15 +57,15 @@ managed nodes:
 
 1) First, install ANSIBLE-CORE, PYTHON3-PIP, and CONTAINER-TOOLS on the CONTROL NODE:
 ```
-[ansible@control ~]# yum clean all
-[ansible@control ~]# yum install -y ansible python3-pip container-tools
+[rhel@control ~]# yum clean all
+[rhel@control ~]# yum install -y ansible python3-pip container-tools
 ```
 
 2) Next, install and run ANSIBLE-NAVIGATOR (ONLY INSTALL ON CONTROL NODE):
 ```
-[ansible@control ~]# exit
-[ansible@control ~]$ python3 -m pip install ansible-navigator --user
-[ansible@control ~]$ ansible-navigator
+[rhel@control ~]# exit
+[rhel@control ~]$ python3 -m pip install ansible-navigator --user
+[rhel@control ~]$ ansible-navigator
 <output omitted>
 
 # It will begin pulling down the container execution environment and it will execute the process.
@@ -73,8 +73,7 @@ managed nodes:
 
 3) Now, we need to create the two folders for roles and collections:
 ```
-[ansible@control ~]$ mkdir -p /home/rhel/ansible/roles
-[ansible@control ~]$ mkdir -p /home/rhel/ansible/mycollections
+for i in {roles,mycollections,host_vars,group_vars}; do mkdir -p /home/rhel/ansible/${i}
 ```
 
 4) Next, you need to edit the inventory file:
@@ -150,16 +149,27 @@ ssh-keygen -t rsa -b 4096 -N ""
         key: "{{ lookup('file', '/home/rhel/.ssh/id_rsa.pub') }}"
 ```
 
-5) VERY IMPORTANT - It's advised to set your ~/.vimrc to auto indent yaml file types:
+6) We can ping to see if our nodes respond:
+```
+[rhel@control ansible]$ ansible all -m ping
+```
+
+* Done!!
+
+[Continue to the next lab](02_repo_yml_(MEDIUM).md#Start-Here)
+
+</br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br>
+## OPTIONAL SETTINGS
+7) It's advised to set your ~/.vimrc to auto indent yaml file types:
 ```
 [rhel@control ansible]$ vim ~/.vimrc
 
-autocmd FileType yaml setlocal ai ts=2 sw=2 et cuc nu
+autocmd FileType yaml setlocal ai ts=2 sw=2 et cuc cul
 
 :wq
 ```
 
-6) We can choose to list our hosts to validate our inventory file:
+8) We can choose to list our hosts to validate our inventory file:
 ```
 [rhel@control ansible]$ ansible all --list-hosts
   hosts (5):
@@ -172,12 +182,7 @@ autocmd FileType yaml setlocal ai ts=2 sw=2 et cuc nu
 <output omitted>
 ```
 
-7) We can ping to see if our nodes respond:
-```
-[rhel@control ansible]$ ansible all -m ping
-```
-
-8) Optionally, we may configure ansible-navigator:
+9) We may configure ansible-navigator:
 ```
 vim ansible-navigator.yml
 ---
@@ -188,17 +193,6 @@ execution-environment:
   policy: missing
 playbook-artifact:
  enable: false
-```
-
-9) Optionally, we may also configure our ~/.vimrc file so that there is automatic indentation:
-```
-vim ~/.vimrc
-
-syntax on
-set bg=dark
-autocmd Filetype yaml setlocal ai et ts=2 sw=2 cuc cul
-
-:wq
 ```
 
 10) Lastly for our lab, we need to set the /etc/fstab to automount /dev/sr0 to /media:
@@ -230,4 +224,4 @@ vim fstab.yml
 :wq
 ```
 
-[Continue to the next lab](02_repo_yml_(MEDIUM).md#Start-Here)
+
