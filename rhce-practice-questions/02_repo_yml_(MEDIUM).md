@@ -93,3 +93,5 @@ echo "alias nav='ansible-playbook run -m stdout'" >> ~/.bashrc; . ~/.bashrc
 ```
 
 * Done!!
+
+[Continue to the Next Lab](03_install_roles_(EASY).md)
