@@ -23,9 +23,9 @@ iv) Use separate play for each task and playbook name should be packages.yml.
 
 ### ANSWER #7:
 
-1) Log into the CONTROL NODE as student, and create the packages.yml file:
+1) Log into the CONTROL NODE as rhel, and create the packages.yml file:
 ```
-[student@control ansible]$ vim packages.yml
+[rhel@control ansible]$ vim packages.yml
 
 ---
 # ansible-navigator run -m stdout packages.yml
@@ -61,7 +61,7 @@ iv) Use separate play for each task and playbook name should be packages.yml.
 
 2) Run the packages.yml playbook:
 ```
-[student@control ansible]$ ansible-navigator run -m stdout packages.yml
+[rhel@control ansible]$ ansible-navigator run -m stdout packages.yml
 ```
 
 * NOTE: This can take a couple of minutes to complete...
