@@ -16,7 +16,7 @@ iii) 1st role name should be "balancer" and download it using this url "http://c
 iv)  2nd role name will be "phpinfo" and download it using this url "http://content.example.com/rhce/phpinfo.tgz".
 
 For this example we will use (This part will not be on the exam, but for real exam you will use WGET for the content files):
-https://github.com/bbatsche/Ansible-PHP-Site-Role.git            (phpinfo)
+https://github.com/geerlingguy/ansible-role-php.git                (phpinfo)
 https://github.com/geerlingguy/ansible-role-haproxy.git            (balancer)
 
 * Note: You can find them on galaxy.ansible.com and search for the roles "geerlingguy.haproxy" and "bagaswh.php".
@@ -38,7 +38,7 @@ https://github.com/geerlingguy/ansible-role-haproxy.git            (balancer)
 [rhel@control roles]$ vim requirements.yml
 
 ---
-- src: https://github.com/bbatsche/Ansible-PHP-Site-Role.git
+- src: https://github.com/geerlingguy/ansible-role-php.git
   name: phpinfo
 
 - src: https://github.com/geerlingguy/ansible-role-haproxy.git
