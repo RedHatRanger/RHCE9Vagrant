@@ -41,3 +41,5 @@ vim target.yml
 ```
 
 * Done!!
+
+[Continue to the Next Lab](20_motd_yml.md)
