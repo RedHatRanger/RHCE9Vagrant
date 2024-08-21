@@ -94,4 +94,4 @@ MODULES USED:
 
 * Done!!
 
-[Continue to next lab](12_vault_yml_(EASY).md)
+[Continue to the Next Lab](12_vault_yml_(EASY).md)
