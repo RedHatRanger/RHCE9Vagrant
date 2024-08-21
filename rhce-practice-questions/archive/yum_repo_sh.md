@@ -31,10 +31,10 @@ enabled: yes
 
 ### ANSWER #2:
 
-1) Log into the CONTROL NODE as student, and create/edit a yum_repo.yml file:
+1) Log into the CONTROL NODE as rhel, and create/edit a yum_repo.yml file:
 ```
-[student@control ansible]$ ansible all -m command -a 'yum repolist all'
-[student@control ansible]$ vim yum-repo.sh
+[rhel@control ansible]$ ansible all -m command -a 'yum repolist all'
+[rhel@control ansible]$ vim yum-repo.sh
 
 #!/bin/bash
 ansible all -b -m yum_repository -a 'file=external.repo name=BaseOS description="Base OS Repo" baseurl=file:///mnt/BaseOS/ gpgcheck=no enabled=yes state=present'
@@ -44,9 +44,9 @@ ansible all -b -m yum_repository -a 'file=external.repo name=AppStream descripti
 ```
 
 ```
-[student@control ansible]$ chmod +x yum-repo.sh
-[student@control ansible]$ ./yum-repo.sh
-[student@control ansible]$ ansible all -m command -a 'yum repolist all'
+[rhel@control ansible]$ chmod +x yum-repo.sh
+[rhel@control ansible]$ ./yum-repo.sh
+[rhel@control ansible]$ ansible all -m command -a 'yum repolist all'
 ```
 
 * Done!!
