@@ -36,6 +36,7 @@ iv) create the playbook called "apache_role.yml" and run the role on the dev gro
 ```
 [rhel@control roles]$ cd apache/templates/
 [rhel@control templates]$ vim template.j2
+# ON THE TEST IT MAY BE "ansible_default_ipv4.address"
 
 Welcome to {{ ansible_fqdn }} ON {{ ansible_eth1.ipv4.address }}
 
