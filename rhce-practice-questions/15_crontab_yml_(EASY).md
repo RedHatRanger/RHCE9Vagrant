@@ -9,7 +9,7 @@
 ```
 Instructions:
 
-15. Create a cronjob for the user student on all nodes, playbook name is crontab.yml and the job details are below:
+15. Create a cronjob for the user rhel on all nodes, playbook name is crontab.yml and the job details are below:
 
   i) Every 2 minutes the job will execute logger "EX294 in progress".
 ```
@@ -24,9 +24,9 @@ MODULES USED:
 
 </br></br>
 
-1) Log into the CONTROL NODE as student, and create the "crontab.yml" playbook
+1) Log into the CONTROL NODE as rhel, and create the "crontab.yml" playbook
 ```
-[student@control ansible]$ ﻿vim crontab.yml
+[rhel@control ansible]$ ﻿vim crontab.yml
 
 ---
 - name: use crontab
@@ -36,7 +36,7 @@ MODULES USED:
        ansible.builtin.cron:
            name: "logger job"
            minute: "*/2"
-           user: student
+           user: rhel
            job: logger "EX294 in progress"
            state: present
 
@@ -45,16 +45,16 @@ MODULES USED:
 
 2) Test and run the "crontab.yml" playbook:
 ```
-[student@control ansible]$ ansible-navigator run -m stdout crontab.yml -C
+[rhel@control ansible]$ ansible-navigator run -m stdout crontab.yml -C
 <output omitted>
-[student@control ansible]$ ansible-navigator run -m stdout crontab.yml
+[rhel@control ansible]$ ansible-navigator run -m stdout crontab.yml
 ```
 output: \
 ![image](https://github.com/user-attachments/assets/fc27b523-5919-4c67-a10a-86f8de8bb166)
 
 3) Finally, you may validate your cron jobs on all the nodes:
 ```
-[student@control ansible]$ ansible all -m command -a "crontab -lu student"
+[rhel@control ansible]$ ansible all -m command -a "crontab -lu rhel"
 ```
 output: \
 ![image](https://github.com/user-attachments/assets/11ff89a6-4b91-4cd7-b4d5-e5b1bd0fe70a)
