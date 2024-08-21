@@ -19,19 +19,19 @@ Instructions:
 <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 
 ### ANSWER #18:
-- YOU NEED TO READ THE /home/student/ansible/roles/rhel-system-roles.selinux/README.md
+- YOU NEED TO READ THE /home/rhel/ansible-files/roles/rhel-system-roles.selinux/README.md
 (It will help you with the variable parameters in the yml file you create)
 - You will need to install the "rhel-system-roles" package on the control node.
 - In my lab, I had to comment out two tasks which prevented the main.yml from running.
 
 </br></br>
-1) Log into the CONTROL NODE as student, and perform these tasks:
+1) Log into the CONTROL NODE as rhel, and perform these tasks:
 ```
-[student@control ansible]$ sudo yum install -y rhel-system-roles
-[student@control ansible]$ cd /home/student/ansible/roles
-[student@control roles]$ cp -rf /usr/share/ansible/roles/rhel-system-roles.selinux/ .
-[student@control roles]$ cd /home/student/ansible
-[student@control ansible]$ vim selinux.yml
+[rhel@control ansible]$ sudo yum install -y rhel-system-roles
+[rhel@control ansible]$ cd /home/rhel/ansible-files/roles
+[rhel@control roles]$ cp -rf /usr/share/ansible/roles/rhel-system-roles.selinux/ .
+[rhel@control roles]$ cd /home/rhel/ansible
+[rhel@control ansible]$ vim selinux.yml
 
 ---
 - name: configure selinux
@@ -47,15 +47,17 @@ Instructions:
 
 2) Run the "selinux.yml" playbook:
 ```
-[student@control ansible]$ ansible-navigator run -m stdout selinux.yml
+[rhel@control ansible]$ ansible-navigator run -m stdout selinux.yml
 ```
 output: \
 ![image](https://github.com/user-attachments/assets/7159724d-26e6-452b-87a1-333c4fc77023)
 
 3) Finally, you may validate the selinux status on all the nodes:
 ```
-[student@control ansible]$ ansible all -m command -a "getenforce"
+[rhel@control ansible]$ ansible all -m command -a "getenforce"
 <output omitted>
 ```
 
 * Done!!
+
+[Continue to the Next Lab](19_target_yml_(EASY).md)
