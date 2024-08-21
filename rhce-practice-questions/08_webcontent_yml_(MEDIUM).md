@@ -27,9 +27,9 @@ MODULES USED:
 - copy
 - ansible.posix.firewalld
 
-1) Log into the CONTROL NODE as student, and create the webcontent.yml file:
+1) Log into the CONTROL NODE as rhel, and create the webcontent.yml file:
 ```
-[student@control ansible]$ vim webcontent.yml
+[rhel@control ansible]$ vim webcontent.yml
 
 ---
 # ansible-navigator run -m stdout webcontent.yml
@@ -70,12 +70,12 @@ MODULES USED:
 
 4) Test and Run the webcontent.yml playbook:
 ```
-[student@control ansible]$ ansible-navigator run -m stdout webcontent.yml
+[rhel@control ansible]$ ansible-navigator run -m stdout webcontent.yml
 ```
 
 5) Finally, let's try curling the webpage:
 ```
-[student@control ansible]$ curl http://node1/devweb/index.html
+[rhel@control ansible]$ curl http://node1/devweb/index.html
 ```
 
 * Done!!
