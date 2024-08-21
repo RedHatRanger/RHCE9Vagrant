@@ -28,7 +28,7 @@ iv) create the playbook called "apache_role.yml" and run the role on the dev gro
 
 1) Log into the CONTROL NODE as rhel, and run:
 ```
-[rhel@control ansible]$ cd /home/rhel/ansible-files/roles
+[rhel@control ansible-files]]$ cd /home/rhel/ansible-files/roles
 [rhel@control roles]$ ansible-galaxy init --offline apache
 - Role apache was created successfully
 ```
@@ -87,8 +87,8 @@ Welcome to {{ ansible_fqdn }} ON {{ ansible_default_ipv4.address }}
 
 5) Now, let's create the "apache_role.yml" file:
 ```
-[rhel@control templates]$ cd ~/ansible
-[rhel@control ansible]$ vim apache_role.yml
+[rhel@control templates]$ cd ~/ansible-files
+[rhel@control ansible-files]]$ vim apache_role.yml
 
 ---
 - name: use apache role
@@ -101,7 +101,7 @@ Welcome to {{ ansible_fqdn }} ON {{ ansible_default_ipv4.address }}
 
 6) Finally, run the playbook using Ansible Navigator:
 ```
-[rhel@control ansible]$ ansible-navigator run -m stdout apache_role.yml
+[rhel@control ansible-files]]$ ansible-navigator run -m stdout apache_role.yml
 
 # YOU MAY NEED TO delete THE myrepo.repo IF IT GIVES YOU ERRORS ON THE RED HAT OFFICIAL LAB:
 # ansible all -m shell -a "rm -f /etc/yum.repos.d/myrepo.repo; yum clean all"
@@ -109,7 +109,7 @@ Welcome to {{ ansible_fqdn }} ON {{ ansible_default_ipv4.address }}
 
 7) Let's test out using curl on the webpage:
 ```
-[rhel@control ansible]$ curl http://node1
+[rhel@control ansible-files]]$ curl http://node1
 My host is node1.example.com 172.28.128.101
 ```
 
