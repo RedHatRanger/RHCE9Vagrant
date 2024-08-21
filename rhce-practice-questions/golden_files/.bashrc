@@ -26,7 +26,7 @@ unset rc
 
 export TERM=xterm-256color
 
-cd ~/ansible
+cd ~/ansible-files
 alias go='ssh -Xq -o ServerAliveInterval=60'
 alias nav='ansible-navigator run -m stdout'
 alias task='ansible -m shell -a'
