@@ -39,12 +39,12 @@ MODULES USED:
 - group
 
 </br></br>
-1) Log into the CONTROL NODE as student, and run "wget" to download the "user_list.yml" file:
+1) Log into the CONTROL NODE as rhel, and run "wget" to download the "user_list.yml" file:
 ```
 cd ~/ansible-files
 wget https://raw.githubusercontent.com/RedHatRanger/RHCE9Vagrant/main/rhce-practice-questions/golden_files/user_list.yml
 
-[student@control ansible]$ cat user_list.yml
+[rhel@control ansible]$ cat user_list.yml
 ---
 users:
   - name: david
@@ -113,8 +113,8 @@ ansible all -m shell -a "getent group opsdev"
 ```
 
 * Done!!
-</br></br>
-[Continue to the next lab](14_rekey_vault_pw_(EASY).md)
+
+[Continue to the Next Lab](14_rekey_vault_pw_(EASY).md)
 
 <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
