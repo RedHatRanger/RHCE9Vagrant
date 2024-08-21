@@ -115,6 +115,8 @@ My host is node1.example.com 172.28.128.101
 
 * Done!!
 
+[Continue to the Next Lab](05_create_and_run_roles_yml_(EASY).md)
+
 ### Some possible errors you may encounter: ###
 - ON VMs:
      Because you are not registered with Red Hat, you have to mount the DVD in /etc/fstab to be permanent.
