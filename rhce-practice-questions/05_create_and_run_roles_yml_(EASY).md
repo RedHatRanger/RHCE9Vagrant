@@ -70,3 +70,5 @@ Welcome to node4.example.com 172.28.128.104
 ```
 
 * Done!!
+
+[Continue to the Next Lab](06_install_collections_(EASY).md)
