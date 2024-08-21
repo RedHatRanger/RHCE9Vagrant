@@ -39,7 +39,7 @@ I RAN INTO ERRORS WITH THIS ONE, BUT ON THE TEST YOU WILL NOT HAVE ERRORS
 
 1) Log into the CONTROL NODE as rhel, and Create the roles.yml file:
 ```
-[rhel@control ansible]$ vim roles.yml
+[rhel@control ansible-files]$ vim roles.yml
 
 ---
 - hosts: webservers
@@ -54,18 +54,18 @@ I RAN INTO ERRORS WITH THIS ONE, BUT ON THE TEST YOU WILL NOT HAVE ERRORS
 
 2) Test and then run the roles.yml playbook:
 ```
-[rhel@control ansible]$ ansible-navigator run -m stdout roles.yml
+[rhel@control ansible-files]$ ansible-navigator run -m stdout roles.yml
 ```
 
 4) Curl test node5:
 ```
-[rhel@control ansible]$ curl node5
+[rhel@control ansible-files]$ curl node5
 Welcome to node3.example.com 172.28.128.103
-[rhel@control ansible]$ curl node5
+[rhel@control ansible-files]$ curl node5
 Welcome to node4.example.com 172.28.128.104
-[rhel@control ansible]$ curl node5
+[rhel@control ansible-files]$ curl node5
 Welcome to node3.example.com 172.28.128.103
-[rhel@control ansible]$ curl node5
+[rhel@control ansible-files]$ curl node5
 Welcome to node4.example.com 172.28.128.104
 ```
 
