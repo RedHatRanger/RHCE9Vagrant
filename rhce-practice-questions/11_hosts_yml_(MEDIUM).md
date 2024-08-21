@@ -45,9 +45,9 @@ MODULES USED:
 
 </br></br>
 
-1) Log into the CONTROL NODE as student, and create the "myhosts.j2" file:
+1) Log into the CONTROL NODE as rhel, and create the "myhosts.j2" file:
 ```
-[student@control ansible]$ ﻿vim myhosts.j2
+[rhel@control ansible]$ ﻿vim myhosts.j2
 
 127.0.0.1 localhost localhost.localdomain localhost4 localhost4.localdomain4
 ::1 localhost localhost.localdomain localhost6 localhost.localdomain6
@@ -84,15 +84,14 @@ MODULES USED:
 
 3) Test and run the "hosts.yml" playbook:
 ```
-[student@control ansible]$ ansible-navigator run -m stdout hosts.yml
+[rhel@control ansible]$ ansible-navigator run -m stdout hosts.yml
 ```
 
 * Finally, you may validate the changes you made:
 ```
-[student@control ansible]$ ansible all -m shell -a "cat /etc/myhosts; echo ' '"
+[rhel@control ansible]$ ansible all -m shell -a "cat /etc/myhosts; echo ' '"
 ```
 
 * Done!!
 
-</br></br>
 [Continue to next lab](12_vault_yml_(EASY).md)
