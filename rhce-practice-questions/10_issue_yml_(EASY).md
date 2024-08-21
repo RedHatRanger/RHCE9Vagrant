@@ -27,9 +27,9 @@ MODULES USED:
 - You can run "ansible-doc copy" to get the parameters for the yml file
 
 </br></br>
-1) Log into the CONTROL NODE as student, and create the "issue.yml" playbook:
+1) Log into the CONTROL NODE as rhel, and create the "issue.yml" playbook:
 ```
-[student@control ansible]$ vim issue.yml
+[rhel@control ansible]$ vim issue.yml
 
 ---
 - name: Configure /etc/issue content based on environment
@@ -61,12 +61,12 @@ MODULES USED:
 
 2) Test and run the playbook:
 ```
-[student@control ansible]$ ansible-navigator run -m stdout issue.yml
+[rhel@control ansible]$ ansible-navigator run -m stdout issue.yml
 ```
 
 3) Validate the /etc/issue file on all nodes:
 ```
-[student@control ansible]$ ansible dev,test,prod -m command -a "cat /etc/issue; echo -e '\n '"
+[rhel@control ansible]$ ansible dev,test,prod -m command -a "cat /etc/issue; echo -e '\n '"
 nodel | CHANGED | rc=0 >>
 Development
 
@@ -81,5 +81,5 @@ Production
 ```
 
 * Done!!
-</br></br>
-[Continue to next lab](11_hosts_yml_(MEDIUM).md)
+
+[Continue to the Next Lab](11_hosts_yml_(MEDIUM).md)
