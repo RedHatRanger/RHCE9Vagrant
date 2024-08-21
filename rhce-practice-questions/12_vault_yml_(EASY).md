@@ -23,9 +23,9 @@ Instructions:
 <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 
 ### ANSWER #12:
-1) Log into the CONTROL NODE as student, and create a "secret.txt" file in the ~/ansible folder:
+1) Log into the CONTROL NODE as rhel, and create a "secret.txt" file in the ~/ansible folder:
 ```
-[student@control ansible]$ vim secret.txt
+[rhel@control ansible]$ vim secret.txt
 
 P@ssw0rd
 
@@ -34,7 +34,7 @@ P@ssw0rd
 
 2) Use the "ansible-vault" command to create & encrypt the "vault.yml" using the "secret.txt" file:
 ```
-[student@control ansible]$ ansible-vault create vault.yml --vault-password-file=secret.txt
+[rhel@control ansible]$ ansible-vault create vault.yml --vault-password-file=secret.txt
 
 pw_developer: Iamdev
 pw_manager: Iammgr
@@ -44,12 +44,11 @@ pw_manager: Iammgr
 
 3) View the encrypted playbook:
 ```
-[student@control ansible]$ ansible-vault view vault.yml --vault-password-file=secret.txt
+[rhel@control ansible]$ ansible-vault view vault.yml --vault-password-file=secret.txt
 pw_developer: Iamdev
 pw_manager: Iammgr
 ```
 
 * Done!!
 
-</br></br>
-[Continue to next lab](13_users_yml_(HARD).md)
+[Continue to the Next Lab](13_users_yml_(HARD).md)
