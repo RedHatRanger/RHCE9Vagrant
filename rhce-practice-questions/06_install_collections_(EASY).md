@@ -11,7 +11,7 @@ Instructions:
 
 6. Install Ansible Content Collections:
 
-i) create a directory "mycollections" under /home/student/ansible/
+i) create a directory "mycollections" under /home/rhel/ansible-files/
 ii) using the url "https://galaxy.ansible.com/download/ansible-posix-1.5.4.tar.gz" to install ansible.posix collection under the mycollections directory.
 iii) using the url "https://galaxy.ansible.com/download/community-general-9.2.0.tar.gz" to install the community-general collection under the mycollections directory.
 ----------------------------------------------------------------------------
@@ -33,7 +33,7 @@ You will have to install:
 - rhel-system-roles
 
 </br></br>
-1) Log into the CONTROL NODE as student; download and install the collections:
+1) Log into the CONTROL NODE as rhel; download and install the collections:
 ```
 ansible-galaxy collection install https://galaxy.ansible.com/download/ansible-posix-1.5.4.tar.gz -p mycollections/
 ansible-galaxy collection install https://galaxy.ansible.com/download/community-general-9.2.0.tar.gz -p mycollections/
@@ -41,16 +41,16 @@ ansible-galaxy collection install https://galaxy.ansible.com/download/community-
 
 2) Run the ansible-navigator check to see if the collections are available:
 ```
-[student@control ansible]$ ansible-navigator collections
+[rhel@control ansible]$ ansible-navigator collections
 Name                 Version         Shadowed        Type         Path
 0|ansible.builtin    2.15.0          False           contained    /usr/local/bin/python3.11/site-packages/ansible
-1|ansible.posix      1.5.1           False           bind_mount   /home/student/ansible/mycollections/ansible_collect...
-2|community.general  5.4.0           False           bind_mount   /home/student/ansible/mycollections/ansible_collect...
+1|ansible.posix      1.5.1           False           bind_mount   /home/rhel/ansible-files/mycollections/ansible_collect...
+2|community.general  5.4.0           False           bind_mount   /home/rhel/ansible-files/mycollections/ansible_collect...
 ```
 
 3) Now, because you installed the ansible.posix collection, you are able to lookup ansible documentation on firewalld:
 ```
-[student@control ansible]$ ansible-doc firewalld
+[rhel@control ansible]$ ansible-doc firewalld
 <output omitted>
 ```
 
