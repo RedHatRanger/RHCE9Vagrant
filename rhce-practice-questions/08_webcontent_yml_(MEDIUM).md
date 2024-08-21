@@ -79,3 +79,5 @@ MODULES USED:
 ```
 
 * Done!!
+
+[Continue to the Next Lab](09_hwreport_yml_(HARD).md)
