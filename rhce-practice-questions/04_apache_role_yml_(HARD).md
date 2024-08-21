@@ -26,16 +26,16 @@ iv) create the playbook called "apache_role.yml" and run the role on the dev gro
 
 ### ANSWER #4:
 
-1) Log into the CONTROL NODE as student, and run:
+1) Log into the CONTROL NODE as rhel, and run:
 ```
-[student@control ansible]$ cd /home/student/ansible/roles
-[student@control roles]$ ansible-galaxy init --offline apache
+[rhel@control ansible]$ cd /home/rhel/ansible-files/roles
+[rhel@control roles]$ ansible-galaxy init --offline apache
 - Role apache was created successfully
 ```
 2) Next, let's create the "template.j2" file for the apache server:
 ```
-[student@control roles]$ cd apache/templates/
-[student@control templates]$ vim template.j2
+[rhel@control roles]$ cd apache/templates/
+[rhel@control templates]$ vim template.j2
 
 Welcome to {{ ansible_fqdn }} ON {{ ansible_default_ipv4.address }}
 
@@ -44,8 +44,8 @@ Welcome to {{ ansible_fqdn }} ON {{ ansible_default_ipv4.address }}
 
 3) Let's create the "main.yml" file:
 ```
-[student@control roles]$ cd apache/tasks/
-[student@control tasks]$ vim main.yml
+[rhel@control roles]$ cd apache/tasks/
+[rhel@control tasks]$ vim main.yml
 
 ---
 # tasks file for apache
@@ -82,13 +82,13 @@ Welcome to {{ ansible_fqdn }} ON {{ ansible_default_ipv4.address }}
 
 4) If you don't remember, you can use the ```ansible-doc firewalld``` command, and then SEARCH FOR IT:
 ```
-[student@control tasks]$ ansible-doc firewalld
+[rhel@control tasks]$ ansible-doc firewalld
 ```
 
 5) Now, let's create the "apache_role.yml" file:
 ```
-[student@control templates]$ cd ~/ansible
-[student@control ansible]$ vim apache_role.yml
+[rhel@control templates]$ cd ~/ansible
+[rhel@control ansible]$ vim apache_role.yml
 
 ---
 - name: use apache role
@@ -101,7 +101,7 @@ Welcome to {{ ansible_fqdn }} ON {{ ansible_default_ipv4.address }}
 
 6) Finally, run the playbook using Ansible Navigator:
 ```
-[student@control ansible]$ ansible-navigator run -m stdout apache_role.yml
+[rhel@control ansible]$ ansible-navigator run -m stdout apache_role.yml
 
 # YOU MAY NEED TO delete THE myrepo.repo IF IT GIVES YOU ERRORS ON THE RED HAT OFFICIAL LAB:
 # ansible all -m shell -a "rm -f /etc/yum.repos.d/myrepo.repo; yum clean all"
@@ -109,7 +109,7 @@ Welcome to {{ ansible_fqdn }} ON {{ ansible_default_ipv4.address }}
 
 7) Let's test out using curl on the webpage:
 ```
-[student@control ansible]$ curl http://node1
+[rhel@control ansible]$ curl http://node1
 My host is node1.example.com 172.28.128.101
 ```
 
