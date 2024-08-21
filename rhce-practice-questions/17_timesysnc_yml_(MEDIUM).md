@@ -30,14 +30,14 @@ Instructions:
 collections:
   - name: redhat.rhel_system_roles
 ```
-2) Log into the CONTROL NODE as student, and install the "redhat.rhel-system-roles" collection if it isn't installed:
+2) Log into the CONTROL NODE as rhel, and install the "redhat.rhel-system-roles" collection if it isn't installed:
 ```
-[student@control ansible]$ ansible-galaxy collection install -r mycollections/requirements.yml -p mycollections/
+[rhel@control ansible]$ ansible-galaxy collection install -r mycollections/requirements.yml -p mycollections/
 ```
 
 3) Create the "timesync.yml" playbook
 ```
-[student@control ansible]$ ﻿vim timesync.yml
+[rhel@control ansible]$ ﻿vim timesync.yml
 
 #---
 #- name: use timesync
@@ -68,12 +68,12 @@ roles:
 
 4) Run the "timesync.yml" playbook:
 ```
-[student@control ansible]$ ﻿ansible-navigator run -m stdout timesync.yml
+[rhel@control ansible]$ ﻿ansible-navigator run -m stdout timesync.yml
 ```
 
 5) Validate the modified settings on the nodes:
 ```
-[student@control ansible]$ ansible all -m shell -a "cat /etc/chrony.conf"
+[rhel@control ansible]$ ansible all -m shell -a "cat /etc/chrony.conf"
 
 node4 | CHANGED | rc=0 >>
 #
@@ -102,3 +102,5 @@ ntsdumpdir /var/lib/chrony
 ```
 
 * Done!!
+
+[Continue to the Next Lab](18_selinux_roles_(MEDIUM).md)
