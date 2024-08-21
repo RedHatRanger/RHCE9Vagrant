@@ -1,6 +1,4 @@
-
-
-
+# BONUS LAB
 
 1) Create a file called motd.j2 in the templates folder:
 ```
@@ -116,6 +114,10 @@ exit
 ```
 ansible-galaxy init --offline roles/apache
 ```
+
+* Done!!
+
+</br></br></br></br></br></br></br></br>
 
 * NOTES:
 ```
