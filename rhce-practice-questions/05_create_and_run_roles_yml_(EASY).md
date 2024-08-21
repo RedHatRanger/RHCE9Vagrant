@@ -12,7 +12,7 @@ Instructions:
 5. Create a playbook called roles.yml and it should run balancer and phpinfo roles.
 
    Use roles from Ansible Galaxy
-Create a playbook called /home/student/ansible/roles.yml
+Create a playbook called /home/rhel/ansible-files/roles.yml
 * The playbook contains a play that runs on host in the balancers host group and uses the balancers role.
 - This role configures a service to load balance web server request between hosts in the webserver host group.
 - Browsing to host in the balancers host group (for example http://node5.example.com) produces the following output:
@@ -37,9 +37,9 @@ along with various details of the PHP configuration including the version of PHP
 ### ANSWER #5:
 I RAN INTO ERRORS WITH THIS ONE, BUT ON THE TEST YOU WILL NOT HAVE ERRORS
 
-1) Log into the CONTROL NODE as student, and Create the roles.yml file:
+1) Log into the CONTROL NODE as rhel, and Create the roles.yml file:
 ```
-[student@control ansible]$ vim roles.yml
+[rhel@control ansible]$ vim roles.yml
 
 ---
 - hosts: webservers
@@ -54,18 +54,18 @@ I RAN INTO ERRORS WITH THIS ONE, BUT ON THE TEST YOU WILL NOT HAVE ERRORS
 
 2) Test and then run the roles.yml playbook:
 ```
-[student@control ansible]$ ansible-navigator run -m stdout roles.yml
+[rhel@control ansible]$ ansible-navigator run -m stdout roles.yml
 ```
 
 4) Curl test node5:
 ```
-[student@control ansible]$ curl node5
+[rhel@control ansible]$ curl node5
 Welcome to node3.example.com 172.28.128.103
-[student@control ansible]$ curl node5
+[rhel@control ansible]$ curl node5
 Welcome to node4.example.com 172.28.128.104
-[student@control ansible]$ curl node5
+[rhel@control ansible]$ curl node5
 Welcome to node3.example.com 172.28.128.103
-[student@control ansible]$ curl node5
+[rhel@control ansible]$ curl node5
 Welcome to node4.example.com 172.28.128.104
 ```
 
