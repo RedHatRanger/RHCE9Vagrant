@@ -68,6 +68,8 @@ iv) Use separate play for each task and playbook name should be packages.yml.
 
 * Done!!
 
+[Continue to the Next Lab](08_webcontent_yml_(MEDIUM).md)
+
 <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 
