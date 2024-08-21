@@ -163,7 +163,7 @@ ansible-navigator run -m stdout authorized_keys.yml --ask-pass
 
 * Done!!
 
-[Continue to the next lab](02_repo_yml_(MEDIUM).md#Start-Here)
+[Continue to the Next Lab](02_repo_yml_(MEDIUM).md#Start-Here)
 
 </br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br>
 ## OPTIONAL SETTINGS
