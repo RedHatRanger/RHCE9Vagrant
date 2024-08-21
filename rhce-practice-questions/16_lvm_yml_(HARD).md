@@ -31,9 +31,9 @@ should be displayed
 <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 
 ### ANSWER #16:
-1) Log into the CONTROL NODE as student, and create the "lvm.yml" playbook
+1) Log into the CONTROL NODE as rhel, and create the "lvm.yml" playbook
 ```
-[student@control ansible]$ ﻿vim lvm.yml
+[rhel@control ansible]$ ﻿vim lvm.yml
 
 ---
 - name: create logical volumes
@@ -73,18 +73,20 @@ should be displayed
 
 2) Test and run the "lvm.yml" playbook:
 ```
-[student@control ansible]$ ansible-navigator run -m stdout lvm.yml -C
+[rhel@control ansible]$ ansible-navigator run -m stdout lvm.yml -C
 <output omitted>
-[student@control ansible]$ ansible-navigator run -m stdout lvm.yml
+[rhel@control ansible]$ ansible-navigator run -m stdout lvm.yml
 ```
 output: \
 ![image](https://github.com/user-attachments/assets/82f366cb-ba57-4a28-9f4c-b6088c319994)
 
 3) Finally, you may validate by checking "lsblk" on all nodes:
 ```
-[student@control ansible]$ ansible all -m command -a "lsblk"
+[rhel@control ansible]$ ansible all -m command -a "lsblk"
 ```
 output: \
 ![image](https://github.com/user-attachments/assets/39e607c3-897f-4ef6-a327-6457c08ff2f5)
 
 * Done!!
+
+[Continue to the Next Lab](17_timesysnc_yml_(MEDIUM).md)
