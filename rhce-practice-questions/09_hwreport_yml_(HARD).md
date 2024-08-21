@@ -48,7 +48,7 @@ MODULES USED:
 # NOTE: If you are unsure you can run "ansible-doc get_url" and search /EXAMPLES for Download foo.conf
 # AND "ansible all -m setup > test" will get you the correct parameters you are looking for the replace: option.
 
-[student@control ansible]$ vim hwreport.yml
+[rhel@control ansible]$ vim hwreport.yml
 
 ---
 - name: Generate a hardware report
@@ -94,18 +94,18 @@ MODULES USED:
 
 2) Test and run the hwreport.yml playbook:
 ```
-[student@control ansible]$ ansible-navigator run -m stdout hwreport.yml
+[rhel@control ansible]$ ansible-navigator run -m stdout hwreport.yml
 ```
 
 * Validate the /root/hwreport.txt file for each of the nodes:
 ```
-[student@control ansible]$ ansible all -m shell -a "cat /root/hwreport.txt; echo ' '"
+[rhel@control ansible]$ ansible all -m shell -a "cat /root/hwreport.txt; echo ' '"
 ```
 
 * Done!!
 </br></br>
 
-[Continue to next lab](10_issue_yml_(EASY).md)
+[Continue to the Next Lab](10_issue_yml_(EASY).md)
 
 <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
