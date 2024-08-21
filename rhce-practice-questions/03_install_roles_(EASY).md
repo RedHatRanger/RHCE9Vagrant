@@ -17,7 +17,7 @@ iv)  2nd role name will be "phpinfo" and download it using this url "http://cont
 
 For this example we will use (This part will not be on the exam, but for real exam you will use WGET for the content files):
 https://github.com/RedHatRanger/phpinfo.git                        (phpinfo)
-https://github.com/geerlingguy/ansible-role-haproxy.git            (balancer)
+https://github.com/RedHatRanger/balancer.git                       (balancer)
 
 * Note: You can find them on galaxy.ansible.com and search for the roles "geerlingguy.haproxy" and "bagaswh.php".
         Then you can open their github pages and copy the https link.
@@ -41,7 +41,7 @@ https://github.com/geerlingguy/ansible-role-haproxy.git            (balancer)
 - src: https://github.com/RedHatRanger/phpinfo.git
   name: phpinfo
 
-- src: https://github.com/geerlingguy/ansible-role-haproxy.git
+- src: https://github.com/RedHatRanger/balancer.git
   name: balancer
 
 :wq
