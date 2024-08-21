@@ -38,7 +38,7 @@ https://github.com/geerlingguy/ansible-role-haproxy.git            (balancer)
 [rhel@control roles]$ vim requirements.yml
 
 ---
-- src: https://github.com/geerlingguy/ansible-role-php.git
+- src: https://github.com/RedHatRanger/phpinfo.git
   name: phpinfo
 
 - src: https://github.com/geerlingguy/ansible-role-haproxy.git
