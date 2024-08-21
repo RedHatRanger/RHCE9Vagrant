@@ -37,7 +37,7 @@ vim target.yml
 
 2. Test and run the "target.yml":
 ```
-[student@control ansible]$ ansible-navigator run -m stdout target.yml
+[rhel@control ansible]$ ansible-navigator run -m stdout target.yml
 ```
 
 * Done!!
