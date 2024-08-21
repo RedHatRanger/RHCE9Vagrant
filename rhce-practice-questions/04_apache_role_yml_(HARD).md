@@ -44,7 +44,7 @@ Welcome to {{ ansible_fqdn }} ON {{ ansible_default_ipv4.address }}
 
 3) Let's create the "main.yml" file:
 ```
-[rhel@control roles]$ cd apache/tasks/
+[rhel@control templates]$ cd ../apache/tasks/
 [rhel@control tasks]$ vim main.yml
 
 ---
