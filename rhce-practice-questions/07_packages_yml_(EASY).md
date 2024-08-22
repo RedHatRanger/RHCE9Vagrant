@@ -221,7 +221,7 @@ cd ~/ansible-files
 cat << EOF > apache_role.yml
 ---
 - name: use apache role
-  hosts: dev
+  hosts: webservers
   roles:
     - apache
 EOF
