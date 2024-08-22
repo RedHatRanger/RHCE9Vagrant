@@ -70,16 +70,16 @@ backend app
 [rhel@control ansible-files]$ ansible-navigator run -m stdout roles.yml
 ```
 
-4) Curl test node5:
+4) Curl test node5 so that both node3 and node4 are balanced:
 ```
 [rhel@control ansible-files]$ curl node5
-Welcome to node3.example.com 172.28.128.103
+Welcome to node3.example.com ON 172.28.128.103
 [rhel@control ansible-files]$ curl node5
-Welcome to node4.example.com 172.28.128.104
+Welcome to node4.example.com ON 172.28.128.104
 [rhel@control ansible-files]$ curl node5
-Welcome to node3.example.com 172.28.128.103
+Welcome to node3.example.com ON 172.28.128.103
 [rhel@control ansible-files]$ curl node5
-Welcome to node4.example.com 172.28.128.104
+Welcome to node4.example.com ON 172.28.128.104
 ```
 
 * Done!!
