@@ -159,10 +159,10 @@ EOF
 cd ~/ansible-files
 cat << EOF > /home/rhel/ansible-files/roles/requirements.yml
 ---
-- src: https://github.com/bbatsche/Ansible-PHP-Site-Role.git
+- src: https://github.com/RedHatRanger/phpinfo.git
   name: phpinfo
 
-- src: https://github.com/geerlingguy/ansible-role-haproxy.git
+- src: https://github.com/RedHatRanger/balancer.git
   name: balancer
 EOF
 
