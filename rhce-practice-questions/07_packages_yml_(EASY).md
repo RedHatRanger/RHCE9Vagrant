@@ -228,8 +228,8 @@ EOF
 
 ansible-navigator run -m stdout apache_role.yml
 
-# 15. Curl test node1:
-curl http://node1
+# 15. Curl test node3:
+curl http://node3
 
 
 ##################################################### LAB #5 ########################################################
