@@ -35,7 +35,6 @@ along with various details of the PHP configuration including the version of PHP
 <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 
 ### ANSWER #5:
-I RAN INTO ERRORS WITH THIS ONE, BUT ON THE TEST YOU WILL NOT HAVE ERRORS
 
 1) Log into the CONTROL NODE as rhel, and Create the roles.yml file:
 ```
