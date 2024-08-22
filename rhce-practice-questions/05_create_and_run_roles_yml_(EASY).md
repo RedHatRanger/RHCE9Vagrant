@@ -52,6 +52,19 @@ I RAN INTO ERRORS WITH THIS ONE, BUT ON THE TEST YOU WILL NOT HAVE ERRORS
 :wq
 ```
 
+2) Adjust the "/home/rhel/ansible-files/roles/balancer/templates/balancer.j2" file:
+```
+#---------------------------------------------------------------------
+# round robin balancing between the various backends
+#---------------------------------------------------------------------
+backend app
+    balance     roundrobin
+    server node3.example.com 172.28.128.103:80 check
+    server node4.example.com 172.28.128.104:80 check
+
+# OR WHATEVER YOUR WEBSERVERS ARE CONFIGURED AS ON THE RED HAT LAB
+```
+
 2) Test and then run the roles.yml playbook:
 ```
 [rhel@control ansible-files]$ ansible-navigator run -m stdout roles.yml
