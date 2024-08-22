@@ -14,7 +14,7 @@ Instructions:
    Use roles from Ansible Galaxy
 Create a playbook called /home/rhel/ansible-files/roles.yml
 * The playbook contains a play that runs on host in the balancers host group and uses the balancers role.
-- This role configures a service to load balance web server request between hosts in the webserver host group.
+- This role configures a service to load balance web server request between hosts in the webservers host group.
 - Browsing to host in the balancers host group (for example http://node5.example.com) produces the following output:
 Welcome to node3.example.com on 172.28.128.103
 - Reloading the Browser produces output from the alternet web server:
