@@ -267,7 +267,7 @@ cd ~/ansible-files
 cat << EOF > apache_role.yml
 ---
 - name: use apache role
-  hosts: dev
+  hosts: webservers
   roles:
     - apache
 EOF
@@ -275,7 +275,7 @@ EOF
 ansible-navigator run -m stdout apache_role.yml
 
 # 15. Curl test node1:
-curl http://node1
+curl http://node3
 
 
 ##################################################### LAB #5 ########################################################
