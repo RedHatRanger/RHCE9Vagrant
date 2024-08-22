@@ -274,7 +274,7 @@ EOF
 
 ansible-navigator run -m stdout apache_role.yml
 
-# 15. Curl test node1:
+# 15. Curl test node3:
 curl http://node3
 
 
