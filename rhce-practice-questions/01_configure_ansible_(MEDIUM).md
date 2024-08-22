@@ -21,17 +21,17 @@ managed nodes:
 1. Install and configure Ansible on control node as follows:
 
    * Install the required packages.
-   * Create a static inventory file called /home/rhel/ansible/inventory as follows:
+   * Create a static inventory file called /home/rhel/ansible-files/inventory as follows:
           -- node1 is a member of dev host group.
           -- node2 is a member of test host group.
           -- node3 and node4 are the members of the prod host group.
           -- node5 is a member of the balancers host group.
           -- The prod group is a member of the webservers group.
 
-   * Create a configuration file called /home/rhel/ansible/ansible.cfg so that:
-          -- The host inventory file should be defined as /home/rhel/ansible/inventory
-          -- The default roles directory is /home/rhel/ansible/roles
-          -- The default content collections directory is /home/rhel/ansible/mycollections
+   * Create a configuration file called /home/rhel/ansible-files/ansible.cfg so that:
+          -- The host inventory file should be defined as /home/rhel/ansible-files/inventory
+          -- The default roles directory is /home/rhel/ansible-files/roles
+          -- The default content collections directory is /home/rhel/ansible-files/mycollections
 
    * The topography will be as follows:
 
@@ -73,7 +73,7 @@ managed nodes:
 
 3) Now, we need to create the two folders for roles and collections:
 ```
-for i in {roles,mycollections,host_vars,group_vars}; do mkdir -p /home/rhel/ansible/${i}
+for i in {roles,mycollections,host_vars,group_vars}; do mkdir -p /home/rhel/ansible-files/${i}
 ```
 
 4) Next, you need to edit the inventory file:
@@ -106,9 +106,9 @@ prod
 
 [defaults]
 remote_user=rhel
-inventory=/home/rhel/ansible/inventory
-roles_path=/home/rhel/ansible/roles
-collections_path=/home/rhel/ansible/mycollections
+inventory=/home/rhel/ansible-files/inventory
+roles_path=/home/rhel/ansible-files/roles
+collections_path=/home/rhel/ansible-files/mycollections
 ask_pass=false
 host_key_checking=false
 callbacks_enabled=profile_tasks
