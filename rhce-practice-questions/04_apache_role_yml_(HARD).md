@@ -93,7 +93,7 @@ Welcome to {{ ansible_fqdn }} ON {{ ansible_eth1.ipv4.address }}
 
 ---
 - name: use apache role
-  hosts: dev
+  hosts: webservers
   roles:
     - apache
 
