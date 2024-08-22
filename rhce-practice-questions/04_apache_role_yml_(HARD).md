@@ -110,8 +110,8 @@ Welcome to {{ ansible_fqdn }} ON {{ ansible_eth1.ipv4.address }}
 
 7) Let's test out using curl on the webpage:
 ```
-[rhel@control ansible-files]]$ curl http://node1
-My host is node1.example.com 172.28.128.101
+[rhel@control ansible-files]]$ curl http://node3
+My host is node3.example.com 172.28.128.103
 ```
 
 * Done!!
