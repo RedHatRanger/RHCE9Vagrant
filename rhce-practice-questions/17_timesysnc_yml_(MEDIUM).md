@@ -56,7 +56,7 @@ Instructions:
       - hostname: 172.28.128.100
         iburst: yes
   roles:
-    - rhel_system_roles.timesync
+    - rhel-system-roles.timesync
 
 :wq
 ```
