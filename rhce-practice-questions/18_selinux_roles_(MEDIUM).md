@@ -28,7 +28,7 @@ Instructions:
 1) Log into the CONTROL NODE as rhel, and perform these tasks:
 ```
 [rhel@control ansible-files]$ sudo yum install -y rhel-system-roles
-[rhel@control ansible-files]$ cd /home/rhel/ansible-files/roles
+[rhel@control ansible-files]$ cd roles
 [rhel@control roles]$ cp -rf /usr/share/ansible/roles/rhel-system-roles.selinux/ .
 [rhel@control roles]$ cd /home/rhel/ansible-files
 [rhel@control ansible-files]$ vim selinux.yml
