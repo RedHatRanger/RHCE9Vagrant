@@ -17,6 +17,8 @@ Instructions:
  - Configures the role to use the currently active NTP provider
  - Configure the role to use the time server classroom.lab.example.com
  - Configure the role to enable the iburst parameter
+
+# For this example we will use our ansible control node to sync up with
 ```
 
 (scroll down for an answer)
