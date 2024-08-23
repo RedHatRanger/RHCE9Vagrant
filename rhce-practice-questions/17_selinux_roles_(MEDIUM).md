@@ -60,4 +60,4 @@ output: \
 
 * Done!!
 
-[Continue to the Next Lab](19_target_yml_(EASY).md)
+[Continue to the Next Lab](18_timesync_yml_(MEDIUM))
