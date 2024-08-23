@@ -27,11 +27,11 @@ Instructions:
 </br></br>
 1) Log into the CONTROL NODE as rhel, and perform these tasks:
 ```
-[rhel@control ansible]$ sudo yum install -y rhel-system-roles
-[rhel@control ansible]$ cd /home/rhel/ansible-files/roles
+[rhel@control ansible-files]$ sudo yum install -y rhel-system-roles
+[rhel@control ansible-files]$ cd /home/rhel/ansible-files/roles
 [rhel@control roles]$ cp -rf /usr/share/ansible/roles/rhel-system-roles.selinux/ .
 [rhel@control roles]$ cd /home/rhel/ansible
-[rhel@control ansible]$ vim selinux.yml
+[rhel@control ansible-files]$ vim selinux.yml
 
 ---
 - name: configure selinux
@@ -47,14 +47,14 @@ Instructions:
 
 2) Run the "selinux.yml" playbook:
 ```
-[rhel@control ansible]$ ansible-navigator run -m stdout selinux.yml
+[rhel@control ansible-files]$ ansible-navigator run -m stdout selinux.yml
 ```
 output: \
 ![image](https://github.com/user-attachments/assets/7159724d-26e6-452b-87a1-333c4fc77023)
 
 3) Finally, you may validate the selinux status on all the nodes:
 ```
-[rhel@control ansible]$ ansible all -m command -a "getenforce"
+[rhel@control ansible-files]$ ansible all -m command -a "getenforce"
 <output omitted>
 ```
 
