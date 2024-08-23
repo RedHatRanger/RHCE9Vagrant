@@ -26,8 +26,13 @@ Instructions:
 ### ANSWER #17:
 1) Yum install rhel-system-roles:
 ```
-[rhel@control ansible-files]$ cd mycollections
-[rhel@control mycollections]$ sudo yum install rhel-system-roles -y
+[rhel@control ansible-files]$ cd roles
+[rhel@control roles]$ sudo yum install rhel-system-roles -y
+```
+
+2) Copy the necessary files from /usr/share/ansible:
+```
+[rhel@control roles]$ cp -rf /usr/share/ansible/roles/rhel-system-roles.timesync/ .
 ```
 
 3) Create the "timesync.yml" playbook
@@ -44,19 +49,14 @@ Instructions:
 #  roles:
 #     - redhat.rhel-system-roles.timesync
 
-# For this example we will use what redhat has provided us:
-- name: Time Synchronization Play
-  hosts: webservers
+# For this example we will use our ansible control node to sync up with:
+- hosts: all
   vars:
     timesync_ntp_servers:
-      - hostname: 0.rhel.pool.ntp.org
+      - hostname: 172.28.128.100
         iburst: yes
-      - hostname: 1.rhel.pool.ntp.org
-        iburst: yes
-      - hostname: 2.rhel.pool.ntp.org
-        iburst: yes
-roles:
-- redhat.rhel_system_roles.timesync
+  roles:
+    - rhel_system_roles.timesync
 
 :wq
 ```
