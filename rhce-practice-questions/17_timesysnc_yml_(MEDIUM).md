@@ -49,7 +49,7 @@ Instructions:
 #         - hostname: classroom.example.com
 #           iburst: yes
 #  roles:
-#     - redhat.rhel-system-roles.timesync
+#     - rhel-system-roles.timesync
 
 # For this example we will use our ansible control node to sync up with:
 - hosts: all
