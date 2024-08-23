@@ -32,7 +32,7 @@ Instructions:
 
 3) Create the "timesync.yml" playbook
 ```
-[rhel@control ansible]$ ﻿vim timesync.yml
+[rhel@control ansible-files]$ ﻿vim timesync.yml
 
 #---
 #- name: use timesync
@@ -63,12 +63,12 @@ roles:
 
 4) Run the "timesync.yml" playbook:
 ```
-[rhel@control ansible]$ ﻿ansible-navigator run -m stdout timesync.yml
+[rhel@control ansible-files]$ ﻿ansible-navigator run -m stdout timesync.yml
 ```
 
 5) Validate the modified settings on the nodes:
 ```
-[rhel@control ansible]$ ansible all -m shell -a "cat /etc/chrony.conf"
+[rhel@control ansible-files]$ ansible all -m shell -a "cat /etc/chrony.conf"
 
 node4 | CHANGED | rc=0 >>
 #
