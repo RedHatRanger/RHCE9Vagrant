@@ -1,5 +1,5 @@
-<a href="https://www.youtube.com/watch?v=0fUMTBiWKhc&list=PLYB6dfdhWDePZf4fd4YgGGtSX_vHKv5vz&index=8">Video Tutorial</a> by Teach Me Tech \
-<a href="https://www.youtube.com/watch?v=dMsEJP6szxw&list=PLL_setXLS0tiYMipvQI4oUGkJwhOhn42J&index=17">Video Tutorial</a> by codeXchange (BEST) \
+<a href="https://www.youtube.com/watch?v=0fUMTBiWKhc&list=PLYB6dfdhWDePZf4fd4YgGGtSX_vHKv5vz&index=8">Video Tutorial</a> by Teach Me Tech (BEST) \
+<a href="https://www.youtube.com/watch?v=dMsEJP6szxw&list=PLL_setXLS0tiYMipvQI4oUGkJwhOhn42J&index=17">Video Tutorial</a> by codeXchange \
 <a href="https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/7/html/automating_system_administration_by_using_rhel_system_roles_in_rhel_7.9/configuring-time-synchronization-by-using-the-timesync-rhel-system-role_automating-system-administration-by-using-rhel-system-roles#applying-the-timesync-system-role-for-a-single-pool-of-servers_configuring-time-synchronization-using-system-roles">Link</a> to the Red Hat Documentation
 
 ***On the Control Node***
@@ -24,15 +24,10 @@ Instructions:
 <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 
 ### ANSWER #17:
-1) vim mycollections/requrirements.yml
+1) Yum install rhel-system-roles:
 ```
----
-collections:
-  - name: redhat.rhel_system_roles
-```
-2) Log into the CONTROL NODE as rhel, and install the "redhat.rhel-system-roles" collection if it isn't installed:
-```
-[rhel@control ansible]$ ansible-galaxy collection install -r mycollections/requirements.yml -p mycollections/
+[rhel@control ansible-files]$ cd mycollections
+[rhel@control mycollections]$ sudo yum install rhel-system-roles -y
 ```
 
 3) Create the "timesync.yml" playbook
