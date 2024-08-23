@@ -100,7 +100,7 @@ users:
 
 3) Test and run the "users.yml" playbook:
 ```
-ansible-navigator run -m stdout users.yml
+ansible-navigator run -m stdout users.yml --vault-password-file=secret.txt
 ```
 
 4) Finally, you may validate:
