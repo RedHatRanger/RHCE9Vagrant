@@ -40,33 +40,33 @@ should be displayed
   hosts: all
   tasks:
      - name: if device not present
-         debug:
-           msg: device not present
+       debug:
+         msg: "device not present"
        when: ansible_lvm.vgs.research is not defined
 
      - name: when vg is present
        community.general.lvol:
-           vg: research
-           lv: data
-           size: 1500m
-        when: ansible_lvm.vgs.research.free_g>"1.6"
+         vg: research
+         lv: data
+         size: 1500m
+       when: ansible_lvm.vgs.research.free_g>"1.6"
 
      - name: check size
        debug:
          msg: "Requested size is not present"
-        when: ansible_lvm.vgs.research.free_g>="1.6"
+       when: ansible_lvm.vgs.research.free_g>="1.6"
 
      - name: create 800mb partition
        community.general.lvol:
-           vg: research
-           lv: data
-           size: 800m
-        when: ansible_lvm.vgs.research.free_g>="1.0"
+         vg: research
+         lv: data
+         size: 800m
+       when: ansible_lvm.vgs.research.free_g>="1.0"
 
      - name: format lvm
        community.general.filesystem:
-           fstype: ext4
-           dev: /dev/research/data
+         fstype: ext4
+         dev: /dev/research/data
 
 :wq
 ```
