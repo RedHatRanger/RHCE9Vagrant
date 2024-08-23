@@ -2,9 +2,8 @@
 
 1) Create a file called motd.j2 in the templates folder:
 ```
-mkdir ~/ansible-files/templates  #If you haven't created it yet.
-
-vim /home/rhel/ansible-files/templates/motd.j2
+[rhel@control ansible-files]$ mkdir ~/ansible-files/templates  #If you haven't created it yet.
+[rhel@control ansible-files]$ vim /home/rhel/ansible-files/templates/motd.j2
 
 Welcome to {{ ansible_hostname }}.
 OS: {{ ansible_distribution }} {{ ansible_distribution_version }}
@@ -27,12 +26,15 @@ Architecture: {{ ansible_architecture }}
 
 3) Run the playbook:
 ```
-ansible-navigator run -m stdout motd.yml
+[rhel@control ansible-files]$ ansible-navigator run -m stdout motd.yml
 ```
 
 4) Test the greeting on node1:
 ```
-ssh node1
+[rhel@control ansible-files]$ ssh node1
+Welcome to node1.
+OS: RedHat 9.4
+Architecture: x86_64
 ```
 
 * Done!!
