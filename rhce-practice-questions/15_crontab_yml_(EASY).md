@@ -45,12 +45,8 @@ MODULES USED:
 
 2) Test and run the "crontab.yml" playbook:
 ```
-[rhel@control ansible]$ ansible-navigator run -m stdout crontab.yml -C
-<output omitted>
 [rhel@control ansible]$ ansible-navigator run -m stdout crontab.yml
 ```
-output: \
-![image](https://github.com/user-attachments/assets/fc27b523-5919-4c67-a10a-86f8de8bb166)
 
 3) Finally, you may validate your cron jobs on all the nodes:
 ```
