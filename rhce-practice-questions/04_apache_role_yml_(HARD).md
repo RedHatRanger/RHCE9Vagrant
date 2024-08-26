@@ -17,7 +17,7 @@ ii) host the webpage using the template.j2
 iii) the template.j2 should contain:
      Welcome to HOSTNAME ON IPADDRESS
      where hostname is the Fully Qualified Domain Name (FQDN)
-iv) create the playbook called "apache_role.yml" and run the role on the dev group.
+iv) create the playbook called "apache_role.yml" and run the role on the webservers group.
 ```
 
 (scroll down for an answer)
