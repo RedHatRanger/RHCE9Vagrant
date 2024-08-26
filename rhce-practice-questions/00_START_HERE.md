@@ -1,3 +1,6 @@
+user: rhel
+password: redhat
+
 ## Choose your START POINT:
 ### 1. <a href="https://developers.redhat.com/learning/learn:ansible:yaml-essentials-ansible/resource/resources:hands-interactive-lab-and-helpful-resources">Link to the Hands-on Interactive lab by Red Hat</a>, Then Goto [Start Point](#Continue-Here)
 ### 2. Skip to Checkpoint: [Lab #7 - packages.yml](07_packages_yml_(EASY).md)
