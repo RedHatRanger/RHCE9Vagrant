@@ -8,7 +8,7 @@
 ```
 Instructions:
 
-8. Create a playbook called webcontent.yml and it should run on dev group.
+8. Create a playbook called webcontent.yml and it should run on webservers group.
    i) create a directory /devweb and it should be owned by wheel group.
   ii) Assign permissions for user=rwx, group=rwx, others=rx and group special permission should be applied to /devweb.
  iii) /devweb directory should have the same selinux context type as "httpd"
@@ -36,7 +36,7 @@ MODULES USED:
 # ansible-navigator run -m stdout webcontent.yml
 
 - name: none for now
-  hosts: dev
+  hosts: webservers
   tasks:
     - name: create a /devweb direectory
       file:
