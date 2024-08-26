@@ -76,7 +76,7 @@ MODULES USED:
 
 5) Finally, let's try curling the webpage:
 ```
-[rhel@control ansible]$ curl http://node1/devweb/index.html
+[rhel@control ansible]$ curl http://node3/devweb/index.html
 ```
 
 * Done!!
