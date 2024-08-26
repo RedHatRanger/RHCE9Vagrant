@@ -1,4 +1,4 @@
-user: rhel
+user: rhel \
 password: redhat
 
 ## Choose your START POINT:
