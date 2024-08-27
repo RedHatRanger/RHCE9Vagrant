@@ -1,4 +1,5 @@
 <a href="https://www.youtube.com/watch?v=OXv3A2tjzWc&list=PLL_setXLS0tiYMipvQI4oUGkJwhOhn42J&index=6">Video Tutorial</a> by codeXchange (BEST) \
+<a href="https://www.youtube.com/watch?v=WEuzw1m_dCo&list=PLtt9NBONpp0MJlYGrigUukueTlp1d-rc8&index=15">Video Tutorial</a> by T_For_Tech \
 <a href="https://www.youtube.com/watch?v=6pFzSNY9-fs&list=PLYB6dfdhWDePZf4fd4YgGGtSX_vHKv5vz&index=7">Video Tutorial</a> by Teach Me Tech \
 <a href="https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_reuse_roles.html#using-roles-at-the-play-level">Link</a> to the Ansible Documentation
 
