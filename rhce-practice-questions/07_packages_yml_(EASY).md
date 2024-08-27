@@ -1,4 +1,5 @@
-<a href="https://www.youtube.com/watch?v=UkAhDPc--eI&list=PLL_setXLS0tiYMipvQI4oUGkJwhOhn42J&index=7">Video Tutorial</a> by codeXchange
+<a href="https://www.youtube.com/watch?v=UkAhDPc--eI&list=PLL_setXLS0tiYMipvQI4oUGkJwhOhn42J&index=7">Video Tutorial</a> by codeXchange (BEST) \
+<a href="https://www.youtube.com/watch?v=_IFMzI_XIVM&list=PLtt9NBONpp0MJlYGrigUukueTlp1d-rc8&index=14">Video Tutorial</a> by T_For_Tech
 
 ### NOTE: If you ran out of time on the RED HAT OFFICIAL LAB, [Click Here](#Catch-Up) 
 
