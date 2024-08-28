@@ -129,3 +129,6 @@ gpgkey=file:///media/RPM-GPG-KEY-redhat-release
 # place it in your ~/.bashrc to make permanent
 export TERM=xterm-256color
 ```
+
+## CREDITS ##
+https://sites.duke.edu/compsci316_01_f2016/help/vbvagrant/
