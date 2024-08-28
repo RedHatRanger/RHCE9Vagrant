@@ -1,4 +1,5 @@
 $hostsfile = <<-SCRIPT
+# Create the hosts file for all nodes because we do not have a DNS server:
 echo "172.28.128.100   control.example.com   control" >> /etc/hosts
 echo "172.28.128.101   node1.example.com     node1" >> /etc/hosts
 echo "172.28.128.102   node2.example.com     node2" >> /etc/hosts
@@ -8,13 +9,13 @@ echo "172.28.128.105   node5.example.com     node5" >> /etc/hosts
 SCRIPT
 
 $user_setup = <<-SCRIPT
-# Create the Ansible user 'rhel' and assign the password 'redhat'
+# Create the Ansible user 'rhel' and assign the password 'redhat':
 useradd rhel
 echo "rhel:redhat" | chpasswd
 usermod -aG wheel rhel
 echo "%wheel ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/ansibleuser_rhel
 
-# Enable PasswordAuthentication and disable root login
+# Enable PasswordAuthentication and disable root login:
 sed -i 's/PasswordAuthentication no/PasswordAuthentication yes/g' /etc/ssh/sshd_config
 sed -i 's/PermitRootLogin yes/PermitRootLogin no/g' /etc/ssh/sshd_config
 systemctl restart sshd
