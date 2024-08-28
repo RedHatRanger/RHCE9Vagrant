@@ -11,7 +11,7 @@ $user_setup = <<-SCRIPT
 useradd rhel
 echo "rhel:redhat" | chpasswd
 usermod -aG wheel rhel
-echo "%wheel ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
+echo "%wheel ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers.d/ansibleuser_rhel
 SCRIPT
 
 Vagrant.configure("2") do |config|
