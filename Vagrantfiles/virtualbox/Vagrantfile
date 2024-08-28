@@ -1,3 +1,5 @@
+# Download this file and remove the .txt on the end.  Then re-save the file
+
 $hostsfile = <<-SCRIPT
 # Create the hosts file for all nodes because we do not have DNS setup:
 echo "172.28.128.100   control.example.com   control" >> /etc/hosts
