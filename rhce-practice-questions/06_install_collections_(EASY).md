@@ -5,7 +5,7 @@
 
 ***On the Control Node***
 
-# Install Collections
+# Install Collections (SKIP THIS IF YOU'VE INSTALLED 'ansible.posix' and 'community.general' already)
 ### QUESTION #6:
 ```
 Instructions:
