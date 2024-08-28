@@ -4,13 +4,13 @@ In the following, “host” refers to the physical computer that you are workin
 If you use Windows, we recommend that you skip Vagrant and just install VirtualBox. Instead of using Vagrant for creating and managing your VM, simply run VirtualBox and use its interface for all VM-related tasks. To create the VM, you can either download a pre-built Lubuntu 14.04 image (note the user name/password) or manually create an VM and install the operating system yourself. Remember to then set up file sharing between your VM and host by installing the VirtualBox “Guest Additions.”
 
 ## Prerequisites
-Download and install the latest version of VirtualBox:
+Download and install the latest version of VirtualBox for Windows (PowerShell as Administrator):
 ```
-PS C:\Users\<myuser>\> winget install virtualbox
+winget install virtualbox
 ```
 Download and install Vagrant. Then get a shell on your host and issue the following commands to install some Vagrant plugins:
 ```
-PS C:\Users\<myuser>\> vagrant plugin install vagrant-vbguest
+vagrant plugin install vagrant-vbguest
 ```
 
 Creating a VM
