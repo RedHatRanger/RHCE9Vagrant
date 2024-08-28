@@ -73,7 +73,7 @@ managed nodes:
 
 3) Now, we need to create the two folders for roles and collections:
 ```
-for i in {roles,mycollections,host_vars,group_vars}; do mkdir -p /home/rhel/ansible-files/${i}
+for i in {roles,mycollections,templates,host_vars,group_vars}; do mkdir -p /home/rhel/ansible-files/${i}
 ```
 
 4) Next, you need to edit the inventory file:
