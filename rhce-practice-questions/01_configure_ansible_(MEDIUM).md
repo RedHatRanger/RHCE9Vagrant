@@ -178,15 +178,13 @@ autocmd FileType yaml setlocal ai ts=2 sw=2 et cuc cul
 
 10) We can choose to list our hosts to validate our inventory file:
 ```
-[rhel@control ansible]$ ansible all --list-hosts
+[rhel@control ansible]$ ansible all --list
   hosts (5):
     node1
     node2
     node5
     node3
     node4
-[rhel@control ansible]$ ansible-navigator inventory -i inventory -m stdout --graph
-<output omitted>
 ```
 
 11) We may configure ansible-navigator:
@@ -194,12 +192,8 @@ autocmd FileType yaml setlocal ai ts=2 sw=2 et cuc cul
 vim ansible-navigator.yml
 ---
 ansible-navigator:
-execution-environment:
- image: ghcr.io/ansible/creator-ee:v0.14.1
- pull:
-  policy: missing
-playbook-artifact:
- enable: false
+  playbook-artifact:
+    enable: false
 ```
 
 12) Lastly for our lab, we need to set the /etc/fstab to automount /dev/sr0 to /media:
