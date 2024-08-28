@@ -1,0 +1,18 @@
+---
+- name: set rhel authorized keys
+  hosts: all
+  become: false
+  tasks:
+    - name: ensure that .ssh directory is there
+      ansible.builtin.file:
+        path: /home/rhel/.ssh
+        state: directory
+        mode: '0700'
+        owner: rhel
+        group: rhel
+
+    - name: Set authorized key taken from file
+      ansible.posix.authorized_key:
+        user: rhel
+        state: present
+        key: "{{ lookup('file', '/home/rhel/.ssh/id_rsa.pub') }}"
