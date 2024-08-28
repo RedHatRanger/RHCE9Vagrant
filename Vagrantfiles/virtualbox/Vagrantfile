@@ -8,6 +8,7 @@ echo "172.28.128.105   node5.example.com     node5" >> /etc/hosts
 SCRIPT
 
 $user_setup = <<-SCRIPT
+# Create the Ansible user 'rhel'
 useradd rhel
 echo "rhel:redhat" | chpasswd
 usermod -aG wheel rhel
