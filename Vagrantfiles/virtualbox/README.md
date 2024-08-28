@@ -17,31 +17,29 @@ Then get a shell on your host and issue the following commands to install some V
 vagrant plugin install vagrant-vbguest
 ```
 
-Creating a VM
-Create a directory on your host—it will hold files that are automatically shared between your host and VM. Pick a convenient location, say 316, for example. Download the file named Vagrantfile and save it in this directory. Do NOT rename the file.
-One of the most common problem people encounter is that some browser (e.g., Safari) automatically adds an .txt extension to Vagrantfile when you download this file. That will cause all sorts of issues that are hard to recover from later on. So, after you download the file, open up the containing folder and double-check that the file has no suffix at all.
-
-Get a host shell and change into the directory with the Vagrantfile. Then, type this command to create (and start) the VM:
+## Creating a VM
+1) Create a ```vagrant``` directory in your local directory (%USERPROFILE%).
+2) Download the file named Vagrantfile and save it in this directory. Do NOT rename the file.
+3) Get a host shell and change into the directory with the Vagrantfile. Then, type this command to create (and start) the VM:
+```
 vagrant up
-The first time it runs it will create the VM from scratch, which takes some time. (The same command will be used to restart an existing VM that has been previously stopped; that will be much faster.) As the VM starts, VirtualBox will also present you with a window showing the VM login prompt; you should just ignore that for now.
-From your host shell, log into your VM:
+```
+
+* NOTE: The first time it runs it will create the VM from scratch, which takes some time. (The same command will be used to restart an existing VM that has been previously stopped; that will be much faster.) As the VM starts, VirtualBox will also present you with a window showing the VM login prompt; you should just ignore that for now.
+
+4) From your host shell, log into your VM:
+```
 vagrant ssh
+```
+
 You should now be in your VM shell. Follow the instructions for Help/Readying VM for the Course.
 You now need to reboot your VM. Exit from from your VM shell (using the exit command), get back to your host shell, and then issue the following commands (wait for some time between the two commands):
+
+```
 vagrant halt
 vagrant up
-Managing VM using Vagrant
-All commands below should be issued from a host shell, when you are inside the directory containing the Vagrantfile.
+```
 
-Starting the VM:
-vagrant up
-If you have previously stopped your VM, you need this command above to restart it before you can accessing it. You might have to wait for a bit before it is ready to accept connections.
-
-Checking the VM status:
-vagrant status
-
-Accessing the VM:
-For basic command-line shell access:
 vagrant ssh
 You shouldn’t need a password. If successful, you will be now be inside a shell on your VM. If this command hangs, hit Ctrl-C to get back to your host shell prompt, and check the VM status to see if it is ready. You can run multiple host shells and start a vagrant ssh session in each one of them to get multiple VM shells, which you can use for multitasking.
 
@@ -50,11 +48,14 @@ vagrant halt
 Unless explicitly stopped using the above command, your VM will keep running, which will slow your host down. Thus, we recommend that you stop your VM when you are not working on it.
 
 Destroying the VM:
-You can completely destroy your VM using another command called vagrant destroy, but you will lose everything in your VM (except files in the VM directory shared with the host). Do NOT use this command unless you really want to get rid of the VM and all its data (e.g., when you finish this course).
+You can completely destroy your VM using another command called ```vagrant destroy```, but you will lose everything in your VM (except files in the VM directory shared with the host). Do NOT use this command unless you really want to get rid of the VM and all its data (e.g., when you finish this course).
 
 GUI Access to VM
 GUI access to VM gives you a familiar Desktop interface. To enable it, first get a VM shell via vagrant ssh, use the following command to install the necessary software on your VM:
+```
 /opt/dbcourse/install/install-gui.sh
+```
+
 This command will take some time. Once it’s done, exit out of your VM shell, and then reboot the VM in your host shell:
 vagrant halt
 vagrant up
