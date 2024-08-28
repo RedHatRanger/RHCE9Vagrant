@@ -1,0 +1,21 @@
+---
+- name: Ensure fstab entry exists
+  hosts: all
+  become: true
+  tasks:
+    - name: Ensure /media mount point exists
+      file:
+        path: /media
+        state: directory
+
+    - name: Ensure fstab entry for /dev/sr0 exists
+      lineinfile:
+        path: /etc/fstab
+        line: '/dev/sr0  /media    iso9660    defaults 0 0'
+        state: present
+        create: yes
+    - name: Reload systemd to apply changes
+      command: systemctl daemon-reload
+
+    - name: Mount all filesystems in fstab
+      command: mount -a
