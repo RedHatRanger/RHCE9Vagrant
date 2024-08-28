@@ -38,9 +38,9 @@ You now need to reboot your VM. Exit from from your VM shell (using the exit com
 ```
 vagrant halt
 vagrant up
+vagrant ssh
 ```
 
-vagrant ssh
 You shouldn’t need a password. If successful, you will be now be inside a shell on your VM. If this command hangs, hit Ctrl-C to get back to your host shell prompt, and check the VM status to see if it is ready. You can run multiple host shells and start a vagrant ssh session in each one of them to get multiple VM shells, which you can use for multitasking.
 
 Stopping the VM:
