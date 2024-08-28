@@ -50,7 +50,7 @@ https://github.com/RedHatRanger/balancer.git                       (balancer)
 
 2) Next, run the requirements.yml file using ansible-galaxy:
 ```
-[rhel@control roles]$ ansible-galaxy install -r requirements.yml -p /home/rhel/ansible-files/roles
+[rhel@control roles]$ ansible-galaxy role install -r requirements.yml -p /home/rhel/ansible-files/roles
 ```
 
 3) Finally, you can confirm that the roles have been installed by running "ls":
