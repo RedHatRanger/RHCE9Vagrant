@@ -1,0 +1,28 @@
+---
+- name: Add the repos
+  hosts: all
+  tasks:
+    - name: import the gpg key
+      ansible.builtin.rpm_key:
+        key: /media/RPM-GPG-KEY-redhat-release
+        state: present
+
+    - name: Add BaseOS Repo
+      ansible.builtin.yum_repository:
+        name: BaseOS
+        description: BaseOS
+        file: myrepo
+        baseurl: file:///media/BaseOS
+        enabled: yes
+        gpgcheck: yes
+        gpgkey: file:///media/RPM-GPG-KEY-redhat-release
+
+    - name: Add AppSteam Repo
+      ansible.builtin.yum_repository:
+        name: AppStream
+        description: AppStream
+        file: myrepo
+        baseurl: file:///media/AppStream
+        enabled: yes
+        gpgcheck: yes
+        gpgkey: file:///media/RPM-GPG-KEY-redhat-release
