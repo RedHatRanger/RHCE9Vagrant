@@ -30,3 +30,4 @@ cd ~/ansible-files
 alias go='ssh -Xq -o ServerAliveInterval=60'
 alias nav='ansible-navigator run -m stdout'
 alias task='ansible -m shell -a'
+alias shut='task "shutdown -h now" all'
