@@ -8,7 +8,11 @@ Download and install the latest version of VirtualBox for Windows (PowerShell as
 ```
 winget install virtualbox
 ```
-Download and install Vagrant. Then get a shell on your host and issue the following commands to install some Vagrant plugins:
+Download and install Vagrant:
+```
+winget install vagrant
+```
+Then get a shell on your host and issue the following commands to install some Vagrant plugins:
 ```
 vagrant plugin install vagrant-vbguest
 ```
