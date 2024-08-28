@@ -1,0 +1,13 @@
+[BaseOS]
+name=Red Hat BaseOS packages
+baseurl=/media/BaseOS
+enabled=1
+gpgcheck=1
+gpgkey=file://file:///etc/pki/rpm-gpg/RPM-GPG-KEY-redhat-release
+
+[AppStream]
+name=Red Hat AppStream packages
+baseurl=/media/AppStream
+enabled=1
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-redhat-release
