@@ -16,6 +16,7 @@ password: redhat
 ### 11. Skip to [Lab #16 - lvm.yml](16_lvm_yml_(HARD).md)
 ### 12. Skip to [Lab #17 - timesync.yml](17_timesysnc_yml_(MEDIUM).md)
 ### 13. Skip to [Lab #18 - selinux.yml](18_selinux_roles_(MEDIUM).md)
+### 14. Skip to [Lab #19 - motd.yml](19_motd_yml_(EASY).md)
 
 </br></br></br>
 OR....
