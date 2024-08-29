@@ -2,7 +2,7 @@ user: rhel \
 password: redhat
 
 ## Choose your START POINT:
-### 1. <a href="https://developers.redhat.com/learning/learn:ansible:yaml-essentials-ansible/resource/resources:hands-interactive-lab-and-helpful-resources">Link to the Hands-on Interactive lab by Red Hat</a>, Then Goto [Start Point](#Continue-Here)
+### 1. <a href="https://developers.redhat.com/learning/learn:ansible:yaml-essentials-ansible/resource/resources:hands-interactive-lab-and-helpful-resources">Link to the Hands-on Interactive lab by Red Hat</a>, Then Goto [Start Point](#Start-Point)
 ### 2. Skip to [Lab #7 - packages.yml](07_packages_yml_(EASY).md)
 ### 3. Skip to [Lab #8 - webcontent.yml](08_webcontent_yml_(MEDIUM).md)
 ### 4. Skip to [Lab #9 - hwreport.yml](09_hwreport_yml_(HARD).md)
@@ -20,7 +20,7 @@ OR....
 </br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br>
 </br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br>
 
-## Start Here
+## Start Point
 ```
 ### Copy and paste these lines of code to setup your system in a flash ### --CLICK THE TWO SQUARES HERE TO COPY THIS CODE-->>>
 
