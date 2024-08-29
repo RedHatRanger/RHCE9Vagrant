@@ -83,6 +83,9 @@ MODULES USED:
 ```
 
 * Done!!
+
+[Continue to the Next Lab](09_hwreport_yml_(HARD).md)
+
 ## Catch Up
 ### 1. <a href="https://developers.redhat.com/learning/learn:ansible:yaml-essentials-ansible/resource/resources:hands-interactive-lab-and-helpful-resources">Link to the Hands-on Interactive lab by Red Hat</a>, Then Continue Below
 ```
@@ -267,5 +270,3 @@ ansible-galaxy collection install https://galaxy.ansible.com/download/ansible-po
 ansible-galaxy collection install https://galaxy.ansible.com/download/community-general-9.2.0.tar.gz -p mycollections/
 ```
 [Back to Top](#Create-webcontent-playbook)
-
-[Continue to the Next Lab](09_hwreport_yml_(HARD).md)
