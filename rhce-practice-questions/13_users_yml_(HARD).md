@@ -391,45 +391,31 @@ echo -e "\n"
 cd ~/ansible-files
 cat << EOF > hwreport.yml
 ---
-- name: Generate a hardware report
+- name: Generate a hw report
   hosts: all
-  become: true
   tasks:
-    - name: Get the file from the url
+    - name: Download foo.conf
       ansible.builtin.get_url:
         url: https://raw.githubusercontent.com/RedHatRanger/RHCE9Vagrant/main/rhce-practice-questions/golden_files/hwreport.txt
         dest: /root/hwreport.txt
         mode: '0755'
 
-    - name: Generate information for the Inventory hostname
+    - name: Replace old hostname with new hostname (requires Ansible >= 2.4)
       ansible.builtin.replace:
         path: /root/hwreport.txt
-        regexp: "inventoryhostname"
-        replace: "{{ ansible_hostname | default ('NONE') }}"
-
-    - name: Generate information for memory_in_MB
-      ansible.builtin.replace:
-        path: /root/hwreport.txt
-        regexp: "memory_in_MB"
-        replace: "{{ ansible_memory_mb.real.free | default ('NONE') }}"
-
-    - name: Generate information for BIOS_version
-      ansible.builtin.replace:
-        path: /root/hwreport.txt
-        regexp: "BIOS_version"
-        replace: "{{ ansible_bios_version | default ('NONE') }}"
-
-    - name: Generate information for disk_sda_size
-      ansible.builtin.replace:
-        path: /root/hwreport.txt
-        regexp: "disk_sda_size"
-        replace: "{{ ansible_devices.sda.size | default ('NONE') }}"
-
-    - name: Generate information for disk_sdb_size
-      ansible.builtin.replace:
-        path: /root/hwreport.txt
-        regexp: "disk_sdb_size"
-        replace: "{{ ansible_devices.sdb.size | default ('NONE') }}"
+        regexp: "{{ item.oldinfo }}"
+        replace: "{{ item.newinfo }}"
+      loop:
+        - oldinfo: "inventoryhostname"
+          newinfo: "{{ ansible_hostname | default ('NONE') }}"
+        - oldinfo: "memory_in_MB"
+          newinfo: "{{ ansible_memory_mb.real.free | default ('NONE') }}"
+        - oldinfo: "BIOS_version"
+          newinfo: "{{ ansible_bios_version | default ('NONE') }}"
+        - oldinfo: "disk_sda_size"
+          newinfo: "{{ ansible_devices.sda.size | default ('NONE') }}"
+        - oldinfo: "disk_sdb_size"
+          newinfo: "{{ ansible_devices.sdb.size | default ('NONE') }}"
 EOF
 
 ansible-navigator run -m stdout hwreport.yml
