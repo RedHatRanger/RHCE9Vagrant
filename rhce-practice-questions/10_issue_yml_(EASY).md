@@ -389,6 +389,8 @@ cat << EOF > hwreport.yml
 EOF
 
 ansible-navigator run -m stdout hwreport.yml
+
+ansible all -m shell -a "cat /root/hwreport.txt; echo ' '"
 ```
 
 [Back to top](#Create-an-issue-playbook)
