@@ -3,6 +3,9 @@
 <a href="https://www.youtube.com/watch?v=dGjId7RSLek">Video Tutorial</a> by theurbanpenguin \
 <a href="https://docs.ansible.com/ansible/latest/collections/amazon/aws/docsite/aws_ec2_guide.html#hostvars-prefix-and-hostvars-suffix">Link</a> to the Ansible Documentation
 
+### NOTE: If you ran out of time on the RED HAT OFFICIAL LAB, [Click Here](#Catch-Up) 
+
+</br></br>
 ***On the Control Node***
 
 # Create a hosts.yml playbook
