@@ -408,6 +408,41 @@ EOF
 ansible-navigator run -m stdout issue.yml
 
 ansible all -m shell -a "cat /etc/issue; echo ' '"
+
+
+##################################################### LAB #11 #######################################################
+# 22. Create a hosts.yml
+cat << EOF > myhosts.j2
+127.0.0.1 localhost localhost.localdomain localhost4 localhost4.localdomain4
+::1 localhost localhost.localdomain localhost6 localhost.localdomain6
+
+{% for host in groups['all'] %}
+{{ hostvars[host].ansible_default_ipv4.address }} {{ hostvars[host].ansible_fqdn }} {{ hostvars[host].ansible_hostname }}
+{%endfor%}
+EOF
+
+cat << EOF > hosts.yml
+---
+- name: Copy from template
+  hosts: all
+  tasks:
+    - name: use template
+      ansible.builtin.template:
+        src: myhosts.j2
+        dest: /etc/myhosts
+
+- name: Remove /etc/myhosts from everything but dev
+  hosts: all,!dev
+  tasks:
+    - name: delete from all
+      ansible.builtin.file:
+        path: /etc/myhosts
+        state: absent
+EOF
+
+ansible-navigator run -m stdout hosts.yml
+
+ansible all -m shell -a "cat /etc/myhosts; echo ' '"
 ```
 
 [Back to Top](#Create-a-vault-file)
