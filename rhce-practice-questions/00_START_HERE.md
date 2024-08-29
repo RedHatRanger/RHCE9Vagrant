@@ -11,9 +11,9 @@ password: redhat
 ### 6. Skip to [Lab #13 - users.yml](13_users_yml_(HARD).md)
 ### 7. Skip to [Lab #16 - lvm.yml](16_lvm_yml_(HARD).md)
 
-</br></br></br></br>
-## Virtualbox Home Lab:
 OR....
+</br></br></br>
+## Virtualbox Home Lab:
 ### [Continue Setting Up Ansible Yourself on Virtualbox VMs](01_configure_ansible_(MEDIUM).md#configure-ansible)
 
 
