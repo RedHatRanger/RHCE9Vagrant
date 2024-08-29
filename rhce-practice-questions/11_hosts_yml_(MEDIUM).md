@@ -50,7 +50,7 @@ MODULES USED:
 
 1) Log into the CONTROL NODE as rhel, and create the "myhosts.j2" file:
 ```
-[rhel@control ansible]$ ﻿vim myhosts.j2
+[rhel@control ansible-files]$ ﻿vim myhosts.j2
 
 127.0.0.1 localhost localhost.localdomain localhost4 localhost4.localdomain4
 ::1 localhost localhost.localdomain localhost6 localhost.localdomain6
@@ -87,12 +87,12 @@ MODULES USED:
 
 3) Test and run the "hosts.yml" playbook:
 ```
-[rhel@control ansible]$ ansible-navigator run -m stdout hosts.yml
+[rhel@control ansible-files]$ ansible-navigator run -m stdout hosts.yml
 ```
 
 * Finally, you may validate the changes you made:
 ```
-[rhel@control ansible]$ ansible all -m shell -a "cat /etc/myhosts; echo ' '"
+[rhel@control ansible-files]$ ansible all -m shell -a "cat /etc/myhosts; echo ' '"
 ```
 
 * Done!!
