@@ -1,6 +1,9 @@
 <a href="https://www.youtube.com/watch?v=Vyz7fXAfGmc&list=PLL_setXLS0tiYMipvQI4oUGkJwhOhn42J&index=8">Video Tutorial</a> by codeXchange (BEST) \
 <a href="https://www.youtube.com/watch?v=R0_McnbEecA&list=PLYB6dfdhWDePZf4fd4YgGGtSX_vHKv5vz&index=10">Video Tutorial</a> by Teach Me Tech
 
+### NOTE: If you ran out of time on the RED HAT OFFICIAL LAB, [Click Here](#Catch-Up) 
+
+</br></br>
 ***On the Control Node***
 
 # Create a webcontent.yml playbook
