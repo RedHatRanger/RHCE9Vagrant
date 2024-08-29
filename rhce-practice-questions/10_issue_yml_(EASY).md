@@ -85,7 +85,8 @@ Production
 
 * Done!!
 
+[Continue to the Next Lab](11_hosts_yml_(MEDIUM).md)
+
+
 
 [Back to top](#Create-an-issue-playbook)
-
-[Continue to the Next Lab](11_hosts_yml_(MEDIUM).md)
