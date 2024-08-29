@@ -562,9 +562,31 @@ ansible all -m shell -a "getent group opsdev"
 
 
 ##################################################### LAB #14 #######################################################
-# 24. Rekey the solaris.yml file
+# 24. Rekey the solaris.yml file:
 cd ~/ansible-files
 #################################### SOLARIS.YML NOT NEEDED FOR THE REST OF THE LABS ################################
+
+
+##################################################### LAB #14 #######################################################
+# 25. Create a crontab.yml file:
+cd ~/ansible-files
+cat << EOF > crontab.yml
+---
+- name: Use crontab
+  hosts: all
+  tasks:
+     - name: Use cron job
+       ansible.builtin.cron:
+           name: "logger job"
+           minute: "*/2"
+           user: rhel
+           job: logger "EX294 in progress"
+           state: present
+EOF
+
+ansible-navigator run -m stdout crontab.yml
+
+ansible all -m command -a "crontab -lu rhel"
 ```
 
 [Back to Top](#Create-an-lvm-playbook)
