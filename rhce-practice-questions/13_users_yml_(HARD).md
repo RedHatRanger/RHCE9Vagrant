@@ -350,7 +350,7 @@ cat << EOF > webcontent.yml
 # ansible-navigator run -m stdout webcontent.yml
 
 - name: none for now
-  hosts: dev
+  hosts: webservers
   tasks:
     - name: create a /devweb direectory
       file:
