@@ -76,31 +76,6 @@ Instructions:
 5) Validate the modified settings on the nodes:
 ```
 [rhel@control ansible-files]$ ansible all -m shell -a "cat /etc/chrony.conf"
-
-node4 | CHANGED | rc=0 >>
-#
-# Ansible managed
-#
-# system_role:timesync
-
-
-pool 2.rhel.pool.ntp.org iburst
-
-# Allow the system clock to be stepped in the first three updates.
-makestep 1.0 3
-
-# Enable kernel synchronization of the real-time clock (RTC).
-rtcsync
-
-# Record the rate at which the system clock gains/losses time.
-driftfile /var/lib/chrony/drift
-
-# Save NTS keys and cookies.
-ntsdumpdir /var/lib/chrony
-...node3
-...node2
-...node1
-...node5
 ```
 
 * Done!!
