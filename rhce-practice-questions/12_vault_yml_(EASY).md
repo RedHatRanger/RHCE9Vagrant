@@ -12,7 +12,7 @@
 ```
 Instructions:
 
-﻿12. Create a variable file vault.yml and that file should contain variable and its value.
+﻿12. Create an encrypted variable file vault.yml and that file should contain variable and its value.
 
   pw_developer is value Iamdev
   pw_manager is value Iammgr
