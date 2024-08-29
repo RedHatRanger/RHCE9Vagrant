@@ -100,4 +100,4 @@ ansible_python_interpreter: /usr/bin/python3
 EOF
 ```
 ### CONGRATULATIONS, You Have Configured Ansible...Your Destiny Awaits HERE:
-[Continue to the next lab](02_repo_yml_(MEDIUM).md#Start-Here)
+[Continue to the next lab](03_install_roles_yml_(EASY).md)
