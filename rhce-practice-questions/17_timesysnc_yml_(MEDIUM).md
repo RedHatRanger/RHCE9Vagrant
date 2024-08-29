@@ -30,6 +30,7 @@ Instructions:
 ```
 [rhel@control ansible-files]$ cd roles
 [rhel@control roles]$ sudo yum install rhel-system-roles -y
+[rhel@control roles]$ cp -rf /usr/share/ansible/collections/ansible_collections/redhat /home/rhel/ansible-files/mycollections/ansible_collections
 ```
 
 2) Copy the necessary files from /usr/share/ansible:
