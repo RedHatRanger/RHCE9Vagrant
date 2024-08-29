@@ -18,7 +18,7 @@ password: redhat
 ### 13. Skip to [Lab #18 - selinux.yml](18_selinux_roles_(MEDIUM).md)
 ### 14. Skip to [Lab #19 - motd.yml](19_motd_yml_(EASY).md)
 
-</br></br></br>
+</br></br>
 OR....
 ## II. Virtualbox Home Lab:
 ### [Continue Setting Up Ansible Yourself on Virtualbox VMs](01_configure_ansible_(MEDIUM).md#configure-ansible)
