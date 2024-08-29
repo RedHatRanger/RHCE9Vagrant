@@ -7,7 +7,7 @@
 </br></br>
 ***On the Control Node***
 
-# Create an selinux.yml playbook
+## Create an selinux playbook
 ### QUESTION #18:
 ```
 Instructions:
@@ -588,4 +588,4 @@ ansible-navigator run -m stdout timesync.yml
 ansible all -m shell -a "cat /etc/chrony.conf"
 ```
 
-[Back to Top](#Create-a-timesync-playbook)
+[Back to Top](#Create-an-selinux-playbook)
