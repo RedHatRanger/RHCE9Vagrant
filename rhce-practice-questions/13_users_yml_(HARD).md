@@ -17,6 +17,9 @@ Instructions:
 "http://content.example.com/Rhce/user_list.yml" and write a playbook named "users.yml" and then run the playbook
 on all the nodes using two variable files user_list.yml and vault.yml.
 
+####################### NOTE: For this lab we will use the link below: ################################################
+wget https://raw.githubusercontent.com/RedHatRanger/RHCE9Vagrant/main/rhce-practice-questions/golden_files/user_list.yml
+
 i)  * Create a group opsdev
     * Create user from users varaible who job is equal to developer and need to be in opsdev group
     * Assign a password using SHA512 format and run playbook on dev and test group.
