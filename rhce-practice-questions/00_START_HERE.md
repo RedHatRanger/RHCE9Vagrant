@@ -8,9 +8,10 @@ password: redhat
 ### 3. Skip to [Lab #8 - webcontent.yml](08_webcontent_yml_(MEDIUM).md)
 ### 4. Skip to [Lab #9 - hwreport.yml](09_hwreport_yml_(HARD).md)
 ### 5. Skip to [Lab #10 - issue.yml](10_issue_yml_(EASY).md)
-### 6. Skip to [Lab #11 - hosts.yml](11_hosts_yml_(MEDIUM).md) 
-### 7. Skip to [Lab #13 - users.yml](13_users_yml_(HARD).md)
-### 8. Skip to [Lab #16 - lvm.yml](16_lvm_yml_(HARD).md)
+### 6. Skip to [Lab #11 - hosts.yml](11_hosts_yml_(MEDIUM).md)
+### 7. Skip to [Lab #12 - vault.yml](12_vault_yml_(EASY).md)
+### 8. Skip to [Lab #13 - users.yml](13_users_yml_(HARD).md)
+### 9. Skip to [Lab #16 - lvm.yml](16_lvm_yml_(HARD).md)
 
 </br></br></br>
 OR....
