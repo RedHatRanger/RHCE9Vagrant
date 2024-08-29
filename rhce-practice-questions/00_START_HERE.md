@@ -12,7 +12,8 @@ password: redhat
 ### 7. Skip to [Lab #12 - vault.yml](12_vault_yml_(EASY).md)
 ### 8. Skip to [Lab #13 - users.yml](13_users_yml_(HARD).md)
 ### 9. Skip to [Lab #14 - rekey vault.yml](14_rekey_vault_pw_(EASY).md)
-### 10. Skip to [Lab #16 - lvm.yml](16_lvm_yml_(HARD).md)
+### 10. Skip to [Lab #15 - crontab.yml](15_crontab_yml_(EASY).md)
+### 11. Skip to [Lab #16 - lvm.yml](16_lvm_yml_(HARD).md)
 
 </br></br></br>
 OR....
