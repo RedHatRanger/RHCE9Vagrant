@@ -2,18 +2,19 @@ user: rhel \
 password: redhat
 
 # Choose your START POINT:
-## Red Hat Interactive Labs:
+## I. Red Hat Interactive Labs:
 ### 1. <a href="https://developers.redhat.com/learning/learn:ansible:yaml-essentials-ansible/resource/resources:hands-interactive-lab-and-helpful-resources">Link to the Hands-on Interactive lab by Red Hat</a>, Then Goto [Start Point](#Start-Point)
 ### 2. Skip to [Lab #7 - packages.yml](07_packages_yml_(EASY).md)
 ### 3. Skip to [Lab #8 - webcontent.yml](08_webcontent_yml_(MEDIUM).md)
 ### 4. Skip to [Lab #9 - hwreport.yml](09_hwreport_yml_(HARD).md)
 ### 5. Skip to [Lab #10 - issue.yml](10_issue_yml_(EASY).md)
-### 6. Skip to [Lab #13 - users.yml](13_users_yml_(HARD).md)
-### 7. Skip to [Lab #16 - lvm.yml](16_lvm_yml_(HARD).md)
+### 6. Skip to [Lab #11 - hosts.yml](11_hosts_yml_(MEDIUM).md) 
+### 7. Skip to [Lab #13 - users.yml](13_users_yml_(HARD).md)
+### 8. Skip to [Lab #16 - lvm.yml](16_lvm_yml_(HARD).md)
 
 </br></br></br>
 OR....
-## Virtualbox Home Lab:
+## II. Virtualbox Home Lab:
 ### [Continue Setting Up Ansible Yourself on Virtualbox VMs](01_configure_ansible_(MEDIUM).md#configure-ansible)
 
 
