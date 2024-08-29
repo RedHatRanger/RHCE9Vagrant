@@ -281,13 +281,14 @@ cat << EOF > packages.yml
         name: "@RPM Development Tools"
         state: present
 
-- name: update dev packages
-  hosts: dev
-  tasks:  
-    - name: update dev packages
-      dnf:
-        name: "*"
-        state: latest
+# Commented out to save time in the Interactive Labs:
+#- name: update dev packages
+#  hosts: dev
+#  tasks:  
+#    - name: update dev packages
+#      dnf:
+#        name: "*"
+#        state: latest
 EOF
 
 ansible-navigator run -m stdout packages.yml
