@@ -2,9 +2,12 @@
 <a href="https://www.youtube.com/watch?v=lVdJ3ViMrnw&list=PLL_setXLS0tiYMipvQI4oUGkJwhOhn42J&index=10">Video Tutorial</a> by codeXchange (BEST) \
 <a href="https://docs.ansible.com/ansible/latest/collections/ansible/builtin/copy_module.html#ansible-builtin-copy-module-copy-files-to-remote-locations">Link</a> to the Ansible Documentation
 
+### NOTE: If you ran out of time on the RED HAT OFFICIAL LAB, [Click Here](#Catch-Up) 
+
+</br></br>
 ***On the Control Node***
 
-# Create an issue.yml playbook
+## Create an issue playbook
 ### QUESTION #10:
 ```
 Instructions:
@@ -81,5 +84,8 @@ Production
 ```
 
 * Done!!
+
+
+[Back to top](#Create-an-issue-playbook)
 
 [Continue to the Next Lab](11_hosts_yml_(MEDIUM).md)
