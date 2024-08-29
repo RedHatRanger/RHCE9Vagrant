@@ -31,14 +31,15 @@ Instructions:
 ### ANSWER #17:
 1) Yum install rhel-system-roles:
 ```
-[rhel@control ansible-files]$ cd roles
-[rhel@control roles]$ sudo yum install rhel-system-roles -y
-[rhel@control roles]$ cp -rf /usr/share/ansible/collections/ansible_collections/redhat /home/rhel/ansible-files/mycollections/ansible_collections
+[rhel@control ansible-files]$ sudo yum install rhel-system-roles -y  #If you haven't installed it yet
+
+# Copy the redhat collections to the "mycollections" folder:
+[rhel@control ansible-files]$ cp -rf /usr/share/ansible/collections/ansible_collections/redhat /home/rhel/ansible-files/mycollections/ansible_collections
 ```
 
 2) Copy the necessary files from /usr/share/ansible:
 ```
-[rhel@control roles]$ cp -rf /usr/share/ansible/roles/rhel-system-roles.timesync/ .
+[rhel@control ansible-files]$ cp -rf /usr/share/ansible/roles/rhel-system-roles.timesync /home/rhel/ansible-files/roles
 ```
 
 3) Create the "timesync.yml" playbook
