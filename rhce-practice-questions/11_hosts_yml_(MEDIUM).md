@@ -16,16 +16,16 @@ Instructions:
 11. Download file "http://content.example.com/Rhce/myhosts.j2"
 
   1) myhosts.j2 is having the content:
-   - 127.0.0.1 localhost.localdomain localhost
-   - 192.168.0.1 localhost.localdomain localhost
+       127.0.0.1 localhost localhost.localdomain localhost4 localhost4.localdomain4
+       ::1 localhost localhost.localdomain localhost6 localhost.localdomain6
 
   ii) The file should collect all node information like ipaddress,fqdn,hostname
-     and it should be same as /etc/hosts file,
-     if playbook is run on all the managed nodes it must store in /etc/myhosts.
+       and it should be same as /etc/hosts file,
+       if playbook is run on all the managed nodes it must store in /etc/myhosts.
 
 Finally /etc/myhosts should like as below:
-127.0.0.1 localhost.localdomain localhost
-192.168.0.1 localhost.localdomain localhost
+127.0.0.1 localhost localhost.localdomain localhost4 localhost4.localdomain4
+::1 localhost localhost.localdomain localhost6 localhost.localdomain6
 
 172.28.128.100   control.example.com   control
 172.28.128.101   node1.example.com     node1
