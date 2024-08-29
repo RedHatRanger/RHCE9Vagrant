@@ -438,7 +438,7 @@ ansible-navigator run -m stdout hwreport.yml
 cd ~/ansible-files
 cat << EOF > issue.yml
 ---
-- name: Configure /etc/issue content based on environment
+- name: Copy content for dev
   hosts: dev
   tasks:
     - name: copy using inline content
@@ -446,20 +446,20 @@ cat << EOF > issue.yml
           content: "Development"
           dest: /etc/issue
 
-- name: content in prod hosts prod
-  hosts: prod
-  tasks:
-    - name: copy using inline content
-      ansible.builtin.copy:
-          content: "Production"
-          dest: /etc/issue
-
-- name: content in dev
+- name: Copy content for test
   hosts: test
   tasks:
     - name: copy using inline content
       ansible.builtin.copy:
           content: "Test"
+          dest: /etc/issue
+
+- name: Copy content for prod
+  hosts: prod
+  tasks:
+    - name: copy using inline content
+      ansible.builtin.copy:
+          content: "Production"
           dest: /etc/issue
 EOF
 
