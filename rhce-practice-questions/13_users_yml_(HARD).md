@@ -62,39 +62,38 @@ users:
 2) Create the "users.yml" playbook:
 ```
 ---
-- name: create developer users
+- name: Create developer users
   hosts: dev,test
   vars_files:
     - user_list.yml
     - vault.yml
   tasks:
-    - name: create opsdev group
-      group:
+    - name: Create the groups
+      ansible.builtin.group:
         name: opsdev
         state: present
 
     - name: add users who have developer job
-      user:
+      ansible.builtin.user:
         name: "{{ item.name }}"
         groups: opsdev
         password: "{{ pw_developer | password_hash('sha512') }}"
       when: item.job == 'developer'
       loop: "{{ users }}"
 
-
-- name: create manager users
+- name: Create manager users
   hosts: prod
   vars_files:
     - user_list.yml
     - vault.yml
   tasks:
-    - name: create opsmgr group
-      group:
+    - name: Create the groups
+      ansible.builtin.group:
         name: opsmgr
         state: present
 
     - name: add users who have manager job
-      user:
+      ansible.builtin.user:
         name: "{{ item.name }}"
         groups: opsmgr
         password: "{{ pw_manager | password_hash('sha512') }}"
