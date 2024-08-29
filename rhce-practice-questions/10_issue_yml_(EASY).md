@@ -312,6 +312,7 @@ ansible-navigator run -m stdout packages.yml
 
 
 ##################################################### LAB #8 #######################################################
+# 19. Create a webcontent page
 cd ~/ansible-files
 cat << EOF > webcontent.yml
 ---
@@ -353,6 +354,13 @@ ansible-navigator run -m stdout webcontent.yml
 echo -e "\n"
 curl http://node1/devweb/index.html
 echo -e "\n"
+
+
+##################################################### LAB #9 #######################################################
+# 20. Generate a HW report
+cd ~/ansible-files
+cat << EOF > hwreport.yml
+
 ```
 
 [Back to top](#Create-an-issue-playbook)
