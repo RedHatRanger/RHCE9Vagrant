@@ -3,6 +3,9 @@
 <a href="https://www.youtube.com/watch?v=ZrZDEMCsQLw&list=PLL_setXLS0tiYMipvQI4oUGkJwhOhn42J&index=14">Video Tutorial</a> by codeXchange (BEST) \
 <a href="https://docs.ansible.com/ansible/latest/cli/ansible-vault.html#rekey">Link</a> to the Ansible Documentation
 
+### NOTE: If you ran out of time on the RED HAT OFFICIAL LAB, [Click Here](#Catch-Up) 
+
+</br></br>
 ***On the Control Node***
 
 # Rekey the encrypted file solaris.yml
@@ -62,3 +65,5 @@ Rekey successful
 * Done!!
 
 [Continue to the Next Lab](15_crontab_yml_(EASY).md)
+
+
