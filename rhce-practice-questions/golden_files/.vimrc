@@ -7,3 +7,5 @@ abbr _file ansible.builtin.file:
 abbr _cp ansible.builtin.copy:
 abbr _url ansible.builtin.get_url:
 abbr _rp ansible.builtin.replace:
+abbr _usr ansible.builtin.user:
+abbr _grp ansible.builtin.group:
