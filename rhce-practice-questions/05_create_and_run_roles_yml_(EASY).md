@@ -70,7 +70,7 @@ backend app
 [rhel@control ansible-files]$ ansible-navigator run -m stdout roles.yml
 ```
 
-4) Curl test node5 so that both node3 and node4 are balanced (Note: This may not work on RedHat Lab):
+4) Curl test node5 so that both node3 and node4 are balanced (*Note: This may not work on RedHat Lab):
 ```
 [rhel@control ansible-files]$ curl node5
 Welcome to node3.example.com ON 172.28.128.103
