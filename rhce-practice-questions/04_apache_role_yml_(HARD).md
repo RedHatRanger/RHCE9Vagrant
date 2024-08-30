@@ -30,7 +30,7 @@ iv) create the playbook called "apache_role.yml" and run the role on the webserv
 1) Log into the CONTROL NODE as rhel, and run:
 ```
 [rhel@control ansible-files]]$ cd /home/rhel/ansible-files/roles
-[rhel@control roles]$ ansible-galaxy init --offline apache
+[rhel@control roles]$ ansible-galaxy role init --offline apache
 - Role apache was created successfully
 ```
 2) Next, let's create the "template.j2" file for the apache server:
