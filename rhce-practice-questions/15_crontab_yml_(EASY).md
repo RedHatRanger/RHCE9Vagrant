@@ -180,7 +180,7 @@ ansible-galaxy install -r /home/rhel/ansible-files/roles/requirements.yml -p ~/a
 ####################################################### LAB #4 #######################################################
 # 11. Change Directory to the roles directoy and generate the offline role:
 cd ~/ansible-files/roles
-ansible-galaxy init --offline apache
+ansible-galaxy role init --offline apache
 
 # 12. Write the template.j2 file:
 cd apache/templates/
