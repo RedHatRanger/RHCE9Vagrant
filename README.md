@@ -32,7 +32,7 @@ flowchart TD;
 
 ## Lab Setup
 
-> You can create the lab setup manually, but instead I've created a [Virtualbox Vagrantfile](https://github.com/RedHatRanger/RHCE9Vagrant/tree/main/Vagrantfiles/virtualbox) which you can use in order to create this setup automatically.
+> You can create the lab setup manually, but instead I've created a [Virtualbox Vagrantfile](https://github.com/RedHatRanger/RHCE9Vagrant/tree/main/Vagrantfiles/virtualbox) which you can use in order to create this setup automatically. The Ansible user is "rhel" and the password is "redhat".
 
 ## Q1. Ansible Installation and Configuration
 
