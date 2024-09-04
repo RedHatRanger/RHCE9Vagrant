@@ -1,3 +1,5 @@
+[BONUS LAB CHALLENGE](https://play.instruqt.com/rhel/invite/spcp0itylj8u)
+
 ## Q3. Archiving
 
 - Create a playbook that meets following requirements:
