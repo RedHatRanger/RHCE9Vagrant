@@ -38,7 +38,7 @@ flowchart TD;
 
 - Install the ansible package on the control node
 - Create "rhel" user with "redhat" password
-- You have root access to all five servers
+- You have root access to all six servers
 - the `rhel` user should be allowed to execute any command without providing password to the prompt "Add the rhel user to sudoers group"
 - Create inventory on the control node at /home/rhel/ansible-files/inventory. Meet following requirements:
 
