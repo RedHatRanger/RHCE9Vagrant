@@ -11,14 +11,12 @@ One VM will be configured as an Ansible control node. Other four VMs will be use
 
 | FQDN                      | Description                            |
 | ------------------------- | -------------------------------------- |
-| repo.ansi.example.com     | install packages from                  |
-|                           | file:///media/BaseOS/                  |
-|                           | file:///media/AppStream                |
-| control.ansi.example.com  | Ansible control node                   |
-| managed1.ansi.example.com | managed host                           |
-| managed2.ansi.example.com | managed host                           |
-| managed3.ansi.example.com | managed host                           |
-| managed4.ansi.example.com | managed host                           |
+| control.example.com       | Ansible control node                   |
+| node1.example.com         | managed host                           |
+| node2.example.com         | managed host                           |
+| node3.example.com         | managed host                           |
+| node4.example.com         | managed host                           |
+| node5.example.com         | managed host                           |
 
 ```mermaid
 flowchart TD;
