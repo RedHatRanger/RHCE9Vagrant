@@ -239,11 +239,11 @@ Generate an SSH keypair on the control node. You can perform this step manually.
 # Create the directory for ssh keys.
 ansible localhost -m file -a "path=/home/rhel/.ssh state=directory"
 # Generate the ssh keys.
-ansible localhost -m openssh_keypair -a "path=/home/rhel/.ssh/id_rsa owner=automation group=automation type=rsa"
+ansible localhost -m openssh_keypair -a "path=/home/rhel/.ssh/id_rsa owner=rhel group=rhel type=rsa"
 # Create automation user on managed nodes.
-ansible all -m user -a "name=automation password={{ 'devops' | password_hash('sha512') }}"
+ansible all -m user -a "name=rhel password={{ 'redhat' | password_hash('sha512') }}"
 # share public key to managed nodes, remember to check your ansible.cfg configuration because this command needs sudo privileges.
-ansible all -m authorized_key -a "key={{ lookup('file', '/home/rhel/.ssh/id_rsa.pub') }} user=automation state=present"
+ansible all -m authorized_key -a "key={{ lookup('file', '/home/rhel/.ssh/id_rsa.pub') }} user=rhel state=present"
 # Add the automation user in each managed node to sudoers group for privilege escalation.
 ansible all -m copy -a "content='automation ALL=(root) NOPASSWD:ALL' dest=/etc/sudoers.d/rhel"
 ```
@@ -258,9 +258,9 @@ Because you will have to install software on the managed hosts, you need to do t
 
 - The Appstream base URL and BaseOS URL are `http://repo.example.com/AppStream` and `http://repo.example.com/BaseOS`
 
-- The Appstream and BaseOS description are `RHEL 8 Appstream` and `RHEL 8 BaseOS`
+- The Appstream and BaseOS description are `Appstream` and `BaseOS`
 
-- The Appstream and BaseOS names are `RHEL_Appstream` `RHEL_BaseOS`
+- The Appstream and BaseOS names are `Appstream` `BaseOS`
 
 - The repositories must be enabled with a gpgkey of `http://repo.example.com/RPM-GPG-KEY-redhat-release`
 
@@ -299,9 +299,9 @@ ansible all -m yum_repository -a "name=EX294_STREAM description='EX294 stream so
       file:
         path: "/backup"
         state: "directory"
-        owner: automation
-        group: automation
-        mode: 0755
+        owner: rhel
+        group: rhel
+        mode: '0755'
 
 - name: Archive config files
   hosts: all
@@ -311,19 +311,19 @@ ansible all -m yum_repository -a "name=EX294_STREAM description='EX294 stream so
     - name: Create a folder for archive
       file:
         path: /backup
-        owner: automation
-        group: automation
+        owner: rhel
+        group: rhel
         state: directory
-        mode: 0755
+        mode: '0755'
 
     - name: create the archive
       archive:
         path: /etc
         dest: /backup/configuration.gz
         format: gz
-        owner: automation
-        group: automation
-        mode: 0660
+        owner: rhel
+        group: rhel
+        mode: '0660'
 
     - name: fetch the archive
       hosts: all
@@ -334,7 +334,7 @@ ansible all -m yum_repository -a "name=EX294_STREAM description='EX294 stream so
           fetch:
             src: /backup/configuration.gz
             dest: /backup/{{ inventory_hostname }}-configuration.gz
-            owner: automation
+            owner: rhel
             group: automation
             mode: 0660
 ```
