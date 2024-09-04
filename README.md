@@ -1,6 +1,8 @@
 # Ansible Setup for RHCE EX294
 
-This is a sample Ansible exam that I’ve created to prepare for the new RHCE exam EX294. As with the real exam, no perfect answers to the sample exam questions will be provided, but more or less correct and accurate. You may opt for the Official Red Hat Ansible Lab, which is free, but you will be limited to 4 VMs.
+This is a sample Ansible exam that I’ve created to prepare for the new RHCE exam EX294. As with the real exam, no perfect answers to the sample exam questions will be provided, but more or less correct and accurate. 
+
+- You may opt for the Official Red Hat Ansible Lab, which is free, but you will be limited to 4 VMs.
 
 ## Requirements
 
