@@ -68,32 +68,33 @@ flowchart TD;
 [root@control ~]# cat /etc/hosts
 127.0.0.1 localhost localhost.localdomain localhost4 localho    st4.localdomain4
 ::1 localhost localhost.localdomain localhost6 localhost6.lo    caldomain6
-172.28.128.100 control.example.com node1
-172.28.128.101   node1.example.com   node1
-172.28.128.102   node2.example.com   node2
-172.28.128.103   node3.example.com   node3
-172.28.128.104   node4.example.com   node4
-172.28.128.105   node5.example.com   node5
+
+172.28.128.100   control.example.com   node1
+172.28.128.101   node1.example.com     node1
+172.28.128.102   node2.example.com     node2
+172.28.128.103   node3.example.com     node3
+172.28.128.104   node4.example.com     node4
+172.28.128.105   node5.example.com     node5
+
 # and you can access nodes via ssh command
-[root@control ~]# ssh node1
+[rhel@control ~]# ssh node1
 ```
 
 > There could be 5 managed nodes or 4 managed nodes, it doesn't matter actually, in the real exam it will be clearly defined and you can always check via `cat /etc/hosts` from the control node.
 
-> you will have to connect to control node via ssh, the examiner would tell you the user that you will connect as to your control node which could be `lisa` or `matthew`, it doesn't matter, please don't be nervous.
+> You will have to connect to control node via ssh, the examiner would tell you the user that you will connect as to your control node which could be `lisa` or `matthew`, it doesn't matter, please don't be nervous.
 
 ```shell
-ssh matthew@control
+ssh rhel@control
 ```
 
 ```
-192.168.55.199 repo.ansi.example.com     repo
-192.168.55.200 control.ansi.example.com  control
-192.168.55.201 node1.ansi.example.com    node1
-192.168.55.202 node2.ansi.example.com    node2
-192.168.55.203 node3.ansi.example.com    node3
-192.168.55.204 node4.ansi.example.com    node4
-192.168.55.205 node4.ansi.example.com    managed5
+172.28.128.100  control.example.com  control
+172.28.128.101  node1.example.com    node1
+172.28.128.102  node2.example.com    node2
+172.28.128.103  node3.example.com    node3
+172.28.128.104  node4.example.com    node4
+172.28.128.105  node5.example.com    node5
 ```
 
 > This step is not part of your RHCE exam, I just want to show you how you would actually copy your public key to managed nodes. As root generating ssh key and copy it to the managed hosts:
@@ -251,13 +252,13 @@ Because you will have to install software on the managed hosts, you need to do t
 
 - Create a shell script with the name `packages.sh` that runs an Ansible ad-hoc command to create a yum repository on all managed hosts using the information as below:
 
-- The Appstream base URL and BaseOS URL are `http://repo.ansi.example.com/AppStream` and `http://repo.ansi.example.com/BaseOS`
+- The Appstream base URL and BaseOS URL are `http://repo.example.com/AppStream` and `http://repo.example.com/BaseOS`
 
 - The Appstream and BaseOS description are `RHEL 8 Appstream` and `RHEL 8 BaseOS`
 
 - The Appstream and BaseOS names are `RHEL_Appstream` `RHEL_BaseOS`
 
-- The repositories must be enabled with a gpgkey of `http://repo.ansi.example.com/RPM-GPG-KEY-redhat-release`
+- The repositories must be enabled with a gpgkey of `http://repo.example.com/RPM-GPG-KEY-redhat-release`
 
 ## Answer
 
@@ -1502,7 +1503,7 @@ Create a playbook named `hosts.yml` that meets following requirements:
 127.0.1.1 localhost
 
 {% for host in groups['all'] %}
-{{ hostvars[host].ansible_default_ipv4.address }} {{ hostvars[host].ansible_nodename }} {{ hostvars[host].ansible_hostname }}
+{{ hostvars[host]ble_default_ipv4.address }} {{ hostvars[host]ble_nodename }} {{ hostvars[host]ble_hostname }}
 {% endfor %}
 
 ```
