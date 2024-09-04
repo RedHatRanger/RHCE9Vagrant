@@ -21,7 +21,7 @@ One VM will be configured as an Ansible control node. The other five VMs will be
 ```mermaid
 flowchart TD;
     A[Fire Up 6 VMs] --> B(Ansible Control Node);
-    B -- Controlled By Node #A --> C[Managed Node1];
+    B --> C[Managed Node1];
     B -- Controlled By Node #A --> D[Managed Node2];
     B -- Controlled By Node #A --> E[Managed Node3];
     B -- Controlled By Node #A --> F[Managed Node4];
