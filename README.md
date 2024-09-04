@@ -130,13 +130,13 @@ ssh rhel@control
 > Create an account, note that in the real exam the user will be already created for you and it will be given proper privileges too via `sudo` command
 
 ```
-[root@control ~]# useradd automation
+[root@control ~]# useradd rhel
 ```
 
 > Set password, in the real exam this step will also be done for you by default and you will not need to configure a password, and please don't create a password for the already created user.
 
 ```
-[root@control ~]# echo devops | passwd --stdin automation
+[root@control ~]# echo redhat | passwd --stdin rhel
 ```
 
 - step3: Allow access to privileged commands
@@ -144,7 +144,7 @@ ssh rhel@control
 > note that in the real exam the user will be already created for you and it will be given proper privileges too visa `sudo` command
 
 ```
-[root@control ~]# echo "automation ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/automation
+[root@control ~]# echo "rhel ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/rhel
 ```
 
 - step4: Creating inventory
@@ -152,11 +152,11 @@ ssh rhel@control
 > Create directory for the inventory, this step is part of your exam
 
 ```shell
-mkdir -p /home/automation/plays
-mkdir -p /home/automation/plays/roles
+mkdir -p /home/rhel/ansible-files
+mkdir -p /home/rhel/ansible-files/roles
 sudo mkdir -p /var/log/ansible/
 sudo touch /var/log/ansible/execution.log
-vim /home/automation/plays/inventory
+vim /home/rhel/ansible-files/inventory
 ```
 
 > Create the inventory with following contents, this step is part of your exam
@@ -178,7 +178,7 @@ webservers
 proxy
 ```
 
-> Save it to `/home/automation/plays/inventory`
+> Save it to `/home/rhel/ansible-files/inventory`
 
 - step5: Create the config file with following content
 
@@ -199,7 +199,7 @@ remote_user=automation
 inventory=./inventory
 host_key_checking=false
 #log_path=/var/log/ansible/execution.log
-roles_path=/home/automation/plays/roles
+roles_path=/home/rhel/ansible-files/roles
 #forks=8
 
 [privilege_escalation]
@@ -209,13 +209,13 @@ become_method=sudo
 become_user=root
 ```
 
-> Save it to `/home/automation/plays/ansible.cfg`
+> Save it to `/home/rhel/ansible-files/ansible.cfg`
 
 ## A2. Ad-Hoc Commands
 
 Generate an SSH keypair on the control node. You can perform this step manually.
 
-- Write a script `/home/automation/plays/adhoc` that uses Ansible ad-hoc commands to achieve the following:
+- Write a script `/home/rhel/ansible-files/adhoc` that uses Ansible ad-hoc commands to achieve the following:
   - User automation is created on all inventory hosts (not the control node).
   - SSH key (that you generated) is copied to all inventory hosts for the automation user and stored in `/home/automation/.ssh/authorized_keys`.
   - The automation user is allowed to elevate privileges on all inventory hosts without having to provide a password.
@@ -278,7 +278,7 @@ ansible all -m yum_repository -a "name=EX294_STREAM description='EX294 stream so
 
 - Create a playbook that meets following requirements:
   - Creates a gzip archive containing `/etc` and stores it at `/backup/configuration.gz` on the managed hosts.
-  - Is placed at `/home/automation/plays/archive.yml`
+  - Is placed at `/home/rhel/ansible-files/archive.yml`
   - Runs against `all` host group
   - Retrieves archives from the managed nodes and stores them at `/backup/<hostname>-configuration.gz` on the control node
   - User automation should be owner of /backup and everything underneath. Both on the managed hosts and the control node. Only owner and members of his group should be able to read and manage files inside. Anyone should be allowed to list contents of `/backup`.
@@ -337,28 +337,28 @@ ansible all -m yum_repository -a "name=EX294_STREAM description='EX294 stream so
 
 ## Q4. Group differentiation "File Content"
 
-- Create a playbook `/home/automation/plays/motd.yml` that runs on all inventory hosts and does the following:
+- Create a playbook `/home/rhel/ansible-files/motd.yml` that runs on all inventory hosts and does the following:
   - Populates /etc/motd with text, its content depends on the group, The
   - proxy group should use `Welcome to HAProxy server` as the motd.
   - database group should use `Welcome to MySQL database` as the motd
   - webservers should use `Welcome to Apache server` as the motd.
-  - Is placed at `/home/automation/plays/motd.yml`
+  - Is placed at `/home/rhel/ansible-files/motd.yml`
 
 ## A4. Group differentiation "File Content"
 
 - step1: Create directories for groups
 
 ```shell
-mkdir -p /home/automation/plays/group_vars
-mkdir -p /home/automation/plays/group_vars/{proxy,database,webservers}
+mkdir -p /home/rhel/ansible-files/group_vars
+mkdir -p /home/rhel/ansible-files/group_vars/{proxy,database,webservers}
 ```
 
 - step2: Populate yml for each group group
 
 ```
-echo "motd: Welcome to HAProxy server" > /home/automation/plays/group_vars/proxy/motd.yml
-echo "motd: Welcome to MySQL database" > /home/automation/plays/group_vars/database/motd.yml
-echo "motd: Welcome to Apache server" > /home/automation/plays/group_vars/webservers/motd.yml
+echo "motd: Welcome to HAProxy server" > /home/rhel/ansible-files/group_vars/proxy/motd.yml
+echo "motd: Welcome to MySQL database" > /home/rhel/ansible-files/group_vars/database/motd.yml
+echo "motd: Welcome to Apache server" > /home/rhel/ansible-files/group_vars/webservers/motd.yml
 ```
 
 - step3: Create the `motd.yml` playbook
@@ -405,7 +405,7 @@ echo "motd: Welcome to Apache server" > /home/automation/plays/group_vars/webser
 ## Q5. Ansible Facts
 
 - Create a playbook that meets following requirements:
-  - Is placed at `/home/automation/plays/ansible_facts.yml`
+  - Is placed at `/home/rhel/ansible-files/ansible_facts.yml`
   - Runs against proxy group
   - Results in possiblity of getting a pair `name=haproxy` from ansible facts path `ansible_local.environment.application` after calling setup module
 
@@ -437,7 +437,7 @@ ansible ansible2 -m setup -a "filter=ansible_local"
 
 ## Q5: Work with Ansible Facts
 
-Create a playbook `/home/automation/plays/facts.yml` that runs on hosts in the `database host group` and does the following:
+Create a playbook `/home/rhel/ansible-files/facts.yml` that runs on hosts in the `database host group` and does the following:
 
 A custom Ansible fact `server_role=mysql` is created that can be retrieved from `ansible_local.custom.sample_exam` when using Ansible setup module.
 
@@ -492,7 +492,7 @@ A custom Ansible fact `server_role=mysql` is created that can be retrieved from 
 ## Q6. Text Manipulation also called "Configure SSH Server"
 
 - Create a playbook that customizes ssh configuration with following requirements:
-  - Is placed at `/home/automation/plays/ssh_config.yml`
+  - Is placed at `/home/rhel/ansible-files/ssh_config.yml`
   - Is run against all servers
   - Disables X11 forwarding
   - Sets maxminal number of auth tries to 3
@@ -529,7 +529,7 @@ A custom Ansible fact `server_role=mysql` is created that can be retrieved from 
 ## Q7. Use Conditionals to Control Play Execution "Conditionals"
 
 - Create a playbook that meets following requirements:
-  - Is placed at `/home/automation/plays/system_control.yml`
+  - Is placed at `/home/rhel/ansible-files/system_control.yml`
   - Runs against all hosts
   - If a server has more than `1024MB` of `RAM`, then use `sysctl` module to set `vm.swappiness to 10`
   - If a server has less or equal to `1024MB` of `RAM` exist with error message Server has less than required `1024MB of RAM`
@@ -575,7 +575,7 @@ A custom Ansible fact `server_role=mysql` is created that can be retrieved from 
 ## Q8. YUM repositories
 
 - Create a playbook that meets following requirements:
-  - Is placed at `/home/automation/plays/yum.yml`
+  - Is placed at `/home/rhel/ansible-files/yum.yml`
   - Runs against database hosts
   - Adds a definition of new yum repository
   - Enables this repository in yum
@@ -608,7 +608,7 @@ A custom Ansible fact `server_role=mysql` is created that can be retrieved from 
 
 ## Task 8: Software Repositories
 
-- Create a playbook /home/automation/plays/repository.yml that runs on servers in the database host group and does the following:
+- Create a playbook /home/rhel/ansible-files/repository.yml that runs on servers in the database host group and does the following:
 
   - A YUM repository file is created.
   - The name of the repository is `mysql80-community`.
@@ -644,41 +644,41 @@ A custom Ansible fact `server_role=mysql` is created that can be retrieved from 
 
 - Create a file that meets following requirements:
 
-  - Is placed at `/home/automation/plays/vars/regular_users.yml`
+  - Is placed at `/home/rhel/ansible-files/vars/regular_users.yml`
   - Is encrypted by Vault with id set to users and password to `eureka`
   - The file should contain a key `user_password`, its values should be set to `devops`
 
 - Create a file that meets following requirements:
 
-  - Is placed at `/home/automation/plays/vars/database_users.yml`
+  - Is placed at `/home/rhel/ansible-files/vars/database_users.yml`
   - Is encrypted by Vault with password to `dbs-are-awesome`
   - The file should contain a key `db_password`, its values should be set to `devops`
 
 - Create a file that meets following requirements:
 
-  - Is placed at `/home/automation/plays/secrets/regular_users_password`
+  - Is placed at `/home/rhel/ansible-files/secrets/regular_users_password`
   - Contains eureka as the content
 
 - Create a file that meets following requirements:
-  - Is placed at `/home/automation/plays/secrets/database_users_password`
+  - Is placed at `/home/rhel/ansible-files/secrets/database_users_password`
   - Contains `dbs-are-awesome` as the content
 
 ## A9. Vault
 
-> Navigate to `/home/automation/plays` as `automation` user and create directories for the files
+> Navigate to `/home/rhel/ansible-files` as `automation` user and create directories for the files
 
-> Part 1: you'll need to create a separate file that contains a password `eureka` this file is used as decryption tool, so we'll first encrypt a file which contains a sensitive key value pair `user_password: devops` > `"vars/regular_users.yml"` and the only way to decrypt it is to use another file, for simplicity i chose to create this file`/home/automation/plays/secrets/regular_users_password`
+> Part 1: you'll need to create a separate file that contains a password `eureka` this file is used as decryption tool, so we'll first encrypt a file which contains a sensitive key value pair `user_password: devops` > `"vars/regular_users.yml"` and the only way to decrypt it is to use another file, for simplicity i chose to create this file`/home/rhel/ansible-files/secrets/regular_users_password`
 
 ```
 mkdir secrets vars
 ```
 
 ```
-echo "user_password: devops" > /home/automation/plays/vars/regular_users.yml
+echo "user_password: devops" > /home/rhel/ansible-files/vars/regular_users.yml
 ```
 
 ```
-echo eureka > /home/automation/plays/secrets/regular_users_password
+echo eureka > /home/rhel/ansible-files/secrets/regular_users_password
 ```
 
 ```
@@ -692,33 +692,33 @@ echo "db_password: devops" > vars/database_users.yml
 ```
 
 ```
-echo dbs-are-awesome > /home/automation/plays/secrets/database_users_password
+echo dbs-are-awesome > /home/rhel/ansible-files/secrets/database_users_password
 ```
 
 ```
-ansible-vault encrypt /home/automation/plays/vars/database_users.yml --vault-id @./secrets/database_users_password
+ansible-vault encrypt /home/rhel/ansible-files/vars/database_users.yml --vault-id @./secrets/database_users_password
 ```
 
 ## Task 9: Ansible Vault
 
-Create Ansible vault file `/home/automation/plays/secret.yml`. Encryption/decryption password is devops.
+Create Ansible vault file `/home/rhel/ansible-files/secret.yml`. Encryption/decryption password is devops.
 
 Add the following variables to the vault:
 
 `user_password` with value of `devops`
 `database_password` with value of `devops`
 
-Store Ansible vault password in the file `/home/automation/plays/vault_key`.
+Store Ansible vault password in the file `/home/rhel/ansible-files/vault_key`.
 
 ## Solution 9: Ansible Vault
 
-> Step 1: put a password inside `/home/automation/plays/vault_key`
+> Step 1: put a password inside `/home/rhel/ansible-files/vault_key`
 
 ```
 echo "devops" > vault_key
 ```
 
-> Step 2: put a key value pair inside `/home/automation/plays/secret.yml`
+> Step 2: put a key value pair inside `/home/rhel/ansible-files/secret.yml`
 
 ```
 echo "user_password: devops" > secret.yml
@@ -757,12 +757,12 @@ users:
 ...
 ```
 
-> Store a file with the above content at `/home/automation/plays/vars/users.yml`
+> Store a file with the above content at `/home/rhel/ansible-files/vars/users.yml`
 
 - Create a playbook that meets following requirements:
-- Create a playbook `/home/automation/plays/users.yml` that uses the vault file `/home/automation/plays/secret.yml` to achieve the following:
-- Creates users whose uid starts with 2 on `webservers host group`. Password should - be taken from the variable stored at `/home/automation/plays/secret.yml` (created in previous exercise)
-- Creates users whose uid starts with 3 on `database host group`. Password should - be taken from the variable stored at `/home/automation/plays/secret.yml` (created in previous exercise)
+- Create a playbook `/home/rhel/ansible-files/users.yml` that uses the vault file `/home/rhel/ansible-files/secret.yml` to achieve the following:
+- Creates users whose uid starts with 2 on `webservers host group`. Password should - be taken from the variable stored at `/home/rhel/ansible-files/secret.yml` (created in previous exercise)
+- Creates users whose uid starts with 3 on `database host group`. Password should - be taken from the variable stored at `/home/rhel/ansible-files/secret.yml` (created in previous exercise)
 - Users should be part of supplementary group wheel
 - Users' shell should be set to `/bin/bash`
 - Password should use `SHA512` hash format
@@ -853,7 +853,7 @@ ansible-playbook users.yml --vault-id @vault_key
 
 ## Task 11: Scheduled Tasks
 
-Create a playbook `/home/automation/plays/regular_tasks.yml` that runs on servers in the `proxy host group` and does the following:
+Create a playbook `/home/rhel/ansible-files/regular_tasks.yml` that runs on servers in the `proxy host group` and does the following:
 
 - A `root` crontab record is created that runs every hour.
 - The cron job appends the file `/var/log/time.log` with the output from the date command.
@@ -886,7 +886,7 @@ ansible all -b -a "crontab -l"
 
 - Create a playbook that meets following requirements:
 
-  - Is placed at `/home/automation/plays/periodic_jobs.yml`
+  - Is placed at `/home/rhel/ansible-files/periodic_jobs.yml`
   - Is executed against proxy group
   - Schedules a periodic job which runs every hour on workdays. It should be executed by the root. Every time the job is span it adds separator ----- which is followed by date and list of currently pluged devices below that. Please look at provided example. Make note of date format. Save the log to `/var/log/devices.log`. Set group and owner to the `root user`.
   - Uses `at` to schedule a job that is going to be executed after 1 minute and dumps output from vmstat to `/var/log/vmstat.log`. The file should be owned by `automation user and group`. The file should be recreated each time the playbook is executed. If the playbook is executed a second time within a minute second job should not be scheduled
@@ -932,7 +932,7 @@ sdb      8:16   0    5G  0 disk
 
 ## Task 12: Software Repositories
 
-Create a playbook /home/automation/plays/repository.yml that runs on servers in the database host group and does the following:
+Create a playbook /home/rhel/ansible-files/repository.yml that runs on servers in the database host group and does the following:
 
 - A YUM repository file is created.
   - The name of the repository is mysql56-community.
@@ -969,7 +969,7 @@ ansible database -a "yum repolist"
 
 ## Task 13: Create and Work with Roles
 
-Create a role called sample-mysql and store it in `/home/automation/plays/roles`. The role should satisfy the following requirements:
+Create a role called sample-mysql and store it in `/home/rhel/ansible-files/roles`. The role should satisfy the following requirements:
 
 - A primary partition number 1 of size 800MB on device `/dev/sdb` is created.
 - An LVM volume group called vg_database is created that uses the primary partition created above.
@@ -997,7 +997,7 @@ log-error=/var/log/mysqld.log
 pid-file=/var/run/mysqld/mysqld.pid
 ```
 
-> Create a playbook `/home/automation/plays/mysql.yml` that uses the role and runs on hosts in the database host group.
+> Create a playbook `/home/rhel/ansible-files/mysql.yml` that uses the role and runs on hosts in the database host group.
 
 ```yaml
 - name: my mysql role playbook
@@ -1158,7 +1158,7 @@ pid-file=/var/run/mysqld/mysqld.pid
 
 - Create a playbook that meets following requirements:
 
-  - Is placed at `/home/automation/plays/swap.yml`
+  - Is placed at `/home/rhel/ansible-files/swap.yml`
   - Runs against database group
   - Creates a partition on sdb drive on the managed hosts of size between `1000MB-1100MB`
   - Uses this partition to extend available swap
@@ -1227,7 +1227,7 @@ pid-file=/var/run/mysqld/mysqld.pid
 
 - Create a playbook that meets following requirements:
 
-  - Is placed at `/home/automation/plays/system_target.yml`
+  - Is placed at `/home/rhel/ansible-files/system_target.yml`
   - Runs against all managed hosts
   - Sets target to `multi-user.target`
   - Must be idempotent - subsequent execution of playbook shouldn't result in changed state
@@ -1262,7 +1262,7 @@ pid-file=/var/run/mysqld/mysqld.pid
 
 - Create file in form of a dynamic inventory which meets following requirements:
 
-  - Is placed at `/home/automation/plays/scripts/dynamic_inventory`
+  - Is placed at `/home/rhel/ansible-files/scripts/dynamic_inventory`
   - Contains definitions of 3 three groups - `database`, `proxy`, `webservers`.
   - Returns following hosts for proxy group `node1.example.com`.
   - Returns following hosts for webservers group `node2.example.com`,`node3.example.com`.
@@ -1363,18 +1363,18 @@ ansible-inventory --list -i dynamic_inventory
 ## Q17. Roles
 
 - Create a role called apache that meets following requirements:
-  - Is placed at `/home/automation/plays/roles/apache`.
+  - Is placed at `/home/rhel/ansible-files/roles/apache`.
   - Installs httpd and firewalld packages
   - Allows ports `80` and `443` to be accessible through firewall
   - Ensures that httpd and firewalld services are started at boot time
   - Deploys an index page that presents following message: `Welcome, you have conntected to <fqdn>`
 - Create a playbook that meets following requirements:
-  - Is placed at `/home/automation/plays/apache.yml`.
+  - Is placed at `/home/rhel/ansible-files/apache.yml`.
   - Runs role apache against `webservers hosts group`.
 
 ## A17. Roles
 
-> Go to the /home/automation/plays and create a folder for roles
+> Go to the /home/rhel/ansible-files and create a folder for roles
 
 ```shell
 mkdir roles
@@ -1421,7 +1421,7 @@ ansible-galaxy role init apache
   dest: /var/www/html/index.html
 ```
 
-> Finally create the playbook at `/home/automation/plays/apache.yml` with following content:
+> Finally create the playbook at `/home/rhel/ansible-files/apache.yml` with following content:
 
 ```yml
 - hosts: webservers
@@ -1430,7 +1430,7 @@ ansible-galaxy role init apache
       become: true
 ```
 
-> To run the playbook go to `/home/automation/plays` and call
+> To run the playbook go to `/home/rhel/ansible-files` and call
 
 ```
 ansible-playbook apache.yml
@@ -1440,13 +1440,13 @@ ansible-playbook apache.yml
 
 Create a requirements file that meets following objectives:
 
-- Is placed at `/home/automation/plays/requirements.yml`
+- Is placed at `/home/rhel/ansible-files/requirements.yml`
 - Installs git role with following params:
   - Repository `https://github.com/geerlingguy/ansible-role-git`
   - Uses git as name of the role
   - Is checkout from tag 3.0.0
 
-> After creating the file install the role at `/home/automation/plays/roles`.
+> After creating the file install the role at `/home/rhel/ansible-files/roles`.
 
 ## A18. Requirements
 
@@ -1457,7 +1457,7 @@ sudo yum install -y git
 
 ```
 
-> Create the file `requirement.yml` in `/home/automation/plays/` with following content
+> Create the file `requirement.yml` in `/home/rhel/ansible-files/` with following content
 
 ```yaml
 ---
@@ -1467,7 +1467,7 @@ sudo yum install -y git
   version: 3.0.0
 ```
 
-> Go to `/home/automation/plays` and execute
+> Go to `/home/rhel/ansible-files` and execute
 
 ```shell
 ansible-galaxy install -r requirements.yml -p roles
@@ -1475,7 +1475,7 @@ ansible-galaxy install -r requirements.yml -p roles
 
 ## Q19. Templating
 
-Create a new folder named templates at `/home/automation/plays` and prepare there a template that is going to be used later to generete hosts file for each node from the inventory. General idea is described by the below scratch
+Create a new folder named templates at `/home/rhel/ansible-files` and prepare there a template that is going to be used later to generete hosts file for each node from the inventory. General idea is described by the below scratch
 
 ```
 127.0.0.1 localhost <local_short_name> <local_fqdn>
@@ -1489,7 +1489,7 @@ Create a new folder named templates at `/home/automation/plays` and prepare ther
 
 Create a playbook named `hosts.yml` that meets following requirements:
 
-- Is placed at `/home/automation/plays/roles`
+- Is placed at `/home/rhel/ansible-files/roles`
 - Runs against all hosts
 - Uses templating to populate hosts.j2 created before to all hosts from the - inventory
 - After playbook execution it should be possible to reach from any node to a different one using ip, short name or fqdn
@@ -1523,7 +1523,7 @@ Create a playbook named `hosts.yml` that meets following requirements:
         dest: /etc/hosts
 ```
 
-> To run the playbook go to `/home/automation/plays` and execute
+> To run the playbook go to `/home/rhel/ansible-files` and execute
 
 ```
 ansible-playbook hosts.yml
@@ -1533,7 +1533,7 @@ ansible-playbook hosts.yml
 
 Use NTP system role to configure all hosts time synchronization. To achieve that create a playbook named time.yml that meets following requirements:
 
-- Is placed at `/home/automation/plays`
+- Is placed at `/home/rhel/ansible-files`
 - Uses `1.pl.pool.ntp.org` and `2.pl.pool.ntp.org` server pool to synchronize time
 - Enables iburst
 - Configure timezone as UTC
@@ -1615,7 +1615,7 @@ logdir /var/log/chrony
         state: absent
     - name: copy chron.conf to managed nodes
       copy:
-        src: /home/automation/plays/chrony.conf
+        src: /home/rhel/ansible-files/chrony.conf
         dest: /etc/chrony.conf
     - name: configure timezone as UTC
       command: timedatectl set-timezone UTC
@@ -1702,7 +1702,7 @@ ssh -p 22 node4.example.com exit && ssh -p 20022 -o StrictHostKeyChecking=no nod
 
 > this question is less likly to show up in the exam, but it's good to know how to manage networking interfaces.
 
-Create a playbook named `network.yml` at `/home/automation/plays` that configures eth2 interface on `node1.example.com` and `node4.example.com`
+Create a playbook named `network.yml` at `/home/rhel/ansible-files` that configures eth2 interface on `node1.example.com` and `node4.example.com`
 
 Meet following objectives:
 
@@ -1725,7 +1725,7 @@ Meet following objectives:
     - name: rhel-system-roles.network
 ```
 
-> To differentiate hosts configuration you need to separte vars definition should be placed at `host_vars` directory in `/home/automation/plays/host_vars/node1/connections.yml`, remember if you are setting this on your home lab make sure you turn of your node1 and node4 machinese and then add host-only adapters because by default you only have Nat networking adapter `eth0` and host-only adapter `eth1`, and you don't have any other adapters. therefore, make sure to manually add adapters.
+> To differentiate hosts configuration you need to separte vars definition should be placed at `host_vars` directory in `/home/rhel/ansible-files/host_vars/node1/connections.yml`, remember if you are setting this on your home lab make sure you turn of your node1 and node4 machinese and then add host-only adapters because by default you only have Nat networking adapter `eth0` and host-only adapter `eth1`, and you don't have any other adapters. therefore, make sure to manually add adapters.
 
 ```yaml
 - name: Internal
@@ -1737,7 +1737,7 @@ Meet following objectives:
   state: up
 ```
 
-> host_vars directory >>> `/home/automation/plays/host_vars/node4/connections.yml`
+> host_vars directory >>> `/home/rhel/ansible-files/host_vars/node4/connections.yml`
 
 ```yaml
 network_connections:
@@ -1750,7 +1750,7 @@ network_connections:
     state: up
 ```
 
-> To run the playbook go to `/home/automation/plays` and execute
+> To run the playbook go to `/home/rhel/ansible-files` and execute
 
 ```shell
 ansible-playbook network.yml
@@ -1762,7 +1762,7 @@ ansible-playbook network.yml
 
 Write a playbook named additional_facts.yml that meets following requirements:
 
-- Is placed at `/home/automation/plays`
+- Is placed at `/home/rhel/ansible-files`
 - Gathers facts about all hosts
 - Gets data related to installed packages on database belonging hosts
 - Prints facts of each host to the console
@@ -1782,7 +1782,7 @@ Write a playbook named additional_facts.yml that meets following requirements:
 
 ## Q24. Extending facts
 
-1. Create a script which is going to be used as a dynamic fact and and store it at `/home/automation/plays/files`. The script should print out what is disk usage of `/usr/share` folder. Once present on a machine after running setup module against it you should be able to see result as below
+1. Create a script which is going to be used as a dynamic fact and and store it at `/home/rhel/ansible-files/files`. The script should print out what is disk usage of `/usr/share` folder. Once present on a machine after running setup module against it you should be able to see result as below
 
 ```
 "ansible_facts": {
@@ -1795,13 +1795,13 @@ Write a playbook named additional_facts.yml that meets following requirements:
     [...]
 ```
 
-2. Create a playbook that deploys the script to all machines. Ensure that group and owner is set to root but let anyone execute the script. Store the playbook at `/home/automation/plays/dynamic_facts.yml`.
+2. Create a playbook that deploys the script to all machines. Ensure that group and owner is set to root but let anyone execute the script. Store the playbook at `/home/rhel/ansible-files/dynamic_facts.yml`.
 
 ## A24. Extending facts
 
 The script might look as below
 
-> /home/automation/plays/files/usage.fact
+> /home/rhel/ansible-files/files/usage.fact
 
 ```yaml
 #!/usr/bin/bash
@@ -1810,7 +1810,7 @@ SIZE=$(/usr/bin/du $PATH -s 2>/dev/null | /usr/bin/awk '{print $1}')
 echo {\"$PATH\": $SIZE}
 ```
 
-> Playbook `/home/automation/plays/dynamic_facts.yml` itself may be implemented as follows
+> Playbook `/home/rhel/ansible-files/dynamic_facts.yml` itself may be implemented as follows
 
 ```yaml
 ---
@@ -1837,7 +1837,7 @@ echo {\"$PATH\": $SIZE}
         group: root
 ```
 
-> To run the playbook go to `/home/automation/plays` and execute
+> To run the playbook go to `/home/rhel/ansible-files` and execute
 
 ```
 ansible-playbook dynamic_facts.yml
@@ -1847,7 +1847,7 @@ ansible-playbook dynamic_facts.yml
 
 > this question is less likely to show up in the real exam.
 
-Aim of this task is to write a dynamic inventory script that returns a given host only if it is reachable. The idea is to avoid attempts of interacting with a server that is shut off. Use script from 15th exercise as the base for development. Store the script at `/home/automation/plays/scripts/reachable_hosts`. You can use `ssh` or `ping` command to verify that a host responds. Meet the same requirements in terms of defined hosts' variables as in 15th exercise
+Aim of this task is to write a dynamic inventory script that returns a given host only if it is reachable. The idea is to avoid attempts of interacting with a server that is shut off. Use script from 15th exercise as the base for development. Store the script at `/home/rhel/ansible-files/scripts/reachable_hosts`. You can use `ssh` or `ping` command to verify that a host responds. Meet the same requirements in terms of defined hosts' variables as in 15th exercise
 
 ## A25. Reachable hosts
 
@@ -1951,7 +1951,7 @@ if __name__ == '__main__':
 
 You were asked to write a playbook that creates account for new employees. The idea is to execute the playbook each time a new person joins the company. To ease the boarding process your playbook should ask the user for his username and password while executing. All the people that are going to execute the playbook are suppossed to be part of `networking team`. From time to time they will need to interact with nmcli tool but despite that they shouldn't have access to `privileged commands`.
 
-To achieve that create a playbook named `prompt.yml` at `/home/automation/plays` that meets following requirements:
+To achieve that create a playbook named `prompt.yml` at `/home/rhel/ansible-files` that meets following requirements:
 
 - Asks for username of a new user
 - Runs against all hosts
@@ -1997,7 +1997,7 @@ The playbook might look as follows:
         groups: ["{{ group }}"]
 ```
 
-> Go to `/home/automation/plays` and execute
+> Go to `/home/rhel/ansible-files` and execute
 
 ```
 ansible-playbook prompt.yml
@@ -2007,7 +2007,7 @@ ansible-playbook prompt.yml
 
 > this question is likely to show up in the real exam. pay great attention to details.
 
-Create a role called `sample-apache` and store it in /home/automation/plays/roles. The role should satisfy the following requirements:
+Create a role called `sample-apache` and store it in /home/rhel/ansible-files/roles. The role should satisfy the following requirements:
 
 _ `The httpd, mod_ssl and php packages are installed`. Apache service is running and enabled on boot.
 _ Firewall is configured to allow all `incoming traffic on HTTP port TCP 80 and HTTPS port TCP 443`.
@@ -2020,7 +2020,7 @@ The address of the server is: IPV4ADDRESS
 
 > IPV4ADDRESS is the IP address of the managed node.
 
-Create a playbook `/home/automation/plays/apache.yml` that uses the role and runs on hosts in the `webservers host group`.
+Create a playbook `/home/rhel/ansible-files/apache.yml` that uses the role and runs on hosts in the `webservers host group`.
 
 ## A27. Create and Work with Roles (apache role)
 
@@ -2110,7 +2110,7 @@ the address of the server is : {{ ansible_default_ipv4.address }}
 
 ## Q28. Security
 
-Create a playbook `/home/automation/plays/selinux.yml` that runs on hosts in the webservers host group and does the following:
+Create a playbook `/home/rhel/ansible-files/selinux.yml` that runs on hosts in the webservers host group and does the following:
 
 - Uses the `selinux RHEL system role`.
 - Enables` httpd_can_network_connect` SELinux boolean.
@@ -2268,9 +2268,9 @@ ansible-galaxy install -r roles/install.yml -p roles
 
 ## Q30: Download Roles From Ansible Galaxy and Use Them
 
-Use Ansible Galaxy to download and install `geerlingguy.haproxy` role in `/home/automation/plays/roles`.
+Use Ansible Galaxy to download and install `geerlingguy.haproxy` role in `/home/rhel/ansible-files/roles`.
 
-Create a playbook `/home/automation/plays/haproxy.yml` that runs on servers in the `proxy host group` and does the following:
+Create a playbook `/home/rhel/ansible-files/haproxy.yml` that runs on servers in the `proxy host group` and does the following:
 
 Use `geerlingguy.haproxy` role to load balance request between hosts in the webservers host group.
 Use `roundrobin load balancing method`.
@@ -2325,7 +2325,7 @@ git clone https://github.com/geerlingguy/ansible-role-haproxy.git
 
 ## Q31: Install packages
 
-- Create a playbook /home/automation/plays/packages.yml that runs on all inventory hosts and does the following:
+- Create a playbook /home/rhel/ansible-files/packages.yml that runs on all inventory hosts and does the following:
 
 - Installs tcpdump and mailx packages on hosts in the proxy host groups.
 - Installs lsof and mailx and packages on hosts in the database host groups.
