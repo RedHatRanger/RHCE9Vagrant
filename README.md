@@ -37,9 +37,9 @@ flowchart TD;
 ## Q1. Ansible Installation and Configuration
 
 - Install the ansible package on the control node
-- Create automation user with devops password
+- Create rhel user with redhat password
 - You have root access to all five servers
-- the `rhel` user should be allowed to execute any command without providing password to the prompt "Add the automation user to sudoers group"
+- the `rhel` user should be allowed to execute any command without providing password to the prompt "Add the rhel user to sudoers group"
 - Create inventory on the control node at /home/rhel/ansible-files/inventory. Meet following requirements:
 
   - `node1` should be a member of the `dev` host group
@@ -97,15 +97,11 @@ ssh rhel@control
 172.28.128.105  node5.example.com    node5
 ```
 
-> This step is not part of your RHCE exam, I just want to show you how you would actually copy your public key to managed nodes. As root generating ssh key and copy it to the managed hosts:
+> This step is not part of your RHCE exam, I just want to show you how you would actually copy your public key to managed nodes. As the 'rhel' user, generating ssh key and copy it to the managed hosts:
 
 ```
-[root@control ~]# ssh-keygen
-[root@control ~]# ssh-copy-id node1
-[root@control ~]# ssh-copy-id node2
-[root@control ~]# ssh-copy-id node3
-[root@control ~]# ssh-copy-id node4
-[root@control ~]# ssh-copy-id managed5
+[rhel@control ~]$ ssh-keygen -t rsa -b 4096
+[rhel@control ~]$ for i in {1..5}; do ssh-copy-id node${i}; done
 ```
 
 - step1: Installing the ansible
@@ -136,12 +132,12 @@ ssh rhel@control
 > Set password, in the real exam this step will also be done for you by default and you will not need to configure a password, and please don't create a password for the already created user.
 
 ```
-[root@control ~]# echo redhat | passwd --stdin rhel
+[root@control ~]# echo "rhel:redhat" | chpasswd
 ```
 
 - step3: Allow access to privileged commands
 
-> note that in the real exam the user will be already created for you and it will be given proper privileges too visa `sudo` command
+> note that in the real exam the user will be already created for you and it will be given proper privileges too via the `sudo` command
 
 ```
 [root@control ~]# echo "rhel ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/rhel
@@ -152,10 +148,12 @@ ssh rhel@control
 > Create directory for the inventory, this step is part of your exam
 
 ```shell
-mkdir -p /home/rhel/ansible-files
+mkdir -p /home/rhel/ansible-files/
 mkdir -p /home/rhel/ansible-files/roles
 sudo mkdir -p /var/log/ansible/
 sudo touch /var/log/ansible/execution.log
+
+# Next, we create the inventory
 vim /home/rhel/ansible-files/inventory
 ```
 
@@ -191,7 +189,7 @@ prod
 
 ```shell
 ansible-config init --disabled > ansible.commented
-# then delete the unnecessary lines manually or use  /remote_user to quickly find what you need and delete the rest.
+# then delete the unnecessary lines manually or use "/remote_user" to quickly find what you need and delete the rest.
 ```
 
 ```
@@ -202,7 +200,7 @@ roles_path=/home/rhel/ansible-files/roles
 collections_path=/home/rhel/ansible-files/mycollections
 ask_pass=false
 host_key_checking=false
-callbacks_enabled=profile_tasks
+#callbacks_enabled=profile_tasks
 #log_path=/var/log/ansible/execution.log
 #forks=8
 
@@ -215,18 +213,16 @@ become_ask_pass=false
 
 > Save it to `/home/rhel/ansible-files/ansible.cfg`
 
-## A2. Ad-Hoc Commands
+## Ad-Hoc Commands
 
 Generate an SSH keypair on the control node. You can perform this step manually.
 
 - Write a script `/home/rhel/ansible-files/adhoc` that uses Ansible ad-hoc commands to achieve the following:
-  - User automation is created on all inventory hosts (not the control node).
-  - SSH key (that you generated) is copied to all inventory hosts for the automation user and stored in `/home/rhel/.ssh/authorized_keys`.
-  - The automation user is allowed to elevate privileges on all inventory hosts without having to provide a password.
+  - User rhel is created on all inventory hosts (not the control node).
+  - SSH key (that you generated) is copied to all inventory hosts for the rhel user and stored in `/home/rhel/.ssh/authorized_keys`.
+  - The rhel user is allowed to elevate privileges on all inventory hosts without having to provide a password.
 
-> **After running the adhoc script on the control node as the automation user, you should be able to SSH into all inventory hosts using the automation user without password, as well as a run all privileged commands.**
-
-## Q2. Ad-Hoc Commands
+> **After running the adhoc script on the control node as the rhel user, you should be able to SSH into all inventory hosts using the rhel user without password, as well as a run all privileged commands.**
 
 > this question helps you in setting up ansible lab but not necessarly part of your exam. this question regarding configuring ssh key and public key and copy the key to managed nodes, will not be part of your exam because they already configured the root access to all managed nodes, but instead a similar question about configuring local repository using ad-hoc commands and bash-scripting could be asked. Please go to the following exam question for clarity.
 
@@ -240,12 +236,12 @@ Generate an SSH keypair on the control node. You can perform this step manually.
 ansible localhost -m file -a "path=/home/rhel/.ssh state=directory"
 # Generate the ssh keys.
 ansible localhost -m openssh_keypair -a "path=/home/rhel/.ssh/id_rsa owner=rhel group=rhel type=rsa"
-# Create automation user on managed nodes.
+# Create rhel user on managed nodes.
 ansible all -m user -a "name=rhel password={{ 'redhat' | password_hash('sha512') }}"
 # share public key to managed nodes, remember to check your ansible.cfg configuration because this command needs sudo privileges.
 ansible all -m authorized_key -a "key={{ lookup('file', '/home/rhel/.ssh/id_rsa.pub') }} user=rhel state=present"
-# Add the automation user in each managed node to sudoers group for privilege escalation.
-ansible all -m copy -a "content='automation ALL=(root) NOPASSWD:ALL' dest=/etc/sudoers.d/rhel"
+# Add the rhel user in each managed node to sudoers group for privilege escalation.
+ansible all -m copy -a "content='rhel ALL=(root) NOPASSWD:ALL' dest=/etc/sudoers.d/rhel"
 ```
 
 ## Similar Question
