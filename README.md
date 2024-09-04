@@ -34,7 +34,7 @@ flowchart TD;
 
 > You can create the lab setup manually, but instead I've created a [Virtualbox Vagrantfile](https://github.com/RedHatRanger/RHCE9Vagrant/tree/main/Vagrantfiles/virtualbox) which you can use in order to create this setup automatically. The Ansible user is "rhel" and the password is "redhat". Once you are done, you can go here: [Virtualbox Start Point](https://github.com/RedHatRanger/RHCE9Vagrant/blob/main/rhce-practice-questions/01_configure_ansible_(MEDIUM).md#configure-ansible)
 
-## Q1. Ansible Installation and Configuration
+## Ansible Installation and Configuration
 
 - Install the ansible package on the control node
 - Create "rhel" user with "redhat" password
@@ -65,7 +65,7 @@ flowchart TD;
 > just an example so you know how they will provide you `/etc/hosts` file
 
 ```shell
-[root@control ~]# cat /etc/hosts
+[rhel@control ~]$ sudo cat /etc/hosts
 127.0.0.1 localhost localhost.localdomain localhost4 localho    st4.localdomain4
 ::1 localhost localhost.localdomain localhost6 localhost6.lo    caldomain6
 
@@ -77,7 +77,7 @@ flowchart TD;
 172.28.128.105   node5.example.com     node5
 
 # and you can access nodes via ssh command
-[rhel@control ~]# ssh node1
+[rhel@control ~]$ ssh node1
 ```
 
 > There could be 5 managed nodes or 4 managed nodes, it doesn't matter actually, in the real exam it will be clearly defined and you can always check via `cat /etc/hosts` from the control node.
@@ -102,6 +102,8 @@ ssh rhel@control
 ```
 [rhel@control ~]$ ssh-keygen -t rsa -b 4096
 [rhel@control ~]$ for i in {1..5}; do ssh-copy-id node${i}; done
+
+# Enter the "redhat" password at each prompt
 ```
 
 - step1: Installing the ansible
