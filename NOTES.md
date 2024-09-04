@@ -30,7 +30,7 @@ flowchart TD;
 
 ## Lab Setup
 
-> you can create the lab setup manually, but instead i've `Vagrantfile` which you can use in order to create this setup, please go to this website for more information regarding lab setup https://github.com/rdbreak/rhce8env
+> You can create the lab setup manually, but instead I've created a [Virtualbox Vagrantfile](https://github.com/RedHatRanger/RHCE9Vagrant/tree/main/Vagrantfiles/virtualbox) which you can use in order to create this setup automatically.
 
 ## Q1. Ansible Installation and Configuration
 
@@ -40,18 +40,18 @@ flowchart TD;
 - the `automation` user should be allowed to execute any command without providing password to the prompt "Add the automation user to sudoers group"
 - Create inventory on the control node at /home/automation/plays/inventory. Meet following requirements:
 
-  - `managed1.example.com` should be a member of the `proxy` host group
-  - `managed2.example.com` should be a member of the `webservers` host group
-  - `managed3.example.com` should be a member of the `webservers` and `database` host group
-  - `managed4.example.com` should be a member of the `database` host group
+  - `node1.example.com` should be a member of the `proxy` host group
+  - `node2.example.com` should be a member of the `webservers` host group
+  - `node3.example.com` should be a member of the `webservers` and `database` host group
+  - `node4.example.com` should be a member of the `database` host group
   - `proxy` and `webservers` belong to group named `public`
 
-- Create a config file at `/home/automation/plays/ansible.cfg` with following requirements:
+- Create a config file at `/home/rhel/ansible-files/ansible.cfg` with following requirements:
   - privileged escalation is disabled by default
   - ansible should manage 8 hosts at a single time
   - use previously defined inventory file by default
   - uses `/var/log/ansible/execution.log` to save information related to playbook execution
-  - roles path should include `/home/automation/plays/roles`
+  - roles path should include `/home/rhel/ansible-files/roles`
   - ensure that priviledge escalation method is set to sudo
   - do not allow ansible to ask for password when elevating privileges
 
@@ -86,10 +86,10 @@ ssh matthew@control
 ```
 192.168.55.199 repo.ansi.example.com     repo
 192.168.55.200 control.ansi.example.com  control
-192.168.55.201 node1.ansi.example.com    managed1
-192.168.55.202 node2.ansi.example.com    managed2
-192.168.55.203 node3.ansi.example.com    managed3
-192.168.55.204 node4.ansi.example.com    managed4
+192.168.55.201 node1.ansi.example.com    node1
+192.168.55.202 node2.ansi.example.com    node2
+192.168.55.203 node3.ansi.example.com    node3
+192.168.55.204 node4.ansi.example.com    node4
 192.168.55.205 node4.ansi.example.com    managed5
 ```
 
@@ -97,10 +97,10 @@ ssh matthew@control
 
 ```
 [root@control ~]# ssh-keygen
-[root@control ~]# ssh-copy-id managed1
-[root@control ~]# ssh-copy-id managed2
-[root@control ~]# ssh-copy-id managed3
-[root@control ~]# ssh-copy-id managed4
+[root@control ~]# ssh-copy-id node1
+[root@control ~]# ssh-copy-id node2
+[root@control ~]# ssh-copy-id node3
+[root@control ~]# ssh-copy-id node4
 [root@control ~]# ssh-copy-id managed5
 ```
 
@@ -159,15 +159,15 @@ vim /home/automation/plays/inventory
 
 ```
 [proxy]
-managed1
+node1
 
 [webservers]
-managed2
-managed3
+node2
+node3
 
 [database]
-managed3
-managed4
+node3
+node4
 
 [public:children]
 webservers
@@ -1116,7 +1116,7 @@ mysql -u root
 ```
 
 ```shell
-# and now you can make the root user have a password "devops", and do the same thing to managed4 and managed3
+# and now you can make the root user have a password "devops", and do the same thing to node4 and node3
 mysql> ALTER USER 'root'@'localhost' IDENTIFIED BY 'password';
 ```
 
@@ -1260,12 +1260,12 @@ pid-file=/var/run/mysqld/mysqld.pid
 
   - Is placed at `/home/automation/plays/scripts/dynamic_inventory`
   - Contains definitions of 3 three groups - `database`, `proxy`, `webservers`.
-  - Returns following hosts for proxy group `managed1.example.com`.
-  - Returns following hosts for webservers group `managed2.example.com`,`managed3.example.com`.
-  - Returns following hosts for database group `managed3.example.com`, `managed4.example.com`.
+  - Returns following hosts for proxy group `node1.example.com`.
+  - Returns following hosts for webservers group `node2.example.com`,`node3.example.com`.
+  - Returns following hosts for database group `node3.example.com`, `node4.example.com`.
   - Defines following vars for database group, accessibility with value private
   - Defines following vars for proxy group, accessibility with value public
-  - Defines following vars for managed2.example.com host accessibility with value unknown
+  - Defines following vars for node2.example.com host accessibility with value unknown
   - Returns json to stdout when called Must be parsable by ansible
 
 ## A16. Dynamic inventories
@@ -1280,26 +1280,26 @@ import argparse
 GROUPS = {
   "proxy": {
     "hosts": [
-      "managed1",
+      "node1",
     ]
   },
   "webservers": {
       "hosts": [
-          "managed2",
-          "managed3"
+          "node2",
+          "node3"
           ]
   },
   "database": {
       "hosts": [
-          "managed3",
-          "managed4"
+          "node3",
+          "node4"
           ]
       }
 }
 
 
 HOST_VARS = {
-  "managed2": {
+  "node2": {
     "accessibility": "unknown"
   }
 }
@@ -1638,7 +1638,7 @@ Create a playbook named `ssh.yml` that meets following requirements:
 You can use below command to verify the result
 
 ```
-ssh -p 22 managed4.example.com exit && ssh -p 20022 -o StrictHostKeyChecking=no managed4.example.com exit
+ssh -p 22 node4.example.com exit && ssh -p 20022 -o StrictHostKeyChecking=no node4.example.com exit
 ```
 
 ## A21. Advanced SSH
@@ -1698,14 +1698,14 @@ ssh -p 22 managed4.example.com exit && ssh -p 20022 -o StrictHostKeyChecking=no 
 
 > this question is less likly to show up in the exam, but it's good to know how to manage networking interfaces.
 
-Create a playbook named `network.yml` at `/home/automation/plays` that configures eth2 interface on `managed1.example.com` and `managed4.example.com`
+Create a playbook named `network.yml` at `/home/automation/plays` that configures eth2 interface on `node1.example.com` and `node4.example.com`
 
 Meet following objectives:
 
 - It defines new connection named Internal
 - Addresses for hosts are defined as below, each having 24-bit mask
-  - `192.168.57.101 - managed1.example.com`
-  - `192.168.57.104 - managed4.example.com`
+  - `192.168.57.101 - node1.example.com`
+  - `192.168.57.104 - node4.example.com`
 - Connection should be up on boot
 - Type of the connection is set to ethernet
 - Uses system role for it
@@ -1715,13 +1715,13 @@ Meet following objectives:
 > The playbook `network.yml` may be implemented as below:
 
 ```yaml
-- hosts: managed1,managed4
+- hosts: node1,node4
   become: true
   roles:
     - name: rhel-system-roles.network
 ```
 
-> To differentiate hosts configuration you need to separte vars definition should be placed at `host_vars` directory in `/home/automation/plays/host_vars/managed1/connections.yml`, remember if you are setting this on your home lab make sure you turn of your managed1 and managed4 machinese and then add host-only adapters because by default you only have Nat networking adapter `eth0` and host-only adapter `eth1`, and you don't have any other adapters. therefore, make sure to manually add adapters.
+> To differentiate hosts configuration you need to separte vars definition should be placed at `host_vars` directory in `/home/automation/plays/host_vars/node1/connections.yml`, remember if you are setting this on your home lab make sure you turn of your node1 and node4 machinese and then add host-only adapters because by default you only have Nat networking adapter `eth0` and host-only adapter `eth1`, and you don't have any other adapters. therefore, make sure to manually add adapters.
 
 ```yaml
 - name: Internal
@@ -1733,7 +1733,7 @@ Meet following objectives:
   state: up
 ```
 
-> host_vars directory >>> `/home/automation/plays/host_vars/managed4/connections.yml`
+> host_vars directory >>> `/home/automation/plays/host_vars/node4/connections.yml`
 
 ```yaml
 network_connections:
@@ -1858,26 +1858,26 @@ import subprocess
 GROUPS = {
   "proxy": {
     "hosts": [
-      "managed1.example.com",
+      "node1.example.com",
     ]
   },
   "webservers": {
       "hosts": [
-          "managed2.example.com",
-          "managed3.example.com"
+          "node2.example.com",
+          "node3.example.com"
           ]
   },
   "database": {
       "hosts": [
-          "managed3.example.com",
-          "managed4.example.com"
+          "node3.example.com",
+          "node4.example.com"
           ]
       }
 }
 
 
 HOST_VARS = {
-  "managed2.example.com": {
+  "node2.example.com": {
     "accessibility": "unknown"
   }
 }
