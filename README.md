@@ -6,11 +6,15 @@ walk you through RHCE_EX294 study Topics from setting up a lab to mastry in Ansi
 
 Repository contains Study-Guide and exercises preparing for EX294 exam. the readers need to keep in mind that none of them was taken from the actual test. They were created based on the study point available at RedHat's website.
 
-## Inspiration
-Content present in the repository is inspierd by other people' sample exams, redhat training exercises and my own invention. Use links below to check them out
+
+## About the EX294 Exam
  - [Redhat Certified Engineer Exam Objectives](https://www.redhat.com/en/services/training/ex294-red-hat-certified-engineer-rhce-exam-red-hat-enterprise-linux-8?section=Objectives)
  - [Purchase the RHCE EX294 Exam](https://www.redhat.com/en/services/training/ex294-red-hat-certified-engineer-rhce-exam-red-hat-enterprise-linux-9)
  - [Schedule RHCE EX294 Exam](https://rhtapps.redhat.com/ies/external/dashboard)
+ - [View Your Current Certifications](https://rhtapps.redhat.com/certifications)
+
+## Inspiration
+Content present in the repository is inspierd by other people' sample exams, redhat training exercises and my own invention. Use links below to check them out
  - [Andrew Mallett Courses on Plural-Sight](https://app.pluralsight.com/paths/certificate/rhce-red-hat-certified-engineer-ex294)
  - [Sander van Vugt Detailed book and lab-exercises](https://www.amazon.com/RHCE-EX294-Cert-Guide-Certification/dp/0136872433)
 
