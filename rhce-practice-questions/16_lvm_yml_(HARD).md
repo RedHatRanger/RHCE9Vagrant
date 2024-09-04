@@ -1,6 +1,6 @@
 <a href="https://www.youtube.com/watch?v=2WncuUvh_y0&list=PLYB6dfdhWDePZf4fd4YgGGtSX_vHKv5vz&index=19">Video Tutorial</a> by Teach Me Tech \
 <a href="https://www.youtube.com/watch?v=zq3SANkfxL0&list=PLL_setXLS0tiYMipvQI4oUGkJwhOhn42J&index=16">Video Tutorial</a> by codeXchange \
-<a href="https://www.youtube.com/watch?v=mogBfG4h0mk">Video Tutorial</a> by T_FOR_TECH
+<a href="https://www.youtube.com/watch?v=mogBfG4h0mk">Video Tutorial</a> by T_FOR_TECH (BEST)
 
 ### NOTE: If you ran out of time on the RED HAT OFFICIAL LAB, [Click Here](#Catch-Up) 
 
@@ -12,22 +12,17 @@
 ```
 Instructions:
 
-16. Create & use a logical Volume
-Create a playbook called "lvm.yml" that runs on all managed nodes that does the following:
+16. Create logical volume named data of 1500M size from volume group "research"
 
-* Creates a logocal volume with these requirement:
-- The logical Volume is Created in the research volume group
-- The logical volume name is data
-- The logical volume size is 1500 Mib
+i) Verify if vg not exist then it should debug msg "vg not found"
 
-* Format the logical volume with the ext4 file system
-* if the requested logical volume size cannot be created, the error message
-"Could not create logical volume of that size"
-should be displayed and size 800 MiB should be used instead.
-* if the volume research does not exist, the error message
-"volume group does not exist"
-should be displayed
-* Does NOT mount the logical volume in any way.
+ii) 1500M lv size is not existed then is debug msg "Insufficient size of vg"
+
+iii) If logical volume is created then assign file-system as "ext4"
+
+iv) Do not perform any mounting for this lv.
+
+v) The playbook name lvm.yml and run on all nodes.
 ```
 
 (scroll down for an answer)
