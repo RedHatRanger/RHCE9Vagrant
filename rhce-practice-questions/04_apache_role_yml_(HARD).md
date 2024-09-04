@@ -93,8 +93,7 @@ Welcome to {{ ansible_fqdn }} ON {{ ansible_eth1.ipv4.address }}
 [rhel@control ansible-files]]$ vim apache_role.yml
 
 ---
-- name: use apache role
-  hosts: webservers
+- hosts: webservers
   roles:
     - apache
 
