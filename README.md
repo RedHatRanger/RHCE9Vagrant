@@ -39,14 +39,15 @@ flowchart TD;
 - Install the ansible package on the control node
 - Create automation user with devops password
 - You have root access to all five servers
-- the `automation` user should be allowed to execute any command without providing password to the prompt "Add the automation user to sudoers group"
-- Create inventory on the control node at /home/automation/plays/inventory. Meet following requirements:
+- the `rhel` user should be allowed to execute any command without providing password to the prompt "Add the automation user to sudoers group"
+- Create inventory on the control node at /home/rhel/ansible-files/inventory. Meet following requirements:
 
-  - `node1.example.com` should be a member of the `proxy` host group
-  - `node2.example.com` should be a member of the `webservers` host group
-  - `node3.example.com` should be a member of the `webservers` and `database` host group
-  - `node4.example.com` should be a member of the `database` host group
-  - `proxy` and `webservers` belong to group named `public`
+  - `node1` should be a member of the `dev` host group
+  - `node2` should be a member of the `test` host group
+  - `node3` should be a member of the `prod` host group
+  - `node4` should be a member of the `prod` host group
+  - `node5` should be a member of the `balancers` host group
+  - The `prod` group should be a child group of the `webservers` group
 
 - Create a config file at `/home/rhel/ansible-files/ansible.cfg` with following requirements:
   - privileged escalation is disabled by default
