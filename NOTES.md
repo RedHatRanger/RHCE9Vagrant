@@ -1,11 +1,11 @@
 # Ansible Sample Exam for RHCE EX294
 
-This is a sample Ansible exam that I’ve created to prepare for the new RHCE exam EX294. As with the real exam, no perfect answers to the sample exam questions will be provided, but more or less correct and accurate.
+This is a sample Ansible exam that I’ve created to prepare for the new RHCE exam EX294. As with the real exam, no perfect answers to the sample exam questions will be provided, but more or less correct and accurate. You may opt for the Official Red Hat Ansible Lab, which is free, but you will be limited to 4 VMs.
 
 ## Requirements
 
 There are 18 questions in total could be more or less.
-You will need five RHEL 9 virtual machines to be able to successfully complete all questions.
+You will need five RHEL 9 virtual machines to be able to successfully complete all the questions.
 
 One VM will be configured as an Ansible control node. The other five VMs will be used to apply playbooks to solve the sample exam questions. The following FQDNs will be used throughout the sample exam.
 
