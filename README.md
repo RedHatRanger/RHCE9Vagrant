@@ -162,20 +162,21 @@ vim /home/rhel/ansible-files/inventory
 > Create the inventory with following contents, this step is part of your exam
 
 ```
-[proxy]
+[dev]
 node1
 
-[webservers]
+[test]
 node2
-node3
 
-[database]
+[prod]
 node3
 node4
 
-[public:children]
-webservers
-proxy
+[balancers]
+node5
+
+[webservers:children]
+prod
 ```
 
 > Save it to `/home/rhel/ansible-files/inventory`
@@ -184,7 +185,7 @@ proxy
 
 > Create the ansible.cfg `ansible configuration file` with following contents
 
-> you don't need to define `forks` or `log_path` i just included them anyway.
+> you don't need to define `forks` or `log_path` I just included them anyway.
 
 > if you forgot how to write the `ansible.cfg` file you can always use this command to instantiate ansible.cfg file with all possible configuration but this file content will be commented. hence, --disabled.
 
@@ -195,18 +196,21 @@ ansible-config init --disabled > ansible.commented
 
 ```
 [defaults]
-remote_user=automation
-inventory=./inventory
-host_key_checking=false
-#log_path=/var/log/ansible/execution.log
+remote_user=rhel
+inventory=/home/rhel/ansible-files/inventory
 roles_path=/home/rhel/ansible-files/roles
+collections_path=/home/rhel/ansible-files/mycollections
+ask_pass=false
+host_key_checking=false
+callbacks_enabled=profile_tasks
+#log_path=/var/log/ansible/execution.log
 #forks=8
 
 [privilege_escalation]
-become=True
-become_ask_pass=false
-become_method=sudo
+become=true
+become_medthod=sudo
 become_user=root
+become_ask_pass=false
 ```
 
 > Save it to `/home/rhel/ansible-files/ansible.cfg`
@@ -217,7 +221,7 @@ Generate an SSH keypair on the control node. You can perform this step manually.
 
 - Write a script `/home/rhel/ansible-files/adhoc` that uses Ansible ad-hoc commands to achieve the following:
   - User automation is created on all inventory hosts (not the control node).
-  - SSH key (that you generated) is copied to all inventory hosts for the automation user and stored in `/home/automation/.ssh/authorized_keys`.
+  - SSH key (that you generated) is copied to all inventory hosts for the automation user and stored in `/home/rhel/.ssh/authorized_keys`.
   - The automation user is allowed to elevate privileges on all inventory hosts without having to provide a password.
 
 > **After running the adhoc script on the control node as the automation user, you should be able to SSH into all inventory hosts using the automation user without password, as well as a run all privileged commands.**
@@ -233,15 +237,15 @@ Generate an SSH keypair on the control node. You can perform this step manually.
 ```shell
 #!/bin/bash
 # Create the directory for ssh keys.
-ansible localhost -m file -a "path=/home/automation/.ssh state=directory"
+ansible localhost -m file -a "path=/home/rhel/.ssh state=directory"
 # Generate the ssh keys.
-ansible localhost -m openssh_keypair -a "path=/home/automation/.ssh/id_rsa owner=automation group=automation type=rsa"
+ansible localhost -m openssh_keypair -a "path=/home/rhel/.ssh/id_rsa owner=automation group=automation type=rsa"
 # Create automation user on managed nodes.
 ansible all -m user -a "name=automation password={{ 'devops' | password_hash('sha512') }}"
 # share public key to managed nodes, remember to check your ansible.cfg configuration because this command needs sudo privileges.
-ansible all -m authorized_key -a "key={{ lookup('file', '/home/automation/.ssh/id_rsa.pub') }} user=automation state=present"
+ansible all -m authorized_key -a "key={{ lookup('file', '/home/rhel/.ssh/id_rsa.pub') }} user=automation state=present"
 # Add the automation user in each managed node to sudoers group for privilege escalation.
-ansible all -m copy -a "content='automation ALL=(root) NOPASSWD:ALL' dest=/etc/sudoers.d/automation"
+ansible all -m copy -a "content='automation ALL=(root) NOPASSWD:ALL' dest=/etc/sudoers.d/rhel"
 ```
 
 ## Similar Question
@@ -803,7 +807,7 @@ users:
       authorized_key:
         user: "{{ item.username }}"
         state: present
-        key: "{{ lookup('file', '/home/automation/.ssh/id_rsa.pub') }}"
+        key: "{{ lookup('file', '/home/rhel/.ssh/id_rsa.pub') }}"
       loop: "{{ users }}"
       when:
         ( item.uid < 2002 and inventory_hostname in groups['webservers'] ) or
@@ -845,7 +849,7 @@ ansible-playbook users.yml --vault-id @vault_key
       authorized_key:
         user: "{{ item.username }}"
         state: present
-        key: "{{ lookup('file', '/home/automation/.ssh/id_rsa.pub') }}"
+        key: "{{ lookup('file', '/home/rhel/.ssh/id_rsa.pub') }}"
       loop: "{{ users }}"
       when:
         - ( inventory_hostname in groups['webservers'] and "item.uid|string|first == '2'" ) or ( inventory_hostname in groups['database'] and "item.uid|string|first == '3'" )
@@ -2547,7 +2551,7 @@ Create a playbook called `webdev.yml` in `home/sandy/ansible`.
 
 ## Q34: Logical Volumes
 
-in `/home/automation/ansible` create a playbook called `logvol.yml`. in the playbook create a logical volume called `lv0` and make it of the size `1500MiB` on volume group `vgO` if there is not enough space in the volume group print a message "Not enough space for logical volume" and them make a 800MiB `lv0` instead. if the volume group still doesn't exist, create a message "Volume group doesn't exist" Create an `xfs` filesystem on all `lv0` logical volumes. Don't mount the logical volume.
+in `/home/rhel/ansible` create a playbook called `logvol.yml`. in the playbook create a logical volume called `lv0` and make it of the size `1500MiB` on volume group `vgO` if there is not enough space in the volume group print a message "Not enough space for logical volume" and them make a 800MiB `lv0` instead. if the volume group still doesn't exist, create a message "Volume group doesn't exist" Create an `xfs` filesystem on all `lv0` logical volumes. Don't mount the logical volume.
 
 > this is probably the most stupid exam question i ever saw in my life, so actually they don't test you on the ability of creating partition and then volume group and then a logical volume, they actually created the partition and volume group already, and just want you to create a logical volume with given parameters and if you encounter any problem doing so it should print out a message saying `size is not enough`, Redhat want you to follow the question steps regardless of how stupid they may seem to be.
 
