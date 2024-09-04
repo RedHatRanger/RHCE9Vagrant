@@ -16,6 +16,7 @@ Repository contains Study-Guide and exercises preparing for EX294 exam. the read
 
 ## Inspiration
 Content present in the repository is inspierd by other people' sample exams, redhat training exercises and my own invention. Use links below to check them out
+ - [Ghada Atef Book on latest v9 Exam](https://a.co/d/5MEuBBy)
  - [Andrew Mallett Courses on Plural-Sight](https://app.pluralsight.com/paths/certificate/rhce-red-hat-certified-engineer-ex294)
  - [Sander van Vugt Detailed book and lab-exercises](https://www.amazon.com/RHCE-EX294-Cert-Guide-Certification/dp/0136872433)
 
