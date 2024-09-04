@@ -8,7 +8,7 @@ Repository contains Study-Guide and exercises preparing for EX294 exam. the read
 
 
 ## About the EX294 Exam
- - [Look Over the Red Hat Certified Engineer Exam Objectives](https://www.redhat.com/en/services/training/ex294-red-hat-certified-engineer-rhce-exam-red-hat-enterprise-linux-8?section=Objectives)
+ - [Red Hat Certified Engineer Exam Objectives](https://www.redhat.com/en/services/training/ex294-red-hat-certified-engineer-rhce-exam-red-hat-enterprise-linux-8?section=Objectives)
  - [Purchase the RHCE EX294 Exam](https://www.redhat.com/en/services/training/ex294-red-hat-certified-engineer-rhce-exam-red-hat-enterprise-linux-9)
  - [Schedule RHCE EX294 Exam](https://rhtapps.redhat.com/ies/external/dashboard)
  - [Download the Remote Exam ISO](https://red.ht/rhrex)
