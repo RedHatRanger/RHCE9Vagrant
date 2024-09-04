@@ -7,16 +7,16 @@ This is a sample Ansible exam that I’ve created to prepare for the new RHCE ex
 There are 18 questions in total could be more or less.
 You will need five RHEL 9 virtual machines to be able to successfully complete all questions.
 
-One VM will be configured as an Ansible control node. Other four VMs will be used to apply playbooks to solve the sample exam questions. The following FQDNs will be used throughout the sample exam.
+One VM will be configured as an Ansible control node. The other five VMs will be used to apply playbooks to solve the sample exam questions. The following FQDNs will be used throughout the sample exam.
 
-| FQDN                      | Description                            |
-| ------------------------- | -------------------------------------- |
-| control.example.com       | Ansible control node                   |
-| node1.example.com         | managed host                           |
-| node2.example.com         | managed host                           |
-| node3.example.com         | managed host                           |
-| node4.example.com         | managed host                           |
-| node5.example.com         | managed host                           |
+| FQDN                      | Description                            | IP Address              |
+| ------------------------- | -------------------------------------- | ----------------------- |
+| control.example.com       | Ansible control node                   | 172.28.128.100          |
+| node1.example.com         | managed host                           | 172.28.128.101          |      
+| node2.example.com         | managed host                           | 172.28.128.102          |
+| node3.example.com         | managed host                           | 172.28.128.103          |
+| node4.example.com         | managed host                           | 172.28.128.104          |
+| node5.example.com         | managed host                           | 172.28.128.105          |
 
 ```mermaid
 flowchart TD;
