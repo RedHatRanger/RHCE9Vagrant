@@ -74,21 +74,10 @@ v) The playbook name lvm.yml and run on all nodes.
             msg: "{{ 'Volume Group research not found' if vg_exists.failed else 'Insufficient size of Volume Group research' }}"
 ```
 
-2) Test and run the "lvm.yml" playbook:
+2) Run the "lvm.yml" playbook:
 ```
-[rhel@control ansible]$ ansible-navigator run -m stdout lvm.yml -C
-<output omitted>
 [rhel@control ansible]$ ansible-navigator run -m stdout lvm.yml
 ```
-output: \
-![image](https://github.com/user-attachments/assets/82f366cb-ba57-4a28-9f4c-b6088c319994)
-
-3) Finally, you may validate by checking "lsblk" on all nodes:
-```
-[rhel@control ansible]$ ansible all -m command -a "lsblk"
-```
-output: \
-![image](https://github.com/user-attachments/assets/39e607c3-897f-4ef6-a327-6457c08ff2f5)
 
 * Done!!
 
