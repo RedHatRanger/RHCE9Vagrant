@@ -70,6 +70,43 @@ v) The playbook name lvm.yml and run on all nodes.
 :wq
 ```
 
+TEST THIS ONE:
+```
+- name: LVM Playbook
+  hosts: all
+  tasks:
+    - block:
+        - name: Check if the volume group "research" exists
+          debug:
+            msg: "vg not found"
+          when: "'research' not in ansible_lvm.vgs"
+
+        - name: Create the logical volume "data" of 1500M size from the volume group "research"
+          lvol:
+            vg: research
+            lv: data
+            size: 1500m
+          register: lvm_creation
+          when: "'research' in ansible_lvm.vgs"
+
+        - name: Check if the logical volume was created
+          debug:
+            msg: "Insufficient size of vg"
+          when: lvm_creation is failed
+
+        - name: Assign ext4 filesystem to the logical volume "data" if created
+          filesystem:
+            fstype: ext4
+            dev: "/dev/research/data"
+          when: lvm_creation is succeeded
+
+      rescue:
+        - name: Handle failure for LVM tasks
+          debug:
+            msg: "An error occurred during LVM tasks execution"
+
+```
+
 2) Test and run the "lvm.yml" playbook:
 ```
 [rhel@control ansible]$ ansible-navigator run -m stdout lvm.yml -C
