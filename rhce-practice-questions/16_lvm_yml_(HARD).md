@@ -1,6 +1,6 @@
 <a href="https://www.youtube.com/watch?v=2WncuUvh_y0&list=PLYB6dfdhWDePZf4fd4YgGGtSX_vHKv5vz&index=19">Video Tutorial</a> by Teach Me Tech \
 <a href="https://www.youtube.com/watch?v=zq3SANkfxL0&list=PLL_setXLS0tiYMipvQI4oUGkJwhOhn42J&index=16">Video Tutorial</a> by codeXchange \
-<a href="https://www.youtube.com/watch?v=mogBfG4h0mk">Video Tutorial</a> by T_FOR_TECH (BEST)
+<a href="https://www.youtube.com/watch?v=mogBfG4h0mk">Video Tutorial</a> by T_FOR_TECH (BEST) \
 <a href="https://www.youtube.com/watch?v=iCWa4Me0ykM">Video Tutorial</a> by Nehra Classes
 
 ### NOTE: If you ran out of time on the RED HAT OFFICIAL LAB, [Click Here](#Catch-Up) 
