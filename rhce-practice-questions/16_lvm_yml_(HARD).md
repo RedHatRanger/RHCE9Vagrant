@@ -31,10 +31,11 @@ v) The playbook name lvm.yml and run on all nodes.
 <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 
 ### ANSWER #16:
-1) Log into the CONTROL NODE as rhel, and create the "lvm.yml" playbook
+1) Log into the CONTROL NODE as rhel, and create the "lvm.yml" playbook and run:
 ```
 [rhel@control ansible]$ ﻿vim lvm.yml
-
+```
+```
 ---
 - name: Create Logical Volume and Assign Filesystem
   hosts: all
@@ -71,8 +72,6 @@ v) The playbook name lvm.yml and run on all nodes.
         - name: Debug insufficient VG size or VG not found
           debug:
             msg: "{{ 'Volume Group research not found' if vg_exists.failed else 'Insufficient size of Volume Group research' }}"
-
-:wq
 ```
 
 2) Test and run the "lvm.yml" playbook:
