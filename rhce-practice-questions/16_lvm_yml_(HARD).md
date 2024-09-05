@@ -36,76 +36,42 @@ v) The playbook name lvm.yml and run on all nodes.
 [rhel@control ansible]$ ﻿vim lvm.yml
 
 ---
-- name: create logical volumes
+- name: Create Logical Volume and Assign Filesystem
   hosts: all
+  become: yes
   tasks:
-     - name: if device not present
-       debug:
-         msg: "device not present"
-       when: ansible_lvm.vgs.research is not defined
 
-     - name: when vg is present
-       community.general.lvol:
-         vg: research
-         lv: data
-         size: 1500m
-       when: ansible_lvm.vgs.research.free_g>"1.6"
+    - name: Ensure Volume Group exists and has enough space
+      block:
+        - name: Check if the Volume Group exists
+          command: vgdisplay research
+          register: vg_exists
+          changed_when: false
 
-     - name: check size
-       debug:
-         msg: "Requested size is not present"
-       when: ansible_lvm.vgs.research.free_g>="1.6"
+        - name: Check available size in the Volume Group
+          command: vgs --noheadings -o vg_free --units m research
+          register: vg_free_size
+          changed_when: false
 
-     - name: create 800mb partition
-       community.general.lvol:
-         vg: research
-         lv: data
-         size: 800m
-       when: ansible_lvm.vgs.research.free_g>="1.0"
-
-     - name: format lvm
-       community.general.filesystem:
-         fstype: ext4
-         dev: /dev/research/data
-
-:wq
-```
-
-TEST THIS ONE:
-```
-- name: LVM Playbook
-  hosts: all
-  tasks:
-    - block:
-        - name: Check if the volume group "research" exists
-          debug:
-            msg: "vg not found"
-          when: "'research' not in ansible_lvm.vgs"
-
-        - name: Create the logical volume "data" of 1500M size from the volume group "research"
+        - name: Create Logical Volume
           lvol:
             vg: research
             lv: data
-            size: 1500m
-          register: lvm_creation
-          when: "'research' in ansible_lvm.vgs"
+            size: 1500M
+          when: vg_free_size.stdout | float >= 1500
 
-        - name: Check if the logical volume was created
-          debug:
-            msg: "Insufficient size of vg"
-          when: lvm_creation is failed
-
-        - name: Assign ext4 filesystem to the logical volume "data" if created
+        - name: Assign ext4 filesystem to the Logical Volume
           filesystem:
             fstype: ext4
             dev: "/dev/research/data"
-          when: lvm_creation is succeeded
+          when: vg_free_size.stdout | float >= 1500
 
       rescue:
-        - name: Handle failure for LVM tasks
+        - name: Debug insufficient VG size or VG not found
           debug:
-            msg: "An error occurred during LVM tasks execution"
+            msg: "{{ 'Volume Group research not found' if vg_exists.failed else 'Insufficient size of Volume Group research' }}"
 
+:wq
 ```
 
 2) Test and run the "lvm.yml" playbook:
