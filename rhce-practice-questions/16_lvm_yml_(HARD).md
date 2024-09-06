@@ -33,39 +33,43 @@ v) The playbook name is lv.yml and it should run on all managed nodes.
 ```
 [rhel@control ansible]$ ﻿vim lvm.yml
 ```
-```
+```yaml
 ---
 - name: LVM Management
   hosts: all
+  become: yes
   tasks:
-    - name: if device not present
+    - name: Check if Volume Group 'research' exists
       debug:
         msg: "Volume Group research not found"
       when: ansible_lvm.vgs.research is not defined
 
-    - name: when vg is present
+    - name: Create 1500M logical volume if enough space is available
       community.general.lvol:
         vg: research
         lv: data
         size: 1500M
-      when: ansible_lvm.vgs.research.free_g >= "1.6"
+      when: ansible_lvm.vgs.research.free_g | float >= 1.6
+      register: lv_creation
 
-    - name: check size
+    - name: Debug message if requested size is not available
       debug:
-        msg: "Requested size is not present"
-      when: ansible_lvm.vgs.research.free_g < "1.6"
+        msg: "Requested size is not present, creating 800M partition"
+      when: ansible_lvm.vgs.research.free_g | float < 1.6 and ansible_lvm.vgs.research.free_g | float >= 1.0
 
-    - name: create 800 mb partition
+    - name: Create 800M logical volume if there is not enough space for 1500M
       lvol:
         vg: research
         lv: data
-        size: 800m
-      when: ansible_lvm.vgs.research.free_g >= "1.0"
+        size: 800M
+      when: ansible_lvm.vgs.research.free_g | float >= 1.0 and ansible_lvm.vgs.research.free_g | float < 1.6
+      register: lv_creation_small
 
-    - name: format lvm
+    - name: Format the logical volume with ext4
       community.general.filesystem:
         fstype: ext4
         dev: /dev/research/data
+      when: lv_creation.changed or lv_creation_small.changed
 ```
 
 2) Run the "lvm.yml" playbook:
