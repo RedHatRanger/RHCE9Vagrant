@@ -58,31 +58,19 @@ MODULES USED:
 {% for host in groups['all'] %}
 {{ hostvars[host].ansible_default_ipv4.address }} {{ hostvars[host].ansible_fqdn }} {{ hostvars[host].ansible_hostname }}
 {%endfor%}
-
-:wq
 ```
 
 2) Next, create the "hosts.yml" playbook:
-```
-
+```yaml
 ---
-- name: Copy from template
+- name: Generate an /etc/myhosts file for dev only
   hosts: all
   tasks:
-    - name: use template
+    - name: Grab and fill-in the template myhosts.j2
       ansible.builtin.template:
         src: myhosts.j2
         dest: /etc/myhosts
-
-- name: Remove /etc/myhosts from everything but dev
-  hosts: all,!dev
-  tasks:
-    - name: delete from all
-      ansible.builtin.file:
-        path: /etc/myhosts
-        state: absent
-
-:wq
+      when: "'dev' in group_names"
 ```
 
 3) Test and run the "hosts.yml" playbook:
