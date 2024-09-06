@@ -48,7 +48,8 @@ flowchart TD;
   - `node4` should be a member of the `prod` host group
   - `node5` should be a member of the `balancers` host group
   - The `prod` group should be a child group of the `webservers` group
-
+  - To validate the inventory, you can run ```ansible-navigator inventory -m stdout --graph```
+    
 - Create a config file at `/home/rhel/ansible-files/ansible.cfg` with following requirements:
   - privileged escalation is disabled by default
   - ansible should manage 8 hosts at a single time
