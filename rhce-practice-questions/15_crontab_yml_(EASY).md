@@ -31,7 +31,8 @@ MODULES USED:
 1) Log into the CONTROL NODE as rhel, and create the "crontab.yml" playbook
 ```
 [rhel@control ansible]$ ﻿vim crontab.yml
-
+```
+```yaml
 ---
 - name: use crontab
   hosts: all
@@ -43,8 +44,6 @@ MODULES USED:
            user: rhel
            job: logger "EX294 in progress"
            state: present
-
-:wq
 ```
 
 2) Test and run the "crontab.yml" playbook:
