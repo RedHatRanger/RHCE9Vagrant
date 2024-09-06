@@ -27,7 +27,7 @@ i)  * Create a group opsdev
 
 ii) * Create a group opsmgr
     * Create user from users varaible who job is equal to manager and need to be in opsmgr group
-    * Assign a password using SHA512 format and run playbook on test group.
+    * Assign a password using SHA512 format and run playbook on prod group.
     * User password is {{ pw_manager }}
 
 iii) Use when condition for each play
