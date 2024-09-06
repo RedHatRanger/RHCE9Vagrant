@@ -1,5 +1,4 @@
-user: rhel \
-password: redhat
+* Be sure to check out the [README](https://github.com/RedHatRanger/RHCE9Vagrant/blob/main/README.md)
 
 # Choose your START POINT:
 ## I. Red Hat Interactive Labs:
