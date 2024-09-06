@@ -1,7 +1,7 @@
 <a href="https://www.youtube.com/watch?v=2WncuUvh_y0&list=PLYB6dfdhWDePZf4fd4YgGGtSX_vHKv5vz&index=19">Video Tutorial</a> by Teach Me Tech \
-<a href="https://www.youtube.com/watch?v=zq3SANkfxL0&list=PLL_setXLS0tiYMipvQI4oUGkJwhOhn42J&index=16">Video Tutorial</a> by codeXchange \
+<a href="https://www.youtube.com/watch?v=zq3SANkfxL0&list=PLL_setXLS0tiYMipvQI4oUGkJwhOhn42J&index=16">Video Tutorial</a> by codeXchange \ (BEST)
 <a href="https://www.youtube.com/watch?v=mogBfG4h0mk">Video Tutorial</a> by T_FOR_TECH \
-<a href="https://www.youtube.com/watch?v=iCWa4Me0ykM&t=7636s">Video Tutorial</a> by Nehra Classes (BEST)
+<a href="https://www.youtube.com/watch?v=iCWa4Me0ykM&t=7636s">Video Tutorial</a> by Nehra Classes
 
 ### NOTE: If you ran out of time on the RED HAT OFFICIAL LAB, [Click Here](#Catch-Up) 
 
@@ -13,17 +13,12 @@
 ```
 Instructions:
 
-16. Create logical volume named data of 1500M size from volume group "research"
-
-i) Verify if vg not exist then it should debug msg "vg not found"
-
-ii) 1500M lv size is not existed then is debug msg "Insufficient size of vg"
-
-iii) If logical volume is created then assign file-system as "ext4"
-
-iv) Do not perform any mounting for this lv.
-
-v) The playbook name lvm.yml and run on all nodes.
+16. Create a logical volume named data of size 1500 MiB from the volume group research.
+i) Verify if the volume group research does not exist, and if so, display the debug message: "Volume group research not found".
+ii) If the requested logical volume size (1500 MiB) cannot be created, display the debug message: "Could not create a logical volume of that size. Using 800 MiB instead." and proceed to create an 800 MiB volume.
+iii) If the logical volume is created, assign the file system as "ext4".
+iv) Do NOT mount the logical volume in any way.
+v) The playbook name is lv.yml and it should run on all managed nodes.
 ```
 
 (scroll down for an answer)
@@ -37,41 +32,37 @@ v) The playbook name lvm.yml and run on all nodes.
 ```
 ```
 ---
-- name: Create Logical Volume and Assign Filesystem
+- name: LVM Management
   hosts: all
-  become: yes
   tasks:
+    - name: if device not present
+      debug:
+        msg: "device not present"
+      when: ansible_lvm.vgs.research is not defined
 
-    - name: Ensure Volume Group exists and has enough space
-      block:
-        - name: Check if the Volume Group exists
-          command: vgdisplay research
-          register: vg_exists
-          changed_when: false
+    - name: when vg is present
+      community.general.lvol:
+        vg: research
+        lv: data
+        size: 1500M
+      when: ansible_lvm.vgs.research.free_g >= "1.6"
 
-        - name: Check available size in the Volume Group
-          command: vgs --noheadings -o vg_free --units m research
-          register: vg_free_size
-          changed_when: false
-          when: vg_exists.rc == 0
+    - name: check size
+      debug:
+        msg: "Requested size is not present"
+      when: ansible_lvm.vgs.research.free_g < "1.6"
 
-        - name: Create Logical Volume
-          lvol:
-            vg: research
-            lv: data
-            size: 1500M
-          when: vg_free_size.stdout | float >= 1500
+    - name: create 800 mb partition
+      lvol:
+        vg: research
+        lv: data
+        size: 800m
+      when: ansible_lvm.vgs.research.free_g >= "1.0"
 
-        - name: Assign ext4 filesystem to the Logical Volume
-          filesystem:
-            fstype: ext4
-            dev: "/dev/research/data"
-          when: vg_free_size.stdout | float >= 1500
-
-      rescue:
-        - name: Debug insufficient VG size or VG not found
-          debug:
-            msg: "{{ 'Volume Group research not found' if vg_exists.failed else 'Insufficient size of Volume Group research' }}"
+    - name: format lvm
+      community.general.filesystem:
+        fstype: ext4
+        dev: /dev/research/data
 ```
 
 2) Run the "lvm.yml" playbook:
