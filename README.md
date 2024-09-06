@@ -2,7 +2,7 @@
 
 This is a sample Ansible exam that I’ve created to prepare for the new RHCE exam EX294. As with the real exam, no perfect answers to the sample exam questions will be provided, but more or less correct and accurate. 
 
-- You may opt for the Official Red Hat Ansible Lab, which is free, but <u>you will be limited to 4 VMs</u>.
+- You may opt for the [Official Red Hat Ansible Lab](https://developers.redhat.com/learning/learn:ansible:yaml-essentials-ansible/resource/resources:hands-interactive-lab-and-helpful-resources), which is free, but <u>you will be limited to 4 VMs</u>.
 
 ## Requirements
 
