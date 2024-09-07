@@ -40,36 +40,49 @@ v) The playbook name is lv.yml and it should run on all managed nodes.
   become: yes
   tasks:
     - name: Check if Volume Group 'research' exists
+      community.general.lvol_facts:
+      register: lvm_info
+
+    - name: Volume Group 'research' not found debug message
       debug:
         msg: "Volume Group research not found"
-      when: ansible_lvm.vgs.research is not defined
+      when: lvm_info.vgs.research is not defined
 
-    - name: Create 1500M logical volume if enough space is available
-      community.general.lvol:
-        vg: research
-        lv: data
-        size: 1500M
-      when: ansible_lvm.vgs.research.free_g | float >= 1.6
-      register: lv_creation
+    - name: Attempt to create 1500M logical volume
+      block:
+        - name: Create logical volume of 1500M
+          community.general.lvol:
+            vg: research
+            lv: data
+            size: 1500M
+          register: lv_creation
+          when: lvm_info.vgs.research is defined
 
-    - name: Debug message if requested size is not available
-      debug:
-        msg: "Requested size is not present, creating 800M partition"
-      when: ansible_lvm.vgs.research.free_g | float < 1.6 and ansible_lvm.vgs.research.free_g | float >= 1.0
+        - name: Format the logical volume with ext4
+          community.general.filesystem:
+            fstype: ext4
+            dev: /dev/research/data
+          when: lv_creation.changed
 
-    - name: Create 800M logical volume if there is not enough space for 1500M
-      lvol:
-        vg: research
-        lv: data
-        size: 800M
-      when: ansible_lvm.vgs.research.free_g | float >= 1.0 and ansible_lvm.vgs.research.free_g | float < 1.6
-      register: lv_creation_small
+      rescue:
+        - name: Could not create 1500M logical volume - fallback to 800M
+          debug:
+            msg: "Could not create a logical volume of that size. Using 800 MiB instead."
+          when: lvm_info.vgs.research is defined
 
-    - name: Format the logical volume with ext4
-      community.general.filesystem:
-        fstype: ext4
-        dev: /dev/research/data
-      when: lv_creation.changed or lv_creation_small.changed
+        - name: Create logical volume of 800M
+          community.general.lvol:
+            vg: research
+            lv: data
+            size: 800M
+          register: lv_creation_small
+          when: lvm_info.vgs.research is defined
+
+        - name: Format the 800M logical volume with ext4
+          community.general.filesystem:
+            fstype: ext4
+            dev: /dev/research/data
+          when: lv_creation_small.changed
 ```
 
 2) Run the "lvm.yml" playbook:
