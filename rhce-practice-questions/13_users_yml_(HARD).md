@@ -64,6 +64,7 @@ users:
 2) Create the "users.yml" playbook:
 ```yaml
 ---
+# ansible-navigator run -m stdout users.yml --vault-password-file=secret.txt
 - name: Create developer users
   hosts: dev,test
   vars_files:
