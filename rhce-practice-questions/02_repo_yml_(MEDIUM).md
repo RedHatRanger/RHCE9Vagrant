@@ -48,10 +48,11 @@ MODULES USED:
 # NOTE: On the actual exam, you may see:
 http://content/rhel9.0/x86_64/dvd/RPM-GPG-KEY-redhat-release being used for the GPG Keys.
          
-[rhel@control ansible]$ vim yum_repo.yml
+[rhel@control ansible]$ vim repo.yml
 ```
 ```yaml
 ---
+# ansible-navigator run -m stdout repo.yml
 - name: my repo
   hosts: all
   tasks:
