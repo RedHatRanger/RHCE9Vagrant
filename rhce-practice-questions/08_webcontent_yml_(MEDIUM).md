@@ -34,7 +34,8 @@ MODULES USED:
 1) Log into the CONTROL NODE as rhel, and create the webcontent.yml file:
 ```
 [rhel@control ansible]$ vim webcontent.yml
-
+```
+```yaml
 ---
 # ansible-navigator run -m stdout webcontent.yml
 
