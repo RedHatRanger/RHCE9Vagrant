@@ -47,13 +47,12 @@ MODULES USED:
 # NOTE: On the actual exam, you may see an http://content/rhel9.0/x86_64/dvd/RPM-GPG-KEY-redhat-release being used for the GPG Keys.
          
 [rhel@control ansible]$ vim yum_repo.yml
-
+```
+```yaml
 ---
 - name: my repo
   hosts: all
-
   tasks:
-
     - name: Import a key from a url
       ansible.builtin.rpm_key:
           state: present
@@ -78,8 +77,6 @@ MODULES USED:
           gpgcheck: yes
           enabled: yes
           gpgkey: file:///media/RPM-GPG-KEY-redhat-release
-
-:wq
 ```
 
 5) WE RUN THE PLAYBOOK:
