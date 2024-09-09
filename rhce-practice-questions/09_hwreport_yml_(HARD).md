@@ -53,6 +53,7 @@ MODULES USED:
 ```
 ```yaml
 ---
+# ansible-navigator run -m stdout hwreport.yml
 - name: Generate a hw report
   hosts: all
   tasks:
