@@ -29,6 +29,10 @@ Instructions:
 <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 
 ### ANSWER #17:
+- YOU NEED TO READ THE /home/rhel/ansible-files/roles/rhel-system-roles.timesync/README.md
+(It will help you with the variable parameters in the yml file you create)
+- You will need to install the "rhel-system-roles" package on the control node.
+- 
 1) Yum install rhel-system-roles:
 ```
 [rhel@control ansible-files]$ sudo yum install rhel-system-roles -y  #If you haven't installed it yet
@@ -46,14 +50,10 @@ Instructions:
 ```
 [rhel@control ansible-files]$ ﻿vim timesync.yml
 ```
-
-# For this example we will use our ansible control node to sync up with:
-
 ```yaml
 ---
 # ﻿ansible-navigator run -m stdout timesync.yml
-- name: use timesync
-  hosts: all
+- hosts: all
   vars:
     timesync_ntp_servers:
       - hostname: 172.28.128.100
