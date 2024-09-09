@@ -35,6 +35,7 @@ v) The playbook name is lv.yml and it should run on all managed nodes.
 ```
 ```yaml
 ---
+# ansible-navigator run -m stdout lvm.yml
 - name: LVM Management for Volume Group 'research'
   hosts: all
   become: yes
