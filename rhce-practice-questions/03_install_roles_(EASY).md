@@ -37,7 +37,8 @@ https://github.com/RedHatRanger/balancer.git                       (balancer)
 [rhel@control ansible]$ mkdir roles  # If did not create it in Lab #1
 [rhel@control ansible]$ cd roles
 [rhel@control roles]$ vim requirements.yml
-
+```
+```yaml
 ---
 - src: https://github.com/RedHatRanger/phpinfo.git
   name: phpinfo
