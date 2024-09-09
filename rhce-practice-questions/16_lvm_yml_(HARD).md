@@ -78,7 +78,6 @@ v) The playbook name is lv.yml and it should run on all managed nodes.
           debug:
             msg: "Could not create a logical volume of 1500M or 800M. Not enough space."
           when: lvm_info.vgs.research.free_g | float < 1.0
-
 ```
 
 2) Run the "lvm.yml" playbook:
