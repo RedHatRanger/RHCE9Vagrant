@@ -12,13 +12,12 @@
 Welcome to {{ ansible_hostname }}.
 OS: {{ ansible_distribution }} {{ ansible_distribution_version }}
 Architecture: {{ ansible_architecture }}
-
-:wq
 ```
 
 2) Create an "motd.yml" file to include the motd Jinja template:
-```
+```yaml
 ---
+# ansible-navigator run -m stdout motd.yml
 - name: Create a greeting for each node
   hosts: all
   tasks:
