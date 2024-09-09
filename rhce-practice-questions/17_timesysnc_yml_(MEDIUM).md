@@ -32,7 +32,7 @@ Instructions:
 - YOU NEED TO READ THE /home/rhel/ansible-files/roles/rhel-system-roles.timesync/README.md
 (It will help you with the variable parameters in the yml file you create)
 - You will need to install the "rhel-system-roles" package on the control node.
-- 
+
 1) Yum install rhel-system-roles:
 ```
 [rhel@control ansible-files]$ sudo yum install rhel-system-roles -y  #If you haven't installed it yet
