@@ -1,6 +1,6 @@
 # Ansible Setup for RHCE EX294
 
-This is a sample Ansible exam that [I’ve created](https://github.com/RedHatRanger/RHCE9Vagrant/tree/main/Vagrantfiles/virtualbox) to prepare for the new RHCE EX294 v9 Exam. As with the real exam, there are no perfect answers to the [sample exam questions](https://github.com/RedHatRanger/RHCE9Vagrant/tree/main/rhce-practice-questions), but more or less are accurate to what's actually on there.
+This is a sample Ansible exam that [I’ve created](https://github.com/RedHatRanger/RHCE9Vagrant/tree/main/Vagrantfiles/virtualbox) to prepare for the new RHCE EX294 v9 Exam.  As with the real exam, there are no perfect answers to the [sample exam questions](https://github.com/RedHatRanger/RHCE9Vagrant/tree/main/rhce-practice-questions), but more or less are accurate to what's actually on the test.
 
 - You may opt for the [Official Red Hat Ansible Lab](https://developers.redhat.com/learning/learn:ansible:yaml-essentials-ansible/resource/resources:hands-interactive-lab-and-helpful-resources), which is free, but <u>you will be limited to 4 VMs</u>.
 
