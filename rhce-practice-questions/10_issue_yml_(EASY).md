@@ -36,6 +36,7 @@ MODULES USED:
 ```
 ```yaml
 ---
+# ansible-navigator run -m stdout issue.yml
 - name: Copy content for dev
   hosts: dev
   tasks:
