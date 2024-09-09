@@ -31,7 +31,6 @@ iv) Use separate play for each task and playbook name should be packages.yml.
 ```yaml
 ---
 # ansible-navigator run -m stdout packages.yml
-
 - name: install packages
   hosts: dev,test
   tasks:  
