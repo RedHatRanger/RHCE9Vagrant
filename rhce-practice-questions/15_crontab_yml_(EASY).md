@@ -34,6 +34,7 @@ MODULES USED:
 ```
 ```yaml
 ---
+# ansible-navigator run -m stdout crontab.yml
 - name: use crontab
   hosts: all
   tasks:
