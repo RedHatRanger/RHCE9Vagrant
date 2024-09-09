@@ -43,6 +43,7 @@ along with various details of the PHP configuration including the version of PHP
 ```
 ```yaml
 ---
+# ansible-navigator run -m stdout roles.yml
 - hosts: webservers
   roles:
     - phpinfo
