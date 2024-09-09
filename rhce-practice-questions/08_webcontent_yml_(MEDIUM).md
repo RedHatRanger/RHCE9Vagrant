@@ -38,7 +38,6 @@ MODULES USED:
 ```yaml
 ---
 # ansible-navigator run -m stdout webcontent.yml
-
 - name: none for now
   hosts: webservers
   tasks:
