@@ -45,8 +45,6 @@ https://github.com/RedHatRanger/balancer.git                       (balancer)
 
 - src: https://github.com/RedHatRanger/balancer.git
   name: balancer
-
-:wq
 ```
 
 2) Next, run the requirements.yml file using ansible-galaxy:
