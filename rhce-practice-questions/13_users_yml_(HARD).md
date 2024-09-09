@@ -49,6 +49,8 @@ cd ~/ansible-files
 wget https://raw.githubusercontent.com/RedHatRanger/RHCE9Vagrant/main/rhce-practice-questions/golden_files/user_list.yml
 
 [rhel@control ansible]$ cat user_list.yml
+```
+```yaml
 ---
 users:
   - name: david
@@ -60,7 +62,7 @@ users:
 ```
 
 2) Create the "users.yml" playbook:
-```
+```yaml
 ---
 - name: Create developer users
   hosts: dev,test
