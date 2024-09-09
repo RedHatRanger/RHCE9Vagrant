@@ -43,22 +43,22 @@ v) The playbook name is lv.yml and it should run on all managed nodes.
       community.general.lvol_facts:
       register: lvm_info
 
-    - name: Check if Volume Group 'research' exists
+    - name: Debug message if Volume Group 'research' not found
       debug:
         msg: "Volume Group research not found"
       when: lvm_info.vgs.research is not defined
 
     - name: Handle logical volume creation based on available space
       block:
-        - name: Check available space and create 1500M logical volume
+        - name: Create 1500M logical volume if enough space is available
           community.general.lvol:
             vg: research
             lv: data
             size: 1500M
-          when: lvm_info.vgs.research is defined and lvm_info.vgs.research.free_g | float >= 1.5
+          when: lvm_info.vgs.research.free_g | float >= 1.5
           register: lv_creation
 
-        - name: Create 800M logical volume if space is less than 1500M but more than 1000M
+        - name: Create 800M logical volume if space is between 1000M and 1500M
           community.general.lvol:
             vg: research
             lv: data
@@ -73,10 +73,11 @@ v) The playbook name is lv.yml and it should run on all managed nodes.
           when: lv_creation.changed or lv_creation_small.changed
 
       rescue:
-        - name: Debug message when space is less than 1000M
+        - name: Not enough space for logical volume
           debug:
             msg: "Could not create a logical volume of 1500M or 800M. Not enough space."
           when: lvm_info.vgs.research.free_g | float < 1.0
+
 ```
 
 2) Run the "lvm.yml" playbook:
