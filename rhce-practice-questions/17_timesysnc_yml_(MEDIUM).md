@@ -45,27 +45,21 @@ Instructions:
 3) Create the "timesync.yml" playbook
 ```
 [rhel@control ansible-files]$ ﻿vim timesync.yml
-
-#---
-#- name: use timesync
-#  hosts: all
-#  vars:
-#     timesync_ntp_servers:
-#         - hostname: classroom.example.com
-#           iburst: yes
-#  roles:
-#     - rhel-system-roles.timesync
+```
 
 # For this example we will use our ansible control node to sync up with:
-- hosts: all
+
+```yaml
+---
+# ﻿ansible-navigator run -m stdout timesync.yml
+- name: use timesync
+  hosts: all
   vars:
     timesync_ntp_servers:
       - hostname: 172.28.128.100
         iburst: yes
   roles:
     - rhel-system-roles.timesync
-
-:wq
 ```
 
 4) Run the "timesync.yml" playbook:
