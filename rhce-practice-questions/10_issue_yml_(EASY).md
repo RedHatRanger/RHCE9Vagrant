@@ -33,7 +33,8 @@ MODULES USED:
 1) Log into the CONTROL NODE as rhel, and create the "issue.yml" playbook:
 ```
 [rhel@control ansible]$ vim issue.yml
-
+```
+```yaml
 ---
 - name: Copy content for dev
   hosts: dev
