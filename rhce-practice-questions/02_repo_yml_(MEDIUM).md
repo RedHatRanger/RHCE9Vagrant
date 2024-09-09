@@ -41,10 +41,12 @@ MODULES USED:
 ## Start Here
 3) Next, we create our 1st playbook called "repo.yml":
 ```
-# HINT: If you can't memorize this stuff you may run "ansible-doc yum_repository" and type /EXAMPLES to search.
+# HINT: If you can't memorize this stuff you may run "ansible-doc yum_repository"
+        and type /EXAM to search.
         OR you may refer to docs.ansible.com
 
-# NOTE: On the actual exam, you may see an http://content/rhel9.0/x86_64/dvd/RPM-GPG-KEY-redhat-release being used for the GPG Keys.
+# NOTE: On the actual exam, you may see:
+http://content/rhel9.0/x86_64/dvd/RPM-GPG-KEY-redhat-release being used for the GPG Keys.
          
 [rhel@control ansible]$ vim yum_repo.yml
 ```
