@@ -50,7 +50,8 @@ MODULES USED:
 # AND "ansible all -m setup > test" will get you the correct parameters you are looking for the replace: option.
 
 [rhel@control ansible]$ vim hwreport.yml
-
+```
+```yaml
 ---
 - name: Generate a hw report
   hosts: all
