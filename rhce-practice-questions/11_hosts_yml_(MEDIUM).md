@@ -63,6 +63,7 @@ MODULES USED:
 2) Next, create the "hosts.yml" playbook:
 ```yaml
 ---
+# ansible-navigator run -m stdout hosts.yml
 - name: Generate an /etc/myhosts file for dev only
   hosts: all
   tasks:
