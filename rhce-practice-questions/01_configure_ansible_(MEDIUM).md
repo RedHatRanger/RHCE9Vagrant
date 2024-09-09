@@ -118,8 +118,6 @@ become=true
 become_medthod=sudo
 become_user=root
 become_ask_pass=false
-
-:wq
 ```
 
 5) We need to create the ssh-keys:
@@ -130,8 +128,10 @@ ssh-keygen -t rsa -b 4096 -N ""
 6) Then distribute them to the nodes for the rhel user:
 ```
 vim authorized_keys.yml
-
+```
+```yaml
 ---
+# ansible-navigator run -m stdout authorized_keys.yml --ask-pass
 - name: set rhel authorized keys
   hosts: all
   become: false
