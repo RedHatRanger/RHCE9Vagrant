@@ -27,7 +27,8 @@ iv) Use separate play for each task and playbook name should be packages.yml.
 1) Log into the CONTROL NODE as rhel, and create the packages.yml file:
 ```
 [rhel@control ansible]$ vim packages.yml
-
+```
+```yaml
 ---
 # ansible-navigator run -m stdout packages.yml
 
