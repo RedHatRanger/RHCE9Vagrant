@@ -40,7 +40,8 @@ along with various details of the PHP configuration including the version of PHP
 1) Log into the CONTROL NODE as rhel, and Create the roles.yml file:
 ```
 [rhel@control ansible-files]$ vim roles.yml
-
+```
+```yaml
 ---
 - hosts: webservers
   roles:
@@ -48,8 +49,6 @@ along with various details of the PHP configuration including the version of PHP
 - hosts: balancers
   roles:
     - balancer
-
-:wq
 ```
 
 2) Adjust the "/home/rhel/ansible-files/roles/balancer/templates/balancer.j2" file:
