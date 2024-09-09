@@ -48,7 +48,8 @@ Welcome to {{ ansible_fqdn }} ON {{ ansible_eth1.ipv4.address }}
 ```
 [rhel@control templates]$ cd ../tasks
 [rhel@control tasks]$ vim main.yml
-
+```
+```yaml
 ---
 # tasks file for apache
 - name: install httpd and firewalld
