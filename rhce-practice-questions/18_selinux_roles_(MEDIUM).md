@@ -32,8 +32,10 @@ Instructions:
 [rhel@control ansible-files]$ sudo yum install -y rhel-system-roles  #If you didn't install it previously in Lab 17.
 [rhel@control ansible-files]$ cp -rf /usr/share/ansible/roles/rhel-system-roles.selinux /home/rhel/ansible-files/roles
 [rhel@control ansible-files]$ vim selinux.yml
-
+```
+```yaml
 ---
+# ansible-navigator run -m stdout selinux.yml
 - name: configure selinux
   hosts: all
   vars:
@@ -41,8 +43,6 @@ Instructions:
     selinux_state: enforcing
   roles:
     - rhel-system-roles.selinux
-
-:wq
 ```
 
 2) Run the "selinux.yml" playbook:
