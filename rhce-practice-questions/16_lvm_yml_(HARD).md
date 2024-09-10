@@ -21,7 +21,7 @@ ii) If the requested logical volume size (1500 MiB) cannot be created, display t
           and proceed to create an 800 MiB volume.
 iii) If the logical volume is created, assign the file system as "ext4".
 iv) Do NOT mount the logical volume in any way.
-v) The playbook name is lv.yml and it should run on all managed nodes.
+v) The playbook name is lvm.yml and it should run on all managed nodes.
 ```
 
 (scroll down for an answer)
