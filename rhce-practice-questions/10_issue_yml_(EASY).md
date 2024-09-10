@@ -37,31 +37,21 @@ MODULES USED:
 ```yaml
 ---
 # ansible-navigator run -m stdout issue.yml
-- name: Copy content for dev
-  hosts: dev
+- name: Copy inline content to /etc/issue
+  hosts: all
   tasks:
-    - name: copy using inline content
+    - name: Copy content to dev
       ansible.builtin.copy:
-          content: "Development"
-          dest: /etc/issue
-
-- name: Copy content for test
-  hosts: test
-  tasks:
-    - name: copy using inline content
-      ansible.builtin.copy:
-          content: "Test"
-          dest: /etc/issue
-
-- name: Copy content for prod
-  hosts: prod
-  tasks:
-    - name: copy using inline content
-      ansible.builtin.copy:
-          content: "Production"
-          dest: /etc/issue
-﻿
-:wq
+        content: "{{ item.cont }}"
+        dest: /etc/issue
+      when: "'{{ item.grp }}' in group_names"
+      loop:
+        - cont: "Development"
+          grp: "dev"
+        - cont: "Test"
+          grp: "test"
+        - cont: "Production"
+          grp: "prod"
 ```
 
 2) Test and run the playbook:
