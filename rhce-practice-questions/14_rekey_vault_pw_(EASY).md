@@ -49,7 +49,6 @@ Vault password:
 New Vault password:
 Confirm New Vault password:
 Rekey successful
-[rhel@control ansible]$
 ```
 
 * Done!!
