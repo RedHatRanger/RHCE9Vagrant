@@ -61,6 +61,11 @@ v) The playbook name is lvm.yml and it should run on all managed nodes.
           when: vg_exists.rc == 0 and vg_free_size.stdout | float >= 1500
           register: lv_creation
 
+        - name: Setup creation of smaller size
+          debug:
+            msg: "Could not create a logical volume of that size. Using 800 MiB instead."
+          when: vg_exists.rc == 0 and vg_size_free.stdout | float < 1500 and vg_size_free.stdout | float >= 1000
+
         - name: Create 800M volume if 1000M-1500M space is available
           community.general.lvol:
             vg: research
