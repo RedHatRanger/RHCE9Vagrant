@@ -46,7 +46,6 @@ v) The playbook name is lv.yml and it should run on all managed nodes.
           command: vgdisplay research
           register: vg_exists
           changed_when: false
-          ignore_errors: yes
 
         - name: Check available free space in research
           command: vgs --noheadings -o vg_free --units m research
@@ -62,7 +61,7 @@ v) The playbook name is lv.yml and it should run on all managed nodes.
           when: vg_exists.rc == 0 and vg_free_size.stdout | float >= 1500
           register: lv_creation
 
-        - name: Create 800M volume if 1500M is not possible but at least 1000M is available
+        - name: Create 800M volume if 1000M-1500M space is available
           community.general.lvol:
             vg: research
             lv: data
