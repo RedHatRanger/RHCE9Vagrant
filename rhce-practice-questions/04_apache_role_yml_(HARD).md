@@ -6,7 +6,7 @@
 <a href="https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_templating.html#templating-jinja2">Link1</a> <a href="https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_reuse_roles.html#using-roles-at-the-play-level">Link2</a> to the Ansible Documentation
 
 
-* You will need to install the ansible.posix and community.general to get this lab to work [HERE](06_install_collections_(EASY).md) \
+* You will need to install the ansible.posix and community.general to get this lab to work [HERE](06_install_collections_(EASY).md) 
 
   
 ***On the Control Node***
