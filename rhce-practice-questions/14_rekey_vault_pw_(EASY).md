@@ -24,37 +24,27 @@ ii) New password: redhat
 <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 
 ### ANSWER #14:
-1) Log into the CONTROL NODE as rhel, and run "wget" to download the "solaris.yml" file:
-```
-# This wget is only required for the exam
-[rhel@control ansible]$ ﻿wget http://content.example.com/Rhce/solaris.yml
-```
-output: \
-![image](https://github.com/user-attachments/assets/a860dfd2-5ed6-4c95-855f-cab88f35ae43)
-
-2) In order to practice for the exam you need to first create the "solaris.yml" file:
+1) In order to practice for the exam you need to first create the "solaris.yml" file:
 ```
 NOTE:
 # PASSWORD = cisco
 
-[rhel@control ansible]$ ansible-vault create solaris.yml
+[rhel@control ansible-files]$ ansible-vault create solaris.yml
 New Vault password:
 Confirm New Vault password:
 
 aaaaaaaaaaaaa
 bbbbbbbbbbbbb
 ccccccccccccc
-
-:wq
 ```
 
-3) Finally, run the "ansible-vault rekey" command to change the password on "solaris.yml":
+2) Finally, run the "ansible-vault rekey" command to change the password on "solaris.yml":
 ```
 NOTE:
 # OLD PASSWORD = cisco
 # NEW PASSWORD = redhat
 
-[rhel@control ansible]$ ansible-vault rekey solaris.yml
+[rhel@control ansible-files]$ ansible-vault rekey solaris.yml
 Vault password:
 New Vault password:
 Confirm New Vault password:
