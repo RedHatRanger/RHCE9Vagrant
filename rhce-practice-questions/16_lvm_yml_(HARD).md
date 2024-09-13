@@ -346,9 +346,9 @@ cat << EOF > webcontent.yml
 - name: none for now
   hosts: webservers
   tasks:
-    - name: create a /devweb direectory
+    - name: create a /webdev direectory
       file:
-        path: /devweb
+        path: /webdev
         state: directory
         group: wheel
         mode: 2775
@@ -356,15 +356,15 @@ cat << EOF > webcontent.yml
 
     - name: create symbolic link
       file:
-        src: /devweb
-        dest: /var/www/html/devweb
+        src: /webdev
+        dest: /var/www/html/webdev
         state: link
         force: yes
     
     - name: copy using inline content
       copy:
         content: "Development"
-        dest: /devweb/index.html
+        dest: /webdev/index.html
         setype: httpd_sys_content_t
     
     - name: allow http traffic
@@ -377,7 +377,7 @@ EOF
 
 ansible-navigator run -m stdout webcontent.yml
 echo -e "\n"
-curl http://node3/devweb/index.html
+curl http://node3/webdev/index.html
 echo -e "\n"
 
 ##################################################### LAB #9 #######################################################
@@ -565,9 +565,9 @@ ansible all -m shell -a "getent group opsdev"
 
 
 ##################################################### LAB #14 #######################################################
-# 24. Rekey the solaris.yml file:
+# 24. Rekey the salaries.yml file:
 cd ~/ansible-files
-#################################### SOLARIS.YML NOT NEEDED FOR THE REST OF THE LABS ################################
+#################################### salaries.YML NOT NEEDED FOR THE REST OF THE LABS ################################
 
 
 ##################################################### LAB #14 #######################################################
