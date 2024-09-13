@@ -8,12 +8,12 @@
 </br></br>
 ***On the Control Node***
 
-## Rekey the encrypted solaris playbook
+## Rekey the encrypted salaries playbook
 ### QUESTION #14:
 ```
 Instructions:
 
-14. Rekey variable file from "http://content.example.com/Rhce/solaris.yml"
+14. Rekey variable file from "http://content.example.com/Rhce/salaries.yml"
 
 i) Old password: cisco
 ii) New password: redhat
@@ -24,12 +24,12 @@ ii) New password: redhat
 <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 
 ### ANSWER #14:
-1) In order to practice for the exam you need to first create the "solaris.yml" file:
+1) In order to practice for the exam you need to first create the "salaries.yml" file:
 ```
 NOTE:
 # PASSWORD = cisco
 
-[rhel@control ansible-files]$ ansible-vault create solaris.yml
+[rhel@control ansible-files]$ ansible-vault create salaries.yml
 New Vault password:
 Confirm New Vault password:
 
@@ -38,13 +38,13 @@ bbbbbbbbbbbbb
 ccccccccccccc
 ```
 
-2) Finally, run the "ansible-vault rekey" command to change the password on "solaris.yml":
+2) Finally, run the "ansible-vault rekey" command to change the password on "salaries.yml":
 ```
 NOTE:
 # OLD PASSWORD = cisco
 # NEW PASSWORD = redhat
 
-[rhel@control ansible-files]$ ansible-vault rekey solaris.yml
+[rhel@control ansible-files]$ ansible-vault rekey salaries.yml
 Vault password:
 New Vault password:
 Confirm New Vault password:
@@ -522,4 +522,4 @@ ansible all -m shell -a "getent group opsdev"
 
 ansible all -m shell -a "getent group opsdev"
 ```
-[Back to Top](#Rekey-the-encrypted-solaris-playbook)
+[Back to Top](#Rekey-the-encrypted-salaries-playbook)
