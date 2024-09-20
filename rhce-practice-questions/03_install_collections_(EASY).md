@@ -5,12 +5,11 @@
 
 ***On the Control Node***
 
-# Install Collections (SKIP THIS IF YOU'VE INSTALLED 'ansible.posix' and 'community.general' already)
-### QUESTION #6:
+### QUESTION #3:
 ```
 Instructions:
 
-6. Install Ansible Content Collections:
+3. Install Ansible Content Collections:
 
 i) create a directory "mycollections" under /home/rhel/ansible-files/
 ii) using the url "https://galaxy.ansible.com/download/ansible-posix-1.5.4.tar.gz" to install ansible.posix collection under the mycollections directory.
@@ -26,7 +25,7 @@ Example url: http://content.example.com/rhce/ansible-posix....
 <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 
-### ANSWER #6:
+### ANSWER #3:
 You will have to install:
 - ansible.posix
 - redhat-insights
