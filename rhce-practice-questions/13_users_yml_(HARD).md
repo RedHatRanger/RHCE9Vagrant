@@ -220,8 +220,14 @@ ansible_python_interpreter: /usr/bin/python3
 EOF
 ####################################################### END SETUP ####################################################
 
-####################################################### LAB #3 #######################################################
-# 9. Setup the Roles/Requirements.yml:
+##################################################### LAB #3 #######################################################
+# 9. Install the two collections
+cd ~/ansible-files
+ansible-galaxy collection install https://galaxy.ansible.com/download/ansible-posix-1.5.4.tar.gz -p mycollections/
+ansible-galaxy collection install https://galaxy.ansible.com/download/community-general-9.2.0.tar.gz -p mycollections/
+
+####################################################### LAB #4 #######################################################
+# 10. Setup the Roles/Requirements.yml:
 cd ~/ansible-files
 cat << EOF > /home/rhel/ansible-files/roles/requirements.yml
 ---
@@ -236,8 +242,7 @@ EOF
 ansible-galaxy install -r /home/rhel/ansible-files/roles/requirements.yml -p ~/ansible-files/roles --ignore-errors
 
 
-
-####################################################### LAB #4 #######################################################
+####################################################### LAB #5 #######################################################
 # 11. Change Directory to the roles directoy and generate the offline role:
 cd ~/ansible-files/roles
 ansible-galaxy role init --offline apache
@@ -298,9 +303,8 @@ ansible-navigator run -m stdout apache_role.yml
 curl http://node3
 
 
-##################################################### LAB #5 ########################################################
+##################################################### LAB #6 ########################################################
 # 16. Create and run roles.yml:
-cd ~/ansible-files
 cat << EOF > roles.yml
 ---
 - hosts: webservers
@@ -315,13 +319,6 @@ EOF
 sed -i '/dependencies.*/,$d' /home/rhel/ansible-files/roles/phpinfo/meta/main.yml
 ansible-navigator run -m stdout roles.yml &>/dev/null
 # ON THE TEST THIS WILL WORK IF YOU TRY CURLING THE DIFFERENT MACHINES
-
-
-##################################################### LAB #6 #######################################################
-# 17. Install the two collections
-cd ~/ansible-files
-ansible-galaxy collection install https://galaxy.ansible.com/download/ansible-posix-1.5.4.tar.gz -p mycollections/
-ansible-galaxy collection install https://galaxy.ansible.com/download/community-general-9.2.0.tar.gz -p mycollections/
 
 
 ##################################################### LAB #7 #######################################################
@@ -363,7 +360,6 @@ ansible-navigator run -m stdout packages.yml
 
 
 ##################################################### LAB #8 #######################################################
-# 19. webcontent
 cd ~/ansible-files
 cat << EOF > webcontent.yml
 ---
@@ -406,8 +402,9 @@ echo -e "\n"
 curl http://node3/webdev/index.html
 echo -e "\n"
 
+
 ##################################################### LAB #9 #######################################################
-# 20. hwreport
+# 20. Generate a HW report
 cd ~/ansible-files
 cat << EOF > hwreport.yml
 ---
@@ -440,9 +437,11 @@ EOF
 
 ansible-navigator run -m stdout hwreport.yml
 
+ansible all -m shell -a "cat /root/hwreport.txt; echo ' '"
+
 
 ##################################################### LAB #10 #######################################################
-# 21. issue.yml
+# 21. Create an issue.yml
 cd ~/ansible-files
 cat << EOF > issue.yml
 ---
@@ -473,10 +472,11 @@ EOF
 
 ansible-navigator run -m stdout issue.yml
 
+ansible all -m shell -a "cat /etc/issue; echo ' '"
+
 
 ##################################################### LAB #11 #######################################################
-# 22. hosts.yml
-cd ~/ansible-files
+# 22. Create a hosts.yml
 cat << EOF > myhosts.j2
 127.0.0.1 localhost localhost.localdomain localhost4 localhost4.localdomain4
 ::1 localhost localhost.localdomain localhost6 localhost.localdomain6
@@ -506,6 +506,8 @@ cat << EOF > hosts.yml
 EOF
 
 ansible-navigator run -m stdout hosts.yml
+
+ansible all -m shell -a "cat /etc/myhosts; echo ' '"
 
 
 ##################################################### LAB #12 #######################################################
