@@ -6,11 +6,11 @@
 ***On the Control Node***
 
 # Create and Run a Roles.yml Playbook
-### QUESTION #5:
+### QUESTION #6:
 ```
 Instructions:
 
-5. Create a playbook called roles.yml and it should run balancer and phpinfo roles.
+6. Create a playbook called roles.yml and it should run balancer and phpinfo roles.
 
    Use roles from Ansible Galaxy
 Create a playbook called /home/rhel/ansible-files/roles.yml
@@ -35,7 +35,7 @@ along with various details of the PHP configuration including the version of PHP
 <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 
-### ANSWER #5:
+### ANSWER #6:
 
 1) Log into the CONTROL NODE as rhel, and Create the roles.yml file:
 ```
@@ -84,4 +84,4 @@ Welcome to node4.example.com ON 172.28.128.104
 
 * Done!!
 
-[Continue to the Next Lab](06_install_collections_(EASY).md)
+[Continue to the Next Lab](07_packages_yml_(EASY).md)
