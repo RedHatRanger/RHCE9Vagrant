@@ -12,12 +12,12 @@
 ```
 Instructions:
 
-﻿12. Create an encrypted variable file vault.yml and that file should contain variable and its value.
+﻿12. Create an encrypted variable file locker.yml and that file should contain variable and its value.
 
   pw_developer is value Iamdev
   pw_manager is value Iammgr
 
-  i) vault.yml file should be encrypted using password "P@ssw0rd"
+  i) locker.yml file should be encrypted using password "whenyouwishuponastar"
   ii) store password in a file named secret.txt, which is used to encrypt the variable file.
 ```
 
@@ -30,14 +30,14 @@ Instructions:
 ```
 [rhel@control ansible]$ vim secret.txt
 
-P@ssw0rd
+whenyouwishuponastar
 
 :wq
 ```
 
-2) Use the "ansible-vault" command to create & encrypt the "vault.yml" using the "secret.txt" file:
+2) Use the "ansible-vault" command to create & encrypt the "locker.yml" using the "secret.txt" file:
 ```
-[rhel@control ansible]$ ansible-vault create vault.yml --vault-password-file=secret.txt
+[rhel@control ansible]$ ansible-vault create locker.yml --vault-password-file=secret.txt
 
 pw_developer: Iamdev
 pw_manager: Iammgr
@@ -47,7 +47,7 @@ pw_manager: Iammgr
 
 3) View the encrypted playbook:
 ```
-[rhel@control ansible]$ ansible-vault view vault.yml --vault-password-file=secret.txt
+[rhel@control ansible]$ ansible-vault view locker.yml --vault-password-file=secret.txt
 pw_developer: Iamdev
 pw_manager: Iammgr
 ```
