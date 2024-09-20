@@ -454,7 +454,7 @@ ansible-navigator run -m stdout hosts.yml
 # 23. locker.yml
 cd ~/ansible-files
 cat << EOF > secret.txt
-P@ssw0rd
+whenyouwishuponastar
 EOF
 
 # Write the YAML content to the file first
