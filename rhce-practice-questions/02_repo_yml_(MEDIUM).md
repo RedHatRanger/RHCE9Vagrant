@@ -89,7 +89,7 @@ http://content/rhel9.0/x86_64/dvd/RPM-GPG-KEY-redhat-release being used for the 
 
 * Done!!
 
-[Continue to the Next Lab](03_install_roles_(EASY).md)
+[Continue to the Next Lab](03_install_collections_(EASY).md)
 
 </br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br>
 
