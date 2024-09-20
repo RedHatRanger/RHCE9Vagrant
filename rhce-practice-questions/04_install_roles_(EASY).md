@@ -6,7 +6,7 @@
 ***On the Control Node***
 
 # Install the Roles
-### QUESTION #3:
+### QUESTION #4:
 ```
 Instructions:
 
@@ -28,7 +28,7 @@ https://github.com/RedHatRanger/balancer.git                       (balancer)
 <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 
-### ANSWER #3:
+### ANSWER #4:
 
 1) Log into the CONTROL NODE as rhel, and run:
 ```
@@ -60,4 +60,4 @@ balancer   phpinfo     requirements.yml
 
 * Done!!
 
-[Continue to the Next Lab](04_apache_role_yml_(HARD).md)
+[Continue to the Next Lab](05_apache_role_yml_(HARD).md)
