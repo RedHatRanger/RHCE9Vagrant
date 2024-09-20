@@ -430,27 +430,27 @@ ansible-navigator run -m stdout hosts.yml
 
 
 ##################################################### LAB #12 #######################################################
-# 23. vault.yml
+# 23. locker.yml
 cd ~/ansible-files
 cat << EOF > secret.txt
 P@ssw0rd
 EOF
 
 # Write the YAML content to the file first
-cat << EOF > vault.yml
+cat << EOF > locker.yml
 pw_developer: Iamdev
 pw_manager: Iammgr
 EOF
 
 # Encrypt the file with ansible-vault using the password in secret.txt:
-ansible-vault encrypt vault.yml --vault-password-file=secret.txt
+ansible-vault encrypt locker.yml --vault-password-file=secret.txt
 
 # View the contents:
-ansible-vault view vault.yml --vault-password-file=secret.txt
+ansible-vault view locker.yml --vault-password-file=secret.txt
 
 
 ##################################################### LAB #13 #######################################################
-# 23. vault.yml
+# 23. locker.yml
 cd ~/ansible-files
 cat << EOF > user_list.yml
 ---
@@ -469,7 +469,7 @@ cat << EOF > users.yml
   hosts: dev,test
   vars_files:
     - user_list.yml
-    - vault.yml
+    - locker.yml
   tasks:
     - name: Create the groups
       ansible.builtin.group:
@@ -488,7 +488,7 @@ cat << EOF > users.yml
   hosts: prod
   vars_files:
     - user_list.yml
-    - vault.yml
+    - locker.yml
   tasks:
     - name: Create the groups
       ansible.builtin.group:
