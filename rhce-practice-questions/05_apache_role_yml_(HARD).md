@@ -6,13 +6,13 @@
 <a href="https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_templating.html#templating-jinja2">Link1</a> <a href="https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_reuse_roles.html#using-roles-at-the-play-level">Link2</a> to the Ansible Documentation
 
 
-* You will need to install the ansible.posix and community.general to get this lab to work [HERE](06_install_collections_(EASY).md) 
+* You will need to install the ansible.posix and community.general to get this lab to work [HERE](03_install_collections_(EASY).md) 
 
   
 ***On the Control Node***
 
 # Create Offline Role For Apache
-### QUESTION #4:
+### QUESTION #5:
 ```
 Instructions:
 
@@ -29,7 +29,7 @@ iv) create the playbook called "apache_role.yml" and run the role on the webserv
 <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 
-### ANSWER #4:
+### ANSWER #5:
 
 1) Log into the CONTROL NODE as rhel, and run:
 ```
@@ -121,7 +121,7 @@ My host is node3.example.com 172.28.128.103
 
 * Done!!
 
-[Continue to the Next Lab](05_create_and_run_roles_yml_(EASY).md)
+[Continue to the Next Lab](06_create_and_run_roles_yml_(EASY).md)
 
 ### Some possible errors you may encounter: ###
 - ON VMs:
