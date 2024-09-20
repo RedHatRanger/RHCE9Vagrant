@@ -15,7 +15,7 @@ Instructions:
 
 ﻿13. Download the variable file
 "http://content.example.com/Rhce/user_list.yml" and write a playbook named "users.yml" and then run the playbook
-on all the nodes using two variable files user_list.yml and vault.yml.
+on all the nodes using two variable files user_list.yml and locker.yml.
 
 ####################### NOTE: For this lab we will use the link below: ################################################
 wget https://raw.githubusercontent.com/RedHatRanger/RHCE9Vagrant/main/rhce-practice-questions/golden_files/user_list.yml
@@ -69,7 +69,7 @@ users:
   hosts: dev,test
   vars_files:
     - user_list.yml
-    - vault.yml
+    - locker.yml
   tasks:
     - name: Create the groups
       ansible.builtin.group:
@@ -88,7 +88,7 @@ users:
   hosts: prod
   vars_files:
     - user_list.yml
-    - vault.yml
+    - locker.yml
   tasks:
     - name: Create the groups
       ansible.builtin.group:
@@ -509,22 +509,22 @@ ansible-navigator run -m stdout hosts.yml
 
 
 ##################################################### LAB #12 #######################################################
-# 23. vault.yml
+# 23. locker.yml
 cd ~/ansible-files
 cat << EOF > secret.txt
-P@ssw0rd
+whenyouwishuponastar
 EOF
 
 # Write the YAML content to the file first
-cat << EOF > vault.yml
+cat << EOF > locker.yml
 pw_developer: Iamdev
 pw_manager: Iammgr
 EOF
 
 # Encrypt the file with ansible-vault using the password in secret.txt:
-ansible-vault encrypt vault.yml --vault-password-file=secret.txt
+ansible-vault encrypt locker.yml --vault-password-file=secret.txt
 
 # View the contents:
-ansible-vault view vault.yml --vault-password-file=secret.txt
+ansible-vault view locker.yml --vault-password-file=secret.txt
 ```
 [Back to Top](#Create-a-users-playbook)
