@@ -174,8 +174,14 @@ ansible_python_interpreter: /usr/bin/python3
 EOF
 ####################################################### END SETUP ####################################################
 
-####################################################### LAB #3 #######################################################
-# 9. Setup the Roles/Requirements.yml:
+##################################################### LAB #3 #######################################################
+# 9. Install the two collections
+cd ~/ansible-files
+ansible-galaxy collection install https://galaxy.ansible.com/download/ansible-posix-1.5.4.tar.gz -p mycollections/
+ansible-galaxy collection install https://galaxy.ansible.com/download/community-general-9.2.0.tar.gz -p mycollections/
+
+####################################################### LAB #4 #######################################################
+# 10. Setup the Roles/Requirements.yml:
 cd ~/ansible-files
 cat << EOF > /home/rhel/ansible-files/roles/requirements.yml
 ---
@@ -190,8 +196,7 @@ EOF
 ansible-galaxy install -r /home/rhel/ansible-files/roles/requirements.yml -p ~/ansible-files/roles --ignore-errors
 
 
-
-####################################################### LAB #4 #######################################################
+####################################################### LAB #5 #######################################################
 # 11. Change Directory to the roles directoy and generate the offline role:
 cd ~/ansible-files/roles
 ansible-galaxy role init --offline apache
@@ -252,7 +257,7 @@ ansible-navigator run -m stdout apache_role.yml
 curl http://node3
 
 
-##################################################### LAB #5 ########################################################
+##################################################### LAB #6 ########################################################
 # 16. Create and run roles.yml:
 cat << EOF > roles.yml
 ---
@@ -268,13 +273,6 @@ EOF
 sed -i '/dependencies.*/,$d' /home/rhel/ansible-files/roles/phpinfo/meta/main.yml
 ansible-navigator run -m stdout roles.yml &>/dev/null
 # ON THE TEST THIS WILL WORK IF YOU TRY CURLING THE DIFFERENT MACHINES
-
-
-##################################################### LAB #6 #######################################################
-# 17. Install the two collections
-cd ~/ansible-files
-ansible-galaxy collection install https://galaxy.ansible.com/download/ansible-posix-1.5.4.tar.gz -p mycollections/
-ansible-galaxy collection install https://galaxy.ansible.com/download/community-general-9.2.0.tar.gz -p mycollections/
 
 
 ##################################################### LAB #7 #######################################################
@@ -316,7 +314,6 @@ ansible-navigator run -m stdout packages.yml
 
 
 ##################################################### LAB #8 #######################################################
-# 19. Create a webcontent page
 cd ~/ansible-files
 cat << EOF > webcontent.yml
 ---
