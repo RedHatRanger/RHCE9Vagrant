@@ -4,6 +4,25 @@
 
 # BONUS LAB
 
+## Create an motd playbook
+### QUESTION #19:
+```
+Instructions:
+
+19. Create a playbook called motd.yml.
+
+ i)  Run the playbook.
+ ii) Whenever you ssh into any node (node1 here), the message will be as follows:
+       Welcome to node1
+       OS: RedHat 9.4
+       Architecture: x86_64
+```
+
+(scroll down for an answer)
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+
+### ANSWER #19:
 1) Create a file called motd.j2 in the templates folder:
 ```
 [rhel@control ansible-files]$ mkdir ~/ansible-files/templates  #If you haven't created it yet.
