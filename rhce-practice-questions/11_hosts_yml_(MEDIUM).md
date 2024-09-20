@@ -86,7 +86,7 @@ MODULES USED:
 
 * Done!!
 
-[Continue to the Next Lab](12_vault_yml_(EASY).md)
+[Continue to the Next Lab](12_locker_yml_(EASY).md)
 
 <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
