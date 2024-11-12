@@ -115,7 +115,7 @@ callbacks_enabled=profile_tasks
 
 [privilege_escalation]
 become=true
-become_medthod=sudo
+become_method=sudo
 become_user=root
 become_ask_pass=false
 ```
