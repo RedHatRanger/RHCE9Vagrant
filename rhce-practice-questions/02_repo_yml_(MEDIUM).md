@@ -82,7 +82,7 @@ http://content/rhel9.0/x86_64/dvd/RPM-GPG-KEY-redhat-release being used for the 
           gpgkey: file:///media/RPM-GPG-KEY-redhat-release
 ```
 
-OR
+OR "OPTIMIZED VERSION":
 
 ```yaml
 ---
