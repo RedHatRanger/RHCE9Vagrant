@@ -50,6 +50,8 @@ http://content/rhel9.0/x86_64/dvd/RPM-GPG-KEY-redhat-release being used for the 
          
 [rhel@control ansible]$ vim repo.yml
 ```
+
+OPTION #1:
 ```yaml
 ---
 # ansible-navigator run -m stdout repo.yml
@@ -82,8 +84,7 @@ http://content/rhel9.0/x86_64/dvd/RPM-GPG-KEY-redhat-release being used for the 
           gpgkey: file:///media/RPM-GPG-KEY-redhat-release
 ```
 
-OR "OPTIMIZED VERSION":
-
+OPTION #2:
 ```yaml
 ---
 # ansible-navigator run -m stdout repo.yml
