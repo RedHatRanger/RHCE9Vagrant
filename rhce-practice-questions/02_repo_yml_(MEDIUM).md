@@ -82,6 +82,33 @@ http://content/rhel9.0/x86_64/dvd/RPM-GPG-KEY-redhat-release being used for the 
           gpgkey: file:///media/RPM-GPG-KEY-redhat-release
 ```
 
+OR
+
+```yaml
+---
+# ansible-navigator run -m stdout repo.yml
+- name: my repo
+  hosts: all
+  tasks:
+    - name: Import GPG key from a URL
+      ansible.builtin.rpm_key:
+        state: present
+        key: /media/RPM-GPG-KEY-redhat-release
+
+    - name: Add YUM repositories
+      ansible.builtin.yum_repository:
+        name: "{{ item.name }}"
+        description: "{{ item.description }}"
+        file: myrepo
+        baseurl: "{{ item.baseurl }}"
+        gpgcheck: yes
+        enabled: yes
+        gpgkey: file:///media/RPM-GPG-KEY-redhat-release
+      loop:
+        - { name: "BaseOS", description: "BaseOS", baseurl: "file:///media/BaseOS" }
+        - { name: "AppStream", description: "AppStream", baseurl: "file:///media/AppStream" }
+```
+
 5) WE RUN THE PLAYBOOK:
 ```
 [rhel@control ansible]$ ansible-navigator run -m stdout repo.yml
