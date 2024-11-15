@@ -45,7 +45,7 @@ MODULES USED:
       file:
         path: /webdev
         state: directory
-        group: wheel
+        group: webdev
         mode: 2775
         setype: httpd_sys_content_t
 
