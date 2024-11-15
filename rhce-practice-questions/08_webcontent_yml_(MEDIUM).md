@@ -68,8 +68,6 @@ MODULES USED:
         permanent: true
         immediate: true
         state: enabled
-
-:wq
 ```
 
 4) Test and Run the webcontent.yml playbook:
