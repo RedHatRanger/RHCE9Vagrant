@@ -38,7 +38,7 @@ MODULES USED:
 ```yaml
 ---
 # ansible-navigator run -m stdout webcontent.yml
-- name: none for now
+- name: webcontent playbook
   hosts: webservers
   tasks:
     - name: create a /webdev direectory
