@@ -61,7 +61,7 @@ output: \
 
 * Done!!
 
-[Continue to the Next Lab](16_lvm_yml_(HARD).md)
+[Continue to the Next Lab](16_lv_yml_(HARD).md)
 
 
 <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
