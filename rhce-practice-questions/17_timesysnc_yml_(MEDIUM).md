@@ -127,7 +127,7 @@ cat << EOF > ansible.cfg
 [defaults]
 remote_user=rhel
 inventory=/home/rhel/ansible-files/inventory
-roles_path=/home/rhel/ansible-files/roles
+roles_path=/home/rhel/ansible-files/roles:/usr/share/ansible/roles
 collections_path=/home/rhel/ansible-files/mycollections
 ask_pass=false
 host_key_checking=false
