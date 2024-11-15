@@ -575,7 +575,7 @@ ansible all -m command -a "crontab -lu rhel"
 
 
 ##################################################### LAB #16 #######################################################
-# 26. LVM YML
+# 26. LV YML
 cd ~/ansible-files
 #################################### SKIPPED THIS AS THIS IS NOT NEEDED TO PASS THE EXAM ############################
 ```
