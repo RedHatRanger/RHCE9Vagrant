@@ -8,7 +8,7 @@
 </br></br>
 ***On the Control Node***
 
-## Create an lvm playbook
+## Create an lv playbook
 ### QUESTION #16:
 ```
 Instructions:
@@ -21,7 +21,7 @@ ii) If the requested logical volume size (1500 MiB) cannot be created, display t
           and proceed to create an 800 MiB volume.
 iii) If the logical volume is created, assign the file system as "ext4".
 iv) Do NOT mount the logical volume in any way.
-v) The playbook name is lvm.yml and it should run on all managed nodes.
+v) The playbook name is lv.yml and it should run on all managed nodes.
 ```
 
 (scroll down for an answer)
@@ -29,38 +29,33 @@ v) The playbook name is lvm.yml and it should run on all managed nodes.
 <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 
 ### ANSWER #16:
-1) Log into the CONTROL NODE as rhel, and create the "lvm.yml" playbook and run:
+1) Log into the CONTROL NODE as rhel, and create the "lv.yml" playbook and run:
 ```
-[rhel@control ansible]$ ﻿vim lvm.yml
+[rhel@control ansible]$ ﻿vim lv.yml
 ```
 ```yaml
-# ansible-navigator run -m stdout lvm.yml
-- name: Create logical volume named data of size 1500 MiB from the volume group research
+---
+# ansible-navigator run -m stdout lv.yml
+- name: make some lvms
   hosts: all
-  become: true
   tasks:
-    - name: Check if volume group research exists
-      command: vgdisplay research
-      register: vg_check
-      ignore_errors: yes
-
-    - name: Debug message if volume group does not exist
-      debug:
-        msg: "Volume Group research not found"
-      when: vg_check.rc != 0
+    - name: Check if VG exists
+      ansible.builtin.debug:
+        msg: "Volume Group research not found."
+      when: ansible_lvm.vgs.research is not defined
 
     - block:
         - name: Create logical volume of 1500 MiB
-          lvol:
+          community.general.lvol:
             vg: research
             lv: data
             size: 1500M
             force: yes
           register: lv_result
-          when: vg_check.rc == 0
+          when: ansible_lvm.vgs.research is defined
 
         - name: Assign ext4 filesystem to logical volume
-          filesystem:
+          community.general.filesystem:
             fstype: ext4
             dev: /dev/research/data
           when: lv_result.changed
@@ -71,21 +66,21 @@ v) The playbook name is lvm.yml and it should run on all managed nodes.
             msg: "Could not create a logical volume of that size. Using 800 MiB instead."
 
         - name: Create logical volume of 800 MiB
-          lvol:
+          community.general.lvol:
             vg: research
             lv: data
             size: 800M
             force: yes
 
         - name: Assign ext4 filesystem to fallback logical volume
-          filesystem:
+          community.general.filesystem:
             fstype: ext4
             dev: /dev/research/data
 ```
 
-2) Run the "lvm.yml" playbook:
+2) Run the "lv.yml" playbook:
 ```
-[rhel@control ansible]$ ansible-navigator run -m stdout lvm.yml
+[rhel@control ansible]$ ansible-navigator run -m stdout lv.yml
 ```
 
 * Done!!
@@ -591,4 +586,4 @@ ansible-navigator run -m stdout crontab.yml
 ansible all -m command -a "crontab -lu rhel"
 ```
 
-[Back to Top](#Create-an-lvm-playbook)
+[Back to Top](#Create-an-lv-playbook)
