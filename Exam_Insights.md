@@ -13,7 +13,7 @@ Repository contains Study-Guide and exercises preparing for EX294 exam. the read
  - [Schedule RHCE EX294 Exam](https://rhtapps.redhat.com/ies/external/dashboard)
  - [Download the Remote Exam ISO](https://red.ht/rhrex)
  - [View Your Current Certifications](https://rhtapps.redhat.com/certifications)
- - [How to Keep Your RHCE Current](https://www.redhat.com/en/services/certification/renewal#red-hat-certified-engineer-rhce)
+ - [How to Keep Your RHCE Certification Current](https://www.redhat.com/en/services/certification/renewal#red-hat-certified-engineer-rhce)
 
 ## Inspiration
 Content present in the repository is inspierd by other people' sample exams, redhat training exercises and my own invention. Use links below to check them out
