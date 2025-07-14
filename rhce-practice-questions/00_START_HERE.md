@@ -31,6 +31,7 @@ OR....
 ### Copy and paste these lines of code to setup your system in a flash ### --CLICK THE TWO SQUARES HERE TO COPY THIS CODE-->>>
 
 # 0. Set the ~/.vimrc file:
+su - rhel
 cat << EOF >> ~/.vimrc
 abbr _dnf ansible.builtin.dnf:
 abbr _svc ansible.builtin.service:
