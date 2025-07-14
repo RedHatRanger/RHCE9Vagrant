@@ -12,7 +12,7 @@ Instructions:
 3. Install Ansible Content Collections:
 
 i) create a directory "mycollections" under /home/rhel/ansible-files/
-ii) using the url "https://galaxy.ansible.com/download/ansible-posix-1.6.2.tar.gz" to install ansible.posix collection under the mycollections directory.
+ii) using the url "https://galaxy.ansible.com/download/ansible-posix-2.0.0.tar.gz" to install ansible.posix collection under the mycollections directory.
 iii) using the url "https://galaxy.ansible.com/download/community-general-11.1.0.tar.gz" to install the community-general collection under the mycollections directory.
 ----------------------------------------------------------------------------
 
