@@ -32,6 +32,7 @@ OR....
 
 # 0. Set the ~/.vimrc file:
 su - rhel
+mkdir -p /home/rhel/ansible-files
 cat << EOF >> ~/.vimrc
 abbr _dnf ansible.builtin.dnf:
 abbr _svc ansible.builtin.service:
