@@ -35,7 +35,6 @@ v) The playbook name is lv.yml and it should run on all managed nodes.
 ```
 ```yaml
 ---
-# ansible-navigator run -m stdout lv.yml
 - name: make some lvms
   hosts: all
   tasks:
@@ -52,7 +51,6 @@ v) The playbook name is lv.yml and it should run on all managed nodes.
             size: 1500M
             force: yes
           register: lv_result
-          when: ansible_lvm.vgs.research is defined
 
         - name: Assign ext4 filesystem to logical volume
           community.general.filesystem:
@@ -60,9 +58,11 @@ v) The playbook name is lv.yml and it should run on all managed nodes.
             dev: /dev/research/data
           when: lv_result.changed
 
+      when: ansible_lvm.vgs.research is defined
+
       rescue:
         - name: Debug message if 1500 MiB volume could not be created
-          debug:
+          ansible.builtin.debug:
             msg: "Could not create a logical volume of that size. Using 800 MiB instead."
 
         - name: Create logical volume of 800 MiB
