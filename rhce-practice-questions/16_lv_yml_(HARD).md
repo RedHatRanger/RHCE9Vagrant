@@ -43,7 +43,7 @@ v) The playbook name is lv.yml and it should run on all managed nodes.
     - name: Check if VG exists
       ansible.builtin.debug:
         msg: "Volume Group research not found."
-      when: ansible_lvm.vgs.research is not defined  # Run this only if VG 'research' from ansible_facts does NOT exist
+      when: ansible_lvm.vgs.research is not defined  # Run this only if the volume group 'research' does NOT exist in ansible_lvm facts
 
     - block:
         # Try to create a logical volume named 'data' of size 1500 MiB in VG 'research'
