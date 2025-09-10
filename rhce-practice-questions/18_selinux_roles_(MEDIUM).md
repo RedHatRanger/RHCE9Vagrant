@@ -58,7 +58,7 @@ output: \
 
 * Done!!
 
-[Continue to the Next Lab](19_target_yml_(EASY).md)
+[Continue to the Next Lab](19_motd_yml_(EASY).md)
 
 
 <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
