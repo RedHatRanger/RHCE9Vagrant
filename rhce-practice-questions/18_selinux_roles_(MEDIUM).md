@@ -39,7 +39,6 @@ Instructions:
 - name: configure selinux
   hosts: all
   vars:
-    selinux_policy: targeted
     selinux_state: enforcing
   roles:
     - rhel-system-roles.selinux
