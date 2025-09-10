@@ -14,6 +14,9 @@ Instructions:
 i) create a directory "mycollections" under /home/rhel/ansible-files/
 ii) using the url "https://galaxy.ansible.com/download/ansible-posix-2.0.0.tar.gz" to install ansible.posix collection under the mycollections directory.
 iii) using the url "https://galaxy.ansible.com/download/community-general-11.1.0.tar.gz" to install the community-general collection under the mycollections directory.
+
+OR
+via requirements.yml (IDEAL)
 ----------------------------------------------------------------------------
 
 
@@ -26,17 +29,36 @@ Example url: http://content.example.com/rhce/ansible-posix....
 <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 
 ### ANSWER #3:
+- If urls are needed:
+```
+ansible-galaxy collection install https://galaxy.ansible.com/download/ansible-posix-2.0.0.tar.gz https://galaxy.ansible.com/download/community-general-11.1.0.tar.gz -p /home/rhel/ansible-files/mycollections
+```
+
+- If you would like to install via requirements.yml (IDEAL):
 You will have to install:
-- ansible.posix
-- redhat-insights
-- community.general
-- rhel-system-roles
+via requirements.yml:
+  - ansible.posix
+  - community.general
+
+via yum/dnf:
+  - rhel-system-roles
 
 </br></br>
 1) Log into the CONTROL NODE as rhel; download and install the collections:
 ```
-ansible-galaxy collection install https://galaxy.ansible.com/download/ansible-posix-2.0.0.tar.gz -p mycollections/
-ansible-galaxy collection install https://galaxy.ansible.com/download/community-general-11.1.0.tar.gz -p mycollections/
+# 1. Create the requirements.yml
+cat << EOF > requirements.yml
+---
+collections:
+  - name: ansible.posix
+  - name: community.general
+EOF
+
+# 2. Install the collections via requirements.yml
+ansible-galaxy collection install -r requirements.yml -p mycollections/
+
+# 3. Install RHEL System Roles
+sudo yum install -y rhel-system-roles
 ```
 
 2) Run the ansible-navigator check to see if the collections are available:
@@ -48,7 +70,7 @@ Name                 Version         Shadowed        Type         Path
 2|community.general  5.4.0           False           bind_mount   /home/rhel/ansible-files/mycollections/ansible_collect...
 ```
 
-3) Now, because you installed the ansible.posix collection, you are able to lookup ansible documentation on firewalld:
+3) Now, because you installed the `ansible.posix collection`, now you are able to lookup ansible documentation on firewalld:
 ```
 [rhel@control ansible]$ ansible-doc firewalld
 <output omitted>
